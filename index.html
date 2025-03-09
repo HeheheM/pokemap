@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Map</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
+    <!-- Dodany skrypt internacjonalizacji -->
+    <script src="i18n.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Search at top -->
+        <div class="search-container">
+            <h3 data-i18n="search.locationTitle">Wyszukaj lokalizację</h3>
+            <input type="text" id="location-search" class="search-input" data-i18n-placeholder="search.locationPlaceholder" placeholder="Wpisz nazwę lokalizacji...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+        
+        <!-- Filter below search -->
+        <div class="filter-container">
+            <h3 data-i18n="filter.regionFilter">Filter Bosses by Region</h3>
+            <select id="region-filter" class="filter-select">
+                <option value="all" data-i18n="filter.allRegions">All Regions</option>
+                <!-- Opcje regionów będą dodane dynamicznie przez JavaScript -->
+            </select>
+        </div>
+        
+        <!-- Route creator button below filter -->
+        <div class="route-creator-button-container">
+            <button id="route-creator-btn" class="control-btn primary" data-i18n="buttons.routes">Trasy</button>
+        </div>
+        
+        <!-- Profile container will be dynamically inserted here by profile-manager.js -->
+        
+        <!-- Empty space will be created naturally -->
+        
+        <!-- Usunięto div bottom-controls i przycisk load-json -->
+        
+        <!-- Route creator sidebar (hidden by default) -->
+        <div id="route-creator-sidebar" style="display: none;">
+            <div class="route-creator-header">
+                <button id="return-to-main-btn" class="control-btn" data-i18n="buttons.return">Powrót</button>
+                <div class="route-action-buttons">
+                    <button id="save-route-json-btn" class="control-btn" data-i18n="buttons.save">Zapisz</button>
+                    <button id="load-route-json-btn" class="control-btn" data-i18n="buttons.load">Wczytaj</button>
+                </div>
+            </div>
+            
+            <div class="route-selector">
+                <select id="route-select" class="filter-select">
+                    <option value="" disabled selected data-i18n="route.selectRoute">Wybierz trasę</option>
+                    <!-- Routes will be added dynamically -->
+                </select>
+                <button id="new-route-btn" class="control-btn">+</button>
+            </div>
+            
+            <div id="route-boss-list-container"></div>
+            
+            <div id="route-creator-container" style="display: none;">
+                <div class="route-search-container">
+                    <input type="text" id="boss-search" class="search-input" data-i18n-placeholder="search.bossPlaceholder" placeholder="Wyszukaj bossa...">
+                    <div id="boss-search-results" class="search-results"></div>
+                </div>
+                
+                <div id="selected-bosses-container">
+                    <!-- Selected bosses will be displayed here -->
+                </div>
+                
+                <button id="save-route-btn" class="control-btn primary" data-i18n="route.saveRoute">Zapisz trasę</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="map-container">
+        <div id="map">
+            <img id="map-image" src="map.png" alt="Mapa Pokémon">
+        </div>
+        <div class="map-controls">
+            <button class="control-btn" id="zoom-in" data-i18n="buttons.zoomIn">+</button>
+            <button class="control-btn" id="zoom-out" data-i18n="buttons.zoomOut">-</button>
+            <button class="control-btn" id="reset" data-i18n="buttons.reset">Reset</button>
+        </div>
+    </div>
+    
+    <div class="tooltip" id="tooltip"></div>
+    
+    <!-- Add the profile-manager.js script before script.js -->
+    <script src="profile-manager.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

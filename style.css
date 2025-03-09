@@ -1,0 +1,844 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    height: 100vh;
+}
+
+/* Panel boczny */
+/* .sidebar {
+    width: 300px;
+    background-color: #444;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+} */
+
+/* Kontener mapy */
+#map-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Kontrolki mapy */
+.map-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 50;
+    display: flex;
+    gap: 5px;
+}
+
+.map-controls .control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+.map-controls .control-btn:hover {
+    opacity: 1;
+}
+
+/* Mapa */
+#map {
+    position: absolute;
+    transform-origin: 0 0;
+    cursor: grab;
+}
+
+#map:active {
+    cursor: grabbing;
+}
+
+#map img {
+    display: block;
+}
+
+/* Przyciski */
+.control-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.control-btn#reset {
+    font-size: 13px; /* Większa czcionka tylko dla przycisku Reset */
+    /* możesz też dodać inne specyficzne style, np.: */
+    /* font-weight: bold; */
+    /* padding: 10px 20px; */
+}
+
+.control-btn:hover {
+    background-color: #666;
+}
+
+.control-btn.primary {
+    background-color: #4CAF50;
+}
+
+.control-btn.primary:hover {
+    background-color: #3e8e41;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+/* Wyszukiwarka */
+.search-container {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.search-container h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #eee;
+    font-size: 16px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    background-color: #555;
+    color: white;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.search-results {
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #555;
+    border: 1px solid #777;
+    border-radius: 0 0 4px 4px;
+    z-index: 100;
+    display: none;
+}
+
+.search-result-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #666;
+    transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+    background-color: #666;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+
+/* Lokalizacje na mapie */
+.location-point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(0, 180, 255, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.location-point.current {
+    background-color: #ff9800;
+    border-color: white;
+    width: 16px;
+    height: 16px;
+    z-index: 20;
+}
+
+/* Obszar lokalizacji */
+.area-polygon {
+    position: absolute;
+    z-index: 8;
+    cursor: pointer;
+}
+
+.area-polygon polygon {
+    /* stroke: rgba(255, 204, 0, 0.8); */
+    stroke-width: 2px;
+    fill: rgba(255, 204, 0, 0);
+}
+
+.area-polygon.current polygon {
+    /* stroke: rgba(255, 152, 0, 0.8); */
+    stroke-width: 3px;
+    fill: rgba(255, 153, 0, 0);
+}
+/* Style dla ikon bossów */
+.boss-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    z-index: 25;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.boss-icon:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.boss-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+}
+
+/* Style dla tooltip'a bossów */
+.boss-tooltip {
+    position: fixed;
+    background-color: rgba(40, 44, 52, 0.95);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1000;
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0;
+    display: none;
+}
+
+.boss-tooltip-header {
+    background-color: #333;
+    padding: 10px 15px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #555;
+}
+
+.boss-tooltip-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.close-tooltip {
+    cursor: pointer;
+    font-size: 20px;
+    color: #aaa;
+}
+
+.close-tooltip:hover {
+    color: #fff;
+}
+
+.boss-tooltip-content {
+    padding: 15px;
+}
+
+.boss-tooltip-content p {
+    margin: 8px 0;
+}
+
+.boss-requirements, .boss-rewards {
+    margin-top: 12px;
+}
+
+.boss-tooltip h4 {
+    margin: 10px 0 5px;
+    color: #4CAF50;
+    font-size: 16px;
+}
+
+.boss-tooltip h5 {
+    margin: 8px 0 5px;
+    color: #FFC107;
+    font-size: 15px;
+}
+
+.boss-tooltip ul {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+.boss-tooltip li {
+    margin-bottom: 4px;
+}
+
+.reward-difficulty {
+    margin-bottom: 10px;
+    padding-left: 5px;
+    border-left: 3px solid #555;
+}
+
+
+/* .reward-difficulty-hard h5 {
+    color: #F44336;
+}
+
+.reward-difficulty-medium h5 {
+    color: #FFC107;
+}
+
+.reward-difficulty-easy h5 {
+    color: #4CAF50;
+} */
+/* Style dla filtra regionów */
+.filter-container {
+    margin-bottom: 20px;
+}
+
+.filter-container h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #eee;
+    font-size: 16px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #777;
+    border-radius: 4px;
+    background-color: #555;
+    color: white;
+    box-sizing: border-box;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.filter-select option {
+    background-color: #444;
+    color: white;
+    padding: 8px;
+}
+
+
+.route-creator-header h3 {
+    margin: 0 0 0 15px;
+    font-size: 16px;
+    color: #eee;
+}
+
+.route-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.route-selector select {
+    flex: 1;
+}
+
+.route-selector button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 18px;
+}
+
+
+.remove-boss-btn:hover {
+    color: #ff4545;
+}
+
+.route-line {
+    pointer-events: none;
+}
+#boss-search-results {
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #555;
+    border: 1px solid #777;
+    border-radius: 0 0 4px 4px;
+    z-index: 100;
+}
+
+.route-search-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Make sidebar scrollable if content is too long */
+#selected-bosses-container {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+#route-boss-list-container {
+    display: block;
+    margin-top: 20px;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #444;
+    border-radius: 5px;
+}
+
+
+.boss-number {
+    min-width: 24px;
+    height: 24px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.boss-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.boss-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.boss-details {
+    flex-grow: 1;
+    overflow: hidden;
+    padding-right: 5px;
+}
+
+.boss-name {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.boss-location {
+    font-size: 12px;
+    color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.route-header {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #555;
+    color: #fff;
+    text-align: center;
+}
+
+.route-number {
+    position: absolute;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 30;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Make sidebar scrollable if content is too long */
+#selected-bosses-container, .route-boss-list-container {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.route-boss-list-container {
+    margin-top: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: calc(100vh - 250px); /* Zapewnia, że kontener zajmie całą dostępną przestrzeń */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.poketeam-badges::-webkit-scrollbar {
+    display: none;
+}
+/* Style for PokeTeam badges container */
+.poketeam-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
+    gap: 4px;
+    margin-top: 8px;
+    width: 100%;
+    overflow: visible;
+}
+
+/* Base style for individual PokeTeam badge */
+.poketeam-badge {
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 10px;
+    color: #fff;
+    display: inline-block;
+    margin: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+/* Custom styles for different badge types */
+.poketeam-badge-classic {
+    background-color: #4b4469;
+    border: 1px solid #4b4469;
+}
+
+.poketeam-badge-mega {
+    background-color: #45869e;
+    border: 1px solid #45869e;
+}
+
+.poketeam-badge-stealth {
+    background-color: #bbaa66;
+    border: 1px solid #888888;
+}
+
+.poketeam-badge-mold {
+    background-color: #ae6565;
+    border: 1px solid #ae6565;
+}
+
+.poketeam-badge-special {
+    background-color: #ff0202;
+    border: 1px solid #ff0202;
+}
+
+.poketeam-badge-membership {
+    background-color: #700107;
+    border: 1px solid #700107;
+}
+
+.poketeam-badge-guild {
+    background-color: #700107;
+    border: 1px solid #700107;
+    color: #333;
+}
+
+/* Combined badge styles */
+.poketeam-badge-stealthmold {
+    background: linear-gradient(to right, #bbaa66, #bbaa66 40%, #ae6565 60%, #ae6565);
+    border: 1px solid #555;
+}
+
+/* Default badge style for any undefined type */
+.poketeam-badge-default {
+    background-color: #333;
+    border: 1px solid #555;
+}
+
+/* Also hide scrollbar in the emergency-boss-container */
+#emergency-boss-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#emergency-boss-container::-webkit-scrollbar {
+    display: none;
+}
+.sidebar {
+    width: 300px;
+    background-color: #444;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Top section containing search and filter */
+.sidebar-top {
+    flex: 0 0 auto;
+}
+
+/* Bottom section with buttons that should be at the bottom */
+.sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 10px;
+}
+
+/* Image button styles */
+.image-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 260px;
+    margin: 0 auto;
+}
+
+.image-btn:hover {
+    transform: scale(1.05);
+}
+
+.image-btn img {
+    width: 100%;
+    height: auto;
+    /* max-width: 260px; */
+    max-height: 140px;
+    display: block;
+}
+
+.route-creator-button-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* Bottom controls with load JSON button */
+.bottom-controls {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+.route-creator-button-container .control-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Drag and drop styles */
+.selected-boss {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #555;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    color: white;
+    cursor: grab;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.selected-boss:hover {
+    background-color: #666;
+}
+
+.selected-boss.dragging {
+    opacity: 0.5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: grabbing;
+}
+
+.selected-boss.drag-over {
+    border: 2px dashed #4CAF50;
+}
+
+/* .selected-boss.drag-over-top {
+    border-top: 2px solid #4CAF50;
+}
+
+.selected-boss.drag-over-bottom {
+    border-bottom: 2px solid #4CAF50;
+} */
+
+.drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    cursor: grab;
+    font-size: 16px;
+    color: #aaa;
+    margin-left: 10px;
+}
+
+.drag-handle:hover {
+    color: white;
+}
+
+.boss-list-item {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 20px); /* Make room for drag handle */
+}
+
+.remove-boss-btn {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.weekly-kills-counter {
+    margin-top: 20px;
+    background-color: #333;
+    padding: 12px 15px;
+    border-radius: 5px;
+    text-align: center;
+    border-left: 3px solid #4CAF50;
+}
+
+.weekly-kills-counter.limit-reached {
+    border-left: 3px solid #f44336;
+}
+
+.weekly-kills-counter h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.weekly-kills-counter .counter {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.weekly-kills-counter .counter.limit-reached {
+    color: #f44336;
+}
+
+.weekly-kills-counter .reset-info {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #aaa;
+}
+.route-creator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.route-action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.route-action-buttons .control-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+/* Profile management styles */
+
+.profile-container {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.profile-container h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #eee;
+    font-size: 16px;
+}
+
+.profile-selector-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.profile-actions-container {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.profile-actions-container .control-btn {
+    flex: 1;
+    padding: 8px;
+    font-size: 12px;
+}
+
+/* Active profile indicator */
+.profile-container .active-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    margin-right: 5px;
+}
+
+/* Transition effects for profile switching */
+.profile-transition {
+    transition: opacity 0.3s ease;
+}
+
+.profile-transition.fade-out {
+    opacity: 0.5;
+}

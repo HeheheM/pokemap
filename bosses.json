@@ -1,0 +1,751 @@
+{
+    "Ash Westbrook": {
+      "region": "Sinnoh",
+      "location": "Spear Pillar",
+      "map_pos": [
+        2734,
+        541
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Sinnoh League",
+        "2": "250 hours play time",
+        "3": "80 hours Sinnoh play time"
+      },
+      "PokeTeam": {
+      }
+    },
+    "BattleBot": {
+      "region": "Johto",
+      "location": "Dock Island(House 2)",
+      "map_pos": [
+        1313,
+        2171
+      ],
+      "cooldown": "14 days",
+      "basic_requirements": {
+        "1": "Having completed the Johto League",
+        "2": "Active Membership",
+        "3": "200 hours play time"
+      },
+      "PokeTeam": {
+        "1": "Membership"
+      }
+    },
+    "Brock": {
+      "region": "Kanto",
+      "location": "Diglett's Cave",
+      "map_pos": [
+        2906,
+        2059
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Kanto League"
+      },
+      "PokeTeam": {
+        "1": "Mega Lead",
+        "2": "Stealth Rock / Mold Breaker"
+      }
+    },
+    "Bruno": {
+      "region": "Johto",
+      "location": "Mt. Mortar Lower Cave",
+      "map_pos": [
+        1949,
+        1924
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "An on-hand lineup of invariably level-100 Pokémon"
+      },
+      "PokeTeam": {
+        "1": "Mega Lead",
+        "2": "Stealth Rock / Mold Breaker"
+      }
+    },
+    "Bugsy": {
+      "region": "Johto",
+      "location": "Amazon Forest",
+      "map_pos": [
+        1333,
+        2171
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Johto League"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Chuck": {
+      "region": "Kanto",
+      "location": "Saffron City(Gold's Gym)",
+      "map_pos": [
+        2865,
+        1990
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Johto League"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Cie": {
+      "region": "Kanto",
+      "location": "Fluffles Wonderland",
+      "map_pos": [
+        3060,
+        2170
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Sinnoh League"
+      },
+      "PokeTeam": {
+        "1": "Mold Breaker"
+      }
+    },
+    "Erika": {
+      "region": "Kanto",
+      "location": "Viridian Maze",
+      "map_pos": [
+        2564,
+        1932
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Kanto League"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock",
+        "2": "Special Lead"
+      }
+    },
+    "Gamers Pewdie and Diepy": {
+      "region": "Johto",
+      "location": "Goldenrod Gaming Corner",
+      "map_pos": [
+        1806,
+        2112
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Johto League"
+      },
+      "PokeTeam": {
+        "1": "Mold Breaker"
+      }
+    },
+    "George": {
+      "region": "Kanto",
+      "location": "Pewter Jail",
+      "map_pos": [
+        2596,
+        1826
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Pre-completion of the Legendary Event Move Quest",
+        "2": "Be Kanto Champion"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Gingery Jones": {
+      "region": "Hoenn",
+      "location": "Feral Site(Fiery Path)",
+      "map_pos": [
+        1076,
+        2418
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Hoenn League",
+        "2": "2400 Excavation Points"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Guardian (Entei)": {
+      "region": "Kanto",
+      "location": "Route 25(Route 25 Cave)",
+      "map_pos": [
+        2893,
+        1783
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Johto League",
+        "2": "Have at least 200 hours of playing time"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Guardian (Raikou)": {
+      "region": "Hoenn",
+      "location": "Route 110(Secret Base Alpha)",
+      "map_pos": [
+        1113,
+        2575
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Hoenn League",
+        "2": "Have at least 200 hours of playing time"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock / Mold Breaker"
+      }
+    },
+    "Guardian (Suicune)": {
+      "region": "Johto",
+      "location": "Lake Of Rage(Secluded Lake)",
+      "map_pos": [
+        1990,
+        1792
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Johto League",
+        "2": "Have at least 200 hours of playing time"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock / Mold Breaker"
+      }
+    },
+    "Jessie & James": {
+      "region": "Kanto",
+      "location": "Celadon City",
+      "map_pos": [
+        100,
+        100
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have a Pikachu on-hand",
+        "2": "Kanto championship"
+      },
+      "PokeTeam": {
+        "1": "Special Team"
+      }
+    },
+    "Klohver": {
+      "region": "Kanto",
+      "location": "Pinkan Island Meadow",
+      "map_pos": [
+        3587,
+        3475
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have Access to Pinkan Island Meadow"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Koichi": {
+      "region": "Kanto",
+      "location": "Saffron Dojo",
+      "map_pos": [
+        2865,
+        1960
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Kanto League"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Lance": {
+      "region": "Johto",
+      "location": "Dragons Shrine",
+      "map_pos": [
+        2163,
+        1892
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Johto League",
+        "2": "150 Evolved Data in Pokédex",
+        "3": "1 Dragon type pokemon in team"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Letrix": {
+      "region": "Sinnoh",
+      "location": "Valley Windworks",
+      "map_pos": [
+        2629,
+        548
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Sinnoh League"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Link": {
+      "region": "Sinnoh",
+      "location": "Twinleaf Town(House 2)",
+      "map_pos": [
+        2514,
+        739
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Sinnoh League."
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock / Mold Breaker"
+      }
+    },
+    "Logan": {
+      "region": "Sinnoh",
+      "location": "Cave Of Justice(Route 210 North)",
+      "map_pos": [
+        2843,
+        461
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Sinnoh League"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Lorelei": {
+      "region": "Johto",
+      "location": "Ice Path B2F",
+      "map_pos": [
+        2188,
+        1894
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Johto Elite Four completed"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Lt. Surge": {
+      "region": "Hoenn",
+      "location": "New Mauville",
+      "map_pos": [
+        1114,
+        2551
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Hoenn League."
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock / Mold Breaker"
+      }
+    },
+    "Maribela": {
+      "region": "Sinnoh",
+      "location": "Floaroma Meadow",
+      "map_pos": [
+        2570,
+        495
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "6 level 100 Pokémons in current party",
+        "2": "Having completed the Sinnoh League"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Medusa & Eldir": {
+      "region": "Sinnoh",
+      "location": "Oreburgh Gate(Legends Cave)",
+      "map_pos": [
+        2612,
+        617
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Be Sinnoh Champion",
+        "2": "Snorlax disallowed"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Misty": {
+      "region": "Johto",
+      "location": "Route 41",
+      "map_pos": [
+        100,
+        100
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Johto League"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Morty": {
+      "region": "Hoenn",
+      "location": "Mt. Pyre4F",
+      "map_pos": [
+        1370,
+        2463
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Johto League"
+      },
+      "PokeTeam": {
+        "1": "Mega Lead"
+      }
+    },
+    "Naero": {
+      "region": "Kanto",
+      "location": "Cerulean Cave B1F",
+      "map_pos": [
+        2832,
+        1853
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Cerulean Cave access",
+        "2": "Have completed the Johto League"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Naruto Fanboy": {
+      "region": "Hoenn",
+      "location": "Desert Ruins",
+      "map_pos": [
+        1114,
+        2386
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Be Hoenn champion"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock / Mold Breaker"
+      }
+    },
+    "Neroli": {
+      "region": "Johto",
+      "location": "Ilex Forest",
+      "map_pos": [
+        100,
+        100
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Johto League."
+      },
+      "PokeTeam": {
+        "1": "Mold Breaker"
+      }
+    },
+    "Officer Jenny": {
+      "region": "Kanto",
+      "location": "Pinkan City (Pinkan Lighthouse 2F)",
+      "map_pos": [
+        3611,
+        3437
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Hoenn League championship (one of the prerequisites of entering the boss' site in Pinkan Island"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Officer Shamac": {
+      "region": "Kanto",
+      "location": "Pewter City (Jail)",
+      "map_pos": [
+        2576,
+        1826
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Be Kanto champion"
+      },
+      "PokeTeam": {
+        "1": "Mega Lead"
+      }
+    },
+    "Prehax": {
+      "region": "Kanto",
+      "location": "Munchlax Resort (House 1)",
+      "map_pos": [
+        3061,
+        2170
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Kanto League",
+        "2": "Must have only 2 Pokémon in team",
+        "3": "all fighting moves banned."
+      },
+      "PokeTeam": {
+      }
+    },
+    "Professor Birch": {
+      "region": "Hoenn",
+      "location": "Verdanturf Town (House 2)",
+      "map_pos": [
+        978,
+        2515
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having defeated the Hoenn League"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Professor Elm": {
+      "region": "Johto",
+      "location": "Ruins of Alph (Research Center)",
+      "map_pos": [
+        1909,
+        2059
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Johto League"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Professor Oak": {
+      "region": "Kanto",
+      "location": "Cinnabar Island (Lab Room 2)",
+      "map_pos": [
+        2562,
+        2265
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Be Kanto Champion"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Professor Rowan": {
+      "region": "Sinnoh",
+      "location": "Jubilife CitySchool",
+      "map_pos": [
+        2576,
+        636
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Be Sinnoh Champion",
+        "2": "Caught data of 50 Pokémon native to Sinnoh"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Sage": {
+      "region": "Johto",
+      "location": "Violet City (Sprout TowerF)",
+      "map_pos": [
+        1988,
+        1992
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Johto Champion"
+      },
+      "PokeTeam": {
+      }
+    },
+    "Saphirr": {
+      "region": "Sinnoh",
+      "location": "Route 227",
+      "map_pos": [
+        3016,
+        250
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Sinnoh League",
+        "2": "Completed the Heatran Quest",
+        "3": "One Fire Type Pokémon in the team",
+        "4": "One Pokémon with the move Rock Climb."
+      },
+      "PokeTeam": {
+        "1": "Special Team"
+      }
+    },
+    "Shary & Shaui": {
+      "region": "Kanto",
+      "location": "Love Island (House 1)",
+      "map_pos": [
+        2440,
+        2276
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Be Kanto champion",
+        "2": "Access to Love Island"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Steven": {
+      "region": "Hoenn",
+      "location": "Valley Of Steel (Underground)",
+      "map_pos": [
+        1012,
+        2448
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Hoenn League",
+        "2": "2 Steel type pokemon in team",
+        "3": "1 Pokémon with the move Iron Defense",
+        "4": "Must have completed Steven's Quest in Valley Of Steel Eastern Peak."
+      },
+      "PokeTeam": {
+        "1": "Special Team"
+      }
+    },
+    "Spectify": {
+      "region": "Sinnoh",
+      "location": "Sandgem Town (House)",
+      "map_pos": [
+        2570,
+        708
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Sinnoh League"
+      },
+      "PokeTeam": {
+        "1": "Mega Lead"
+      }
+    },
+    "Terminator": {
+      "region": "Johto",
+      "location": "Mt. Silver (Moltres Chamber)",
+      "map_pos": [
+        2323,
+        2025
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Sinnoh League championship"
+      },
+      "PokeTeam": {
+      }
+    },
+    "The Pumpkin King": {
+      "region": "Kanto",
+      "location": "Lavender Town Graveyard",
+      "map_pos": [
+        2933,
+        1957
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Be Kanto Champion"
+      },
+      "PokeTeam": {
+        "1": "Special Lead"
+      }
+    },
+    "Thor": {
+      "region": "Johto",
+      "location": "Whirl Islands (B4F)",
+      "map_pos": [
+        1714,
+        2126
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Sinnoh Champion"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Tigerous": {
+      "region": "Hoenn",
+      "location": "Eumi Island Theme Park 2",
+      "map_pos": [
+        1413,
+        2714
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Must have completed the Hoenn League"
+      },
+      "PokeTeam": {
+        "1": "Mega Lead",
+        "2": "Stealth Rock"
+      }
+    },
+    "Toothless": {
+      "region": "Hoenn",
+      "location": "Abandoned Ship (B1F Room 1 (Route 108))",
+      "map_pos": [
+        1010,
+        2792
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Having completed the Hoenn League"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock",
+        "2": "Mold Breaker"
+      }
+    },
+    "Urahara": {
+      "region": "Kanto",
+      "location": "Pokemon Tower (3F)",
+      "map_pos": [
+        2970,
+        1991
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Kanto Champion",
+        "2": "Only level 100 Pokémon"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock"
+      }
+    },
+    "Xylos": {
+      "region": "Kanto",
+      "location": "Vermilion City (Pokemon Club)",
+      "map_pos": [
+        2854,
+        2067
+      ],
+      "cooldown": "12 days",
+      "basic_requirements": {
+        "1": "Caught Data of all eeveelutions",
+        "2": "Kanto Champion"
+      },
+      "PokeTeam": {
+        "1": "Stealth Rock / Mold Breaker"
+      }
+    }
+  }
