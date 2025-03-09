@@ -17,7 +17,7 @@ let currentRouteNumbers = [];
 
 const WEEKLY_BOSS_LIMIT = 20;
 const RESET_DAY = 1;
-const RESET_HOUR = 12;
+const RESET_HOUR = 1;
 const RESET_MINUTE = 0;
 const RESET_SECOND = 0;
 const RESET_TIMEZONE = 'GMT';
