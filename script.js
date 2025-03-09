@@ -1548,7 +1548,7 @@ function initRouteCreator() {
             <div class="boss-list-item">
                 <div class="boss-number">${currentRoute.length}</div>
                 <div class="boss-image">
-                    <img src="/resources/${bossName}.png" alt="${bossName}" onerror="this.src='/resources/default-boss.png'">
+                    <img src="resources/${bossName}.png" alt="${bossName}" onerror="this.src='resources/default-boss.png'">
                 </div>
                 <div class="boss-details">
                     <div class="boss-name">${bossName}</div>
@@ -1677,7 +1677,7 @@ function initRouteCreator() {
                 <div class="boss-list-item">
                     <div class="boss-number">${i + 1}</div>
                     <div class="boss-image">
-                        <img src="/resources/${boss.name}.png" alt="${boss.name}" onerror="this.src='/resources/default-boss.png'">
+                        <img src="resources/${boss.name}.png" alt="${boss.name}" onerror="this.src='resources/default-boss.png'">
                     </div>
                     <div class="boss-details">
                         <div class="boss-name">${boss.name}</div>
@@ -1925,7 +1925,7 @@ function emergencyDisplayRouteBosses() {
                 <div style="display: flex; align-items: flex-start; width: 100%; margin-bottom: 5px;">
                     <div style="background-color: red; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; flex-shrink: 0;">${index + 1}</div>
                     <div style="width: 40px; height: 40px; margin-right: 10px; flex-shrink: 0;">
-                        <img src="/resources/${boss.name}.png" alt="${boss.name}" onerror="this.src='/resources/default-boss.png'" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
+                        <img src="resources/${boss.name}.png" alt="${boss.name}" onerror="this.src='resources/default-boss.png'" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
                     </div>
                     <div style="flex-grow: 1; overflow: hidden; display: flex; flex-direction: column;">
                         <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${boss.name}</div>
@@ -1972,7 +1972,7 @@ function emergencyDisplayRouteBosses() {
         killedButton.style.justifyContent = 'center';
 
         const killedImage = document.createElement('img');
-        killedImage.src = '/resources/killed.png';
+        killedImage.src = 'resources/killed.png';
         killedImage.alt = 'Killed';
         killedImage.style.width = '100%';
         killedImage.style.height = '100%';
