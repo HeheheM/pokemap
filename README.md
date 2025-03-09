@@ -1,88 +1,82 @@
 # Pokemon Revolution Map
 
-Interaktywna mapa dla gry Pokemon Revolution Online, pokazująca wszystkie lokalizacje oraz bossy z możliwością tworzenia własnych tras.
+Interactive map for Pokemon Revolution Online game, showing all locations and bosses with the ability to create your own routes.
 
 ![Pokemon Revolution Map](map.png)
 
-## Opis
+## Description
 
-Ta aplikacja internetowa zapewnia szczegółową mapę świata Pokemon Revolution Online, umożliwiając graczom:
-- Przeglądanie wszystkich regionów (Kanto, Johto, Hoenn, Sinnoh, itd.)
-- Lokalizowanie bossów i śledzenie ich statusu (zabity/dostępny)
-- Tworzenie i zapisywanie własnych tras
-- Zarządzanie profilami z różnymi ustawieniami
-- Wyszukiwanie konkretnych lokalizacji
+This web application provides a detailed map of the Pokemon Revolution Online world, allowing players to:
+- Browse all regions (Kanto, Johto, Hoenn, Sinnoh, etc.)
+- Locate bosses and track their status (killed/available)
+- Create and save your own routes
+- Manage profiles with different settings
+- Search for specific locations
 
-## Funkcje
+## Features
 
-### Przeglądanie mapy
-- Zoom in/out oraz przesuwanie mapy
-- Automatyczne centrowanie na wybranych lokalizacjach
-- Filtrowanie bossów według regionów
+### Map Browsing
+- Zoom in/out and map panning
+- Automatic centering on selected locations
+- Filtering bosses by regions
 
-### System tras
-- Tworzenie własnych tras między bossami
-- Zapisywanie i ładowanie tras
-- Eksport i import tras w formacie JSON
+### Route System
+- Create your own routes between bosses
+- Save and load routes
+- Export and import routes in JSON format
 
-### System śledzenia bossów
-- Oznaczanie bossów jako zabitych
-- Automatyczne śledzenie cooldownu bossów
-- Limity tygodniowe (20 zabić na tydzień)
+### Boss Tracking System
+- Mark bosses as killed
+- Automatic tracking of boss cooldowns
+- Weekly limits (20 kills per week)
 
-### System profili
-- Możliwość utworzenia wielu profili graczy
-- Każdy profil zachowuje własne:
-  - Trasy
-  - Status bossów
-  - Pozycję kamery
-  - Tygodniowe limity zabić
+### Profile System
+- Ability to create multiple player profiles
+- Each profile maintains its own:
+  - Routes
+  - Boss status
+  - Camera position
+  - Weekly kill limits
 
-### Wyszukiwanie
-- Szybkie wyszukiwanie lokalizacji lub bossów
-- Wyszukiwanie po nazwie lub regionie
+### Search
+- Quick search for locations or bosses
+- Search by name or region
 
-## Instalacja
+## Installation
 
-1. Sklonuj repozytorium:
+1. Clone the repository:
    ```
-   git clone https://github.com/twojaNazwaUżytkownika/pokemap.git
+   git clone https://github.com/HeheheM/pokemap.git
    ```
 
-2. Otwórz folder projektu:
+2. Open the project folder:
    ```
    cd pokemap
    ```
 
-3. Użyj lokalnego serwera:
+3. Use a local server:
    ```
    python -m http.server 8000
    ```
 
-4. Odwiedź stronę w przeglądarce pod adresem `http://localhost:8000`
+4. Visit the page in your browser at `http://localhost:8000`
 
+## Project Files
 
-## Pliki projektu
+- `index.html` - Main page structure
+- `style.css` - CSS styles
+- `script.js` - Main script handling the map
+- `profile-manager.js` - Profile management system
+- `i18n.js` - Internationalization (multi-language support)
+- `locations.json` - Location data
+- `bosses.json` - Boss data
+- `language.json` - Interface translations
+- `map.png` - World map image
 
-- `index.html` - Główna struktura strony
-- `style.css` - Style CSS
-- `script.js` - Główny skrypt obsługujący mapę
-- `profile-manager.js` - System zarządzania profilami
-- `i18n.js` - Internacjonalizacja (obsługa wielu języków)
-- `locations.json` - Dane o lokalizacjach
-- `bosses.json` - Dane o bossach
-- `language.json` - Tłumaczenia interfejsu
-- `map.png` - Obraz mapy świata
+## Contact
 
-
-## Licencja
-
-Ten projekt jest dostępny na licencji MIT. Zobacz plik `LICENSE` po więcej szczegółów.
-
-## Kontakt
-
-W przypadku pytań lub sugestii dotyczących projektu, skontaktuj się z nami przez GitHub Issues lub Discord.
+For questions or suggestions regarding the project, contact us through GitHub Issues or Discord(noriaki).
 
 ---
 
-**Uwaga:** Ta mapa jest nieoficjalnym narzędziem i nie jest powiązana z twórcami Pokemon Revolution Online.
+**Note:** This map is an unofficial tool and is not affiliated with the creators of Pokemon Revolution Online.
