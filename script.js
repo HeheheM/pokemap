@@ -1109,11 +1109,11 @@ function displayBossIcons() {
         bossIcon.style.opacity = isAvailable ? "1.0" : "0.2";
 
         const bossImage = document.createElement('img');
-        bossImage.src = `/resources/${bossName}.png`;
+        bossImage.src = `resources/${bossName}.png`;
         bossImage.alt = bossName;
         bossImage.onerror = function() {
             this.onerror = null;
-            this.src = '/resources/default-boss.png';
+            this.src = 'resources/default-boss.png';
             if (this.src.includes('default-boss.png')) {
                 bossIcon.textContent = bossName.substring(0, 2);
                 bossIcon.style.display = 'flex';
