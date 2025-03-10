@@ -2,8 +2,12 @@ name: Update Pokemon Spawn Data
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Uruchamia się co godzinę
-  workflow_dispatch:     # Pozwala na ręczne uruchomienie
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+# Dodaj tę sekcję
+permissions:
+  contents: write
 
 jobs:
   update-spawn-data:
