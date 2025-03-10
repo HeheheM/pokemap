@@ -174,6 +174,30 @@
         "selectedRouteIndexDoesNotExist": "Selected route index doesn't exist: {0}",
         "cannotFindPositionForBoss": "Cannot find position for boss: {0}",
         "routesSavedToLocalStorage": "Routes saved to localStorage:"
+      },
+      "pokesearch": {
+        "pokemonTitle": "Search Pokemon",
+        "pokemonPlaceholder": "Enter Pokemon name...",
+        "noPokemonFound": "No Pokemon found",
+        "locationsTitle": "This Pokemon can be found in these locations:",
+        "clickToCenter": "Click to center the map on this location",
+        "locationNotOnMap": "This location is not available on the map",
+        "locationNotFound": "Location not found on the map"
+      },
+      "pokemon": {
+        "location": "Location",
+        "timeOfDay": "Time of day",
+        "levelRange": "Level range",
+        "heldItem": "Held item",
+        "memberOnly": "Member only",
+        "rarityLevel": "Rarity level",
+        "morning": "Morning",
+        "day": "Day",
+        "night": "Night",
+        "unknown": "Unknown",
+        "none": "None",
+        "yes": "Yes",
+        "no": "No"
       }
     },
     "pl": {
@@ -351,6 +375,30 @@
         "selectedRouteIndexDoesNotExist": "Wybrany indeks trasy nie istnieje: {0}",
         "cannotFindPositionForBoss": "Nie można znaleźć pozycji dla bossa: {0}",
         "routesSavedToLocalStorage": "Trasy zapisane do localStorage:"
+      },
+      "pokesearch": {
+        "pokemonTitle": "Wyszukaj Pokemona",
+        "pokemonPlaceholder": "Wpisz nazwę Pokemona...",
+        "noPokemonFound": "Nie znaleziono Pokemona",
+        "locationsTitle": "Ten Pokemon występuje w tych lokalizacjach:",
+        "clickToCenter": "Kliknij aby wycentrować mapę na tej lokalizacji",
+        "locationNotOnMap": "Ta lokalizacja nie jest dostępna na mapie",
+        "locationNotFound": "Lokalizacja nie została znaleziona na mapie"
+      },
+      "pokemon": {
+        "location": "Lokalizacja",
+        "timeOfDay": "Pora dnia",
+        "levelRange": "Zakres poziomów",
+        "heldItem": "Trzymany przedmiot",
+        "memberOnly": "Tylko dla członków",
+        "rarityLevel": "Poziom rzadkości",
+        "morning": "Rano",
+        "day": "Dzień",
+        "night": "Noc",
+        "unknown": "Nieznany",
+        "none": "Brak",
+        "yes": "Tak",
+        "no": "Nie"
       }
     }
   }

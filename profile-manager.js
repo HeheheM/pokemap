@@ -16,12 +16,14 @@ function initProfileSystem() {
     console.log("Initializing profile system...");
     fixMissingElements();
     loadProfiles();
-    createProfileUI();
+    setupExistingProfileUI();
+    
     if (window.i18n) {
         window.i18n.onLanguageChange(function() {
             updateProfileUI();
         });
     }
+    
     const savedCurrentProfile = localStorage.getItem('currentProfile');
     if (savedCurrentProfile && profiles[savedCurrentProfile]) {
         switchToProfile(savedCurrentProfile);
@@ -59,83 +61,19 @@ function updateProfileUI() {
     updateProfileSelector();
 }
 
-function createProfileUI() {
-    const sidebar = document.querySelector('.sidebar');
-    const routeCreatorButtonContainer = document.querySelector('.route-creator-button-container');
+function setupExistingProfileUI() {
+    const profileContainer = document.querySelector('.profile-container');
     
-    if (!sidebar || !routeCreatorButtonContainer) {
-        console.error("Cannot find sidebar or route creator button container");
+    if (!profileContainer) {
+        console.error("Nie znaleziono kontenera profilu w HTML");
         return;
     }
-
-    const profileContainer = document.createElement('div');
-    profileContainer.className = 'profile-container';
-    profileContainer.style.marginBottom = '20px';
-    profileContainer.style.marginTop = '20px';
-
-    const profileHeader = document.createElement('h3');
-    profileHeader.textContent = window.i18n ? window.i18n.t('profile.title') : 'Profile';
-    profileHeader.setAttribute('data-i18n', 'profile.title');
-    profileHeader.style.margin = '0 0 10px 0';
-    profileHeader.style.color = '#eee';
-    profileHeader.style.fontSize = '16px';
-
-    const profileSelectorContainer = document.createElement('div');
-    profileSelectorContainer.className = 'profile-selector-container';
-    profileSelectorContainer.style.display = 'flex';
-    profileSelectorContainer.style.gap = '10px';
-
-    const profileSelector = document.createElement('select');
-    profileSelector.id = 'profile-selector';
-    profileSelector.className = 'filter-select';
-    profileSelector.style.flex = '1';
-
-    const profileActionsContainer = document.createElement('div');
-    profileActionsContainer.className = 'profile-actions-container';
-    profileActionsContainer.style.display = 'flex';
-    profileActionsContainer.style.gap = '5px';
-    profileActionsContainer.style.marginTop = '10px';
-
-    const newProfileBtn = document.createElement('button');
-    newProfileBtn.id = 'new-profile-btn';
-    newProfileBtn.className = 'control-btn';
-    newProfileBtn.textContent = window.i18n ? window.i18n.t('profile.new') : 'New';
-    newProfileBtn.setAttribute('data-i18n', 'profile.new');
-    newProfileBtn.style.flex = '1';
     
-    const renameProfileBtn = document.createElement('button');
-    renameProfileBtn.id = 'rename-profile-btn';
-    renameProfileBtn.className = 'control-btn';
-    renameProfileBtn.textContent = window.i18n ? window.i18n.t('profile.rename') : 'Rename';
-    renameProfileBtn.setAttribute('data-i18n', 'profile.rename');
-    renameProfileBtn.style.flex = '1';
-    
-    const deleteProfileBtn = document.createElement('button');
-    deleteProfileBtn.id = 'delete-profile-btn';
-    deleteProfileBtn.className = 'control-btn';
-    deleteProfileBtn.textContent = window.i18n ? window.i18n.t('profile.delete') : 'Delete';
-    deleteProfileBtn.setAttribute('data-i18n', 'profile.delete');
-    deleteProfileBtn.style.flex = '1';
-
-    profileSelectorContainer.appendChild(profileSelector);
-    
-    profileActionsContainer.appendChild(newProfileBtn);
-    profileActionsContainer.appendChild(renameProfileBtn);
-    profileActionsContainer.appendChild(deleteProfileBtn);
-    
-    profileContainer.appendChild(profileHeader);
-    profileContainer.appendChild(profileSelectorContainer);
-    profileContainer.appendChild(profileActionsContainer);
-    
-    if (routeCreatorButtonContainer.nextSibling) {
-        sidebar.insertBefore(profileContainer, routeCreatorButtonContainer.nextSibling);
-    } else {
-        sidebar.appendChild(profileContainer);
-    }
-
     manuallyHideProfileInRouteView(profileContainer);
     updateProfileSelector();
     setupProfileUIEventListeners();
+    
+    console.log("Skonfigurowano istniejący interfejs profilu");
 }
 
 function manuallyHideProfileInRouteView(profileContainer) {
@@ -149,13 +87,19 @@ function manuallyHideProfileInRouteView(profileContainer) {
 
     if (routeCreatorBtn) {
         routeCreatorBtn.addEventListener('click', function() {
-            profileContainer.style.display = 'none';
+            const profileContainers = document.querySelectorAll('.profile-container');
+            profileContainers.forEach(container => {
+                container.style.display = 'none';
+            });
         });
     }
     
     if (returnToMainBtn) {
         returnToMainBtn.addEventListener('click', function() {
-            profileContainer.style.display = '';
+            const profileContainers = document.querySelectorAll('.profile-container');
+            profileContainers.forEach(container => {
+                container.style.display = '';
+            });
         });
     }
     
