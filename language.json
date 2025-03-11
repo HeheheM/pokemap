@@ -177,7 +177,7 @@
       },
       "pokesearch": {
         "pokemonTitle": "Search",
-        "pokemonPlaceholder": "Enter Pokémon name...",
+        "pokemonPlaceholder": "Pokémon / Item / Location name",
         "noPokemonFound": "No Pokémon found",
         "locationsTitle": "This Pokémon can be found in these locations:",
         "clickToCenter": "Click to center the map on this location",
@@ -393,7 +393,7 @@
       },
       "pokesearch": {
         "pokemonTitle": "Wyszukaj",
-        "pokemonPlaceholder": "Wpisz nazwę Pokémona...",
+        "pokemonPlaceholder": "Pokémon / Item / Nazwa lokacji",
         "noPokemonFound": "Nie znaleziono Pokémona",
         "locationsTitle": "Ten Pokémon występuje w tych lokalizacjach:",
         "clickToCenter": "Kliknij aby wycentrować mapę na tej lokalizacji",
