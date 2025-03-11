@@ -393,7 +393,7 @@
       },
       "pokesearch": {
         "pokemonTitle": "Wyszukaj",
-        "pokemonPlaceholder": "Pokémon / Item / Nazwa lokacji",
+        "pokemonPlaceholder": "Pokémon / Przedmiot / Nazwa lokacji",
         "noPokemonFound": "Nie znaleziono Pokémona",
         "locationsTitle": "Ten Pokémon występuje w tych lokalizacjach:",
         "clickToCenter": "Kliknij aby wycentrować mapę na tej lokalizacji",
@@ -405,8 +405,8 @@
         "locations": "Mapy",
         "pokemon": "Pokémony",
         "clickToShowInfo": "Kliknij by zobaczyć szczegóły",
-        "pokemonAtLocation": "Pokémony wystepujące na tej mapie:",
         "items": "Przedmioty:",
+        "pokemonAtLocation": "Pokémony wystepujące na tej mapie:",
         "pokemonWithItem": "Pokemony z tym przedmiotem:",
         "noPokemonWithItem": "Nie znaleziono Pokemonów z tym przedmiotem",
         "noPokemonWithItemAndRepel": "Nie znaleziono Pokemonów z tym przedmiotem i z repelem",
