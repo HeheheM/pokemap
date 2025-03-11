@@ -4,6 +4,11 @@ let profiles = {};
 const DEFAULT_SCALE = 0.5;
 const DEFAULT_POSITION_X = 3170;
 const DEFAULT_POSITION_Y = 3122;
+
+// Flaga wskazująca, czy dane są aktualnie ładowane z profilu
+// Zapobiega zapisowi danych podczas ładowania profilu
+let isLoadingProfile = false;
+
 function safeGetElement(id) {
     const element = document.getElementById(id);
     if (!element && id !== 'emergency-boss-container' && id !== 'route-count') {
@@ -17,6 +22,7 @@ function initProfileSystem() {
     fixMissingElements();
     loadProfiles();
     setupExistingProfileUI();
+    setupDataChangeListeners();
     
     if (window.i18n) {
         window.i18n.onLanguageChange(function() {
@@ -37,8 +43,39 @@ function initProfileSystem() {
     }
 }
 
-function updateProfileUI() {
+// Nasłuchiwanie zmian danych w localStorage
+function setupDataChangeListeners() {
+    // Przechwytywanie zmian localStorage poprzez nadpisanie metody setItem
+    const originalSetItem = localStorage.setItem;
+    localStorage.setItem = function(key, value) {
+        // Wywołanie oryginalnej metody
+        originalSetItem.call(localStorage, key, value);
+        
+        // Jeśli nie ładujemy aktualnie profilu, zapisujemy zmiany do bieżącego profilu
+        if (!isLoadingProfile && currentProfile && profiles[currentProfile]) {
+            // Dla kluczy, które chcemy śledzić
+            if (['weeklyKillData', 'lastWeeklyReset', 'killedBosses', 'bossRoutes'].includes(key)) {
+                console.log(`Data changed for key: ${key}, saving to current profile`);
+                saveCurrentProfileDataDebounced();
+            }
+        }
+    };
+}
 
+// Funkcja debounce do zapobiegania zbyt częstym zapisom
+let saveTimeout = null;
+function saveCurrentProfileDataDebounced() {
+    if (saveTimeout) {
+        clearTimeout(saveTimeout);
+    }
+    
+    saveTimeout = setTimeout(() => {
+        saveCurrentProfileData();
+        saveTimeout = null;
+    }, 500); // opóźnienie 500ms
+}
+
+function updateProfileUI() {
     const profileHeader = document.querySelector('.profile-container > h3');
     if (profileHeader) {
         profileHeader.textContent = window.i18n.t('profile.title');
@@ -135,6 +172,8 @@ function saveProfiles() {
 function resetRouteState() {
     try {
         console.log("Resetowanie stanu tras po zmianie profilu");
+        
+        // Resetowanie globalnych tablic tras jeśli istnieją
         if (typeof window.routes !== 'undefined') {
             const savedRoutes = localStorage.getItem('bossRoutes');
             if (savedRoutes) {
@@ -151,6 +190,7 @@ function resetRouteState() {
             console.log("Wyczyszczono currentRoute");
         }
 
+        // Resetowanie elementów UI dla tras
         const routeSelect = document.getElementById('route-select');
         if (routeSelect) {
             while (routeSelect.options.length > 1) {
@@ -159,28 +199,47 @@ function resetRouteState() {
 
             routeSelect.selectedIndex = 0;
 
-            if (typeof loadSavedRoutes === 'function') {
-                loadSavedRoutes();
+            // Próbujemy użyć funkcji do ładowania tras
+            if (typeof window.loadSavedRoutes === 'function') {
+                window.loadSavedRoutes();
                 console.log("Przeładowano trasy w selekcie");
             } else if (typeof safeLoadSavedRoutes === 'function') {
                 safeLoadSavedRoutes();
                 console.log("Przeładowano trasy bezpieczną metodą");
             } else {
                 console.warn("Funkcja ładowania tras nie jest dostępna");
+                // Ręczne ładowanie tras
+                try {
+                    const savedRoutes = localStorage.getItem('bossRoutes');
+                    if (savedRoutes) {
+                        const routes = JSON.parse(savedRoutes);
+                        routes.forEach((route, index) => {
+                            const option = document.createElement('option');
+                            option.value = index;
+                            option.textContent = route.name || (window.i18n ? window.i18n.t("route.routeNumber", [index + 1]) : `Trasa ${index + 1}`);
+                            routeSelect.appendChild(option);
+                        });
+                    }
+                } catch (innerError) {
+                    console.error("Błąd podczas ręcznego ładowania tras:", innerError);
+                }
             }
         }
 
+        // Usunięcie numerów tras
         const routeNumbers = document.querySelectorAll('.route-number');
         routeNumbers.forEach(number => number.remove());
 
+        // Wyczyszczenie kontenera bossów
         const emergencyBossContainer = document.getElementById('emergency-boss-container');
         if (emergencyBossContainer) {
             emergencyBossContainer.innerHTML = '';
             console.log("Wyczyszczono kontener bossów");
         }
 
-        if (typeof displayBossIcons === 'function') {
-            displayBossIcons();
+        // Odświeżenie ikon bossów
+        if (typeof window.displayBossIcons === 'function') {
+            window.displayBossIcons();
             console.log("Odświeżono ikony bossów na mapie");
         }
         
@@ -277,6 +336,7 @@ function switchToProfile(profileId) {
         return false;
     }
 
+    // Zapisz dane bieżącego profilu przed przełączeniem
     if (currentProfile) {
         try {
             saveCurrentProfileData();
@@ -288,10 +348,24 @@ function switchToProfile(profileId) {
     currentProfile = profileId;
     localStorage.setItem('currentProfile', profileId);
 
+    // Dodajemy efekt wizualny przejścia
+    const bodyElement = document.body;
+    if (bodyElement) {
+        bodyElement.classList.add('profile-transition', 'fade-out');
+    }
+
+    // Zaznaczamy flagę ładowania profilu, aby zapobiec zapisom podczas ładowania
+    isLoadingProfile = true;
+
     try {
         loadProfileData(profileId);
     } catch (e) {
         console.warn("Error loading profile data:", e);
+    } finally {
+        // Resetujemy flagę po zakończeniu ładowania (z małym opóźnieniem)
+        setTimeout(() => {
+            isLoadingProfile = false;
+        }, 1500);
     }
 
     updateProfileSelector();
@@ -306,18 +380,21 @@ function saveCurrentProfileData() {
         return;
     }
 
+    // Określamy aktualne ustawienia mapy
     let currentScale = DEFAULT_SCALE;
     let currentOffsetX = 0;
     let currentOffsetY = 0;
 
     try {
-        currentScale = typeof scale !== 'undefined' ? scale : DEFAULT_SCALE;
-        currentOffsetX = typeof offsetX !== 'undefined' ? offsetX : 0;
-        currentOffsetY = typeof offsetY !== 'undefined' ? offsetY : 0;
+        // Próbujemy uzyskać aktualne ustawienia mapy
+        currentScale = typeof window.scale !== 'undefined' ? window.scale : DEFAULT_SCALE;
+        currentOffsetX = typeof window.offsetX !== 'undefined' ? window.offsetX : 0;
+        currentOffsetY = typeof window.offsetY !== 'undefined' ? window.offsetY : 0;
     } catch (e) {
         console.warn("Error accessing map variables:", e);
     }
 
+    // Przygotowujemy obiekt danych
     const data = {
         weeklyKillData: null,
         lastWeeklyReset: null,
@@ -331,6 +408,7 @@ function saveCurrentProfileData() {
     };
     
     try {
+        // Zbieramy dane z localStorage
         const weeklyKillData = localStorage.getItem('weeklyKillData');
         if (weeklyKillData) {
             data.weeklyKillData = JSON.parse(weeklyKillData);
@@ -351,6 +429,7 @@ function saveCurrentProfileData() {
             data.bossRoutes = JSON.parse(bossRoutes);
         }
 
+        // Zapisujemy dane do profilu
         profiles[currentProfile].data = data;
         saveProfiles();
         
@@ -368,9 +447,9 @@ function saveCurrentMapPosition() {
     let currentOffsetY = 0;
 
     try {
-        currentScale = typeof scale !== 'undefined' ? scale : DEFAULT_SCALE;
-        currentOffsetX = typeof offsetX !== 'undefined' ? offsetX : 0;
-        currentOffsetY = typeof offsetY !== 'undefined' ? offsetY : 0;
+        currentScale = typeof window.scale !== 'undefined' ? window.scale : DEFAULT_SCALE;
+        currentOffsetX = typeof window.offsetX !== 'undefined' ? window.offsetX : 0;
+        currentOffsetY = typeof window.offsetY !== 'undefined' ? window.offsetY : 0;
     } catch (e) {
         console.warn("Error accessing map variables:", e);
         return;
@@ -395,17 +474,40 @@ function loadProfileData(profileId) {
     
     try {
         const profileData = profiles[profileId].data;
+        if (!profileData) {
+            console.warn(`Profile ${profileId} has no data, initializing empty data`);
+            profiles[profileId].data = {
+                weeklyKillData: {
+                    killCount: 0,
+                    lastResetTimestamp: Date.now(),
+                    kills: []
+                },
+                lastWeeklyReset: null,
+                killedBosses: {},
+                bossRoutes: [],
+                mapSettings: {
+                    defaultScale: DEFAULT_SCALE,
+                    defaultOffsetX: 0,
+                    defaultOffsetY: 0
+                }
+            };
+            saveProfiles();
+            return loadProfileData(profileId); // Rekurencyjnie wywołaj funkcję z zainicjalizowanymi danymi
+        }
 
+        // Efekt wizualny przejścia
         const bodyElement = document.body;
         if (bodyElement) {
             bodyElement.classList.add('profile-transition', 'fade-out');
         }
 
+        // Usuń istniejące dane z localStorage
         localStorage.removeItem('weeklyKillData');
         localStorage.removeItem('lastWeeklyReset');
         localStorage.removeItem('killedBosses');
         localStorage.removeItem('bossRoutes');
 
+        // Załaduj dane z profilu do localStorage
         if (profileData.weeklyKillData) {
             localStorage.setItem('weeklyKillData', JSON.stringify(profileData.weeklyKillData));
         }
@@ -421,52 +523,60 @@ function loadProfileData(profileId) {
         if (profileData.bossRoutes) {
             localStorage.setItem('bossRoutes', JSON.stringify(profileData.bossRoutes));
         }
+        
+        // Resetuj stan tras i odśwież UI
         resetRouteState();
 
+        // Zastosuj ustawienia mapy z małym opóźnieniem, aby dać czas na załadowanie
         setTimeout(() => {
             try {
-                if (typeof scale !== 'undefined' && 
-                    typeof offsetX !== 'undefined' && 
-                    typeof offsetY !== 'undefined' && 
-                    typeof updateMapTransform === 'function' && 
-                    profileData.mapSettings) {
-                    
-                    scale = profileData.mapSettings.defaultScale || 0.5;
-                    offsetX = profileData.mapSettings.defaultOffsetX || 0;
-                    offsetY = profileData.mapSettings.defaultOffsetY || 0;
-                    
-                    updateMapTransform();
+                if (profileData.mapSettings) {
+                    applyMapSettings(profileData.mapSettings);
                 }
             } catch (e) {
-                console.warn("Error updating map position:", e);
+                console.warn("Error applying map settings:", e);
             }
-        }, 1000);
+        }, 200);
 
+        // Odśwież UI po pełnym załadowaniu danych
         setTimeout(() => {
             try {
-                if (typeof updateBossTimers === 'function') {
-                    updateBossTimers();
+                // Odśwież timery bossów
+                if (typeof window.updateBossTimers === 'function') {
+                    window.updateBossTimers();
                 }
 
-                if (typeof updateWeeklyKillsDisplay === 'function') {
-                    updateWeeklyKillsDisplay();
+                // Odśwież licznik tygodniowych zabić
+                if (typeof window.updateWeeklyKillsDisplay === 'function') {
+                    window.updateWeeklyKillsDisplay();
                 }
 
-                if (typeof displayBossIcons === 'function') {
-                    displayBossIcons();
+                // Odśwież ikony bossów
+                if (typeof window.displayBossIcons === 'function') {
+                    window.displayBossIcons();
+                }
+
+                // Usuń efekt przejścia
+                if (bodyElement) {
+                    bodyElement.classList.remove('profile-transition', 'fade-out');
                 }
             } catch (e) {
-                console.warn("Error updating UI elements:", e);
+                console.warn("Error updating UI after profile load:", e);
+                // Zawsze usuń efekt przejścia, nawet jeśli wystąpił błąd
+                if (bodyElement) {
+                    bodyElement.classList.remove('profile-transition', 'fade-out');
+                }
             }
-
-            if (bodyElement) {
-                bodyElement.classList.remove('profile-transition', 'fade-out');
-            }
-        }, 800);
+        }, 500);
         
         console.log(`Loaded data for profile: ${profiles[profileId].name}`);
     } catch (error) {
         console.error("Error loading profile data:", error);
+        // Zawsze usuń efekt przejścia, nawet jeśli wystąpił błąd
+        const bodyElement = document.body;
+        if (bodyElement) {
+            bodyElement.classList.remove('profile-transition', 'fade-out');
+        }
     }
 }
 
@@ -477,20 +587,42 @@ function applyMapSettings(mapSettings) {
     }
     
     try {
-        if (typeof scale !== 'undefined' && 
-            typeof offsetX !== 'undefined' && 
-            typeof offsetY !== 'undefined' && 
-            typeof updateMapTransform === 'function') {
+        // Sprawdź, czy zmienne mapy są dostępne
+        if (typeof window.scale !== 'undefined' && 
+            typeof window.offsetX !== 'undefined' && 
+            typeof window.offsetY !== 'undefined' && 
+            typeof window.updateMapTransform === 'function') {
 
-            scale = mapSettings.defaultScale || DEFAULT_SCALE;
-            offsetX = mapSettings.defaultOffsetX || 0;
-            offsetY = mapSettings.defaultOffsetY || 0;
+            // Ustaw zmienne mapy
+            window.scale = mapSettings.defaultScale || DEFAULT_SCALE;
+            window.offsetX = mapSettings.defaultOffsetX || 0;
+            window.offsetY = mapSettings.defaultOffsetY || 0;
             
-            console.log(`Applying map settings: Scale: ${scale}, OffsetX: ${offsetX}, OffsetY: ${offsetY}`);
+            console.log(`Applying map settings: Scale: ${window.scale}, OffsetX: ${window.offsetX}, OffsetY: ${window.offsetY}`);
 
-            updateMapTransform();
+            // Zastosuj transformację mapy
+            window.updateMapTransform();
         } else {
-            console.warn("Map variables not available yet");
+            console.warn("Map variables not available yet, will retry");
+            
+            // Spróbuj ponownie po krótkim czasie
+            setTimeout(() => {
+                if (typeof window.scale !== 'undefined' && 
+                    typeof window.offsetX !== 'undefined' && 
+                    typeof window.offsetY !== 'undefined' && 
+                    typeof window.updateMapTransform === 'function') {
+                    
+                    window.scale = mapSettings.defaultScale || DEFAULT_SCALE;
+                    window.offsetX = mapSettings.defaultOffsetX || 0;
+                    window.offsetY = mapSettings.defaultOffsetY || 0;
+                    
+                    console.log(`Delayed applying map settings: Scale: ${window.scale}, OffsetX: ${window.offsetX}, OffsetY: ${window.offsetY}`);
+                    
+                    window.updateMapTransform();
+                } else {
+                    console.error("Map variables still not available after retry");
+                }
+            }, 500);
         }
     } catch (e) {
         console.warn("Error applying map settings:", e);
@@ -601,6 +733,7 @@ window.saveMapPosition = function() {
     saveCurrentMapPosition();
     const message = window.i18n ? window.i18n.t('mapPosition.saved') : "Pozycja mapy została zapisana jako domyślna dla bieżącego profilu.";
     console.log(message);
+    alert(message);
     return true;
 };
 
@@ -609,9 +742,13 @@ function safeLoadSavedRoutes() {
         const savedRoutes = localStorage.getItem('bossRoutes');
         if (savedRoutes) {
             window.routes = JSON.parse(savedRoutes);
+        } else {
+            window.routes = [];
         }
+        console.log("Bezpiecznie załadowano trasy:", window.routes ? window.routes.length : 0);
     } catch (e) {
         console.warn("Error in safeLoadSavedRoutes:", e);
+        window.routes = [];
     }
 }
 
@@ -621,7 +758,26 @@ function migrateExistingProfiles() {
     Object.keys(profiles).forEach(profileId => {
         const profile = profiles[profileId];
 
-        if (!profile.data.mapSettings) {
+        if (!profile.data) {
+            console.log(`Initializing empty data for profile: ${profile.name}`);
+            profile.data = {
+                weeklyKillData: {
+                    killCount: 0,
+                    lastResetTimestamp: Date.now(),
+                    kills: []
+                },
+                lastWeeklyReset: null,
+                killedBosses: {},
+                bossRoutes: [],
+                mapSettings: {
+                    defaultScale: DEFAULT_SCALE,
+                    defaultOffsetX: 0,
+                    defaultOffsetY: 0
+                }
+            };
+            needsSave = true;
+        }
+        else if (!profile.data.mapSettings) {
             console.log(`Fixing missing map settings for profile: ${profile.name}`);
 
             const containerWidth = window.innerWidth;
@@ -657,6 +813,16 @@ function migrateExistingProfiles() {
         saveProfiles();
     }
 }
+
+// Funkcja do czyszczenia localStorage (tylko do debugowania)
+window.clearProfileStorage = function() {
+    if (confirm("Czy na pewno chcesz wyczyścić wszystkie dane profili? Ta operacja jest nieodwracalna!")) {
+        localStorage.removeItem('profiles');
+        localStorage.removeItem('currentProfile');
+        alert("Dane profili zostały wyczyszczone. Strona zostanie odświeżona.");
+        location.reload();
+    }
+};
 
 window.addEventListener('load', function() {
     try {
