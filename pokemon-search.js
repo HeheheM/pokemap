@@ -491,6 +491,27 @@ function identifyRepelRequiredPokemon(allPokemonData) {
     return allPokemonData;
 }
 
+// Function to check if an item is held by any Pokemon requiring repel
+function isItemWithRepel(itemName) {
+    return allPokemonData.some(entry => 
+        entry.Item === itemName && entry.RequiresRepel
+    );
+}
+
+// Function to check if a location has any Pokemon requiring repel
+function isLocationWithRepel(locationName) {
+    return allPokemonData.some(entry => 
+        entry.Map === locationName && entry.RequiresRepel
+    );
+}
+
+// Function to check if a Pokemon requires repel in any location
+function isPokemonWithRepel(pokemonName) {
+    return allPokemonData.some(entry => 
+        entry.Pokemon === pokemonName && entry.RequiresRepel
+    );
+}
+
 // Function to setup the repel filter checkbox
 function addRepelFilterCheckbox() {
     const checkbox = document.getElementById('repel-filter-checkbox');
@@ -507,12 +528,142 @@ function addRepelFilterCheckbox() {
     
     // Add event listener to trigger search when checkbox changes
     checkbox.addEventListener('change', function() {
+        const searchInput = document.getElementById('pokemon-search');
+        
+        // Jeśli aktualnie wyświetlamy jakiegoś Pokemona, lokalizację lub przedmiot, odśwież
         if (currentPokemonName) {
             displayPokemonLocations(currentPokemonName);
+        }
+        
+        // Opcjonalnie wyczyść pole wyszukiwania
+        // searchInput.value = '';
+        
+        // Symuluj zdarzenie kliknięcia, aby odświeżyć sugestie
+        if (searchInput.value) {
+            const event = new Event('input');
+            searchInput.dispatchEvent(event);
+        } else {
+            // Jeśli pole jest puste, pokaż domyślne sugestie
+            showInitialSuggestions();
         }
     });
     
     return checkbox;
+}
+
+// Function to show initial alphabetical suggestions
+function showInitialSuggestions() {
+    const searchInput = document.getElementById('pokemon-search');
+    const resultsContainer = document.getElementById('pokemon-search-results');
+    
+    if (!searchInput || !resultsContainer) return;
+    
+    // Check if repel filter is active
+    const repelFilter = document.getElementById('repel-filter-checkbox');
+    const showOnlyRepel = repelFilter && repelFilter.checked;
+    
+    // Prepare all available options
+    let pokemonOptions = Array.from(uniquePokemonNames);
+    let locationOptions = Array.from(uniqueLocationNames);
+    let itemOptions = Array.from(uniqueItems);
+    
+    // Filter by repel if needed
+    if (showOnlyRepel) {
+        pokemonOptions = pokemonOptions.filter(name => isPokemonWithRepel(name));
+        locationOptions = locationOptions.filter(name => isLocationWithRepel(name));
+        itemOptions = itemOptions.filter(name => isItemWithRepel(name));
+    }
+    
+    // Sort alphabetically
+    pokemonOptions.sort();
+    locationOptions.sort();
+    itemOptions.sort();
+    
+    // Clear previous results
+    resultsContainer.innerHTML = '';
+    
+    // If no options found
+    if (pokemonOptions.length === 0 && locationOptions.length === 0 && itemOptions.length === 0) {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+        resultItem.textContent = window.i18n ? window.i18n.t('pokesearch.noResults') : 'Nie znaleziono wyników';
+        resultsContainer.appendChild(resultItem);
+        resultsContainer.style.display = 'block';
+        return;
+    }
+    
+    // Add Pokemon suggestions
+    if (pokemonOptions.length > 0) {
+        const pokemonHeader = document.createElement('div');
+        pokemonHeader.className = 'search-result-header';
+        pokemonHeader.textContent = window.i18n ? window.i18n.t('pokesearch.pokemon') : 'Pokemony:';
+        resultsContainer.appendChild(pokemonHeader);
+        
+        pokemonOptions.slice(0, 5).forEach(pokemonName => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item pokemon-result';
+            resultItem.textContent = pokemonName;
+            
+            resultItem.addEventListener('click', function() {
+                searchInput.value = pokemonName;
+                resultsContainer.style.display = 'none';
+                displayPokemonLocations(pokemonName);
+            });
+            
+            resultsContainer.appendChild(resultItem);
+        });
+    }
+    
+    // Add location suggestions
+    if (locationOptions.length > 0) {
+        const locationHeader = document.createElement('div');
+        locationHeader.className = 'search-result-header';
+        locationHeader.textContent = window.i18n ? window.i18n.t('pokesearch.locations') : 'Lokalizacje:';
+        resultsContainer.appendChild(locationHeader);
+        
+        locationOptions.slice(0, 5).forEach(locationName => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item location-result';
+            resultItem.textContent = locationName;
+            
+            resultItem.addEventListener('click', function() {
+                searchInput.value = locationName;
+                resultsContainer.style.display = 'none';
+                displayPokemonsByLocation(locationName);
+            });
+            
+            resultsContainer.appendChild(resultItem);
+        });
+    }
+    
+    // Add item suggestions
+    if (itemOptions.length > 0) {
+        const itemHeader = document.createElement('div');
+        itemHeader.className = 'search-result-header';
+        itemHeader.textContent = window.i18n ? window.i18n.t('pokesearch.items') : 'Przedmioty:';
+        resultsContainer.appendChild(itemHeader);
+        
+        itemOptions.slice(0, 5).forEach(itemName => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item item-result';
+            resultItem.textContent = itemName;
+            
+            resultItem.addEventListener('click', function() {
+                searchInput.value = itemName;
+                resultsContainer.style.display = 'none';
+                displayPokemonsByItem(itemName);
+            });
+            
+            resultsContainer.appendChild(resultItem);
+        });
+    }
+    
+    // Display results
+    resultsContainer.style.display = 'block';
+    
+    // Make results scrollable
+    resultsContainer.style.maxHeight = '300px';
+    resultsContainer.style.overflowY = 'auto';
 }
 
 function setupPokemonSearchEvents(searchInput, resultsContainer) {
@@ -534,10 +685,7 @@ function setupPokemonSearchEvents(searchInput, resultsContainer) {
             
         // Jeśli filtr repela jest aktywny, filtruj dalej Pokemony
         if (showOnlyRepel) {
-            matchingPokemon = matchingPokemon.filter(name => {
-                const pokemonLocations = allPokemonData.filter(entry => entry.Pokemon === name);
-                return pokemonLocations.some(loc => loc.RequiresRepel);
-            });
+            matchingPokemon = matchingPokemon.filter(name => isPokemonWithRepel(name));
         }
         
         // Szukaj pasujących nazw lokalizacji w window.locations (na mapie)
@@ -552,15 +700,30 @@ function setupPokemonSearchEvents(searchInput, resultsContainer) {
             : [];
             
         // Szukaj pasujących nazw lokalizacji w wszystkich danych Pokemonów
-        const dataLocations = Array.from(uniqueLocationNames)
+        let dataLocations = Array.from(uniqueLocationNames)
             .filter(loc => loc.toLowerCase().includes(searchText));
             
+        // Filtruj lokalizacje jeśli repel jest aktywny
+        if (showOnlyRepel) {
+            dataLocations = dataLocations.filter(name => isLocationWithRepel(name));
+        }
+            
         // Połącz obie listy lokalizacji i usuń duplikaty
-        const allMatchingLocations = [...new Set([...mapLocations, ...dataLocations])];
+        let allMatchingLocations = [...new Set([...mapLocations, ...dataLocations])];
+        
+        // Filtruj lokalizacje jeśli repel jest aktywny
+        if (showOnlyRepel) {
+            allMatchingLocations = allMatchingLocations.filter(name => isLocationWithRepel(name));
+        }
         
         // Szukaj pasujących przedmiotów
-        const matchingItems = Array.from(uniqueItems)
+        let matchingItems = Array.from(uniqueItems)
             .filter(item => item.toLowerCase().includes(searchText));
+        
+        // Filtruj przedmioty jeśli repel jest aktywny
+        if (showOnlyRepel) {
+            matchingItems = matchingItems.filter(name => isItemWithRepel(name));
+        }
         
         // Przygotuj wyniki
         resultsContainer.innerHTML = '';
@@ -663,6 +826,9 @@ function setupPokemonSearchEvents(searchInput, resultsContainer) {
         if (this.value.length >= 2) {
             const event = new Event('input');
             this.dispatchEvent(event);
+        } else {
+            // Show initial suggestions when clicked with empty input
+            showInitialSuggestions();
         }
     });
     
