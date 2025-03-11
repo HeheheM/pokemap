@@ -77,15 +77,15 @@
         "savingProfiles": "Error saving profiles. Local storage may be full."
       },
       "pokeTeam": {
-        "sturdy": "One or more pokemons have the Ability: Sturdy",
+        "sturdy": "One or more pokémons have the Ability: Sturdy",
         "usualTeam": "The usual team is being used",
         "cottonSpore": "Use Cotton Spore instead of Switcheroo",
-        "focusSash": "One or more pokemons have Focus Sash",
-        "unaware": "One or more pokemons have the Abilty: Unaware",
-        "specialTeam": "One or more pokemons are changed from the main team",
+        "focusSash": "One or more pokémons have Focus Sash",
+        "unaware": "One or more pokémons have the Abilty: Unaware",
+        "specialTeam": "One or more pokémons are changed from the main team",
         "membership": "Need of Membership",
         "guildTop3": "Your Guild needs to be placed in Top 3 pvp ranked",
-        "specialLead": "Another Pokemon is leading the party"
+        "specialLead": "Another Pokémon is leading the party"
       },
       "time": {
         "second": "second",
@@ -176,13 +176,25 @@
         "routesSavedToLocalStorage": "Routes saved to localStorage:"
       },
       "pokesearch": {
-        "pokemonTitle": "Search Pokemon",
-        "pokemonPlaceholder": "Enter Pokemon name...",
-        "noPokemonFound": "No Pokemon found",
-        "locationsTitle": "This Pokemon can be found in these locations:",
+        "pokemonTitle": "Search",
+        "pokemonPlaceholder": "Enter Pokémon name...",
+        "noPokemonFound": "No Pokémon found",
+        "locationsTitle": "This Pokémon can be found in these locations:",
         "clickToCenter": "Click to center the map on this location",
         "locationNotOnMap": "This location is not available on the map",
-        "locationNotFound": "Location not found on the map"
+        "locationNotFound": "Location not found on the map",
+        "showOnlyRepel": "Show only repel Pokémon",
+        "noPokemonFoundWithRepel": "No Pokémon with repel found",
+        "noPokemonAtLocationWithRepel": "No Pokémon with repel found at this location",
+        "locations": "Maps",
+        "pokemon": "Pokémons",
+        "clickToShowInfo": "Click to see details",
+        "items": "Items:",
+        "pokemonAtLocation": "Available Pokémons on this map:",
+        "pokemonWithItem": "Pokemons with this item:",
+        "noPokemonWithItem": "No Pokemon found with this item",
+        "noPokemonWithItemAndRepel": "No Pokemons found with this item and with repel",
+        "noResults": "No results found"
       },
       "pokemon": {
         "location": "Location",
@@ -197,7 +209,10 @@
         "unknown": "Unknown",
         "none": "None",
         "yes": "Yes",
-        "no": "No"
+        "no": "No",
+        "landSpawn": "Land",
+        "waterSpawn": "Surf",
+        "repelRequired": "Repel"
       }
     },
     "pl": {
@@ -278,15 +293,15 @@
         "savingProfiles": "Błąd podczas zapisywania profili. Pamięć lokalna może być pełna."
       },
       "pokeTeam": {
-        "sturdy": "Jeden lub więcej pokemonów ma zdolność: Sturdy",
+        "sturdy": "Jeden lub więcej pokémonów ma zdolność: Sturdy",
         "usualTeam": "Używany jest zwykły zespół",
         "cottonSpore": "Użyj Cotton Spore zamiast Switcheroo",
-        "focusSash": "Jeden lub więcej pokemonów ma Focus Sash",
-        "unaware": "Jeden lub więcej pokemonów ma zdolność: Unaware",
-        "specialTeam": "Jeden lub więcej pokemonów jest zmieniony w stosunku do głównego zespołu",
+        "focusSash": "Jeden lub więcej pokémonów ma Focus Sash",
+        "unaware": "Jeden lub więcej pokémonów ma zdolność: Unaware",
+        "specialTeam": "Jeden lub więcej pokémonów jest zmieniony w stosunku do głównego zespołu",
         "membership": "Wymaga członkostwa",
         "guildTop3": "Twoja gildia musi być w Top 3 rankingu PVP",
-        "specialLead": "Inny Pokemon prowadzi drużynę"
+        "specialLead": "Inny Pokémon prowadzi drużynę"
       },
       "time": {
         "second": "sekunda",
@@ -377,14 +392,26 @@
         "routesSavedToLocalStorage": "Trasy zapisane do localStorage:"
       },
       "pokesearch": {
-        "pokemonTitle": "Wyszukaj Pokemona",
-        "pokemonPlaceholder": "Wpisz nazwę Pokemona...",
-        "noPokemonFound": "Nie znaleziono Pokemona",
-        "locationsTitle": "Ten Pokemon występuje w tych lokalizacjach:",
+        "pokemonTitle": "Wyszukaj",
+        "pokemonPlaceholder": "Wpisz nazwę Pokémona...",
+        "noPokemonFound": "Nie znaleziono Pokémona",
+        "locationsTitle": "Ten Pokémon występuje w tych lokalizacjach:",
         "clickToCenter": "Kliknij aby wycentrować mapę na tej lokalizacji",
         "locationNotOnMap": "Ta lokalizacja nie jest dostępna na mapie",
-        "locationNotFound": "Lokalizacja nie została znaleziona na mapie"
-      },
+        "locationNotFound": "Lokalizacja nie została znaleziona na mapie",
+        "showOnlyRepel": "Pokazuj tylko pokémony z repelem",
+        "noPokemonFoundWithRepel": "Nie znaleziono pokémona z repelem",
+        "noPokemonAtLocationWithRepel": "Nie znaleziono pokémona w tej lokacji z repelem",
+        "locations": "Mapy",
+        "pokemon": "Pokémony",
+        "clickToShowInfo": "Kliknij by zobaczyć szczegóły",
+        "pokemonAtLocation": "Pokémony wystepujące na tej mapie:",
+        "items": "Przedmioty:",
+        "pokemonWithItem": "Pokemony z tym przedmiotem:",
+        "noPokemonWithItem": "Nie znaleziono Pokemonów z tym przedmiotem",
+        "noPokemonWithItemAndRepel": "Nie znaleziono Pokemonów z tym przedmiotem i z repelem",
+        "noResults": "Nie znaleziono wyników"
+    },
       "pokemon": {
         "location": "Lokalizacja",
         "timeOfDay": "Pora dnia",
@@ -398,7 +425,10 @@
         "unknown": "Nieznany",
         "none": "Brak",
         "yes": "Tak",
-        "no": "Nie"
+        "no": "Nie",
+        "landSpawn": "Land",
+        "waterSpawn": "Surf",
+        "repelRequired": "Repel"
       }
     }
   }

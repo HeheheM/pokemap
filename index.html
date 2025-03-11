@@ -26,12 +26,12 @@
         </div>
         
         <!-- 2. Wyszukiwanie lokalizacji -->
-        <div class="search-container">
+        <!-- <div class="search-container">
             <h3 data-i18n="search.locationTitle">Wyszukaj lokalizację</h3>
             <input type="text" id="location-search" class="search-input" data-i18n-placeholder="search.locationPlaceholder" placeholder="Wpisz nazwę lokalizacji...">
             <div id="search-results" class="search-results"></div>
         </div>
-        
+         -->
         <!-- 3. Filtrowanie Bossów według regionu -->
         <div class="filter-container">
             <h3 data-i18n="filter.regionFilter">Filter Bosses by Region</h3>
@@ -52,7 +52,10 @@
             <input type="text" id="pokemon-search" class="search-input" data-i18n-placeholder="pokesearch.pokemonPlaceholder" placeholder="Wpisz nazwę Pokemona...">
             <div id="pokemon-search-results" class="search-results"></div>
         </div>
-        
+        <div class="repel-filter-container">
+            <input type="checkbox" id="repel-filter-checkbox">
+            <label for="repel-filter-checkbox" data-i18n="pokesearch.showOnlyRepel">Pokazuj tylko pokemony z repelem</label>
+        </div>
         <!-- Reszta sidebara bez zmian -->
         
         <!-- Route creator sidebar (hidden by default) -->

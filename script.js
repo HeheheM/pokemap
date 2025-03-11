@@ -1219,66 +1219,66 @@ function showBossTooltip(bossName, x, y) {
     });
 }
 
-function setupSearchFunctionality() {
-    locationSearch.addEventListener('input', function() {
-        const searchText = this.value.toLowerCase();
+// function setupSearchFunctionality() {
+//     locationSearch.addEventListener('input', function() {
+//         const searchText = this.value.toLowerCase();
         
-        if (searchText.length < 2) {
-            searchResults.style.display = 'none';
-            return;
-        }
+//         if (searchText.length < 2) {
+//             searchResults.style.display = 'none';
+//             return;
+//         }
 
-        if (!locations || locations.length === 0) {
-            const resultItem = document.createElement('div');
-            resultItem.className = 'search-result-item';
-            resultItem.textContent = window.i18n.t("search.noData");
+//         if (!locations || locations.length === 0) {
+//             const resultItem = document.createElement('div');
+//             resultItem.className = 'search-result-item';
+//             resultItem.textContent = window.i18n.t("search.noData");
             
-            searchResults.innerHTML = '';
-            searchResults.appendChild(resultItem);
-            searchResults.style.display = 'block';
-            return;
-        }
+//             searchResults.innerHTML = '';
+//             searchResults.appendChild(resultItem);
+//             searchResults.style.display = 'block';
+//             return;
+//         }
 
-        const matchingLocations = locations.filter(loc => 
-            loc.tooltip && loc.tooltip.toLowerCase().includes(searchText)
-        );
+//         const matchingLocations = locations.filter(loc => 
+//             loc.tooltip && loc.tooltip.toLowerCase().includes(searchText)
+//         );
         
-        searchResults.innerHTML = '';
+//         searchResults.innerHTML = '';
         
-        if (matchingLocations.length === 0) {
-            const resultItem = document.createElement('div');
-            resultItem.className = 'search-result-item';
-            resultItem.textContent = window.i18n.t("search.noResults");
-            searchResults.appendChild(resultItem);
-            searchResults.style.display = 'block';
-            return;
-        }
+//         if (matchingLocations.length === 0) {
+//             const resultItem = document.createElement('div');
+//             resultItem.className = 'search-result-item';
+//             resultItem.textContent = window.i18n.t("search.noResults");
+//             searchResults.appendChild(resultItem);
+//             searchResults.style.display = 'block';
+//             return;
+//         }
 
-        const resultsToShow = matchingLocations.slice(0, 10);
+//         const resultsToShow = matchingLocations.slice(0, 10);
         
-        resultsToShow.forEach(loc => {
-            const resultItem = document.createElement('div');
-            resultItem.className = 'search-result-item';
-            resultItem.textContent = `${loc.tooltip} (${loc.region || window.i18n.t("search.noRegion")})`;
+//         resultsToShow.forEach(loc => {
+//             const resultItem = document.createElement('div');
+//             resultItem.className = 'search-result-item';
+//             resultItem.textContent = `${loc.tooltip} (${loc.region || window.i18n.t("search.noRegion")})`;
             
-            resultItem.addEventListener('click', function() {
-                centerMapOnLocation(loc);
-                searchResults.style.display = 'none';
-                locationSearch.value = loc.tooltip;
-            });
+//             resultItem.addEventListener('click', function() {
+//                 centerMapOnLocation(loc);
+//                 searchResults.style.display = 'none';
+//                 locationSearch.value = loc.tooltip;
+//             });
             
-            searchResults.appendChild(resultItem);
-        });
+//             searchResults.appendChild(resultItem);
+//         });
         
-        searchResults.style.display = 'block';
-    });
+//         searchResults.style.display = 'block';
+//     });
 
-    document.addEventListener('click', function(e) {
-        if (!searchResults.contains(e.target) && e.target !== locationSearch) {
-            searchResults.style.display = 'none';
-        }
-    });
-}
+//     document.addEventListener('click', function(e) {
+//         if (!searchResults.contains(e.target) && e.target !== locationSearch) {
+//             searchResults.style.display = 'none';
+//         }
+//     });
+// }
 
 zoomInBtn.addEventListener('click', () => {
     scale *= 1.2;
@@ -2154,7 +2154,7 @@ async function init() {
         bosses = await loadBossesData();
         setupRegionFilter();
         displayBossIcons();
-        setupSearchFunctionality();
+        // setupSearchFunctionality();
         refreshMarkers();
         initBossTimers();
         initWeeklyKillTracker();

@@ -1082,3 +1082,196 @@ body {
     width: 28px;
     height: 28px;
 }
+.pokemon-source-icon {
+    width: 22px;
+    height: 22px;
+    /* border-radius: 4px; */
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    padding: 0px;
+    margin-right: 1px;
+}
+
+/* Style dla ikony członkostwa */
+.pokemon-membership-icon {
+    /* filter: drop-shadow(0 0 2px #ffcc00); */
+    width: 20px;
+    height: 20px;
+}
+
+/* Style dla ikony połowu */
+.pokemon-fishing-icon {
+    /* filter: drop-shadow(0 0 2px #4dabf5); */
+    width: 20px;
+    height: 20px;
+}
+.pokemon-spawn-type {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0px;
+}
+
+
+
+
+
+
+
+
+
+/* Style for repel filter container */
+/* .repel-filter-container {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.repel-filter-container input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.repel-filter-container label {
+    cursor: pointer;
+    font-size: 13px;
+} */
+
+/* Style for the repel icon */
+.pokemon-repel-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Animation for repel icon */
+@keyframes repel-pulse {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.pokemon-repel-icon {
+    animation: repel-pulse 2s infinite;
+}
+
+/* Styl dla kontenera filtra repela */
+.repel-filter-container {
+    margin: -20px 0 10px 0; /* zmniejszony górny margines */
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.repel-filter-container input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.repel-filter-container label {
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+/* Style dla nagłówków wyników wyszukiwania */
+.search-result-header {
+    background-color: #444;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Styl dla wyników lokalizacji */
+.search-result-item.location-result {
+    padding-left: 30px;
+    position: relative;
+}
+
+.search-result-item.location-result::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url('resources/map-marker.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Styl dla wyników Pokemonów */
+.search-result-item.pokemon-result {
+    padding-left: 30px;
+    position: relative;
+}
+
+.search-result-item.pokemon-result::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-image: url('resources/pokeball-icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Styl dla mini ikon Pokemonów w panelu lokalizacji */
+.pokemon-mini-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+    object-fit: contain;
+    display: inline-block;
+}
+
+
+/* Animowane podkreślenie dla elementów listy w panelu lokalizacji */
+.location-pokemon-panel .pokemon-locations-list li {
+    position: relative;
+    overflow: hidden;
+}
+
+.location-pokemon-panel .pokemon-locations-list li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4CAF50;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.location-pokemon-panel .pokemon-locations-list li:hover::after {
+    transform: translateX(0);
+}
+
+/* Poprawki dla responsywności */
+@media (max-width: 768px) {
+    .location-pokemon-panel,
+    .pokemon-locations-panel {
+        width: 250px;
+    }
+    
+    .pokemon-mini-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
