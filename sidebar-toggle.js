@@ -123,6 +123,5 @@ document.addEventListener('DOMContentLoaded', function() {
             window.dispatchEvent(new Event('resize'));
         }, 300); // Wait for transition to complete
     });
-    
     console.log("Sidebar toggle buttons initialized");
 });

@@ -700,14 +700,6 @@ body {
     border: 2px dashed #4CAF50;
 }
 
-/* .selected-boss.drag-over-top {
-    border-top: 2px solid #4CAF50;
-}
-
-.selected-boss.drag-over-bottom {
-    border-bottom: 2px solid #4CAF50;
-} */
-
 .drag-handle {
     display: flex;
     align-items: center;
@@ -1004,6 +996,9 @@ body {
     display: none;
 }
 
+.search-results::-webkit-scrollbar {
+    display: none;
+}
 .pokemon-locations-list {
     list-style-type: none;
     padding: 0;
@@ -1274,4 +1269,62 @@ body {
         width: 20px;
         height: 20px;
     }
+}
+
+/* Style dla tooltipów bossów na urządzeniach mobilnych */
+@media (max-width: 768px) {
+    .boss-tooltip {
+        max-width: 85vw;
+        max-height: 80vh;
+        border: 2px solid #555;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+    }
+    
+    .boss-tooltip-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: #333;
+    }
+    
+    .close-tooltip {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: -10px;
+    }
+    
+    .boss-icon {
+        width: 50px;
+        height: 50px;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    
+    .boss-icon:active {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+    }
+}
+
+/* Zapobieganie wyróżnianiu tekstu podczas dotykania bossa */
+.boss-icon {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+/* Zwiększony obszar dotyku dla przycisku zamykania */
+.close-tooltip {
+    min-width: 24px;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

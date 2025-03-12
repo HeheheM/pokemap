@@ -1009,6 +1009,7 @@ function clearOnlyPokemonIcons() {
 }
 
 // Helper function to create a single Pokemon icon
+// Helper function to create a single Pokemon icon
 function createPokemonIcon(pokemonLocation, mapLoc) {
     const map = document.getElementById('map');
     
@@ -1045,7 +1046,7 @@ function createPokemonIcon(pokemonLocation, mapLoc) {
     
     icon.appendChild(img);
     
-    // Add events (tooltip, click)
+    // Add desktop events (tooltip, click)
     icon.addEventListener('click', function(e) {
         e.stopPropagation();
         displayPokemonTooltip(pokemonLocation, e.clientX, e.clientY);
@@ -1065,6 +1066,32 @@ function createPokemonIcon(pokemonLocation, mapLoc) {
         const locationTooltip = document.getElementById('tooltip');
         if (locationTooltip) {
             locationTooltip.style.opacity = '0';
+        }
+    });
+    
+    // Add mobile touch events
+    icon.addEventListener('touchstart', function(e) {
+        e.preventDefault(); // Prevent default behavior
+        const touch = e.touches[0];
+        const locationTooltip = document.getElementById('tooltip');
+        if (locationTooltip) {
+            locationTooltip.textContent = `${pokemonLocation.Pokemon} - ${pokemonLocation.Map}`;
+            locationTooltip.style.left = `${touch.clientX + 15}px`;
+            locationTooltip.style.top = `${touch.clientY}px`;
+            locationTooltip.style.opacity = '1';
+        }
+    });
+    
+    icon.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        const locationTooltip = document.getElementById('tooltip');
+        if (locationTooltip) {
+            locationTooltip.style.opacity = '0';
+        }
+        
+        if (e.changedTouches.length > 0) {
+            const touch = e.changedTouches[0];
+            displayPokemonTooltip(pokemonLocation, touch.clientX, touch.clientY);
         }
     });
     
@@ -1228,24 +1255,46 @@ function displayPokemonTooltip(pokemonData, x, y) {
     
     tooltip.innerHTML = content;
     
-    // Ustaw pozycję tooltipa
+    // Dostosuj pozycjonowanie dla urządzeń mobilnych
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    let tooltipLeft = x + 15;
-    let tooltipTop = y + 15;
-    const tooltipWidth = 400;
-    const tooltipHeight = 300;
+    const isMobile = window.innerWidth <= 768; // Sprawdzenie czy to urządzenie mobilne
     
-    if (tooltipLeft + tooltipWidth > viewportWidth) {
-        tooltipLeft = x - tooltipWidth - 15;
+    if (isMobile) {
+        // Na urządzeniach mobilnych wyświetl tooltip na środku ekranu
+        const tooltipWidth = Math.min(300, viewportWidth * 0.85);
+        tooltip.style.width = `${tooltipWidth}px`;
+        tooltip.style.maxWidth = `${tooltipWidth}px`;
+        tooltip.style.left = '50%';
+        tooltip.style.top = '50%';
+        tooltip.style.transform = 'translate(-50%, -50%)';
+        
+        // Zwiększ obszar dotyku dla przycisku zamykania
+        const closeButton = tooltip.querySelector('.close-tooltip');
+        if (closeButton) {
+            closeButton.style.padding = '10px';
+            closeButton.style.fontSize = '24px';
+        }
+    } else {
+        // Na desktopie użyj dotychczasowej logiki
+        let tooltipLeft = x + 15;
+        let tooltipTop = y + 15;
+        const tooltipWidth = 400;
+        const tooltipHeight = 300;
+        
+        if (tooltipLeft + tooltipWidth > viewportWidth) {
+            tooltipLeft = x - tooltipWidth - 15;
+        }
+        
+        if (tooltipTop + tooltipHeight > viewportHeight) {
+            tooltipTop = viewportHeight - tooltipHeight - 15;
+        }
+        
+        tooltip.style.left = `${tooltipLeft}px`;
+        tooltip.style.top = `${tooltipTop}px`;
+        tooltip.style.transform = 'none';
     }
     
-    if (tooltipTop + tooltipHeight > viewportHeight) {
-        tooltipTop = viewportHeight - tooltipHeight - 15;
-    }
-    
-    tooltip.style.left = `${tooltipLeft}px`;
-    tooltip.style.top = `${tooltipTop}px`;
     tooltip.style.display = 'block';
     
     // Dodaj funkcjonalność przycisku zamykania
@@ -1257,12 +1306,16 @@ function displayPokemonTooltip(pokemonData, x, y) {
     }
     
     // Zamknij tooltip po kliknięciu gdziekolwiek indziej
-    document.addEventListener('click', function closeTooltip(e) {
+    const handleOutsideClick = function(e) {
         if (!tooltip.contains(e.target) && !e.target.closest('.pokemon-icon')) {
             tooltip.style.display = 'none';
-            document.removeEventListener('click', closeTooltip);
+            document.removeEventListener('click', handleOutsideClick);
+            document.removeEventListener('touchstart', handleOutsideClick);
         }
-    });
+    };
+    
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick);
 }
 
 // Inicjalizacja po załadowaniu okna
@@ -1338,12 +1391,6 @@ function displayPokemonsByLocation(locationName) {
         pokemonAtLocation = pokemonAtLocation.filter(poke => poke.RequiresRepel);
     }
     
-    if (pokemonAtLocation.length === 0) {
-        alert(window.i18n ? window.i18n.t(showOnlyRepel ? "pokesearch.noPokemonAtLocationWithRepel" : "pokesearch.noPokemonAtLocation") : 
-             `Nie znaleziono Pokemonów w lokalizacji ${locationName}${showOnlyRepel ? " z repelem" : ""}`);
-        return;
-    }
-    
     // Wyczyść poprzednie ikony Pokemonów
     clearOnlyPokemonIcons();
     
@@ -1361,6 +1408,20 @@ function displayPokemonsByLocation(locationName) {
     const existingItemPanel = document.querySelector('.item-pokemon-panel');
     if (existingItemPanel) {
         existingItemPanel.remove();
+    }
+    
+    // Jeśli nie ma pokemonów w tej lokalizacji
+    if (pokemonAtLocation.length === 0) {
+        if (isOnMap) {
+            // Jeśli lokalizacja jest na mapie, wycentruj mapę bez wyświetlania alertu
+            centerMapOnLocation(mapLoc);
+            displayLocationMarker(mapLoc);
+        } else {
+            // Wyświetl alert tylko gdy lokalizacja NIE jest na mapie i nie ma pokemonów
+            alert(window.i18n ? window.i18n.t(showOnlyRepel ? "pokesearch.noPokemonAtLocationWithRepel" : "pokesearch.noPokemonAtLocation") : 
+                 `Nie znaleziono Pokemonów w lokalizacji ${locationName}${showOnlyRepel ? " z repelem" : ""}`);
+        }
+        return;
     }
     
     // Sortuj Pokemony alfabetycznie

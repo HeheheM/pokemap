@@ -1125,11 +1125,34 @@ function displayBossIcons() {
         };
         bossIcon.appendChild(bossImage);
         bossIcon.dataset.bossName = bossName;
+        
+        // Kliknięcie myszą
         bossIcon.addEventListener('click', function(e) {
             e.stopPropagation();
             showBossTooltip(bossName, e.clientX, e.clientY);
         });
 
+        // Obsługa zdarzeń dotykowych
+        bossIcon.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Zapobiega standardowym zachowaniom
+            const touch = e.touches[0];
+            tooltip.textContent = bossName;
+            tooltip.style.left = `${touch.clientX + 15}px`;
+            tooltip.style.top = `${touch.clientY}px`;
+            tooltip.style.opacity = '1';
+        });
+        
+        bossIcon.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            tooltip.style.opacity = '0';
+            
+            if (e.changedTouches.length > 0) {
+                const touch = e.changedTouches[0];
+                showBossTooltip(bossName, touch.clientX, touch.clientY);
+            }
+        });
+
+        // Standardowa obsługa myszy dla desktopów
         bossIcon.addEventListener('mouseover', function(e) {
             tooltip.textContent = bossName;
             tooltip.style.left = `${e.clientX + 15}px`;
@@ -1183,39 +1206,70 @@ function showBossTooltip(bossName, x, y) {
     
     tooltipContent += '</div>';
     bossTooltip.innerHTML = tooltipContent;
+    
+    // Dostosuj pozycjonowanie dla urządzeń mobilnych
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    let tooltipLeft = x + 15;
-    let tooltipTop = y + 15;
-    const tooltipWidth = 400;
-    const tooltipHeight = 300;
+    const isMobile = window.innerWidth <= 768; // Sprawdzenie czy to urządzenie mobilne
     
-    if (tooltipLeft + tooltipWidth > viewportWidth) {
-        tooltipLeft = x - tooltipWidth - 15;
+    let tooltipWidth = 400;
+    let tooltipHeight = 300;
+    
+    // Na urządzeniach mobilnych, zmieniamy rozmiar tooltipa
+    if (isMobile) {
+        tooltipWidth = Math.min(300, viewportWidth * 0.85);
+        // Ustawiamy stałą pozycję dla urządzeń mobilnych - centrum ekranu
+        bossTooltip.style.width = `${tooltipWidth}px`;
+        bossTooltip.style.maxWidth = `${tooltipWidth}px`;
+        bossTooltip.style.left = `50%`;
+        bossTooltip.style.top = `50%`;
+        bossTooltip.style.transform = 'translate(-50%, -50%)';
+    } else {
+        // Na desktopie używamy dotychczasowej logiki
+        let tooltipLeft = x + 15;
+        let tooltipTop = y + 15;
+        
+        if (tooltipLeft + tooltipWidth > viewportWidth) {
+            tooltipLeft = x - tooltipWidth - 15;
+        }
+        
+        if (tooltipTop + tooltipHeight > viewportHeight) {
+            tooltipTop = viewportHeight - tooltipHeight - 15;
+        }
+        
+        bossTooltip.style.left = `${tooltipLeft}px`;
+        bossTooltip.style.top = `${tooltipTop}px`;
+        bossTooltip.style.transform = 'none';
     }
     
-    if (tooltipTop + tooltipHeight > viewportHeight) {
-        tooltipTop = viewportHeight - tooltipHeight - 15;
-    }
-    
-    bossTooltip.style.left = `${tooltipLeft}px`;
-    bossTooltip.style.top = `${tooltipTop}px`;
-    bossTooltip.style.transform = 'none';
     bossTooltip.style.display = 'block';
 
+    // Dodajemy zdarzenie do przycisku zamykania
     const closeButton = bossTooltip.querySelector('.close-tooltip');
     if (closeButton) {
-        closeButton.addEventListener('click', function() {
+        // Zwiększamy obszar dotyku dla przycisku zamykania na urządzeniach mobilnych
+        if (isMobile) {
+            closeButton.style.padding = '10px';
+            closeButton.style.fontSize = '24px';
+        }
+        
+        closeButton.addEventListener('click', function(e) {
+            e.stopPropagation();
             bossTooltip.style.display = 'none';
         });
     }
 
-    document.addEventListener('click', function closeBossTooltip(e) {
+    // Dodaj obsługę dotykowego zamykania tooltipa
+    const handleOutsideClick = function(e) {
         if (!bossTooltip.contains(e.target) && e.target.className !== 'boss-icon' && !e.target.closest('.boss-icon')) {
             bossTooltip.style.display = 'none';
-            document.removeEventListener('click', closeBossTooltip);
+            document.removeEventListener('click', handleOutsideClick);
+            document.removeEventListener('touchstart', handleOutsideClick);
         }
-    });
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('touchstart', handleOutsideClick);
 }
 
 zoomInBtn.addEventListener('click', () => {

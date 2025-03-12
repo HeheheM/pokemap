@@ -50,7 +50,7 @@ function startAutoSave() {
     
     autoSaveInterval = setInterval(function() {
         if (currentProfile) {
-            console.log("Auto-saving current profile data...");
+            // console.log("Auto-saving current profile data...");
             saveCurrentProfileData();
             saveProfiles();
         }
@@ -422,7 +422,7 @@ function saveCurrentProfileData() {
         // Aktualizuj dane profilu
         profiles[currentProfile].data = data;
         
-        console.log(`Saved data for profile: ${profiles[currentProfile].name}`);
+        // console.log(`Saved data for profile: ${profiles[currentProfile].name}`);
         return true;
     } catch (error) {
         console.error("Error saving current profile data:", error);
