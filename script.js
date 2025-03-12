@@ -758,7 +758,6 @@ function renderAreaPolygon(location) {
     
     map.appendChild(svg);
 }
-
 function saveRouteToJson() {
     const routeSelect = document.getElementById('route-select');
     const selectedRouteIndex = routeSelect.value;
@@ -1219,67 +1218,6 @@ function showBossTooltip(bossName, x, y) {
     });
 }
 
-// function setupSearchFunctionality() {
-//     locationSearch.addEventListener('input', function() {
-//         const searchText = this.value.toLowerCase();
-        
-//         if (searchText.length < 2) {
-//             searchResults.style.display = 'none';
-//             return;
-//         }
-
-//         if (!locations || locations.length === 0) {
-//             const resultItem = document.createElement('div');
-//             resultItem.className = 'search-result-item';
-//             resultItem.textContent = window.i18n.t("search.noData");
-            
-//             searchResults.innerHTML = '';
-//             searchResults.appendChild(resultItem);
-//             searchResults.style.display = 'block';
-//             return;
-//         }
-
-//         const matchingLocations = locations.filter(loc => 
-//             loc.tooltip && loc.tooltip.toLowerCase().includes(searchText)
-//         );
-        
-//         searchResults.innerHTML = '';
-        
-//         if (matchingLocations.length === 0) {
-//             const resultItem = document.createElement('div');
-//             resultItem.className = 'search-result-item';
-//             resultItem.textContent = window.i18n.t("search.noResults");
-//             searchResults.appendChild(resultItem);
-//             searchResults.style.display = 'block';
-//             return;
-//         }
-
-//         const resultsToShow = matchingLocations.slice(0, 10);
-        
-//         resultsToShow.forEach(loc => {
-//             const resultItem = document.createElement('div');
-//             resultItem.className = 'search-result-item';
-//             resultItem.textContent = `${loc.tooltip} (${loc.region || window.i18n.t("search.noRegion")})`;
-            
-//             resultItem.addEventListener('click', function() {
-//                 centerMapOnLocation(loc);
-//                 searchResults.style.display = 'none';
-//                 locationSearch.value = loc.tooltip;
-//             });
-            
-//             searchResults.appendChild(resultItem);
-//         });
-        
-//         searchResults.style.display = 'block';
-//     });
-
-//     document.addEventListener('click', function(e) {
-//         if (!searchResults.contains(e.target) && e.target !== locationSearch) {
-//             searchResults.style.display = 'none';
-//         }
-//     });
-// }
-
 zoomInBtn.addEventListener('click', () => {
     scale *= 1.2;
     updateMapTransform();
@@ -1361,6 +1299,122 @@ map.addEventListener('contextmenu', function(e) {
     e.preventDefault();
     return false;
 });
+map.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+        e.preventDefault(); // Prevent scrolling
+        
+        isDragging = true;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        currentOffsetX = offsetX;
+        currentOffsetY = offsetY;
+        
+        map.style.cursor = 'grabbing';
+    }
+}, { passive: false });
+
+map.addEventListener('touchmove', function(e) {
+    if (!isDragging || e.touches.length !== 1) return;
+    
+    e.preventDefault(); // Prevent scrolling
+    
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+    
+    offsetX = currentOffsetX + dx;
+    offsetY = currentOffsetY + dy;
+    
+    updateMapTransform();
+}, { passive: false });
+
+map.addEventListener('touchend', function(e) {
+    if (isDragging) {
+        isDragging = false;
+        map.style.cursor = 'grab';
+    }
+});
+
+// Add touch zoom support to the mapContainer
+mapContainer.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 2) {
+        e.preventDefault();
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const dist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+        
+        // Store the initial distance and scale
+        this.lastPinchDistance = dist;
+        this.lastPinchScale = scale;
+        
+        // Store the midpoint of the two touches
+        this.pinchMidX = (touch1.clientX + touch2.clientX) / 2;
+        this.pinchMidY = (touch1.clientY + touch2.clientY) / 2;
+    }
+}, { passive: false });
+
+mapContainer.addEventListener('touchmove', function(e) {
+    if (e.touches.length === 2 && this.lastPinchDistance) {
+        e.preventDefault();
+        
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const currentDist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+        
+        // Calculate scale change
+        const pinchRatio = currentDist / this.lastPinchDistance;
+        const newScale = this.lastPinchScale * pinchRatio;
+        
+        // Limit the scale
+        const MIN_SCALE = 0.5;
+        const MAX_SCALE = 5.0;
+        
+        if (newScale >= MIN_SCALE && newScale <= MAX_SCALE) {
+            const rect = mapContainer.getBoundingClientRect();
+            const pinchMidX = this.pinchMidX - rect.left;
+            const pinchMidY = this.pinchMidY - rect.top;
+            
+            // Calculate the map coordinate under the pinch midpoint
+            const imageX = (pinchMidX - offsetX) / scale;
+            const imageY = (pinchMidY - offsetY) / scale;
+            
+            // Set the new scale
+            scale = newScale;
+            
+            // Adjust offset to keep the pinch midpoint at the same place
+            offsetX = pinchMidX - imageX * scale;
+            offsetY = pinchMidY - imageY * scale;
+            
+            updateMapTransform();
+        }
+    }
+}, { passive: false });
+
+mapContainer.addEventListener('touchend', function(e) {
+    // Reset pinch tracking
+    this.lastPinchDistance = null;
+    this.lastPinchScale = null;
+});
+
+// Add specific style for touch devices to improve usability
+const touchStyle = document.createElement('style');
+touchStyle.textContent = `
+    @media (pointer: coarse) {
+        #map, #map-container {
+            cursor: grab !important;
+        }
+        #map:active, #map-container:active {
+            cursor: grabbing !important;
+        }
+        .map-controls .control-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+    }
+`;
+document.head.appendChild(touchStyle);
+
+
 
 let routes = [];
 let currentRoute = [];
@@ -1381,6 +1435,9 @@ function initRouteCreator() {
     const loadRouteJsonBtn = document.getElementById('load-route-json-btn');
     const sidebarChildren = document.querySelectorAll('.sidebar > *:not(#route-creator-sidebar)');
     defaultSidebarContent = Array.from(sidebarChildren);
+
+    // Dodaj obsługę drag and drop dla kontenera bossów
+    setupDragAndDrop();
 
     routeCreatorBtn.addEventListener('click', function() {
         defaultSidebarContent.forEach(el => el.style.display = 'none');
@@ -1409,7 +1466,6 @@ function initRouteCreator() {
     }
 
     function addRouteNumberToBoss(bossName, number) {
-
         const bossIcon = bossIcons.find(icon => icon.dataset.bossName === bossName);
         
         if (bossIcon) {
@@ -1436,6 +1492,150 @@ function initRouteCreator() {
             currentRouteNumbers.push(numberElement);
         }
     }
+    
+    // Nowa implementacja drag and drop
+    function setupDragAndDrop() {
+        // Wykorzystujemy delegację zdarzeń dla lepszej wydajności
+        selectedBossesContainer.addEventListener('dragstart', handleDragStart);
+        selectedBossesContainer.addEventListener('dragend', handleDragEnd);
+        
+        // Obsługa dla całego kontenera
+        selectedBossesContainer.addEventListener('dragover', handleDragOver);
+        selectedBossesContainer.addEventListener('drop', handleDrop);
+    }
+    
+    // Zmienne do śledzenia operacji drag and drop
+    let draggedElement = null;
+    let draggedIndex = -1;
+    
+    // Obsługujemy rozpoczęcie przeciągania
+    function handleDragStart(e) {
+        // Upewniamy się, że zdarzenie pochodzi od elementu .selected-boss
+        const bossElement = e.target.closest('.selected-boss');
+        if (!bossElement) return;
+        
+        // Zapamiętujemy element i jego indeks
+        draggedElement = bossElement;
+        draggedIndex = parseInt(bossElement.dataset.index);
+        
+        // Dodajemy klasę dla wizualnego feedbacku
+        bossElement.classList.add('dragging');
+        
+        // Ustawiamy dane dla operacji przeciągania
+        e.dataTransfer.setData('text/plain', draggedIndex);
+        
+        // Tworzymy niestandardowy obraz przeciągania
+        const ghostElement = bossElement.cloneNode(true);
+        ghostElement.style.width = bossElement.offsetWidth + 'px';
+        ghostElement.style.height = bossElement.offsetHeight + 'px';
+        ghostElement.style.opacity = '0.7';
+        ghostElement.style.position = 'absolute';
+        ghostElement.style.top = '-1000px';
+        document.body.appendChild(ghostElement);
+        e.dataTransfer.setDragImage(ghostElement, 20, 20);
+        
+        // Usuwamy ghostElement po krótkiej chwili
+        setTimeout(() => {
+            document.body.removeChild(ghostElement);
+        }, 0);
+    }
+    
+    // Obsługujemy zakończenie przeciągania
+    function handleDragEnd(e) {
+        // Upewniamy się, że zdarzenie pochodzi od elementu .selected-boss
+        const bossElement = e.target.closest('.selected-boss');
+        if (!bossElement) return;
+        
+        // Usuwamy klasę dla wizualnego feedbacku
+        bossElement.classList.remove('dragging');
+        
+        // Resetujemy wszystkie style i klasy z operacji drag
+        document.querySelectorAll('.selected-boss').forEach(el => {
+            el.classList.remove('drag-over');
+        });
+        
+        // Resetujemy zmienne
+        draggedElement = null;
+        draggedIndex = -1;
+    }
+    
+    // Obsługujemy przeciąganie nad potencjalnym miejscem upuszczenia
+    function handleDragOver(e) {
+        e.preventDefault(); // Konieczne, aby umożliwić upuszczanie
+        
+        // Znajdujemy najbliższy element .selected-boss, który nie jest przeciągany
+        const targetElement = findDropTarget(e.clientY);
+        
+        // Usuwamy klasę drag-over ze wszystkich elementów
+        document.querySelectorAll('.selected-boss').forEach(el => {
+            if (el !== targetElement) {
+                el.classList.remove('drag-over');
+            }
+        });
+        
+        // Dodajemy klasę drag-over do docelowego elementu
+        if (targetElement && targetElement !== draggedElement) {
+            targetElement.classList.add('drag-over');
+        }
+    }
+    
+    // Znajdujemy najbliższy element docelowy na podstawie pozycji kursora
+    function findDropTarget(clientY) {
+        const possibleTargets = Array.from(
+            document.querySelectorAll('.selected-boss:not(.dragging)')
+        );
+        
+        if (possibleTargets.length === 0) return null;
+        
+        // Znajdujemy element, nad którym znajduje się kursor
+        return possibleTargets.find(element => {
+            const box = element.getBoundingClientRect();
+            return clientY >= box.top && clientY <= box.bottom;
+        });
+    }
+    
+    // Obsługujemy upuszczenie elementu
+    function handleDrop(e) {
+        e.preventDefault();
+        
+        // Znajdujemy docelowy element na podstawie pozycji kursora
+        const targetElement = findDropTarget(e.clientY);
+        
+        // Jeśli nie ma docelowego elementu lub to ten sam element, kończymy
+        if (!targetElement || targetElement === draggedElement) {
+            document.querySelectorAll('.selected-boss').forEach(el => {
+                el.classList.remove('drag-over');
+            });
+            return;
+        }
+        
+        // Pobieramy indeks docelowego elementu
+        const targetIndex = parseInt(targetElement.dataset.index);
+        
+        // Usuwamy przeciągany element z jego obecnej pozycji
+        const bossToMove = currentRoute.splice(draggedIndex, 1)[0];
+        
+        // Określamy nową pozycję - przed lub po docelowym elemencie
+        let newIndex = targetIndex;
+        
+        // Jeśli przeciągamy element z wyższej pozycji (mniejszy indeks)
+        // na niższą (większy indeks), musimy uwzględnić przesunięcie
+        if (draggedIndex < targetIndex) {
+            newIndex = targetIndex;
+        }
+        
+        // Wstawiamy element na nową pozycję
+        currentRoute.splice(newIndex, 0, bossToMove);
+        
+        // Odświeżamy listę bossów
+        refreshBossList();
+        
+        // Usuwamy klasę drag-over ze wszystkich elementów
+        document.querySelectorAll('.selected-boss').forEach(el => {
+            el.classList.remove('drag-over');
+        });
+    }
+
     routeSelect.addEventListener('change', function() {
         const routeIndex = this.value;
         console.log(window.i18n.t("log.routeSelected", [routeIndex]));
@@ -1557,7 +1757,6 @@ function initRouteCreator() {
             </div>
             <button class="remove-boss-btn" data-index="${currentRoute.length - 1}">×</button>
         `;
-        addDragListeners(bossElement);
         
         selectedBossesContainer.appendChild(bossElement);
 
@@ -1578,87 +1777,6 @@ function initRouteCreator() {
         bossSearch.value = '';
 
         addRouteNumberToBoss(bossName, currentRoute.length);
-    }
-
-    function addDragListeners(element) {
-        element.addEventListener('dragstart', function(e) {
-            this.classList.add('dragging');
-            e.dataTransfer.setData('text/plain', this.dataset.index);
-
-            const ghostElement = this.cloneNode(true);
-            ghostElement.style.width = this.offsetWidth + 'px';
-            ghostElement.style.height = this.offsetHeight + 'px';
-            ghostElement.style.opacity = '0.7';
-            ghostElement.style.position = 'absolute';
-            ghostElement.style.top = '-1000px';
-            document.body.appendChild(ghostElement);
-            e.dataTransfer.setDragImage(ghostElement, 20, 20);
-
-            setTimeout(() => {
-                document.body.removeChild(ghostElement);
-            }, 0);
-        });
-        
-        element.addEventListener('dragend', function() {
-            this.classList.remove('dragging');
-        });
-        
-        element.addEventListener('dragover', function(e) {
-            e.preventDefault();
-
-            this.classList.add('drag-over');
-
-            const rect = this.getBoundingClientRect();
-            const mouseY = e.clientY - rect.top;
-            const isTop = mouseY < rect.height / 2;
-
-            if (isTop) {
-                this.classList.add('drag-over-top');
-                this.classList.remove('drag-over-bottom');
-            } else {
-                this.classList.add('drag-over-bottom');
-                this.classList.remove('drag-over-top');
-            }
-        });
-        
-        element.addEventListener('dragleave', function() {
-            this.classList.remove('drag-over');
-            this.classList.remove('drag-over-top');
-            this.classList.remove('drag-over-bottom');
-        });
-        
-        element.addEventListener('drop', function(e) {
-            e.preventDefault();
-
-            this.classList.remove('drag-over');
-            this.classList.remove('drag-over-top');
-            this.classList.remove('drag-over-bottom');
-
-            const sourceIndex = parseInt(e.dataTransfer.getData('text/plain'));
-            const targetIndex = parseInt(this.dataset.index);
-            
-            if (sourceIndex === targetIndex) return;
-
-            const rect = this.getBoundingClientRect();
-            const mouseY = e.clientY - rect.top;
-            const isTop = mouseY < rect.height / 2;
-
-            let newIndex;
-            if (isTop) {
-                newIndex = targetIndex;
-            } else {
-                newIndex = targetIndex + 1;
-            }
-
-            if (sourceIndex < newIndex) {
-                newIndex--;
-            }
-
-            const boss = currentRoute.splice(sourceIndex, 1)[0];
-            currentRoute.splice(newIndex, 0, boss);
-
-            refreshBossList();
-        });
     }
 
     function refreshBossList() {
@@ -1686,7 +1804,6 @@ function initRouteCreator() {
                 </div>
                 <button class="remove-boss-btn" data-index="${i}">×</button>
             `;
-            addDragListeners(bossElement);
             
             selectedBossesContainer.appendChild(bossElement);
         
