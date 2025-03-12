@@ -10,6 +10,8 @@ async function initializeI18n() {
         }
         translations = await response.json();
 
+        <script src="loading-overlay.js"></script>
+        
         const savedLanguage = localStorage.getItem('appLanguage');
         if (savedLanguage && translations[savedLanguage]) {
             currentLanguage = savedLanguage;
