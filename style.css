@@ -419,6 +419,7 @@ body {
     max-height: 50vh;
     overflow-y: auto;
     margin-bottom: 20px;
+    scrollbar-width: none;  /* Firefox */
 }
 #route-boss-list-container {
     display: block;
@@ -430,6 +431,9 @@ body {
     border-radius: 5px;
 }
 
+#selected-bosses-container::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari i Opera */
+}
 
 .boss-number {
     min-width: 24px;
