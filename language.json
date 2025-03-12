@@ -213,6 +213,9 @@
         "landSpawn": "Land",
         "waterSpawn": "Surf",
         "repelRequired": "Repel"
+      },
+      "pokestop": {
+        "title": "PokéStop"
       }
     },
     "pl": {
@@ -429,6 +432,9 @@
         "landSpawn": "Land",
         "waterSpawn": "Surf",
         "repelRequired": "Repel"
+      },
+      "pokestop": {
+        "title": "PokéStop"
       }
     }
   }

@@ -2232,10 +2232,10 @@
     ]
   },
   {
-    "map": "Safari Stop",
+    "map": "Safari Zone Kanto",
     "comparer": "Equals",
     "region": "Kanto",
-    "tooltip": "Safari Zone",
+    "tooltip": "Safari Zone Kanto",
     "map_pos": [
       2729,
       2162
@@ -4559,7 +4559,7 @@
     "map": "Safari Zone Johto",
     "comparer": "Equals",
     "region": "Johto",
-    "tooltip": "Safari Zone",
+    "tooltip": "Safari Zone Johto",
     "map_pos": [
       1560,
       2046
@@ -5168,46 +5168,6 @@
     ]
   },
   {
-    "map": "Turnback Cave",
-    "comparer": "Contains",
-    "region": "Sinnoh",
-    "tooltip": "Turnback Cave",
-    "map_pos": [
-      3025,
-      576
-    ],
-    "polygon_points": [
-      [
-        3019,
-        578
-      ],
-      [
-        3021,
-        569
-      ],
-      [
-        3029,
-        569
-      ],
-      [
-        3034,
-        573
-      ],
-      [
-        3031,
-        582
-      ],
-      [
-        3024,
-        582
-      ],
-      [
-        3019,
-        577
-      ]
-    ]
-  },
-  {
     "map": "Elite Four Champion Room Sinnoh",
     "comparer": "Contains",
     "region": "Sinnoh",
@@ -5704,46 +5664,6 @@
       [
         2667,
         755
-      ]
-    ]
-  },
-  {
-    "map": "Eterna Forest",
-    "comparer": "Contains",
-    "region": "Sinnoh",
-    "tooltip": "Eterna Forest",
-    "map_pos": [
-      2594,
-      468
-    ],
-    "polygon_points": [
-      [
-        2588,
-        469
-      ],
-      [
-        2589,
-        462
-      ],
-      [
-        2596,
-        461
-      ],
-      [
-        2600,
-        466
-      ],
-      [
-        2599,
-        472
-      ],
-      [
-        2595,
-        474
-      ],
-      [
-        2588,
-        470
       ]
     ]
   },
@@ -6592,6 +6512,46 @@
     ]
   },
   {
+    "map": "Eterna Forest",
+    "comparer": "Contains",
+    "region": "Sinnoh",
+    "tooltip": "Eterna Forest",
+    "map_pos": [
+      2594,
+      468
+    ],
+    "polygon_points": [
+      [
+        2588,
+        469
+      ],
+      [
+        2589,
+        462
+      ],
+      [
+        2596,
+        461
+      ],
+      [
+        2600,
+        466
+      ],
+      [
+        2599,
+        472
+      ],
+      [
+        2595,
+        474
+      ],
+      [
+        2588,
+        470
+      ]
+    ]
+  },
+  {
     "map": "Route 206",
     "comparer": "Contains",
     "region": "Sinnoh",
@@ -6880,6 +6840,46 @@
       [
         2988,
         678
+      ]
+    ]
+  },
+  {
+    "map": "Turnback Cave",
+    "comparer": "Contains",
+    "region": "Sinnoh",
+    "tooltip": "Turnback Cave",
+    "map_pos": [
+      3025,
+      576
+    ],
+    "polygon_points": [
+      [
+        3019,
+        578
+      ],
+      [
+        3021,
+        569
+      ],
+      [
+        3029,
+        569
+      ],
+      [
+        3034,
+        573
+      ],
+      [
+        3031,
+        582
+      ],
+      [
+        3024,
+        582
+      ],
+      [
+        3019,
+        577
       ]
     ]
   },
@@ -9652,34 +9652,66 @@
     ]
   },
   {
-    "map": "Route 119",
+    "map": "Route 119A",
     "comparer": "Contains",
     "region": "Hoenn",
-    "tooltip": "Route 119",
+    "tooltip": "Route 119A",
     "map_pos": [
       1210,
-      2393
+      2363
     ],
     "polygon_points": [
       [
-        1205,
-        2337
+        1203,
+        2338
       ],
       [
-        1220,
-        2338
+        1203,
+        2399
+      ],
+      [
+        1222,
+        2399
+      ],
+      [
+        1221,
+        2339
+      ],
+      [
+        1203,
+        2337
+      ]
+    ]
+  },
+  {
+    "map": "Route 119B",
+    "comparer": "Contains",
+    "region": "Hoenn",
+    "tooltip": "Route 119B",
+    "map_pos": [
+      1210,
+      2432
+    ],
+    "polygon_points": [
+      [
+        1203,
+        2401
+      ],
+      [
+        1203,
+        2478
       ],
       [
         1220,
         2478
       ],
       [
-        1202,
-        2479
+        1221,
+        2401
       ],
       [
-        1205,
-        2336
+        1203,
+        2401
       ]
     ]
   },
@@ -9735,7 +9767,7 @@
     "map": "Safari Zone Hoenn",
     "comparer": "Equals",
     "region": "Hoenn",
-    "tooltip": "Safari Zone",
+    "tooltip": "Safari Zone Hoenn",
     "map_pos": [
       1307,
       2387
@@ -11364,6 +11396,54 @@
       [
         1727,
         2625
+      ]
+    ]
+  },
+  {
+    "map": "Victory Road Hoenn",
+    "comparer": "Contains",
+    "region": "Hoenn",
+    "tooltip": "Victory Road Hoenn",
+    "map_pos": [
+      1733,
+      2609
+    ],
+    "polygon_points": [
+      [
+        1727,
+        2599
+      ],
+      [
+        1744,
+        2598
+      ],
+      [
+        1744,
+        2618
+      ],
+      [
+        1739,
+        2614
+      ],
+      [
+        1734,
+        2611
+      ],
+      [
+        1729,
+        2613
+      ],
+      [
+        1728,
+        2615
+      ],
+      [
+        1726,
+        2614
+      ],
+      [
+        1726,
+        2600
       ]
     ]
   },

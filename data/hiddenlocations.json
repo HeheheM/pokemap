@@ -1,0 +1,926 @@
+[
+    {
+        "map": "Sendoff Spring",
+        "location": "Route 214",
+        "region": "Sinnoh",
+        "tooltip": "Sendoff Spring"
+    },
+    {
+        "map": "Cave Of Justice",
+        "location": "Route 210 North",
+        "region": "Sinnoh",
+        "tooltip": "Cave Of Justice"
+    },
+    {
+        "map": "Cerulean Cave",
+        "location": "Cerulean City",
+        "region": "Kanto",
+        "tooltip": "Cerulean Cave"
+    },
+    {
+        "map": "Cerulean Cave 1F",
+        "location": "Cerulean City",
+        "region": "Kanto",
+        "tooltip": "Cerulean Cave 1F"
+    },
+    {
+        "map": "Cerulean Cave 2F",
+        "location": "Cerulean City",
+        "region": "Kanto",
+        "tooltip": "Cerulean Cave 2F"
+    },
+    {
+        "map": "Cerulean Cave B1F",
+        "location": "Cerulean City",
+        "region": "Kanto",
+        "tooltip": "Cerulean Cave B1F"
+    },
+    {
+        "map": "Cliff Edge Gate",
+        "location": "Cianwood City",
+        "region": "Johto",
+        "tooltip": "Cliff Edge Gate"
+    },
+    {
+        "map": "Cliff Cave B1F",
+        "location": "Cianwood City",
+        "region": "Johto",
+        "tooltip": "Cliff Cave B1F"
+    },
+    {
+        "map": "Cliff Cave 1F",
+        "location": "Cianwood City",
+        "region": "Johto",
+        "tooltip": "Cliff Cave 1F"
+    },
+    {
+        "map": "Cliff Cave 2F",
+        "location": "Cianwood City",
+        "region": "Johto",
+        "tooltip": "Cliff Cave 2F"
+    },
+    {
+        "map": "Dark Cave Entrance",
+        "location": "Route 31",
+        "region": "Johto",
+        "tooltip": "Dark Cave Entrance"
+    },
+    {
+        "map": "Dark Cave Entrance",
+        "location": "Route 45",
+        "region": "Johto",
+        "tooltip": "Dark Cave Entrance"
+    },
+    {
+        "map": "Dark Cave Entrance",
+        "location": "Route 46",
+        "region": "Johto",
+        "tooltip": "Dark Cave Entrance"
+    },
+    {
+        "map": "Dark Cave South",
+        "location": "Route 31",
+        "region": "Johto",
+        "tooltip": "Dark Cave South"
+    },
+    {
+        "map": "Dark Cave South",
+        "location": "Route 45",
+        "region": "Johto",
+        "tooltip": "Dark Cave South"
+    },
+    {
+        "map": "Dark Cave South",
+        "location": "Route 46",
+        "region": "Johto",
+        "tooltip": "Dark Cave South"
+    },
+    {
+        "map": "Dark Cave North",
+        "location": "Route 31",
+        "region": "Johto",
+        "tooltip": "Dark Cave North"
+    },
+    {
+        "map": "Dark Cave North",
+        "location": "Route 45",
+        "region": "Johto",
+        "tooltip": "Dark Cave North"
+    },
+    {
+        "map": "Dark Cave North",
+        "location": "Route 46",
+        "region": "Johto",
+        "tooltip": "Dark Cave North"
+    },
+    {
+        "map": "Desert Cave",
+        "location": "Dock Island",
+        "region": "Johto",
+        "tooltip": "Desert Cave"
+    },
+    {
+        "map": "Sendoff Spring",
+        "location": "Viridian",
+        "region": "Kanto",
+        "tooltip": "Sendoff Spring"
+    },
+    {
+        "map": "Diamond Empire",
+        "location": "Breezy Cave",
+        "region": "Kanto",
+        "tooltip": "Diamond Empire"
+    },
+    {
+        "map": "Digletts Cave",
+        "location": "Digletts Cave",
+        "region": "Kanto",
+        "tooltip": "Digletts Cave"
+    },
+    {
+        "map": "Digletts Cave Entrance 1",
+        "location": "Digletts Cave",
+        "region": "Kanto",
+        "tooltip": "Digletts Cave Entrance 1"
+    },
+    {
+        "map": "Digletts Cave Entrance 2",
+        "location": "Digletts Cave",
+        "region": "Kanto",
+        "tooltip": "Digletts Cave Entrance 2"
+    },
+    {
+        "map": "Digletts Cave B2F",
+        "location": "Digletts Cave",
+        "region": "Kanto",
+        "tooltip": "Digletts Cave B2F"
+    },
+    {
+        "map": "Dragons Den Entrance",
+        "location": "Blackthorn City",
+        "region": "Johto",
+        "tooltip": "Dragons Den Entrance"
+    },
+    {
+        "map": "Dragons Den",
+        "location": "Blackthorn City",
+        "region": "Johto",
+        "tooltip": "Dragons Den"
+    },
+    {
+        "map": "Dragons Den B1F",
+        "location": "Blackthorn City",
+        "region": "Johto",
+        "tooltip": "Dragons Den B1F"
+    },
+    {
+        "map": "Dragons Shrine",
+        "location": "Blackthorn City",
+        "region": "Johto",
+        "tooltip": "Dragons Shrine"
+    },
+    {
+        "map": "Fiery Path",
+        "location": "Fiery Path",
+        "region": "Hoenn",
+        "tooltip": "Fiery Path"
+    },
+    {
+        "map": "Granite Cave",
+        "location": "Route 106",
+        "region": "Hoenn",
+        "tooltip": "Granite Cave"
+    },
+    {
+        "map": "Granite Cave 1F",
+        "location": "Route 106",
+        "region": "Hoenn",
+        "tooltip": "Granite Cave 1F"
+    },
+    {
+        "map": "Granite Cave 1F2",
+        "location": "Route 106",
+        "region": "Hoenn",
+        "tooltip": "Granite Cave 1F2"
+    },
+    {
+        "map": "Granite Cave B1F",
+        "location": "Route 106",
+        "region": "Hoenn",
+        "tooltip": "Granite Cave B1F"
+    },
+    {
+        "map": "Granite Cave B2F",
+        "location": "Route 106",
+        "region": "Hoenn",
+        "tooltip": "Granite Cave B2F"
+    },
+    {
+        "map": "Green Path Cave",
+        "location": "Green Path",
+        "region": "Sevii Islands",
+        "tooltip": "Green Path Cave"
+    },
+    {
+        "map": "Green Path Cave Entrance",
+        "location": "Green Path",
+        "region": "Sevii Islands",
+        "tooltip": "Green Path Cave Entrance"
+    },
+    {
+        "map": "Green Path Cave B1F",
+        "location": "Green Path",
+        "region": "Sevii Islands",
+        "tooltip": "Green Path Cave B1F"
+    },
+    {
+        "map": "Green Path Cave B2F",
+        "location": "Green Path",
+        "region": "Sevii Islands",
+        "tooltip": "Green Path Cave B2F"
+    },
+    {
+        "map": "Green Path Cave Exit",
+        "location": "Green Path",
+        "region": "Sevii Islands",
+        "tooltip": "Green Path Cave Exit"
+    },
+    {
+        "map": "Iron Island 1F",
+        "location": "Iron Island",
+        "region": "Sinnoh",
+        "tooltip": "Iron Island 1F"
+    },
+    {
+        "map": "Iron Island B1F R",
+        "location": "Iron Island",
+        "region": "Sinnoh",
+        "tooltip": "Iron Island B1F R"
+    },
+    {
+        "map": "Iron Island B2F L",
+        "location": "Iron Island",
+        "region": "Sinnoh",
+        "tooltip": "Iron Island B2F L"
+    },
+    {
+        "map": "Iron Island B2F R",
+        "location": "Iron Island",
+        "region": "Sinnoh",
+        "tooltip": "Iron Island B2F R"
+    },
+    {
+        "map": "Iron Island Exit Room",
+        "location": "Iron Island",
+        "region": "Sinnoh",
+        "tooltip": "Iron Island Exit Room"
+    },
+    {
+        "map": "Jura Cave",
+        "location": "Leev Town",
+        "region": "Hoenn",
+        "tooltip": "Jura Cave"
+    },
+    {
+        "map": "Kalijodo Cave Entrance",
+        "location": "Kalijodo Cave",
+        "region": "Vulcan Island",
+        "tooltip": "Kalijodo Cave Entrance"
+    },
+    {
+        "map": "Kalijodo Cave B1F",
+        "location": "Kalijodo Cave",
+        "region": "Vulcan Island",
+        "tooltip": "Kalijodo Cave B1F"
+    },
+    {
+        "map": "Kalijodo Cave B2F",
+        "location": "Kalijodo Cave",
+        "region": "Vulcan Island",
+        "tooltip": "Kalijodo Cave B2F"
+    },
+    {
+        "map": "Forest Pit",
+        "location": "Mt. Mortar",
+        "region": "Johto",
+        "tooltip": "Forest Pit"
+    },
+    {
+        "map": "Lake Cave",
+        "location": "Mt. Mortar",
+        "region": "Johto",
+        "tooltip": "Lake Cave"
+    },
+    {
+        "map": "Maniac Tunnel",
+        "location": "Maniac Tunnel",
+        "region": "Sinnoh",
+        "tooltip": "Maniac Tunnel"
+    },
+    {
+        "map": "Meteor Falls 1F 1R",
+        "location": "Meteor Falls",
+        "region": "Hoenn",
+        "tooltip": "Meteor Falls 1F 1R"
+    },
+    {
+        "map": "Meteor Falls 1F 2R",
+        "location": "Meteor Falls",
+        "region": "Hoenn",
+        "tooltip": "Meteor Falls 1F 2R"
+    },
+    {
+        "map": "Meteor Falls B1F 1R",
+        "location": "Meteor Falls",
+        "region": "Hoenn",
+        "tooltip": "Meteor Falls B1F 1R"
+    },
+    {
+        "map": "Meteor Falls B1F 2R",
+        "location": "Meteor Falls",
+        "region": "Hoenn",
+        "tooltip": "Meteor Falls B1F 2R"
+    },
+    {
+        "map": "Mirage Island Cave 1F",
+        "location": "Mirage Island",
+        "region": "Hoenn",
+        "tooltip": "Mirage Island Cave 1F"
+    },
+    {
+        "map": "Mirage Island Cave 2F",
+        "location": "Mirage Island",
+        "region": "Hoenn",
+        "tooltip": "Mirage Island Cave 2F"
+    },
+    {
+        "map": "Mirage Island Cave 3F",
+        "location": "Mirage Island",
+        "region": "Hoenn",
+        "tooltip": "Mirage Island Cave 3F"
+    },
+    {
+        "map": "Mirage Island Summit",
+        "location": "Mirage Island",
+        "region": "Hoenn",
+        "tooltip": "Mirage Island Summit"
+    },
+    {
+        "map": "Mirage Island Lake",
+        "location": "Mirage Island",
+        "region": "Hoenn",
+        "tooltip": "Mirage Island Lake"
+    },
+    {
+        "map": "Moon",
+        "location": "Sky Pillar",
+        "region": "Hoenn",
+        "tooltip": "Moon"
+    },
+    {
+        "map": "Moon 1F",
+        "location": "Sky Pillar",
+        "region": "Hoenn",
+        "tooltip": "Moon 1F"
+    },
+    {
+        "map": "Moon B1F",
+        "location": "Sky Pillar",
+        "region": "Hoenn",
+        "tooltip": "Moon B1F"
+    },
+    {
+        "map": "Mt. Coronet Center",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet Center"
+    },
+    {
+        "map": "Mt. Coronet B1F",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet B1F"
+    },
+    {
+        "map": "Mt. Coronet North",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet North"
+    },
+    {
+        "map": "Mt. Coronet Tunnel",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet Tunnel"
+    },
+    {
+        "map": "Mt. Coronet South",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet South"
+    },
+    {
+        "map": "Mt. Coronet 2F",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet 2F"
+    },
+    {
+        "map": "Mt. Coronet 3F",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet 3F"
+    },
+    {
+        "map": "Mt. Coronet Summit",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet Summit"
+    },
+    {
+        "map": "Mt. Coronet 4F",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet 4F"
+    },
+    {
+        "map": "Mt. Coronet 5F",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet 5F"
+    },
+    {
+        "map": "Mt. Coronet 6F",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet 6F"
+    },
+    {
+        "map": "Mt. Coronet 7F",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Mt. Coronet 7F"
+    },
+    {
+        "map": "Spear Pillar",
+        "location": "Mt. Coronet Summit",
+        "region": "Sinnoh",
+        "tooltip": "Spear Pillar"
+    },
+    {
+        "map": "Mt. Mortar 1F",
+        "location": "Mt. Mortar",
+        "region": "Johto",
+        "tooltip": "Mt. Mortar 1F"
+    },
+    {
+        "map": "Mt. Mortar B1F",
+        "location": "Mt. Mortar",
+        "region": "Johto",
+        "tooltip": "Mt. Mortar B1F"
+    },
+    {
+        "map": "Mt. Mortar Lower Cave",
+        "location": "Mt. Mortar",
+        "region": "Johto",
+        "tooltip": "Mt. Mortar Lower Cave"
+    },
+    {
+        "map": "Mt. Mortar Upper Cave",
+        "location": "Mt. Mortar",
+        "region": "Johto",
+        "tooltip": "Mt. Mortar Upper Cave"
+    },
+    {
+        "map": "Mt. Mortar Northern Entrance",
+        "location": "Mt. Mortar",
+        "region": "Johto",
+        "tooltip": "Mt. Mortar Northern Entrance"
+    },
+    {
+        "map": "Nap Cave",
+        "location": "Nap Cave",
+        "region": "Hoenn",
+        "tooltip": "Nap Cave"
+    },
+    {
+        "map": "Nap Cave B1F",
+        "location": "Nap Cave",
+        "region": "Hoenn",
+        "tooltip": "Nap Cave B1F"
+    },
+    {
+        "map": "Oreburgh Gate",
+        "location": "Oreburgh City",
+        "region": "Sinnoh",
+        "tooltip": "Oreburgh Gate"
+    },
+    {
+        "map": "Oreburgh Gate",
+        "location": "Route 203",
+        "region": "Sinnoh",
+        "tooltip": "Oreburgh Gate"
+    },
+    {
+        "map": "Oreburgh Gate B1F",
+        "location": "Oreburgh City",
+        "region": "Sinnoh",
+        "tooltip": "Oreburgh Gate B1F"
+    },
+    {
+        "map": "Oreburgh Gate B1F",
+        "location": "Route 203",
+        "region": "Sinnoh",
+        "tooltip": "Oreburgh Gate B1F"
+    },
+    {
+        "map": "Oreburgh Mine",
+        "location": "Oreburgh City",
+        "region": "Sinnoh",
+        "tooltip": "Oreburgh Mine"
+    },
+    {
+        "map": "Oreburgh Mine B1F",
+        "location": "Oreburgh City",
+        "region": "Sinnoh",
+        "tooltip": "Oreburgh Mine B1F"
+    },
+    {
+        "map": "Oreburgh Mine B2F 1R",
+        "location": "Oreburgh City",
+        "region": "Sinnoh",
+        "tooltip": "Oreburgh Mine B2F 1R"
+    },
+    {
+        "map": "Oreburgh Mine B2F 2R",
+        "location": "Oreburgh City",
+        "region": "Sinnoh",
+        "tooltip": "Oreburgh Mine B2F 2R"
+    },
+    {
+        "map": "Pinkan Island Cave",
+        "location": "Pinkan Island Cave",
+        "region": "Kanto",
+        "tooltip": "Pinkan Island Cave"
+    },
+    {
+        "map": "Pitch Black Cave",
+        "location": "Pitch Black Cave",
+        "region": "Kanto",
+        "tooltip": "Pitch Black Cave"
+    },
+    {
+        "map": "Ravaged Path",
+        "location": "Route 204",
+        "region": "Sinnoh",
+        "tooltip": "Ravaged Path"
+    },
+    {
+        "map": "Rock Tunnel 1",
+        "location": "Rock Tunnel",
+        "region": "Kanto",
+        "tooltip": "Rock Tunnel 1"
+    },
+    {
+        "map": "Rock Tunnel 2",
+        "location": "Rock Tunnel",
+        "region": "Kanto",
+        "tooltip": "Rock Tunnel 2"
+    },
+    {
+        "map": "Rusturf Tunnel",
+        "location": "Rusturf Tunnel",
+        "region": "Hoenn",
+        "tooltip": "Rusturf Tunnel"
+    },
+    {
+        "map": "Seafloor Cavern",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern"
+    },
+    {
+        "map": "Secret Underwater Cavern",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Secret Underwater Cavern"
+    },
+    {
+        "map": "Seafloor Cavern Entrance",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern Entrance"
+    },
+    {
+        "map": "Seafloor Cavern R1",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R1"
+    },
+    {
+        "map": "Seafloor Cavern R2",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R2"
+    },
+    {
+        "map": "Seafloor Cavern R3",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R3"
+    },
+    {
+        "map": "Seafloor Cavern R4",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R4"
+    },
+    {
+        "map": "Seafloor Cavern R5",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R5"
+    },
+    {
+        "map": "Seafloor Cavern R6",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R6"
+    },
+    {
+        "map": "Seafloor Cavern R7",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R7"
+    },
+    {
+        "map": "Seafloor Cavern R8",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R8"
+    },
+    {
+        "map": "Seafloor Cavern R9",
+        "location": "Route 128",
+        "region": "Hoenn",
+        "tooltip": "Seafloor Cavern R9"
+    },
+    {
+        "map": "Seafoam Islands",
+        "location": "Route 20",
+        "region": "Hoenn",
+        "tooltip": "Seafoam Islands"
+    },
+    {
+        "map": "Seafoam 1F",
+        "location": "Route 20",
+        "region": "Hoenn",
+        "tooltip": "Seafoam 1F"
+    },
+    {
+        "map": "Seafoam B1F",
+        "location": "Route 20",
+        "region": "Hoenn",
+        "tooltip": "Seafoam B1F"
+    },
+    {
+        "map": "Seafoam B2F",
+        "location": "Route 20",
+        "region": "Hoenn",
+        "tooltip": "Seafoam B2F"
+    },
+    {
+        "map": "Seafoam B3F",
+        "location": "Route 20",
+        "region": "Hoenn",
+        "tooltip": "Seafoam B3F"
+    },
+    {
+        "map": "Seafoam B4F",
+        "location": "Route 20",
+        "region": "Hoenn",
+        "tooltip": "Seafoam B4F"
+    },
+    {
+        "map": "High Tide Entrance Room",
+        "location": "Shoal Cave",
+        "region": "Hoenn",
+        "tooltip": "High Tide Entrance Room"
+    },
+    {
+        "map": "Low Tide Entrance Room",
+        "location": "Shoal Cave",
+        "region": "Hoenn",
+        "tooltip": "Low Tide Entrance Room"
+    },
+    {
+        "map": "Low Tide Ice Room",
+        "location": "Shoal Cave",
+        "region": "Hoenn",
+        "tooltip": "Low Tide Ice Room"
+    },
+    {
+        "map": "Victory Road B1F Deep Entrance Sinnoh",
+        "location": "Victory Road Sinnoh",
+        "region": "Sinnoh",
+        "tooltip": "Victory Road B1F Deep Entrance"
+    },
+    {
+        "map": "Victory Road B1F Deep Sinnoh",
+        "location": "Victory Road Sinnoh",
+        "region": "Sinnoh",
+        "tooltip": "Victory Road B1F Deep"
+    },
+    {
+        "map": "Victory Road B1F Deep Exit Sinnoh",
+        "location": "Victory Road Sinnoh",
+        "region": "Sinnoh",
+        "tooltip": "Victory Road B1F Deep Exit"
+    },
+    {
+        "map": "Slowpoke Well",
+        "location": "Slowpoke Well",
+        "region": "Johto",
+        "tooltip": "Slowpoke Well"
+    },
+    {
+        "map": "Slowpoke Well L1",
+        "location": "Slowpoke Well",
+        "region": "Johto",
+        "tooltip": "Slowpoke Well L1"
+    },
+    {
+        "map": "Stark Mountain Exterior Pt",
+        "location": "Stark Mountain",
+        "region": "Sinnoh",
+        "tooltip": "Stark Mountain Exterior Pt"
+    },
+    {
+        "map": "Stark Mountain Entrance Pt",
+        "location": "Stark Mountain",
+        "region": "Sinnoh",
+        "tooltip": "Stark Mountain Entrance Pt"
+    },
+    {
+        "map": "Stark Mountain Main Cavern Pt",
+        "location": "Stark Mountain",
+        "region": "Sinnoh",
+        "tooltip": "Stark Mountain Main Cavern Pt"
+    },
+    {
+        "map": "Stark Mountain Heatran Pt",
+        "location": "Stark Mountain",
+        "region": "Sinnoh",
+        "tooltip": "Stark Mountain Heatran Pt"
+    },
+    {
+        "map": "Tohjo Falls",
+        "location": "Tohjo Falls",
+        "region": "Kanto",
+        "tooltip": "Tohjo Falls"
+    },
+    {
+        "map": "Union Cave 1F",
+        "location": "Union Cave",
+        "region": "Johto",
+        "tooltip": "Union Cave 1F"
+    },
+    {
+        "map": "Union Cave B1F",
+        "location": "Union Cave",
+        "region": "Johto",
+        "tooltip": "Union Cave B1F"
+    },
+    {
+        "map": "Victory Road Hoenn 1F",
+        "location": "Victory Road Hoenn",
+        "region": "Hoenn",
+        "tooltip": "Victory Road Hoenn 1F"
+    },
+    {
+        "map": "Victory Road Hoenn B1F",
+        "location": "Victory Road Hoenn",
+        "region": "Hoenn",
+        "tooltip": "Victory Road Hoenn B1F"
+    },
+    {
+        "map": "Victory Road Hoenn B2F",
+        "location": "Victory Road Hoenn",
+        "region": "Hoenn",
+        "tooltip": "Victory Road Hoenn B2F"
+    },
+    {
+        "map": "Victory Road Kanto 1F",
+        "location": "Victory Road Kanto",
+        "region": "Kanto",
+        "tooltip": "Victory Road Kanto 1F"
+    },
+    {
+        "map": "Victory Road Kanto 2F",
+        "location": "Victory Road Kanto",
+        "region": "Kanto",
+        "tooltip": "Victory Road Kanto 2F"
+    },
+    {
+        "map": "Victory Road Kanto 3F",
+        "location": "Victory Road Kanto",
+        "region": "Kanto",
+        "tooltip": "Victory Road Kanto 3F"
+    },
+    {
+        "map": "Vulcan Cave B1F",
+        "location": "Vulcan Cave",
+        "region": "Vulcan Island",
+        "tooltip": "Vulcan Cave B1F"
+    },
+    {
+        "map": "Vulcan Cave B2F",
+        "location": "Vulcan Cave",
+        "region": "Vulcan Island",
+        "tooltip": "Vulcan Cave B2F"
+    },
+    {
+        "map": "Wayward Cave",
+        "location": "Route 206",
+        "region": "Sinnoh",
+        "tooltip": "Wayward Cave"
+    },
+    {
+        "map": "Wayward Cave Secret Area",
+        "location": "Route 206",
+        "region": "Sinnoh",
+        "tooltip": "Wayward Cave Secret Area"
+    },
+    {
+        "map": "Whirl Islands 1F NorthEast",
+        "location": "Whirl Islands",
+        "region": "Johto",
+        "tooltip": "Whirl Islands 1F NorthEast"
+    },
+    {
+        "map": "Whirl Islands 1F NorthWest",
+        "location": "Whirl Islands",
+        "region": "Johto",
+        "tooltip": "Whirl Islands 1F NorthWest"
+    },
+    {
+        "map": "Whirl Islands 1F SouthEast",
+        "location": "Whirl Islands",
+        "region": "Johto",
+        "tooltip": "Whirl Islands 1F SouthEast"
+    },
+    {
+        "map": "Whirl Islands 1F SouthWest",
+        "location": "Whirl Islands",
+        "region": "Johto",
+        "tooltip": "Whirl Islands 1F SouthWest"
+    },
+    {
+        "map": "Whirl Islands B1F",
+        "location": "Whirl Islands",
+        "region": "Johto",
+        "tooltip": "Whirl Islands B1F"
+    },
+    {
+        "map": "Whirl Islands B2F",
+        "location": "Whirl Islands",
+        "region": "Johto",
+        "tooltip": "Whirl Islands B2F"
+    },
+    {
+        "map": "Whirl Islands B3F",
+        "location": "Whirl Islands",
+        "region": "Johto",
+        "tooltip": "Whirl Islands B3F"
+    },
+    {
+        "map": "Whirl Islands B4F",
+        "location": "Whirl Islands",
+        "region": "Johto",
+        "tooltip": "Whirl Islands B4F"
+    },
+    {
+        "map": "Ice Path 1F",
+        "location": "Ice Path",
+        "region": "Johto",
+        "tooltip": "Ice Path 1F"
+    },
+    {
+        "map": "Ice Path B1F",
+        "location": "Ice Path",
+        "region": "Johto",
+        "tooltip": "Ice Path B1F"
+    },
+    {
+        "map": "Ice Path B2F",
+        "location": "Ice Path",
+        "region": "Johto",
+        "tooltip": "Ice Path B2F"
+    },
+    {
+        "map": "Ice Path B3F",
+        "location": "Ice Path",
+        "region": "Johto",
+        "tooltip": "Ice Path B3F"
+    }
+]
