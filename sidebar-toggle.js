@@ -124,16 +124,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 300); // Wait for transition to complete
     });
     
-    // Add keyboard shortcut (s) to toggle sidebar
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 's' || e.key === 'S') {
-            if (document.body.classList.contains('sidebar-hidden')) {
-                showSidebarBtn.click();
-            } else {
-                hideSidebarBtn.click();
-            }
-        }
-    });
-    
     console.log("Sidebar toggle buttons initialized");
 });
