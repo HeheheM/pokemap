@@ -616,7 +616,7 @@ window.addEventListener('load', function() {
         "Route 111 Desert.png",
         "Route 115.png",
         "Route 119A.png",
-        "Route 214.png",
+        "Turnback Cave.png",
         "Route 3.png",
         "Route 32.png",
         "Route 45.png",
