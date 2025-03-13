@@ -6,43 +6,43 @@ let uniqueLocationNames = new Set();
 let currentPokemonName = null; // Track current Pokemon being displayed
 
 async function initPokemonSearch() {
-    console.log("Inicjalizacja funkcjonalności wyszukiwania Pokemonów...");
-    
+    console.log("Initializing Pokemon search functionality...");
+
     try {
-        // Załaduj dane Pokemonów
+        // Load Pokemon data
         await loadPokemonData();
-        
-        // Pobierz referencje do elementów HTML
+
+        // Get references to HTML elements
         const searchInput = document.getElementById('pokemon-search');
         const resultsContainer = document.getElementById('pokemon-search-results');
-        
-        // Sprawdź czy elementy istnieją
+
+        // Check if elements exist
         if (!searchInput || !resultsContainer) {
-            console.error("Nie znaleziono elementów HTML dla wyszukiwarki Pokemonów");
+            console.error("HTML elements for Pokemon search not found");
             return;
         }
-        
-        // Ustaw nasłuchiwanie zdarzeń
+
+        // Set up event listeners
         setupPokemonSearchEvents(searchInput, resultsContainer);
-        
+
         // Add repel filter checkbox
         addRepelFilterCheckbox();
-        
-        // Zastosuj tłumaczenia
+
+        // Apply translations
         if (window.i18n) {
             const title = document.querySelector('.pokemon-search-container h3');
             if (title) {
                 title.textContent = window.i18n.t('pokesearch.pokemonTitle');
             }
-            
+
             if (searchInput) {
                 searchInput.placeholder = window.i18n.t('pokesearch.pokemonPlaceholder');
             }
-            
+
             // Register for language changes
             window.i18n.onLanguageChange((newLang) => {
                 console.log("Language changed to: " + newLang + ", updating Pokemon panel...");
-                
+
                 // If there's a Pokemon panel open, update its text
                 if (currentPokemonName) {
                     const locationsPanel = document.querySelector('.pokemon-locations-panel');
@@ -51,21 +51,21 @@ async function initPokemonSearch() {
                         refreshPokemonPanel(currentPokemonName);
                     }
                 }
-                
-                // Odśwież panel lokalizacji, jeśli jest otwarty
+
+                // Refresh location panel if open
                 const locationPanel = document.querySelector('.location-pokemon-panel');
                 if (locationPanel) {
                     const locationName = locationPanel.querySelector('.pokemon-locations-header h3').textContent.trim();
                     if (locationName) {
-                        // Znajdź lokalizację i odśwież
+                        // Find location and refresh
                         const mapLoc = findMapLocation(locationName);
                         if (mapLoc) {
                             displayPokemonsByLocation(mapLoc.tooltip || locationName);
                         }
                     }
                 }
-                
-                // Odśwież panel przedmiotów, jeśli jest otwarty
+
+                // Refresh item panel if open
                 const itemPanel = document.querySelector('.item-pokemon-panel');
                 if (itemPanel) {
                     const itemName = itemPanel.querySelector('.pokemon-locations-header h3').textContent.trim();
@@ -75,14 +75,14 @@ async function initPokemonSearch() {
                 }
             });
         }
-        
-        console.log("Inicjalizacja wyszukiwania Pokemonów zakończona pomyślnie.");
+
+        console.log("Pokemon search initialization completed successfully.");
     } catch (error) {
-        console.error("Błąd inicjalizacji wyszukiwania Pokemonów:", error);
+        console.error("Error initializing Pokemon search:", error);
     }
 }
 
-// Funkcja do wyodrębniania unikalnych nazw lokalizacji
+// Function to extract unique location names
 function extractUniqueLocations() {
     const uniqueLocations = new Set();
     allPokemonData.forEach(entry => {
@@ -96,18 +96,18 @@ function extractUniqueLocations() {
 // Helper functions to create icons for Pokemon locations
 function createDaytimeIconsHTML(daytimeArray) {
     if (!daytimeArray || daytimeArray.length !== 3) return '';
-    
+
     let html = '';
     if (daytimeArray[0]) {
-        html += `<img src="resources/morning.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.morning') : 'Rano'}" alt="Morning">`;
+        html += `<img src="resources/morning.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.morning') : 'Morning'}" alt="Morning">`;
     }
     if (daytimeArray[1]) {
-        html += `<img src="resources/day.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.day') : 'Dzień'}" alt="Day">`;
+        html += `<img src="resources/day.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.day') : 'Day'}" alt="Day">`;
     }
     if (daytimeArray[2]) {
-        html += `<img src="resources/night.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.night') : 'Noc'}" alt="Night">`;
+        html += `<img src="resources/night.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.night') : 'Night'}" alt="Night">`;
     }
-    
+
     return html;
 }
 
@@ -149,25 +149,25 @@ function createLocationIconsHTML(pokemonLocation) {
 
     // Add tier icon
     iconsHTML += createTierIconHTML(pokemonLocation.Tier);
-    
+
     // Add source icon (land/surf)
     iconsHTML += createSourceIconHTML(pokemonLocation.Source);
 
     // Add fishing icon if needed
     iconsHTML += createFishingIconHTML(pokemonLocation.FishingOnly, pokemonLocation.RequiredRod);
-    
+
     // Add repel icon if needed
     iconsHTML += createRepelIconHTML(pokemonLocation.RequiresRepel);
 
     // Add item icon
     iconsHTML += createItemIconHTML(pokemonLocation.Item);
-    
+
     // Add membership icon if needed
     iconsHTML += createMembershipIconHTML(pokemonLocation.MemberOnly);
-    
+
     // Add daytime icons
     iconsHTML += createDaytimeIconsHTML(pokemonLocation.Daytime);
-    
+
     return iconsHTML;
 }
 
@@ -175,44 +175,44 @@ function createLocationIconsHTML(pokemonLocation) {
 function refreshPokemonPanel(pokemonName) {
     // Preserve currently displayed Pokemon
     currentPokemonName = pokemonName;
-    
+
     // Get all locations for the current Pokemon
     let locations = allPokemonData.filter(entry => entry.Pokemon === pokemonName);
-    
+
     // Check if repel filter is active
     const repelFilter = document.getElementById('repel-filter-checkbox');
     const showOnlyRepel = repelFilter && repelFilter.checked;
-    
+
     // Filter locations if repel filter is active
     if (showOnlyRepel) {
         locations = locations.filter(loc => loc.RequiresRepel);
     }
-    
+
     if (locations.length === 0) {
         // If there are no locations to display after filtering
         const locationsPanel = document.querySelector('.pokemon-locations-panel');
         if (locationsPanel) {
             locationsPanel.remove();
         }
-        
+
         // Show alert about no locations found with repel
         if (showOnlyRepel) {
             alert(window.i18n ? window.i18n.t("pokesearch.noPokemonFoundWithRepel") : 
-                 `Nie znaleziono lokalizacji dla ${pokemonName} z repelem`);
+                 `No locations found for ${pokemonName} with repel`);
         }
         return;
     }
-    
+
     // Get the existing panel
     const locationsPanel = document.querySelector('.pokemon-locations-panel');
     if (!locationsPanel) {
         return;
     }
-    
+
     // Get the Pokemon image from first location
     const monsterID = locations[0].MonsterID;
     const pokemonImageSrc = `resources/pokemons/${monsterID}.png`;
-    
+
     // Prepare locations with map availability info
     const locationsWithAvailability = locations.map(loc => {
         const mapLoc = findMapLocation(loc.Map);
@@ -223,14 +223,14 @@ function refreshPokemonPanel(pokemonName) {
             mapLoc: mapLoc
         };
     });
-    
+
     // Sort locations - available on map first
     locationsWithAvailability.sort((a, b) => {
         if (a.isOnMap && !b.isOnMap) return -1;
         if (!a.isOnMap && b.isOnMap) return 1;
         return a.location.Map.localeCompare(b.location.Map);
     });
-    
+
     // Update the panel content with new language
     locationsPanel.innerHTML = `
         <div class="pokemon-locations-header">
@@ -241,10 +241,10 @@ function refreshPokemonPanel(pokemonName) {
             <span class="close-locations-panel">&times;</span>
         </div>
         <div class="pokemon-locations-content">
-            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.locationsTitle") : "Ten Pokemon występuje w tych lokalizacjach:"}</p>
+            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.locationsTitle") : "This Pokemon can be found in these locations:"}</p>
             <ul class="pokemon-locations-list">
                 ${locationsWithAvailability.map(item => {
-                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Kliknij aby wycentrować mapę' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Lokalizacja nie znajduje się na mapie'}">
+                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}">
                         <div class="pokemon-location-name">${item.location.Map}</div>
                         <div class="pokemon-location-icons">${createLocationIconsHTML(item.location)}</div>
                     </li>`;
@@ -252,48 +252,48 @@ function refreshPokemonPanel(pokemonName) {
             </ul>
         </div>
     `;
-    
+
     // Add event listener to the close button
     locationsPanel.querySelector('.close-locations-panel').addEventListener('click', function() {
         locationsPanel.remove();
         currentPokemonName = null; // Clear current Pokemon when panel is closed
         clearOnlyPokemonIcons();
     });
-    
+
     // Add event listeners to location items
     locationsPanel.querySelectorAll('.pokemon-locations-list li').forEach(item => {
         item.addEventListener('click', function() {
             const locationName = this.dataset.location;
             const locationInfo = locationsWithAvailability.find(l => l.location.Map === locationName);
-            
+
             if (locationInfo && locationInfo.isOnMap) {
                 centerMapOnLocation(locationInfo.mapLoc);
                 // Don't clear other icons, just highlight this one with an animation
                 highlightPokemonLocation(locationInfo.location, locationInfo.mapLoc);
             } else {
-                alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Lokalizacja nie znajduje się na mapie");
+                alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
             }
         });
     });
-    
+
     // Update Pokemon icons on the map after refreshing the panel
     clearOnlyPokemonIcons();
     displayAllPokemonIcons(pokemonName, locations);
-    
+
     // Enable mouse wheel scrolling on the locations content
     const locationsContent = locationsPanel.querySelector('.pokemon-locations-content');
     locationsContent.addEventListener('wheel', function(e) {
         // Completely stop the event from affecting the map
         e.stopPropagation();
         e.preventDefault();
-        
+
         // Calculate the scroll amount based on delta
         const delta = e.deltaY || e.detail || e.wheelDelta;
         const scrollAmount = delta > 0 ? 40 : -40;
-        
+
         // Apply the scroll
         this.scrollTop += scrollAmount;
-        
+
         // Return false to be extra sure the event doesn't bubble
         return false;
     }, { passive: false });  // The passive: false is crucial for preventDefault to work
@@ -301,12 +301,12 @@ function refreshPokemonPanel(pokemonName) {
 
 async function loadPokemonData() {
     try {
-        // Załaduj spawny lądowe
+        // Load land spawns
         let landData = [];
         try {
             const landResponse = await fetch('data/land_spawns.json');
             if (!landResponse.ok) {
-                throw new Error(`Błąd HTTP! status: ${landResponse.status}`);
+                throw new Error(`HTTP error! status: ${landResponse.status}`);
             }
             landData = await landResponse.json();
             // Add source property to each land spawn
@@ -314,17 +314,17 @@ async function loadPokemonData() {
                 ...entry,
                 Source: 'land'
             }));
-            console.log(`Załadowano ${landData.length} spawnów lądowych`);
+            console.log(`Loaded ${landData.length} land spawns`);
         } catch (error) {
-            console.error("Błąd ładowania danych lądowych:", error);
+            console.error("Error loading land data:", error);
         }
-        
-        // Załaduj spawny wodne
+
+        // Load water spawns
         let surfData = [];
         try {
             const surfResponse = await fetch('data/surf_spawns.json');
             if (!surfResponse.ok) {
-                throw new Error(`Błąd HTTP! status: ${surfResponse.status}`);
+                throw new Error(`HTTP error! status: ${surfResponse.status}`);
             }
             surfData = await surfResponse.json();
             // Add source property to each surf spawn
@@ -332,128 +332,128 @@ async function loadPokemonData() {
                 ...entry,
                 Source: 'surf'
             }));
-            console.log(`Załadowano ${surfData.length} spawnów wodnych`);
+            console.log(`Loaded ${surfData.length} water spawns`);
         } catch (error) {
-            console.error("Błąd ładowania danych wodnych:", error);
+            console.error("Error loading water data:", error);
         }
-        
-        // Połącz dane
+
+        // Combine data
         allPokemonData = [...landData, ...surfData];
-        
-        // Dodaj logowanie lokalizacji bez mapy
+
+        // Add logging for locations without a map
         const locationsWithoutMap = allPokemonData.filter(entry => !entry.Map);
         if (locationsWithoutMap.length > 0) {
-            console.warn(`Znaleziono ${locationsWithoutMap.length} wpisów bez określonej mapy`);
+            console.warn(`Found ${locationsWithoutMap.length} entries without a specified map`);
         }
-        
-        // Wyodrębnij unikalne nazwy Pokemonów do autouzupełniania
+
+        // Extract unique Pokemon names for autocomplete
         uniquePokemonNames = new Set();
         allPokemonData.forEach(entry => {
             if (entry.Pokemon) {
                 uniquePokemonNames.add(entry.Pokemon);
             }
         });
-        
-        // Wyodrębnij unikalne przedmioty
+
+        // Extract unique items
         uniqueItems = new Set();
         allPokemonData.forEach(entry => {
             if (entry.Item) {
                 uniqueItems.add(entry.Item);
             }
         });
-        console.log(`Znaleziono ${uniqueItems.size} unikalnych przedmiotów.`);
-        
-        // Wyodrębnij unikalne nazwy lokalizacji
+        console.log(`Found ${uniqueItems.size} unique items.`);
+
+        // Extract unique location names
         uniqueLocationNames = extractUniqueLocations();
-        console.log(`Znaleziono ${uniqueLocationNames.size} unikalnych lokalizacji w danych.`);
-        
+        console.log(`Found ${uniqueLocationNames.size} unique locations in the data.`);
+
         // Identify Pokemon that require repel
         allPokemonData = identifyRepelRequiredPokemon(allPokemonData);
-        
-        console.log(`Załadowano dane dla ${uniquePokemonNames.size} unikalnych Pokemonów występujących w ${allPokemonData.length} lokalizacjach.`);
-        
+
+        console.log(`Loaded data for ${uniquePokemonNames.size} unique Pokemon appearing in ${allPokemonData.length} locations.`);
+
     } catch (error) {
-        console.error("Błąd ładowania danych Pokemonów:", error);
+        console.error("Error loading Pokemon data:", error);
         throw error;
     }
 }
 
 function identifyRepelRequiredPokemon(allPokemonData) {
-    // Grupuj pokemony według lokalizacji (Map) i Source (land/surf)
+    // Group Pokemon by location (Map) and Source (land/surf)
     const pokemonByMapAndSource = {};
-    
+
     allPokemonData.forEach(pokemon => {
-        if (!pokemon.Map) return; // Pomiń, jeśli brak mapy
-        
-        // Klucz to kombinacja mapy i źródła (land/surf)
+        if (!pokemon.Map) return; // Skip if no map
+
+        // Key is a combination of map and source (land/surf)
         const key = `${pokemon.Map}|${pokemon.Source || 'unknown'}`;
-        
+
         if (!pokemonByMapAndSource[key]) {
             pokemonByMapAndSource[key] = [];
         }
-        
+
         pokemonByMapAndSource[key].push(pokemon);
     });
-    
-    // Dla każdej lokalizacji i źródła identyfikuj pokemony wymagające repela
+
+    // For each location and source, identify Pokemon requiring repel
     for (const key in pokemonByMapAndSource) {
         const [mapName, source] = key.split('|');
         const mapPokemons = pokemonByMapAndSource[key];
-        
-        // Pomiń, jeśli nie ma pokemonów z poziomami
+
+        // Skip if there are no Pokemon with levels
         if (!mapPokemons.some(p => p.MinLVL !== undefined && p.MaxLVL !== undefined)) {
             continue;
         }
-        
-        // Oznacz wszystkie pokemony jako niewymagające repela na początku
+
+        // Mark all Pokemon as not requiring repel initially
         mapPokemons.forEach(pokemon => {
             pokemon.RequiresRepel = false;
         });
-        
-        // Sprawdź czy wszystkie pokemony mają ten sam zakres poziomów
+
+        // Check if all Pokemon have the same level range
         const pokemonsWithLevels = mapPokemons.filter(p => 
             p.MinLVL !== undefined && p.MaxLVL !== undefined
         );
-        
+
         if (pokemonsWithLevels.length > 0) {
             const firstMin = pokemonsWithLevels[0].MinLVL;
             const firstMax = pokemonsWithLevels[0].MaxLVL;
-            
+
             const allSameLevel = pokemonsWithLevels.every(p => 
                 p.MinLVL === firstMin && p.MaxLVL === firstMax
             );
-            
-            // Jeśli wszystkie pokemony mają ten sam zakres poziomów, pomiń identyfikację repela
+
+            // If all Pokemon have the same level range, skip repel identification
             if (allSameLevel) {
-                // console.log(`W ${mapName} (${source}) wszystkie pokemony mają ten sam zakres poziomów (${firstMin}-${firstMax}), żaden nie wymaga repela.`);
+                // console.log(`In ${mapName} (${source}) all Pokemon have the same level range (${firstMin}-${firstMax}), none require repel.`);
                 continue;
             }
         }
-        
-        // Dwuetapowy algorytm, aby rozwiązać problem rekurencyjności:
-        
-        // 1. Znajdź najwyższy minimalny poziom w lokalizacji
+
+        // Two-step algorithm to solve the recursion problem:
+
+        // 1. Find the highest minimum level in the location
         const highestMinLevel = Math.max(
             ...mapPokemons
                 .filter(p => p.MinLVL !== undefined)
                 .map(p => p.MinLVL)
         );
-        
-        // 2. Tymczasowo oznacz wszystkie pokemony z najwyższym minimalnym poziomem jako potencjalne repele
+
+        // 2. Temporarily mark all Pokemon with the highest minimum level as potential repels
         const potentialRepelPokemon = mapPokemons.filter(p => 
             p.MinLVL !== undefined && p.MinLVL === highestMinLevel
         );
-        
-        // 3. Znajdź maksymalny poziom wszystkich pokemonów, które nie są potencjalnymi repelami
+
+        // 3. Find the maximum level of all Pokemon that are not potential repels
         const nonRepelPokemon = mapPokemons.filter(p => 
             !potentialRepelPokemon.includes(p) && p.MaxLVL !== undefined
         );
-        
+
         const maxNonRepelLevel = nonRepelPokemon.length > 0 
             ? Math.max(...nonRepelPokemon.map(p => p.MaxLVL))
             : 0;
-        
-        // 4. Dla każdego potencjalnego repela, sprawdź czy jego minimalny poziom przewyższa maksymalny poziom nie-repeli
+
+        // 4. For each potential repel, check if its minimum level exceeds the maximum level of non-repels
         let repelCount = 0;
         potentialRepelPokemon.forEach(pokemon => {
             if (pokemon.MinLVL > maxNonRepelLevel) {
@@ -461,33 +461,33 @@ function identifyRepelRequiredPokemon(allPokemonData) {
                 repelCount++;
             }
         });
-        
-        // 5. Jeśli algorytm zidentyfikował więcej niż 4 repele dla danej lokalizacji,
-        // najprawdopodobniej jest to lokalizacja bez repeli z podobnymi zakresami poziomów
+
+        // 5. If the algorithm identified more than 4 repels for a given location,
+        // it is most likely a location without repels with similar level ranges
         const MAX_REPEL_POKEMON = 4;
         if (repelCount > MAX_REPEL_POKEMON) {
-            // console.log(`Za dużo pokemonów z repelem (${repelCount}) w ${mapName} (${source}), resetuję wszystkie flagi repela.`);
+            // console.log(`Too many repel Pokemon (${repelCount}) in ${mapName} (${source}), resetting all repel flags.`);
             mapPokemons.forEach(pokemon => {
                 pokemon.RequiresRepel = false;
             });
             repelCount = 0;
         }
-        
-        // Logowanie wyników
+
+        // Logging results
         if (repelCount > 0) {
             const repelPokemonNames = mapPokemons
                 .filter(p => p.RequiresRepel)
                 .map(p => `${p.Pokemon} (${p.MinLVL}-${p.MaxLVL})`)
                 .join(', ');
-                
-            // console.log(`Pokemony z repelem w ${mapName} (${source}): ${repelPokemonNames}. Max poziom innych: ${maxNonRepelLevel}`);
+
+            // console.log(`Pokemon requiring repel in ${mapName} (${source}): ${repelPokemonNames}. Max level of others: ${maxNonRepelLevel}`);
         }
     }
-    
-    // Policz pokemony wymagające repela
+
+    // Count Pokemon requiring repel
     const repelCount = allPokemonData.filter(p => p.RequiresRepel).length;
-    // console.log(`Znaleziono ${repelCount} pokemonów wymagających repela z ${allPokemonData.length} wszystkich wpisów.`);
-    
+    // console.log(`Found ${repelCount} Pokemon requiring repel out of ${allPokemonData.length} total entries.`);
+
     return allPokemonData;
 }
 
@@ -516,38 +516,38 @@ function isPokemonWithRepel(pokemonName) {
 function addRepelFilterCheckbox() {
     const checkbox = document.getElementById('repel-filter-checkbox');
     if (!checkbox) {
-        console.warn("Nie znaleziono checkboxa filtru repela w HTML");
+        console.warn("Repel filter checkbox not found in HTML");
         return null;
     }
-    
+
     // Update label text with translations if available
     const label = checkbox.nextElementSibling;
     if (label && window.i18n) {
         label.textContent = window.i18n.t('pokesearch.showOnlyRepel');
     }
-    
+
     // Add event listener to trigger search when checkbox changes
     checkbox.addEventListener('change', function() {
         const searchInput = document.getElementById('pokemon-search');
-        
-        // Jeśli aktualnie wyświetlamy jakiegoś Pokemona, lokalizację lub przedmiot, odśwież
+
+        // If currently displaying a Pokemon, location, or item, refresh
         if (currentPokemonName) {
             displayPokemonLocations(currentPokemonName);
         }
-        
-        // Opcjonalnie wyczyść pole wyszukiwania
+
+        // Optionally clear the search field
         // searchInput.value = '';
-        
-        // Symuluj zdarzenie kliknięcia, aby odświeżyć sugestie
+
+        // Simulate a click event to refresh suggestions
         if (searchInput.value) {
             const event = new Event('input');
             searchInput.dispatchEvent(event);
         } else {
-            // Jeśli pole jest puste, pokaż domyślne sugestie
+            // If the field is empty, show default suggestions
             showInitialSuggestions();
         }
     });
-    
+
     return checkbox;
 }
 
@@ -555,112 +555,112 @@ function addRepelFilterCheckbox() {
 function showInitialSuggestions() {
     const searchInput = document.getElementById('pokemon-search');
     const resultsContainer = document.getElementById('pokemon-search-results');
-    
+
     if (!searchInput || !resultsContainer) return;
-    
+
     // Check if repel filter is active
     const repelFilter = document.getElementById('repel-filter-checkbox');
     const showOnlyRepel = repelFilter && repelFilter.checked;
-    
+
     // Prepare all available options
     let pokemonOptions = Array.from(uniquePokemonNames);
     let locationOptions = Array.from(uniqueLocationNames);
     let itemOptions = Array.from(uniqueItems);
-    
+
     // Filter by repel if needed
     if (showOnlyRepel) {
         pokemonOptions = pokemonOptions.filter(name => isPokemonWithRepel(name));
         locationOptions = locationOptions.filter(name => isLocationWithRepel(name));
         itemOptions = itemOptions.filter(name => isItemWithRepel(name));
     }
-    
+
     // Sort alphabetically
     pokemonOptions.sort();
     locationOptions.sort();
     itemOptions.sort();
-    
+
     // Clear previous results
     resultsContainer.innerHTML = '';
-    
+
     // If no options found
     if (pokemonOptions.length === 0 && locationOptions.length === 0 && itemOptions.length === 0) {
         const resultItem = document.createElement('div');
         resultItem.className = 'search-result-item';
-        resultItem.textContent = window.i18n ? window.i18n.t('pokesearch.noResults') : 'Nie znaleziono wyników';
+        resultItem.textContent = window.i18n ? window.i18n.t('pokesearch.noResults') : 'No results found';
         resultsContainer.appendChild(resultItem);
         resultsContainer.style.display = 'block';
         return;
     }
-    
+
     // Add Pokemon suggestions
     if (pokemonOptions.length > 0) {
         const pokemonHeader = document.createElement('div');
         pokemonHeader.className = 'search-result-header';
-        pokemonHeader.textContent = window.i18n ? window.i18n.t('pokesearch.pokemon') : 'Pokemony:';
+        pokemonHeader.textContent = window.i18n ? window.i18n.t('pokesearch.pokemon') : 'Pokemon:';
         resultsContainer.appendChild(pokemonHeader);
-        
+
         pokemonOptions.slice(0, 5).forEach(pokemonName => {
             const resultItem = document.createElement('div');
             resultItem.className = 'search-result-item pokemon-result';
             resultItem.textContent = pokemonName;
-            
+
             resultItem.addEventListener('click', function() {
                 searchInput.value = pokemonName;
                 resultsContainer.style.display = 'none';
                 displayPokemonLocations(pokemonName);
             });
-            
+
             resultsContainer.appendChild(resultItem);
         });
     }
-    
+
     // Add location suggestions
     if (locationOptions.length > 0) {
         const locationHeader = document.createElement('div');
         locationHeader.className = 'search-result-header';
-        locationHeader.textContent = window.i18n ? window.i18n.t('pokesearch.locations') : 'Lokalizacje:';
+        locationHeader.textContent = window.i18n ? window.i18n.t('pokesearch.locations') : 'Locations:';
         resultsContainer.appendChild(locationHeader);
-        
+
         locationOptions.slice(0, 5).forEach(locationName => {
             const resultItem = document.createElement('div');
             resultItem.className = 'search-result-item location-result';
             resultItem.textContent = locationName;
-            
+
             resultItem.addEventListener('click', function() {
                 searchInput.value = locationName;
                 resultsContainer.style.display = 'none';
                 displayPokemonsByLocation(locationName);
             });
-            
+
             resultsContainer.appendChild(resultItem);
         });
     }
-    
+
     // Add item suggestions
     if (itemOptions.length > 0) {
         const itemHeader = document.createElement('div');
         itemHeader.className = 'search-result-header';
-        itemHeader.textContent = window.i18n ? window.i18n.t('pokesearch.items') : 'Przedmioty:';
+        itemHeader.textContent = window.i18n ? window.i18n.t('pokesearch.items') : 'Items:';
         resultsContainer.appendChild(itemHeader);
-        
+
         itemOptions.slice(0, 5).forEach(itemName => {
             const resultItem = document.createElement('div');
             resultItem.className = 'search-result-item item-result';
             resultItem.textContent = itemName;
-            
+
             resultItem.addEventListener('click', function() {
                 searchInput.value = itemName;
                 resultsContainer.style.display = 'none';
                 displayPokemonsByItem(itemName);
             });
-            
+
             resultsContainer.appendChild(resultItem);
         });
     }
-    
+
     // Display results
     resultsContainer.style.display = 'block';
-    
+
     // Make results scrollable
     resultsContainer.style.maxHeight = '300px';
     resultsContainer.style.overflowY = 'auto';
@@ -669,26 +669,26 @@ function showInitialSuggestions() {
 function setupPokemonSearchEvents(searchInput, resultsContainer) {
     searchInput.addEventListener('input', function() {
         const searchText = this.value.toLowerCase();
-        
+
         if (searchText.length < 2) {
             resultsContainer.style.display = 'none';
             return;
         }
-        
-        // Sprawdź czy filtr repela jest aktywny
+
+        // Check if repel filter is active
         const repelFilter = document.getElementById('repel-filter-checkbox');
         const showOnlyRepel = repelFilter && repelFilter.checked;
-        
-        // Szukaj pasujących nazw Pokemonów
+
+        // Search for matching Pokemon names
         let matchingPokemon = Array.from(uniquePokemonNames)
             .filter(name => name.toLowerCase().includes(searchText));
-            
-        // Jeśli filtr repela jest aktywny, filtruj dalej Pokemony
+
+        // If repel filter is active, filter Pokemon further
         if (showOnlyRepel) {
             matchingPokemon = matchingPokemon.filter(name => isPokemonWithRepel(name));
         }
-        
-        // Szukaj pasujących nazw lokalizacji w window.locations (na mapie)
+
+        // Search for matching location names in window.locations (on map)
         const mapLocations = window.locations
             ? window.locations
                 .filter(loc => {
@@ -698,73 +698,73 @@ function setupPokemonSearchEvents(searchInput, resultsContainer) {
                 })
                 .map(loc => loc.tooltip || loc.map)
             : [];
-            
-        // Szukaj pasujących nazw lokalizacji w wszystkich danych Pokemonów
+
+        // Search for matching location names in all Pokemon data
         let dataLocations = Array.from(uniqueLocationNames)
             .filter(loc => loc.toLowerCase().includes(searchText));
-            
-        // Filtruj lokalizacje jeśli repel jest aktywny
+
+        // Filter locations if repel is active
         if (showOnlyRepel) {
             dataLocations = dataLocations.filter(name => isLocationWithRepel(name));
         }
-            
-        // Połącz obie listy lokalizacji i usuń duplikaty
+
+        // Combine both location lists and remove duplicates
         let allMatchingLocations = [...new Set([...mapLocations, ...dataLocations])];
-        
-        // Filtruj lokalizacje jeśli repel jest aktywny
+
+        // Filter locations if repel is active
         if (showOnlyRepel) {
             allMatchingLocations = allMatchingLocations.filter(name => isLocationWithRepel(name));
         }
-        
-        // Szukaj pasujących przedmiotów
+
+        // Search for matching items
         let matchingItems = Array.from(uniqueItems)
             .filter(item => item.toLowerCase().includes(searchText));
-        
-        // Filtruj przedmioty jeśli repel jest aktywny
+
+        // Filter items if repel is active
         if (showOnlyRepel) {
             matchingItems = matchingItems.filter(name => isItemWithRepel(name));
         }
-        
-        // Przygotuj wyniki
+
+        // Prepare results
         resultsContainer.innerHTML = '';
-        
-        // Brak wyników
+
+        // No results
         if (matchingPokemon.length === 0 && allMatchingLocations.length === 0 && matchingItems.length === 0) {
             const resultItem = document.createElement('div');
             resultItem.className = 'search-result-item';
-            resultItem.textContent = window.i18n ? window.i18n.t('pokesearch.noResults') : 'Nie znaleziono wyników';
+            resultItem.textContent = window.i18n ? window.i18n.t('pokesearch.noResults') : 'No results found';
             resultsContainer.appendChild(resultItem);
         } else {
-            // Dodaj wyniki przedmiotów z nagłówkiem
+            // Add item results with header
             if (matchingItems.length > 0) {
                 const itemHeader = document.createElement('div');
                 itemHeader.className = 'search-result-header';
-                itemHeader.textContent = window.i18n ? window.i18n.t('pokesearch.items') : 'Przedmioty:';
+                itemHeader.textContent = window.i18n ? window.i18n.t('pokesearch.items') : 'Items:';
                 resultsContainer.appendChild(itemHeader);
-                
+
                 matchingItems.slice(0, 5).forEach(itemName => {
                     const resultItem = document.createElement('div');
                     resultItem.className = 'search-result-item item-result';
                     resultItem.textContent = itemName;
-                    
+
                     resultItem.addEventListener('click', function() {
                         searchInput.value = itemName;
                         resultsContainer.style.display = 'none';
                         displayPokemonsByItem(itemName);
                     });
-                    
+
                     resultsContainer.appendChild(resultItem);
                 });
             }
-            
-            // Dodaj wyniki lokalizacji z nagłówkiem
+
+            // Add location results with header
             if (allMatchingLocations.length > 0) {
                 const locationHeader = document.createElement('div');
                 locationHeader.className = 'search-result-header';
-                locationHeader.textContent = window.i18n ? window.i18n.t('pokesearch.locations') : 'Lokalizacje:';
+                locationHeader.textContent = window.i18n ? window.i18n.t('pokesearch.locations') : 'Locations:';
                 resultsContainer.appendChild(locationHeader);
-                
-                // Najpierw posortuj lokalizacje - najpierw te na mapie
+
+                // First sort locations - those on the map first
                 const sortedLocations = [...allMatchingLocations].sort((a, b) => {
                     const aOnMap = mapLocations.includes(a);
                     const bOnMap = mapLocations.includes(b);
@@ -772,56 +772,56 @@ function setupPokemonSearchEvents(searchInput, resultsContainer) {
                     if (!aOnMap && bOnMap) return 1;
                     return a.localeCompare(b);
                 });
-                
+
                 sortedLocations.slice(0, 8).forEach(locationName => {
-                    // Sprawdź, czy lokalizacja jest na mapie
+                    // Check if location is on map
                     const isOnMap = mapLocations.includes(locationName);
-                    
+
                     const resultItem = document.createElement('div');
                     resultItem.className = `search-result-item location-result ${isOnMap ? '' : 'not-on-map-result'}`;
                     resultItem.textContent = locationName;
-                    
-                    // Dodaj ikonę tylko dla lokalizacji na mapie
+
+                    // Add icon only for locations on the map
                     if (!isOnMap) {
-                        resultItem.title = window.i18n ? window.i18n.t('pokesearch.locationNotOnMap') : 'Lokalizacja nie znajduje się na mapie';
+                        resultItem.title = window.i18n ? window.i18n.t('pokesearch.locationNotOnMap') : 'Location not on map';
                     }
-                    
+
                     resultItem.addEventListener('click', function() {
                         searchInput.value = locationName;
                         resultsContainer.style.display = 'none';
                         displayPokemonsByLocation(locationName);
                     });
-                    
+
                     resultsContainer.appendChild(resultItem);
                 });
             }
-            
-            // Dodaj wyniki Pokemonów z nagłówkiem
+
+            // Add Pokemon results with header
             if (matchingPokemon.length > 0) {
                 const pokemonHeader = document.createElement('div');
                 pokemonHeader.className = 'search-result-header';
-                pokemonHeader.textContent = window.i18n ? window.i18n.t('pokesearch.pokemon') : 'Pokemony:';
+                pokemonHeader.textContent = window.i18n ? window.i18n.t('pokesearch.pokemon') : 'Pokemon:';
                 resultsContainer.appendChild(pokemonHeader);
-                
+
                 matchingPokemon.slice(0, 5).forEach(pokemonName => {
                     const resultItem = document.createElement('div');
                     resultItem.className = 'search-result-item pokemon-result';
                     resultItem.textContent = pokemonName;
-                    
+
                     resultItem.addEventListener('click', function() {
                         searchInput.value = pokemonName;
                         resultsContainer.style.display = 'none';
                         displayPokemonLocations(pokemonName);
                     });
-                    
+
                     resultsContainer.appendChild(resultItem);
                 });
             }
         }
-        
+
         resultsContainer.style.display = 'block';
     });
-    
+
     searchInput.addEventListener('click', function() {
         if (this.value.length >= 2) {
             const event = new Event('input');
@@ -831,7 +831,7 @@ function setupPokemonSearchEvents(searchInput, resultsContainer) {
             showInitialSuggestions();
         }
     });
-    
+
     document.addEventListener('click', function(e) {
         if (!resultsContainer.contains(e.target) && e.target !== searchInput) {
             resultsContainer.style.display = 'none';
@@ -841,47 +841,47 @@ function setupPokemonSearchEvents(searchInput, resultsContainer) {
 
 function displayPokemonLocations(pokemonName) {
     clearOnlyPokemonIcons(); // Clear previous icons
-    
-    console.log(`Szukam lokalizacji dla Pokemona: ${pokemonName}`);
-    
+
+    console.log(`Searching for locations for Pokemon: ${pokemonName}`);
+
     // Save the current Pokemon name
     currentPokemonName = pokemonName;
-    
-    // Pobierz wszystkie lokalizacje, w których występuje ten Pokemon
+
+    // Get all locations where this Pokemon appears
     let locations = allPokemonData.filter(entry => entry.Pokemon === pokemonName);
-    
+
     // Check if repel filter is active
     const repelFilter = document.getElementById('repel-filter-checkbox');
     const showOnlyRepel = repelFilter && repelFilter.checked;
-    
+
     // Filter locations if repel filter is active
     if (showOnlyRepel) {
         locations = locations.filter(loc => loc.RequiresRepel);
     }
-    
+
     if (locations.length === 0) {
         alert(window.i18n ? window.i18n.t(showOnlyRepel ? "pokesearch.noPokemonFoundWithRepel" : "pokesearch.noPokemonFound") : 
-             `Nie znaleziono lokalizacji dla ${pokemonName}${showOnlyRepel ? " z repelem" : ""}`);
+             `No locations found for ${pokemonName}${showOnlyRepel ? " with repel" : ""}`);
         return;
     }
-    
-    console.log(`Znaleziono ${locations.length} lokalizacji dla ${pokemonName}`);
-    
+
+    console.log(`Found ${locations.length} locations for ${pokemonName}`);
+
     // Remove any existing panel before creating a new one
     const existingPanel = document.querySelector('.pokemon-locations-panel');
     if (existingPanel) {
         existingPanel.remove();
     }
-    
+
     // Create new locations panel
     const locationsPanel = document.createElement('div');
     locationsPanel.className = 'pokemon-locations-panel';
     document.getElementById('map-container').appendChild(locationsPanel);
-    
+
     // Get the Pokemon image
     const monsterID = locations[0].MonsterID;
     const pokemonImageSrc = `resources/pokemons/${monsterID}.png`;
-    
+
     // Prepare locations with map availability info for sorting
     const locationsWithAvailability = locations.map(loc => {
         const mapLoc = findMapLocation(loc.Map);
@@ -892,14 +892,14 @@ function displayPokemonLocations(pokemonName) {
             mapLoc: mapLoc
         };
     });
-    
+
     // Sort locations - available on map first
     locationsWithAvailability.sort((a, b) => {
         if (a.isOnMap && !b.isOnMap) return -1;
         if (!a.isOnMap && b.isOnMap) return 1;
         return a.location.Map.localeCompare(b.location.Map);
     });
-    
+
     // Create the panel content
     locationsPanel.innerHTML = `
         <div class="pokemon-locations-header">
@@ -910,10 +910,10 @@ function displayPokemonLocations(pokemonName) {
             <span class="close-locations-panel">&times;</span>
         </div>
         <div class="pokemon-locations-content">
-            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.locationsTitle") : "Ten Pokemon występuje w tych lokalizacjach:"}</p>
+            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.locationsTitle") : "This Pokemon can be found in these locations:"}</p>
             <ul class="pokemon-locations-list">
                 ${locationsWithAvailability.map(item => {
-                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Kliknij aby wycentrować mapę' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Lokalizacja nie znajduje się na mapie'}">
+                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}">
                         <div class="pokemon-location-name">${item.location.Map}</div>
                         <div class="pokemon-location-icons">${createLocationIconsHTML(item.location)}</div>
                     </li>`;
@@ -921,47 +921,47 @@ function displayPokemonLocations(pokemonName) {
             </ul>
         </div>
     `;
-    
+
     // Add event listener to the close button
     locationsPanel.querySelector('.close-locations-panel').addEventListener('click', function() {
         locationsPanel.remove();
         currentPokemonName = null; // Clear current Pokemon when panel is closed
         clearOnlyPokemonIcons();
     });
-    
+
     // Add event listeners to location items
     locationsPanel.querySelectorAll('.pokemon-locations-list li').forEach(item => {
         item.addEventListener('click', function() {
             const locationName = this.dataset.location;
             const locationInfo = locationsWithAvailability.find(l => l.location.Map === locationName);
-            
+
             if (locationInfo && locationInfo.isOnMap) {
                 centerMapOnLocation(locationInfo.mapLoc);
                 // Don't clear other icons, just highlight this one
                 highlightPokemonLocation(locationInfo.location, locationInfo.mapLoc);
             } else {
-                alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Lokalizacja nie znajduje się na mapie");
+                alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
             }
         });
     });
-    
+
     // Also show all Pokemon icons on the map
     displayAllPokemonIcons(pokemonName, locations);
-    
+
     // Enable mouse wheel scrolling on the locations content
     const locationsContent = locationsPanel.querySelector('.pokemon-locations-content');
     locationsContent.addEventListener('wheel', function(e) {
         // Completely stop the event from affecting the map
         e.stopPropagation();
         e.preventDefault();
-        
+
         // Calculate the scroll amount based on delta
         const delta = e.deltaY || e.detail || e.wheelDelta;
         const scrollAmount = delta > 0 ? 40 : -40;
-        
+
         // Apply the scroll
         this.scrollTop += scrollAmount;
-        
+
         // Return false to be extra sure the event doesn't bubble
         return false;
     }, { passive: false });  // The passive: false is crucial for preventDefault to work
@@ -975,7 +975,7 @@ function highlightPokemonLocation(pokemonLocation, mapLoc) {
         const topPos = parseInt(icon.style.top);
         return leftPos === mapLoc.map_pos[0] && topPos === mapLoc.map_pos[1];
     });
-    
+
     if (existingIcons.length > 0) {
         // If the icon exists, apply a highlight animation
         existingIcons.forEach(icon => {
@@ -998,10 +998,10 @@ function clearOnlyPokemonIcons() {
             icon.parentNode.removeChild(icon);
         }
     });
-    
+
     pokemonIcons = [];
-    
-    // Ukryj tooltip jeśli widoczny
+
+    // Hide tooltip if visible
     const tooltip = document.querySelector('.pokemon-tooltip');
     if (tooltip) {
         tooltip.style.display = 'none';
@@ -1012,46 +1012,46 @@ function clearOnlyPokemonIcons() {
 // Helper function to create a single Pokemon icon
 function createPokemonIcon(pokemonLocation, mapLoc) {
     const map = document.getElementById('map');
-    
+
     // Get coordinates
     const x = mapLoc.map_pos[0];
     const y = mapLoc.map_pos[1];
-    
+
     // Create icon
     const icon = document.createElement('div');
     icon.className = 'pokemon-icon';
     icon.style.left = `${x}px`;
     icon.style.top = `${y}px`;
-    
+
     // Explicitly set the size to match what was in your CSS
     icon.style.width = '42px';
     icon.style.height = '42px';
-    
+
     // Create image
     const img = document.createElement('img');
     img.src = `resources/pokemons/${pokemonLocation.MonsterID}.png`;
     img.alt = pokemonLocation.Pokemon;
-    
+
     // Set image to fill the icon container
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'contain';
     img.style.filter = 'drop-shadow(0 0 4px rgba(0, 0, 0, 0.5))';
-    
+
     // Fallback if image doesn't exist
     img.onerror = function() {
         this.onerror = null;
         this.src = 'resources/pokemons/default-poke.png';
     };
-    
+
     icon.appendChild(img);
-    
+
     // Add desktop events (tooltip, click)
     icon.addEventListener('click', function(e) {
         e.stopPropagation();
         displayPokemonTooltip(pokemonLocation, e.clientX, e.clientY);
     });
-    
+
     icon.addEventListener('mouseover', function(e) {
         const locationTooltip = document.getElementById('tooltip');
         if (locationTooltip) {
@@ -1061,14 +1061,14 @@ function createPokemonIcon(pokemonLocation, mapLoc) {
             locationTooltip.style.opacity = '1';
         }
     });
-    
+
     icon.addEventListener('mouseleave', function() {
         const locationTooltip = document.getElementById('tooltip');
         if (locationTooltip) {
             locationTooltip.style.opacity = '0';
         }
     });
-    
+
     // Add mobile touch events
     icon.addEventListener('touchstart', function(e) {
         e.preventDefault(); // Prevent default behavior
@@ -1081,74 +1081,74 @@ function createPokemonIcon(pokemonLocation, mapLoc) {
             locationTooltip.style.opacity = '1';
         }
     });
-    
+
     icon.addEventListener('touchend', function(e) {
         e.preventDefault();
         const locationTooltip = document.getElementById('tooltip');
         if (locationTooltip) {
             locationTooltip.style.opacity = '0';
         }
-        
+
         if (e.changedTouches.length > 0) {
             const touch = e.changedTouches[0];
             displayPokemonTooltip(pokemonLocation, touch.clientX, touch.clientY);
         }
     });
-    
+
     map.appendChild(icon);
     pokemonIcons.push(icon);
-    
+
     return icon;
 }
 
 // Helper function to display all icons on the map
 function displayAllPokemonIcons(pokemonName, pokemonLocations) {
     let foundCount = 0;
-    
+
     // Check each Pokemon location
     pokemonLocations.forEach((pokemonLocation) => {
         // Find location on the map using window.locations
         const mapLoc = findMapLocation(pokemonLocation.Map);
-        
+
         // If location not found on map, skip
         if (!mapLoc || !mapLoc.map_pos) {
             return;
         }
-        
+
         // Increment found locations counter
         foundCount++;
-        
+
         // Create and add icon
         createPokemonIcon(pokemonLocation, mapLoc);
     });
-    
-    console.log(`Wyświetlono ${foundCount} z ${pokemonLocations.length} lokalizacji dla ${pokemonName}`);
+
+    console.log(`Displayed ${foundCount} out of ${pokemonLocations.length} locations for ${pokemonName}`);
 }
 
 function findMapLocation(locationName) {
-    // Sprawdź, czy window.locations istnieje i ma dane
+    // Check if window.locations exists and has data
     if (!window.locations || !Array.isArray(window.locations) || window.locations.length === 0) {
-        console.error(`window.locations nie istnieje lub jest puste podczas szukania: ${locationName}`);
-        
-        // Spróbuj użyć lokalnej zmiennej locations, jeśli dostępna w globalnym zakresie
+        console.error(`window.locations does not exist or is empty while searching: ${locationName}`);
+
+        // Try to use the local variable locations, if available in the global scope
         if (typeof locations !== 'undefined' && Array.isArray(locations) && locations.length > 0) {
-            console.log(`Używam lokalnej zmiennej 'locations' zamiast window.locations (znaleziono ${locations.length} lokalizacji)`);
+            console.log(`Using local variable 'locations' instead of window.locations (found ${locations.length} locations)`);
             const location = locations.find(loc => loc.tooltip === locationName);
             if (location) return location;
         }
-        
+
         return null;
     }
-    
-    // Najpierw szukaj dokładnego dopasowania po polu tooltip
+
+    // First search for an exact match using the tooltip field
     let location = window.locations.find(loc => loc.tooltip === locationName);
-    
-    // Jeśli nie znaleziono, spróbuj dopasować po polu map
+
+    // If not found, try matching using the map field
     if (!location) {
         location = window.locations.find(loc => loc.map === locationName);
     }
-    
-    // Jeśli nadal nie znaleziono, spróbuj wersję bardziej elastyczną - ignoruj wielkość liter
+
+    // If still not found, try a more flexible version - ignore case
     if (!location) {
         const locationLower = locationName.toLowerCase();
         location = window.locations.find(loc => 
@@ -1156,34 +1156,34 @@ function findMapLocation(locationName) {
             (loc.map && loc.map.toLowerCase() === locationLower)
         );
     }
-    
-    // Jeśli nadal nie znaleziono, sprawdź czy mamy dopasowanie częściowe
+
+    // If still not found, check if we have a partial match
     if (!location) {
         const possibleMatches = window.locations.filter(loc => 
             (loc.tooltip && loc.tooltip.includes(locationName)) ||
             (loc.map && loc.map.includes(locationName))
         );
-        
+
         if (possibleMatches.length > 0) {
-            console.log(`Nie znaleziono dokładnego dopasowania dla "${locationName}", ale znaleziono ${possibleMatches.length} częściowych dopasowań:`, 
+            console.log(`No exact match found for "${locationName}", but found ${possibleMatches.length} partial matches:`, 
                         possibleMatches.slice(0, 3).map(l => l.tooltip || l.map));
-            location = possibleMatches[0]; // Użyj pierwszego częściowego dopasowania
+            location = possibleMatches[0]; // Use the first partial match
         }
     }
-    
-    // Jeśli nadal nie znaleziono, wyloguj informację
+
+    // If still not found, log the information
     if (!location) {
-        // console.warn(`Nie znaleziono lokalizacji dla: "${locationName}"`);
+        // console.warn(`Location not found for: "${locationName}"`);
     } else {
-        console.log(`Znaleziono lokalizację dla: "${locationName}"`, location);
+        console.log(`Location found for: "${locationName}"`, location);
     }
-    
+
     return location;
 }
 
 function clearPokemonIcons() {
     clearOnlyPokemonIcons();
-    
+
     // Remove the locations panel if it exists
     const locationsPanel = document.querySelector('.pokemon-locations-panel');
     if (locationsPanel) {
@@ -1193,16 +1193,16 @@ function clearPokemonIcons() {
 }
 
 function displayPokemonTooltip(pokemonData, x, y) {
-    // Sprawdź czy tooltip już istnieje lub utwórz nowy
+    // Check if tooltip already exists or create a new one
     let tooltip = document.querySelector('.pokemon-tooltip');
-    
+
     if (!tooltip) {
         tooltip = document.createElement('div');
         tooltip.className = 'pokemon-tooltip';
         document.body.appendChild(tooltip);
     }
-    
-    // Utwórz tekst czasu dnia
+
+    // Create daytime text
     let daytimeText = '';
     if (pokemonData.Daytime && pokemonData.Daytime.length === 3) {
         const dayParts = [];
@@ -1211,8 +1211,8 @@ function displayPokemonTooltip(pokemonData, x, y) {
         if (pokemonData.Daytime[2]) dayParts.push(window.i18n.t('pokemon.night'));
         daytimeText = dayParts.join(', ');
     }
-    
-    // Utwórz zawartość HTML dla tooltipa z międzynarodowymi tekstami
+
+    // Create HTML content for the tooltip with international texts
     const content = `
         <div class="pokemon-tooltip-header">
             <h3>${pokemonData.Pokemon} (#${pokemonData.MonsterID})</h3>
@@ -1252,60 +1252,60 @@ function displayPokemonTooltip(pokemonData, x, y) {
             </table>
         </div>
     `;
-    
+
     tooltip.innerHTML = content;
-    
-    // Dostosuj pozycjonowanie dla urządzeń mobilnych
+
+    // Adjust positioning for mobile devices
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    const isMobile = window.innerWidth <= 768; // Sprawdzenie czy to urządzenie mobilne
-    
+    const isMobile = window.innerWidth <= 768; // Check if it's a mobile device
+
     if (isMobile) {
-        // Na urządzeniach mobilnych wyświetl tooltip na środku ekranu
+        // On mobile devices, display the tooltip in the center of the screen
         const tooltipWidth = Math.min(300, viewportWidth * 0.85);
         tooltip.style.width = `${tooltipWidth}px`;
         tooltip.style.maxWidth = `${tooltipWidth}px`;
         tooltip.style.left = '50%';
         tooltip.style.top = '50%';
         tooltip.style.transform = 'translate(-50%, -50%)';
-        
-        // Zwiększ obszar dotyku dla przycisku zamykania
+
+        // Increase the touch area for the close button
         const closeButton = tooltip.querySelector('.close-tooltip');
         if (closeButton) {
             closeButton.style.padding = '10px';
             closeButton.style.fontSize = '24px';
         }
     } else {
-        // Na desktopie użyj dotychczasowej logiki
+        // On desktop, use the existing logic
         let tooltipLeft = x + 15;
         let tooltipTop = y + 15;
         const tooltipWidth = 400;
         const tooltipHeight = 300;
-        
+
         if (tooltipLeft + tooltipWidth > viewportWidth) {
             tooltipLeft = x - tooltipWidth - 15;
         }
-        
+
         if (tooltipTop + tooltipHeight > viewportHeight) {
             tooltipTop = viewportHeight - tooltipHeight - 15;
         }
-        
+
         tooltip.style.left = `${tooltipLeft}px`;
         tooltip.style.top = `${tooltipTop}px`;
         tooltip.style.transform = 'none';
     }
-    
+
     tooltip.style.display = 'block';
-    
-    // Dodaj funkcjonalność przycisku zamykania
+
+    // Add functionality to the close button
     const closeButton = tooltip.querySelector('.close-tooltip');
     if (closeButton) {
         closeButton.addEventListener('click', function() {
             tooltip.style.display = 'none';
         });
     }
-    
-    // Zamknij tooltip po kliknięciu gdziekolwiek indziej
+
+    // Close tooltip after clicking anywhere else
     const handleOutsideClick = function(e) {
         if (!tooltip.contains(e.target) && !e.target.closest('.pokemon-icon')) {
             tooltip.style.display = 'none';
@@ -1313,47 +1313,47 @@ function displayPokemonTooltip(pokemonData, x, y) {
             document.removeEventListener('touchstart', handleOutsideClick);
         }
     };
-    
+
     document.addEventListener('click', handleOutsideClick);
     document.addEventListener('touchstart', handleOutsideClick);
 }
 
-// Inicjalizacja po załadowaniu okna
+// Initialization after window load
 window.addEventListener('load', function() {
-    // Dodaj opóźnienie, aby upewnić się, że script.js załadował dane mapy
+    // Add a delay to make sure script.js loaded the map data
     setTimeout(function() {
-        console.log("Rozpoczynam inicjalizację wyszukiwania Pokemonów...");
-        
-        // Sprawdź czy mamy dostęp do window.locations lub globalnej zmiennej locations
+        console.log("Starting Pokemon search initialization...");
+
+        // Check if we have access to window.locations or the global variable locations
         if ((window.locations && window.locations.length > 0) || 
             (typeof locations !== 'undefined' && locations.length > 0)) {
-            console.log("Dane lokalizacji dostępne, inicjalizuję wyszukiwarkę Pokemonów");
-            
-            // Jeśli mamy dostęp do locations, ale nie do window.locations, przypisz je
+            console.log("Location data available, initializing Pokemon search");
+
+            // If we have access to locations, but not to window.locations, assign them
             if (!window.locations && typeof locations !== 'undefined') {
-                console.log("Przypisuję locations do window.locations");
+                console.log("Assigning locations to window.locations");
                 window.locations = locations;
             }
         } else {
-            console.warn("Dane lokalizacji nie są jeszcze dostępne, inicjalizuję wyszukiwarkę z opóźnieniem");
+            console.warn("Location data is not yet available, initializing search with a delay");
         }
-        
+
         initPokemonSearch();
-    }, 3000); // Opóźnienie 3 sekundy
+    }, 3000); // Delay 3 seconds
 });
 
-// Czyść ikony Pokemonów, gdy mapa jest odświeżana
+// Clear Pokemon icons when the map is refreshed
 function hookIntoMapRefresh() {
     const originalRefreshMarkers = window.refreshMarkers;
-    
+
     if (typeof originalRefreshMarkers === 'function') {
         window.refreshMarkers = function() {
-            // Wywołaj oryginalną funkcję
+            // Call the original function
             originalRefreshMarkers.apply(this, arguments);
-            
-            // Wyczyść ikony Pokemonów
+
+            // Clear Pokemon icons
             clearOnlyPokemonIcons(); // Changed to only clear icons, not the panel
-            
+
             // If there was a Pokemon being displayed, redisplay its icons
             if (currentPokemonName) {
                 const locations = allPokemonData.filter(entry => entry.Pokemon === currentPokemonName);
@@ -1362,94 +1362,94 @@ function hookIntoMapRefresh() {
                 }
             }
         };
-        
-        console.log("Pomyślnie podpięto się pod funkcję refreshMarkers");
+
+        console.log("Successfully hooked into refreshMarkers function");
     } else {
-        console.warn("Nie można podpiąć się pod funkcję refreshMarkers");
+        console.warn("Cannot hook into refreshMarkers function");
     }
 }
 
-// Zmodyfikowana funkcja displayPokemonsByLocation
+// Modified displayPokemonsByLocation function
 function displayPokemonsByLocation(locationName) {
-    // Znajdź lokalizację na mapie
+    // Find location on the map
     const mapLoc = findMapLocation(locationName);
     const isOnMap = mapLoc && mapLoc.map_pos;
-    
-    // Znajdź wszystkie Pokemony w tej lokalizacji
+
+    // Find all Pokemon in this location
     let pokemonAtLocation = allPokemonData.filter(entry => 
         entry.Map === locationName || 
         (mapLoc && entry.Map === mapLoc.tooltip) || 
         (mapLoc && mapLoc.map && entry.Map === mapLoc.map)
     );
-    
-    // Sprawdź czy filtr repela jest aktywny
+
+    // Check if repel filter is active
     const repelFilter = document.getElementById('repel-filter-checkbox');
     const showOnlyRepel = repelFilter && repelFilter.checked;
-    
-    // Filtruj Pokemony jeśli filtr repela jest aktywny
+
+    // Filter Pokemon if repel filter is active
     if (showOnlyRepel) {
         pokemonAtLocation = pokemonAtLocation.filter(poke => poke.RequiresRepel);
     }
-    
-    // Wyczyść poprzednie ikony Pokemonów
+
+    // Clear previous Pokemon icons
     clearOnlyPokemonIcons();
-    
-    // Usuń istniejące panele
+
+    // Remove existing panels
     const existingPanel = document.querySelector('.location-pokemon-panel');
     if (existingPanel) {
         existingPanel.remove();
     }
-    
+
     const existingPokemonPanel = document.querySelector('.pokemon-locations-panel');
     if (existingPokemonPanel) {
         existingPokemonPanel.remove();
     }
-    
+
     const existingItemPanel = document.querySelector('.item-pokemon-panel');
     if (existingItemPanel) {
         existingItemPanel.remove();
     }
-    
-    // Jeśli nie ma pokemonów w tej lokalizacji
+
+    // If there are no Pokemon in this location
     if (pokemonAtLocation.length === 0) {
         if (isOnMap) {
-            // Jeśli lokalizacja jest na mapie, wycentruj mapę bez wyświetlania alertu
+            // If location is on the map, center the map without displaying an alert
             centerMapOnLocation(mapLoc);
             displayLocationMarker(mapLoc);
         } else {
-            // Wyświetl alert tylko gdy lokalizacja NIE jest na mapie i nie ma pokemonów
+            // Display alert only when location is NOT on the map and there are no Pokemon
             alert(window.i18n ? window.i18n.t(showOnlyRepel ? "pokesearch.noPokemonAtLocationWithRepel" : "pokesearch.noPokemonAtLocation") : 
-                 `Nie znaleziono Pokemonów w lokalizacji ${locationName}${showOnlyRepel ? " z repelem" : ""}`);
+                 `No Pokemon found at location ${locationName}${showOnlyRepel ? " with repel" : ""}`);
         }
         return;
     }
-    
-    // Sortuj Pokemony alfabetycznie
+
+    // Sort Pokemon alphabetically
     pokemonAtLocation.sort((a, b) => a.Pokemon.localeCompare(b.Pokemon));
-    
-    // Stwórz panel do pokazania Pokemonów w tej lokalizacji
+
+    // Create panel to show Pokemon at this location
     displayLocationPokemonPanel(locationName, pokemonAtLocation, mapLoc);
-    
-    // Jeśli lokalizacja jest na mapie, wycentruj mapę i wyświetl marker
+
+    // If location is on the map, center the map and display marker
     if (isOnMap) {
-        // Wycentruj mapę na tej lokalizacji
+        // Center map on this location
         centerMapOnLocation(mapLoc);
-        
-        // Wyświetl marker lokalizacji
+
+        // Display location marker
         displayLocationMarker(mapLoc);
     }
 }
 
-// Nowa funkcja do wyświetlania markera lokalizacji
+// New function to display a location marker
 function displayLocationMarker(mapLoc) {
-    // Możliwe dodanie prostego markera lokalizacji (opcjonalne)
+    // Possible addition of a simple location marker (optional)
     const map = document.getElementById('map');
-    
-    // Pobierz współrzędne
+
+    // Get coordinates
     const x = mapLoc.map_pos[0];
     const y = mapLoc.map_pos[1];
-    
-    // Stwórz marker lokalizacji
+
+    // Create location marker
     const marker = document.createElement('div');
     marker.className = 'location-marker';
     marker.style.left = `${x}px`;
@@ -1463,37 +1463,37 @@ function displayLocationMarker(mapLoc) {
     marker.style.transform = 'translate(-50%, -50%)';
     marker.style.zIndex = '9';
     marker.style.boxShadow = '0 0 8px rgba(255, 204, 0, 0.7)';
-    
+
     map.appendChild(marker);
-    
-    // Dodaj marker do listy ikon Pokemonów, aby był usuwany razem z nimi
+
+    // Add marker to the list of Pokemon icons, so it's removed along with them
     pokemonIcons.push(marker);
 }
 
-// Zmodyfikowana funkcja wyświetlania panelu lokalizacji Pokemonów
+// Modified function to display the Pokemon locations panel
 function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
-    // Stwórz element panelu
+    // Create panel element
     const panel = document.createElement('div');
     panel.className = 'pokemon-locations-panel location-pokemon-panel';
     document.getElementById('map-container').appendChild(panel);
-    
-    // Sprawdź, czy lokalizacja jest na mapie
+
+    // Check if location is on the map
     const isOnMap = mapLoc && mapLoc.map_pos;
-    
-    // Ustaw tytuł wyświetlania
+
+    // Set display title
     const displayName = (mapLoc && mapLoc.tooltip) ? mapLoc.tooltip : locationName;
-    
-    // Stwórz zawartość panelu
+
+    // Create panel content
     panel.innerHTML = `
         <div class="pokemon-locations-header">
-            <h3>${displayName}${!isOnMap ? ' <span class="location-not-on-map-badge" title="' + (window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Lokalizacja nie znajduje się na mapie') + '">!</span>' : ''}</h3>
+            <h3>${displayName}${!isOnMap ? ' <span class="location-not-on-map-badge" title="' + (window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map') + '">!</span>' : ''}</h3>
             <span class="close-locations-panel">&times;</span>
         </div>
         <div class="pokemon-locations-content">
-            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.pokemonAtLocation") : "Pokemony dostępne w tej lokalizacji:"}</p>
+            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.pokemonAtLocation") : "Pokemon available at this location:"}</p>
             <ul class="pokemon-locations-list">
                 ${pokemonList.map(pokemon => {
-                    return `<li data-pokemon="${pokemon.Pokemon}" data-monster-id="${pokemon.MonsterID}" title="${window.i18n ? window.i18n.t("pokesearch.clickToShowInfo") : 'Kliknij aby wyświetlić informacje'}">
+                    return `<li data-pokemon="${pokemon.Pokemon}" data-monster-id="${pokemon.MonsterID}" title="${window.i18n ? window.i18n.t("pokesearch.clickToShowInfo") : 'Click to show info'}">
                         <div class="pokemon-location-name">
                             <img src="resources/pokemons/${pokemon.MonsterID}.png" class="pokemon-mini-icon" alt="${pokemon.Pokemon}" onerror="this.src='resources/pokemons/default-poke.png'">
                             ${pokemon.Pokemon}
@@ -1504,39 +1504,39 @@ function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
             </ul>
         </div>
     `;
-    
-    // Dodaj event listener do przycisku zamykania
+
+    // Add event listener to the close button
     panel.querySelector('.close-locations-panel').addEventListener('click', function() {
         panel.remove();
         clearOnlyPokemonIcons();
     });
-    
-    // Dodaj event listenery do elementów Pokemonów
+
+    // Add event listeners to Pokemon elements
     panel.querySelectorAll('.pokemon-locations-list li').forEach(item => {
         item.addEventListener('click', function() {
             const pokemonName = this.dataset.pokemon;
             const pokemonData = pokemonList.find(p => p.Pokemon === pokemonName);
-            
+
             if (pokemonData) {
                 if (isOnMap) {
-                    // Jeśli lokalizacja jest na mapie, wyświetl ikonę Pokemona
+                    // If location is on the map, display the Pokemon icon
                     clearPokemonIconsExceptMarker();
                     const pokemonIcon = createPokemonIcon(pokemonData, mapLoc);
-                    
-                    // Dodaj animację do nowo utworzonej ikony
+
+                    // Add animation to the newly created icon
                     setTimeout(() => {
                         pokemonIcon.style.animation = 'pokemon-pulse 0.8s ease-in-out 2';
                     }, 10);
                 }
-                
-                // Pokaż tooltip z informacjami o Pokemonie niezależnie od tego, czy lokalizacja jest na mapie
+
+                // Show tooltip with Pokemon info regardless of whether the location is on the map
                 const rect = this.getBoundingClientRect();
                 displayPokemonTooltip(pokemonData, rect.right, rect.top);
             }
         });
     });
-    
-    // Włącz przewijanie kółkiem myszy w zawartości lokalizacji
+
+    // Enable mouse wheel scrolling on the location content
     const locationsContent = panel.querySelector('.pokemon-locations-content');
     locationsContent.addEventListener('wheel', function(e) {
         e.stopPropagation();
@@ -1548,83 +1548,83 @@ function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
     }, { passive: false });
 }
 
-// Nowa funkcja do czyszczenia ikon Pokemonów, ale zachowania markera lokalizacji
+// New function to clear Pokemon icons, but keep the location marker
 function clearPokemonIconsExceptMarker() {
-    // Usuń tylko elementy, które nie są markerem lokalizacji
+    // Remove only elements that are not location markers
     const iconsToRemove = pokemonIcons.filter(icon => !icon.classList.contains('location-marker'));
-    
+
     iconsToRemove.forEach(icon => {
         if (icon && icon.parentNode) {
             icon.parentNode.removeChild(icon);
         }
     });
-    
-    // Zaktualizuj tablicę pokemonIcons, zachowując tylko marker lokalizacji
+
+    // Update the pokemonIcons array, keeping only the location marker
     pokemonIcons = pokemonIcons.filter(icon => icon.classList.contains('location-marker'));
-    
-    // Ukryj tooltip jeśli widoczny
+
+    // Hide tooltip if visible
     const tooltip = document.querySelector('.pokemon-tooltip');
     if (tooltip) {
         tooltip.style.display = 'none';
     }
 }
 
-// Funkcja do wyświetlania Pokemonów według przedmiotu
+// Function to display Pokemon by item
 function displayPokemonsByItem(itemName) {
-    console.log(`Szukam Pokemonów z przedmiotem: ${itemName}`);
-    
-    // Znajdź wszystkie Pokemony z tym przedmiotem
+    console.log(`Searching for Pokemon with item: ${itemName}`);
+
+    // Find all Pokemon with this item
     let pokemonWithItem = allPokemonData.filter(entry => entry.Item === itemName);
-    
-    // Sprawdź czy filtr repela jest aktywny
+
+    // Check if repel filter is active
     const repelFilter = document.getElementById('repel-filter-checkbox');
     const showOnlyRepel = repelFilter && repelFilter.checked;
-    
-    // Filtruj Pokemony jeśli filtr repela jest aktywny
+
+    // Filter Pokemon if repel filter is active
     if (showOnlyRepel) {
         pokemonWithItem = pokemonWithItem.filter(poke => poke.RequiresRepel);
     }
-    
+
     if (pokemonWithItem.length === 0) {
         alert(window.i18n ? window.i18n.t(showOnlyRepel ? "pokesearch.noPokemonWithItemAndRepel" : "pokesearch.noPokemonWithItem") : 
-             `Nie znaleziono Pokemonów z przedmiotem ${itemName}${showOnlyRepel ? " i z repelem" : ""}`);
+             `No Pokemon found with item ${itemName}${showOnlyRepel ? " and with repel" : ""}`);
         return;
     }
-    
-    // Wyczyść poprzednie ikony Pokemonów
+
+    // Clear previous Pokemon icons
     clearOnlyPokemonIcons();
-    
-    // Usuń istniejące panele
+
+    // Remove existing panels
     const existingItemPanel = document.querySelector('.item-pokemon-panel');
     if (existingItemPanel) {
         existingItemPanel.remove();
     }
-    
+
     const existingPanel = document.querySelector('.pokemon-locations-panel');
     if (existingPanel) {
         existingPanel.remove();
     }
-    
+
     const existingLocationPanel = document.querySelector('.location-pokemon-panel');
     if (existingLocationPanel) {
         existingLocationPanel.remove();
     }
-    
-    // Stwórz panel do pokazania Pokemonów z tym przedmiotem
+
+    // Create panel to show Pokemon with this item
     displayItemPokemonPanel(itemName, pokemonWithItem);
 }
 
-// Funkcja wyświetlająca panel z Pokemonami posiadającymi przedmiot
+// Function displaying the panel with Pokemon possessing an item
 function displayItemPokemonPanel(itemName, pokemonList) {
-    // Stwórz element panelu
+    // Create panel element
     const panel = document.createElement('div');
     panel.className = 'pokemon-locations-panel item-pokemon-panel';
     document.getElementById('map-container').appendChild(panel);
-    
-    // Pobierz obraz przedmiotu
+
+    // Get item image
     const itemImageSrc = `resources/items/${itemName}.png`;
-    
-    // Przygotuj listę Pokemonów z informacją o dostępności na mapie
+
+    // Prepare the list of Pokemon with information about map availability
     const pokemonWithAvailability = pokemonList.map(pokemon => {
         const mapLoc = findMapLocation(pokemon.Map);
         const isOnMap = mapLoc && mapLoc.map_pos;
@@ -1634,16 +1634,16 @@ function displayItemPokemonPanel(itemName, pokemonList) {
             mapLoc: mapLoc
         };
     });
-    
-    // Sortuj - najpierw dostępne na mapie
+
+    // Sort - those available on the map first
     pokemonWithAvailability.sort((a, b) => {
         if (a.isOnMap && !b.isOnMap) return -1;
         if (!a.isOnMap && b.isOnMap) return 1;
-        // Jeśli oba są na mapie lub oba nie są na mapie, sortuj alfabetycznie po Pokemonie
+        // If both are on the map or both are not on the map, sort alphabetically by Pokemon
         return a.pokemon.Pokemon.localeCompare(b.pokemon.Pokemon);
     });
-    
-    // Stwórz zawartość panelu
+
+    // Create panel content
     panel.innerHTML = `
         <div class="pokemon-locations-header">
             <h3>
@@ -1653,10 +1653,10 @@ function displayItemPokemonPanel(itemName, pokemonList) {
             <span class="close-locations-panel">&times;</span>
         </div>
         <div class="pokemon-locations-content">
-            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.pokemonWithItem") : "Pokemony z przedmiotem:"}</p>
+            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.pokemonWithItem") : "Pokemon with this item:"}</p>
             <ul class="pokemon-locations-list">
                 ${pokemonWithAvailability.map(item => {
-                    return `<li data-pokemon="${item.pokemon.Pokemon}" data-location="${item.pokemon.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Kliknij aby wycentrować mapę' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Lokalizacja nie znajduje się na mapie'}">
+                    return `<li data-pokemon="${item.pokemon.Pokemon}" data-location="${item.pokemon.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}">
                         <div class="pokemon-location-name">
                             <img src="resources/pokemons/${item.pokemon.MonsterID}.png" class="pokemon-mini-icon" alt="${item.pokemon.Pokemon}" onerror="this.src='resources/pokemons/default-poke.png'">
                             ${item.pokemon.Pokemon}
@@ -1670,49 +1670,49 @@ function displayItemPokemonPanel(itemName, pokemonList) {
             </ul>
         </div>
     `;
-    
-    // Dodaj event listener do przycisku zamykania
+
+    // Add event listener to the close button
     panel.querySelector('.close-locations-panel').addEventListener('click', function() {
         panel.remove();
         clearOnlyPokemonIcons();
     });
-    
-    // Dodaj event listenery do elementów Pokemonów
+
+    // Add event listeners to Pokemon elements
     panel.querySelectorAll('.pokemon-locations-list li').forEach(item => {
         item.addEventListener('click', function() {
-            // Nie dodawaj akcji dla lokalizacji, których nie ma na mapie
+            // Don't add action for locations that are not on the map
             if (this.classList.contains('not-on-map')) {
-                alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Lokalizacja nie znajduje się na mapie');
+                alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map');
                 return;
             }
-            
+
             const pokemonName = this.dataset.pokemon;
             const locationName = this.dataset.location;
             const pokemonInfo = pokemonWithAvailability.find(p => 
                 p.pokemon.Pokemon === pokemonName && p.pokemon.Map === locationName
             );
-            
+
             if (pokemonInfo && pokemonInfo.isOnMap && pokemonInfo.mapLoc) {
-                // Wycentruj mapę na tej lokalizacji
+                // Center map on this location
                 centerMapOnLocation(pokemonInfo.mapLoc);
-                
-                // Wyczyść poprzednie ikony i pokaż tylko ikonę tego Pokemona
+
+                // Clear previous icons and show only the icon of this Pokemon
                 clearOnlyPokemonIcons();
                 const pokemonIcon = createPokemonIcon(pokemonInfo.pokemon, pokemonInfo.mapLoc);
-                
-                // Dodaj animację do ikony
+
+                // Add animation to the icon
                 setTimeout(() => {
                     pokemonIcon.style.animation = 'pokemon-pulse 0.8s ease-in-out 2';
                 }, 10);
-                
-                // Pokaż tooltip z informacjami o Pokemonie
+
+                // Show tooltip with Pokemon info
                 const rect = this.getBoundingClientRect();
                 displayPokemonTooltip(pokemonInfo.pokemon, rect.right, rect.top);
             }
         });
     });
-    
-    // Włącz przewijanie kółkiem myszy w zawartości
+
+    // Enable mouse wheel scrolling in the content
     const locationsContent = panel.querySelector('.pokemon-locations-content');
     locationsContent.addEventListener('wheel', function(e) {
         e.stopPropagation();

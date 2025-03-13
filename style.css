@@ -1406,7 +1406,8 @@ body {
 }
 
 .pokestop-preview-close,
-.pokestop-preview-next {
+.pokestop-preview-next,
+.pokestop-preview-zoom {
     position: absolute;
     color: white;
     font-size: 24px;
@@ -1432,9 +1433,23 @@ body {
     right: 60px;
 }
 
+.pokestop-preview-zoom {
+    top: 10px;
+    right: 110px;
+}
+
 .pokestop-preview-close:hover,
-.pokestop-preview-next:hover {
+.pokestop-preview-next:hover,
+.pokestop-preview-zoom:hover {
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.pokestop-image-container {
+    cursor: grab;
+}
+
+.pokestop-image-container:active {
+    cursor: grabbing;
 }
 
 /* Responsywność dla urządzeń mobilnych */

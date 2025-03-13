@@ -1296,7 +1296,8 @@ if (loadJsonBtn) {
 }
 
 map.addEventListener('mousedown', function(e) {
-    if (e.button !== 2) return;
+    // Handle both left (0) and right (2) mouse buttons
+    if (e.button !== 0 && e.button !== 2) return;
 
     e.preventDefault();
     
@@ -1322,7 +1323,9 @@ document.addEventListener('mousemove', function(e) {
 });
 
 document.addEventListener('mouseup', function(e) {
-    if (isDragging && (e.button === 2 || e.button === -1)) {
+    // Check if dragging was active and if left (0) or right (2) button was released
+    // e.button === -1 handles cases when there's no mouse (e.g., on touch devices)
+    if (isDragging && (e.button === 0 || e.button === 2 || e.button === -1)) {
         isDragging = false;
         map.style.cursor = 'grab';
     }
