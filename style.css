@@ -1446,10 +1446,18 @@ body {
 
 .pokestop-image-container {
     cursor: grab;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pokestop-image-container:active {
     cursor: grabbing;
+}
+
+.pokestop-image-container img {
+    transform-origin: 0 0;
 }
 
 /* Responsywność dla urządzeń mobilnych */

@@ -100,42 +100,53 @@ function createImagePreviewContainer() {
     // Add drag functionality for image panning when zoomed
     let isDragging = false;
     let startX, startY;
-    let scrollLeft, scrollTop;
+    let translateX = 0, translateY = 0;
+    let lastTranslateX = 0, lastTranslateY = 0;
 
     imageContainer.addEventListener('mousedown', function(e) {
         // Only enable dragging if image is zoomed
         const img = imageContainer.querySelector('img');
-        if (img && (img.style.transform || img.offsetWidth > imageContainer.offsetWidth || img.offsetHeight > imageContainer.offsetHeight)) {
+        if (img && currentImageZoom > 1) {
             isDragging = true;
-            startX = e.pageX - imageContainer.offsetLeft;
-            startY = e.pageY - imageContainer.offsetTop;
-            scrollLeft = imageContainer.scrollLeft;
-            scrollTop = imageContainer.scrollTop;
+            startX = e.clientX;
+            startY = e.clientY;
+            lastTranslateX = translateX || 0;
+            lastTranslateY = translateY || 0;
             imageContainer.style.cursor = 'grabbing';
             e.preventDefault();
         }
     });
 
-    imageContainer.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function(e) {
         if (!isDragging) return;
+
         e.preventDefault();
-        const x = e.pageX - imageContainer.offsetLeft;
-        const y = e.pageY - imageContainer.offsetTop;
-        const walkX = (x - startX) * 1.5;
-        const walkY = (y - startY) * 1.5;
-        imageContainer.scrollLeft = scrollLeft - walkX;
-        imageContainer.scrollTop = scrollTop - walkY;
+        translateX = lastTranslateX + (e.clientX - startX);
+        translateY = lastTranslateY + (e.clientY - startY);
+
+        const img = document.querySelector('.pokestop-image-container img');
+        if (img) {
+            img.style.transform = `scale(${currentImageZoom}) translate(${translateX / currentImageZoom}px, ${translateY / currentImageZoom}px)`;
+        }
     });
 
-    imageContainer.addEventListener('mouseup', function() {
-        isDragging = false;
-        imageContainer.style.cursor = 'grab';
-    });
-
-    imageContainer.addEventListener('mouseleave', function() {
+    document.addEventListener('mouseup', function() {
         if (isDragging) {
             isDragging = false;
-            imageContainer.style.cursor = 'grab';
+            const imageContainer = document.querySelector('.pokestop-image-container');
+            if (imageContainer) {
+                imageContainer.style.cursor = 'grab';
+            }
+        }
+    });
+
+    document.addEventListener('mouseleave', function() {
+        if (isDragging) {
+            isDragging = false;
+            const imageContainer = document.querySelector('.pokestop-image-container');
+            if (imageContainer) {
+                imageContainer.style.cursor = 'grab';
+            }
         }
     });
 
@@ -178,8 +189,8 @@ function showImagePreview(mapName) {
 
         // Reset any previous zoom and scrolling
         currentImageZoom = 1;
-        imageContainer.scrollLeft = 0;
-        imageContainer.scrollTop = 0;
+        translateX = 0;
+        translateY = 0;
         imageContainer.innerHTML = '';
 
         currentImageIndex = 0;
@@ -266,7 +277,7 @@ function zoomPreviewImage(zoomFactor) {
     if (currentImageZoom > maxZoom) currentImageZoom = maxZoom;
 
     // Apply zoom
-    img.style.transform = `scale(${currentImageZoom})`;
+    img.style.transform = `scale(${currentImageZoom}) translate(${translateX / currentImageZoom}px, ${translateY / currentImageZoom}px)`;
 
     // Update cursor based on zoom
     if (currentImageZoom > 1) {
@@ -283,12 +294,11 @@ function resetPreviewZoom() {
     if (!img) return;
 
     currentImageZoom = 1;
+    translateX = 0;
+    translateY = 0;
     img.style.transform = 'scale(1)';
     img.style.cursor = 'default';
 
-    // Reset scroll position
-    imageContainer.scrollLeft = 0;
-    imageContainer.scrollTop = 0;
 }
 
 function hideImagePreview() {
@@ -308,6 +318,8 @@ function hideImagePreview() {
         previewContainer.style.display = 'none';
         // Reset zoom level for next time
         currentImageZoom = 1;
+        translateX = 0;
+        translateY = 0;
         // Reset blocking flag
         isPreviewOpen = false;
     }, 300);
@@ -326,8 +338,8 @@ function togglePreviewImage() {
         `resources/pokestops/${currentPreviewImage}_2.png`;
 
     // Reset scroll position for the new image
-    imageContainer.scrollLeft = 0;
-    imageContainer.scrollTop = 0;
+    translateX = 0;
+    translateY = 0;
 
     const newImg = document.createElement('img');
     newImg.src = imagePath;
@@ -604,7 +616,7 @@ window.addEventListener('load', function() {
         "Route 111 Desert.png",
         "Route 115.png",
         "Route 119A.png",
-        "Turnback Cave.png",
+        "Route 214.png",
         "Route 3.png",
         "Route 32.png",
         "Route 45.png",
