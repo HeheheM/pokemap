@@ -177,7 +177,7 @@ async function discoverLocationImages(locationName) {
 
     // Try to fetch available images by testing access to potential files
     try {
-        const baseUrl = `resources/maps/${encodeURIComponent(locationName)}/`;
+        const baseUrl = `resources/maps/${(locationName)}/`;
         
         // Try to fetch the directory listing or test for known image patterns
         const response = await fetch(`${baseUrl}?list=true`);
@@ -252,7 +252,7 @@ async function discoverLocationImages(locationName) {
     } catch (error) {
         console.error(`Error discovering images for ${locationName}:`, error);
         // Return a fallback path that will be tested when showing the preview
-        return [`resources/maps/${encodeURIComponent(locationName)}/image.png`];
+        //return [`resources/maps/${encodeURIComponent(locationName)}/image.png`];
     }
 }
 
@@ -417,7 +417,7 @@ async function showMapImagePreview(mapName) {
             console.error(`Error loading image: ${img.src}`);
             
             // Try a different approach - look for any PNG files in the folder
-            const basePath = `resources/maps/${encodeURIComponent(mapName)}/`;
+            const basePath = `resources/maps/${(mapName)}/`;
             
             // Create an XHR to try to get directory listing (this may not work on all servers)
             const xhr = new XMLHttpRequest();
