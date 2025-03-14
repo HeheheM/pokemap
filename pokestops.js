@@ -7,6 +7,12 @@ let locationCurrentImageIndex = 0; // Aktualny indeks obrazu lokacji
 let locationImagesArray = []; // Tablica z obrazami dla aktualnej lokacji
 let locationCurrentPreviewImage = null; // Nazwa aktualnej lokacji
 
+// Globalne zmienne do obsługi przesuwania i zoomu - zmienione nazwy, aby uniknąć konfliktów
+let ps_isDragging = false;
+let ps_startX, ps_startY;
+let ps_translateX = 0, ps_translateY = 0;
+let ps_lastTranslateX = 0, ps_lastTranslateY = 0;
+let currentImageZoom = 1;
 
 function createImagePreviewContainer() {
     if (document.getElementById('pokestop-preview-container')) {
@@ -101,75 +107,393 @@ function createImagePreviewContainer() {
         e.stopPropagation();
     }, { passive: false });
 
-    // Add drag functionality for image panning when zoomed
-    let isDragging = false;
-    let startX, startY;
-    let translateX = 0, translateY = 0;
-    let lastTranslateX = 0, lastTranslateY = 0;
-
-    imageContainer.addEventListener('mousedown', function(e) {
-        // Only enable dragging if image is zoomed
-        const img = imageContainer.querySelector('img');
-        if (img && currentImageZoom > 1) {
-            isDragging = true;
-            startX = e.clientX;
-            startY = e.clientY;
-            lastTranslateX = translateX || 0;
-            lastTranslateY = translateY || 0;
-            imageContainer.style.cursor = 'grabbing';
-            e.preventDefault();
-        }
-    });
-
-    document.addEventListener('mousemove', function(e) {
-        if (!isDragging) return;
-
-        e.preventDefault();
-        translateX = lastTranslateX + (e.clientX - startX);
-        translateY = lastTranslateY + (e.clientY - startY);
-
-        const img = document.querySelector('.pokestop-image-container img');
-        if (img) {
-            img.style.transform = `scale(${currentImageZoom}) translate(${translateX / currentImageZoom}px, ${translateY / currentImageZoom}px)`;
-        }
-    });
-
-    document.addEventListener('mouseup', function() {
-        if (isDragging) {
-            isDragging = false;
-            const imageContainer = document.querySelector('.pokestop-image-container');
-            if (imageContainer) {
-                imageContainer.style.cursor = 'grab';
-            }
-        }
-    });
-
-    document.addEventListener('mouseleave', function() {
-        if (isDragging) {
-            isDragging = false;
-            const imageContainer = document.querySelector('.pokestop-image-container');
-            if (imageContainer) {
-                imageContainer.style.cursor = 'grab';
-            }
-        }
-    });
-
-    document.addEventListener('click', function(e) {
-        if (previewContainer.style.display === 'block' && 
-            !previewContainer.contains(e.target) &&
-            !e.target.closest('.pokestop-icon')) {
-            hideImagePreview();
-            // Prevents further click actions
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    });
-
     return previewContainer;
 }
 
-// Track zoom level
-let currentImageZoom = 1;
+function setupDragAndZoom(imageContainer) {
+    // Usuwamy istniejące nasłuchiwacze zdarzeń, żeby uniknąć duplikatów
+    imageContainer.removeEventListener('mousedown', ps_handleMouseDown);
+    imageContainer.removeEventListener('wheel', ps_handleImageWheel);
+    imageContainer.removeEventListener('touchstart', ps_handleTouchStart);
+    imageContainer.removeEventListener('touchmove', ps_handleTouchMove);
+    imageContainer.removeEventListener('touchend', ps_handleTouchEnd);
+    
+    document.removeEventListener('mousemove', ps_handleMouseMove);
+    document.removeEventListener('mouseup', ps_handleMouseUp);
+
+    // Resetujemy zmienne
+    ps_isDragging = false;
+    currentImageZoom = 1;
+    ps_translateX = 0;
+    ps_translateY = 0;
+
+    // Dodaj style, które będą zapobiegać zaznaczaniu tekstu podczas przeciągania
+    const style = document.getElementById('ps_drag_style') || document.createElement('style');
+    style.id = 'ps_drag_style';
+    style.textContent = `
+        .ps-dragging {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        .pokestop-image-container img {
+            will-change: transform;
+            transform-origin: 0 0;
+        }
+    `;
+    if (!document.getElementById('ps_drag_style')) {
+        document.head.appendChild(style);
+    }
+
+    // Dodajemy nasłuchiwacze zdarzeń dla obrazu
+    imageContainer.addEventListener('mousedown', ps_handleMouseDown);
+    imageContainer.addEventListener('wheel', ps_handleImageWheel);
+    imageContainer.addEventListener('touchstart', ps_handleTouchStart, { passive: false });
+    imageContainer.addEventListener('touchmove', ps_handleTouchMove, { passive: false });
+    imageContainer.addEventListener('touchend', ps_handleTouchEnd);
+    
+    // Dodajemy nasłuchiwacze na poziomie dokumentu, aby obsłużyć ruchy poza kontenerem
+    document.addEventListener('mousemove', ps_handleMouseMove);
+    document.addEventListener('mouseup', ps_handleMouseUp);
+    
+    // Aktualizuj style obrazu
+    const img = imageContainer.querySelector('img');
+    if (img) {
+        img.style.cursor = 'grab';
+        ps_applyTransformWithBoundaries(img, imageContainer);
+    }
+}
+
+function ps_handleMouseDown(e) {
+    // Obsługuj tylko lewy przycisk myszy (0)
+    if (e.button !== 0) return;
+    
+    e.preventDefault();
+    
+    // Ustaw flagę przeciągania
+    ps_isDragging = true;
+    
+    // Zapamiętaj początkowe współrzędne kursora
+    ps_startX = e.clientX;
+    ps_startY = e.clientY;
+    
+    // Zapamiętaj początkowe przesunięcie obrazu
+    ps_lastTranslateX = ps_translateX;
+    ps_lastTranslateY = ps_translateY;
+    
+    // Zmień kursor na wskazujący chwytanie
+    this.style.cursor = 'grabbing';
+    
+    // Dodaj klasę, która zapobiega zaznaczaniu tekstu podczas przeciągania
+    document.body.classList.add('ps-dragging');
+}
+
+function ps_handleMouseMove(e) {
+    if (!ps_isDragging) return;
+    
+    e.preventDefault();
+    
+    // Oblicz przesunięcie kursora od początku przeciągania
+    const dx = e.clientX - ps_startX;
+    const dy = e.clientY - ps_startY;
+    
+    // Oblicz nowe przesunięcie obrazu
+    ps_translateX = ps_lastTranslateX + dx;
+    ps_translateY = ps_lastTranslateY + dy;
+    
+    // Pobierz kontener i obraz
+    const imageContainer = document.querySelector('.pokestop-image-container');
+    const img = imageContainer?.querySelector('img');
+    
+    // Zastosuj nowe przesunięcie z ograniczeniami
+    if (img && imageContainer) {
+        ps_applyTransformWithBoundaries(img, imageContainer);
+    }
+}
+
+function ps_handleMouseUp(e) {
+    // Sprawdź czy przeciąganie jest aktywne
+    if (!ps_isDragging) return;
+    
+    // Resetuj flagę przeciągania
+    ps_isDragging = false;
+    
+    // Ustaw odpowiedni kursor po zakończeniu przeciągania
+    const imageContainer = document.querySelector('.pokestop-image-container');
+    if (imageContainer) {
+        imageContainer.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
+    }
+    
+    // Usuń klasę blokującą zaznaczanie tekstu
+    document.body.classList.remove('ps-dragging');
+    
+    // Dodaj inercję dla płynniejszego efektu zatrzymania
+    const img = imageContainer?.querySelector('img');
+    if (img) {
+        img.style.transition = 'transform 0.1s ease-out';
+        setTimeout(() => {
+            img.style.transition = '';
+        }, 100);
+    }
+}
+
+function ps_handleTouchStart(e) {
+    if (e.touches.length === 1) {
+        e.preventDefault();
+        
+        ps_isDragging = true;
+        ps_startX = e.touches[0].clientX;
+        ps_startY = e.touches[0].clientY;
+        ps_lastTranslateX = ps_translateX;
+        ps_lastTranslateY = ps_translateY;
+    } else if (e.touches.length === 2) {
+        e.preventDefault();
+        
+        // Handle pinch zoom
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const distance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+        );
+        
+        this._lastPinchDistance = distance;
+        this._lastZoom = currentImageZoom;
+        
+        // Zapisz punkt środkowy między palcami
+        this._pinchMidX = (touch1.clientX + touch2.clientX) / 2;
+        this._pinchMidY = (touch1.clientY + touch2.clientY) / 2;
+    }
+}
+
+function ps_handleTouchMove(e) {
+    if (ps_isDragging && e.touches.length === 1) {
+        e.preventDefault();
+        
+        const dx = e.touches[0].clientX - ps_startX;
+        const dy = e.touches[0].clientY - ps_startY;
+        
+        ps_translateX = ps_lastTranslateX + dx;
+        ps_translateY = ps_lastTranslateY + dy;
+        
+        const img = this.querySelector('img');
+        if (img) {
+            ps_applyTransformWithBoundaries(img, this);
+        }
+    } else if (e.touches.length === 2 && this._lastPinchDistance) {
+        e.preventDefault();
+        
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const currentDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+        );
+        
+        // Oblicz współczynnik zmiany odległości
+        const pinchRatio = currentDistance / this._lastPinchDistance;
+        const newZoom = this._lastZoom * pinchRatio;
+        
+        // Ogranicz przybliżenie
+        const minZoom = 1;
+        const maxZoom = 4.0;
+        
+        if (newZoom >= minZoom && newZoom <= maxZoom) {
+            const rect = this.getBoundingClientRect();
+            const pinchMidX = this._pinchMidX - rect.left;
+            const pinchMidY = this._pinchMidY - rect.top;
+            
+            const img = this.querySelector('img');
+            if (img) {
+                // Oblicz pozycję pincha na obrazie w skali 1:1
+                const imageX = (pinchMidX - ps_translateX) / currentImageZoom;
+                const imageY = (pinchMidY - ps_translateY) / currentImageZoom;
+                
+                // Zastosuj nowy zoom
+                currentImageZoom = newZoom;
+                
+                // Dostosuj przesunięcie, aby punkt wskazany przez pinch pozostał na tym samym miejscu
+                ps_translateX = pinchMidX - imageX * currentImageZoom;
+                ps_translateY = pinchMidY - imageY * currentImageZoom;
+                
+                ps_applyTransformWithBoundaries(img, this);
+            }
+        }
+    }
+}
+
+function ps_handleTouchEnd(e) {
+    if (e.touches.length === 0) {
+        ps_isDragging = false;
+    }
+    
+    this._lastPinchDistance = null;
+}
+
+function ps_applyTransformWithBoundaries(img, container) {
+    if (!img) return;
+    
+    // Oblicz granice przesuwania na podstawie wymiarów obrazu i kontenera
+    const containerWidth = container.clientWidth;
+    const containerHeight = container.clientHeight;
+    
+    // Użyj naturalWidth i naturalHeight dla prawidłowych proporcji przy zoomie
+    const imgWidth = img.naturalWidth * currentImageZoom;
+    const imgHeight = img.naturalHeight * currentImageZoom;
+    
+    // Potrzebujemy dokładniejszego określenia granic - dodajemy margines tylko gdy obraz jest większy
+    if (imgWidth > containerWidth) {
+        // Oblicz min/max przesunięcie tylko gdy obraz jest większy niż kontener
+        const minX = containerWidth - imgWidth;
+        ps_translateX = Math.max(minX, Math.min(0, ps_translateX));
+    } else {
+        // Obraz mniejszy niż kontener - wycentruj
+        ps_translateX = (containerWidth - imgWidth) / 2;
+    }
+    
+    if (imgHeight > containerHeight) {
+        // Oblicz min/max przesunięcie tylko gdy obraz jest większy niż kontener
+        const minY = containerHeight - imgHeight;
+        ps_translateY = Math.max(minY, Math.min(0, ps_translateY));
+    } else {
+        // Obraz mniejszy niż kontener - wycentruj
+        ps_translateY = (containerHeight - imgHeight) / 2;
+    }
+    
+    // Zastosuj transformację - używamy translate3d dla lepszej wydajności
+    // i transform-origin: 0 0 aby transformacja była przewidywalna
+    img.style.transformOrigin = '0 0';
+    img.style.transform = `translate3d(${ps_translateX}px, ${ps_translateY}px, 0) scale(${currentImageZoom})`;
+    
+    // Ustaw odpowiedni kursor
+    if (ps_isDragging) {
+        img.style.cursor = 'grabbing';
+    } else if (currentImageZoom > 1) {
+        img.style.cursor = 'grab';
+    } else {
+        img.style.cursor = 'default';
+    }
+}
+
+function ps_handleImageWheel(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const imageContainer = document.querySelector('.pokestop-image-container');
+    const img = imageContainer.querySelector('img');
+
+    if (!img) return;
+
+    // Pobierz pozycję kursora względem kontenera
+    const rect = imageContainer.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    // Kluczowa zmiana: Oblicz pozycję kursora względem obrazka w jego aktualnej transformacji
+    // Musimy uwzględnić aktualny offset i scale obrazka
+    const mouseImgX = (mouseX - ps_translateX) / currentImageZoom;
+    const mouseImgY = (mouseY - ps_translateY) / currentImageZoom;
+    
+    // Określ kierunek zoomu
+    const zoomFactor = e.deltaY < 0 ? 1.15 : 0.85;
+    
+    // Zapisz poprzedni zoom dla animacji
+    const previousZoom = currentImageZoom;
+    
+    // Aktualizuj poziom przybliżenia
+    currentImageZoom *= zoomFactor;
+
+    // Ogranicz przybliżenie
+    const minZoom = 1;
+    const maxZoom = 5; // Zwiększamy maksymalny zoom
+    
+    if (currentImageZoom < minZoom) currentImageZoom = minZoom;
+    if (currentImageZoom > maxZoom) currentImageZoom = maxZoom;
+
+    // Kluczowa zmiana w obliczeniu nowej pozycji:
+    // Obliczmy nową pozycję tak, aby punkt pod kursorem pozostał na miejscu
+    ps_translateX = mouseX - mouseImgX * currentImageZoom;
+    ps_translateY = mouseY - mouseImgY * currentImageZoom;
+    
+    // Zastosuj transformację z ograniczeniami i powiadomieniem o zmianie
+    ps_applyTransformWithBoundaries(img, imageContainer);
+    
+    // Dodaj efekt płynnego zoomu
+    if (previousZoom !== currentImageZoom) {
+        img.style.transition = 'transform 0.1s ease-out';
+        setTimeout(() => {
+            img.style.transition = '';
+        }, 100);
+    }
+}
+
+function zoomPreviewImage(zoomFactor) {
+    const imageContainer = document.querySelector('.pokestop-image-container');
+    const img = imageContainer.querySelector('img');
+
+    if (!img) return;
+
+    // Pobierz środek kontenera jako punkt, względem którego będziemy zoomować
+    const containerRect = imageContainer.getBoundingClientRect();
+    const centerX = containerRect.width / 2;
+    const centerY = containerRect.height / 2;
+    
+    // Zapisz pozycję środka na obrazie przed zoomem
+    const imageX = (centerX - ps_translateX) / currentImageZoom;
+    const imageY = (centerY - ps_translateY) / currentImageZoom;
+
+    // Zapisz poprzedni zoom dla animacji
+    const previousZoom = currentImageZoom;
+    
+    // Aktualizuj poziom przybliżenia
+    currentImageZoom *= zoomFactor;
+
+    // Ogranicz przybliżenie
+    const minZoom = 1;
+    const maxZoom = 4;
+
+    if (currentImageZoom < minZoom) currentImageZoom = minZoom;
+    if (currentImageZoom > maxZoom) currentImageZoom = maxZoom;
+
+    // Dostosuj przesunięcie, aby zachować punkt środkowy w miejscu
+    ps_translateX = centerX - imageX * currentImageZoom;
+    ps_translateY = centerY - imageY * currentImageZoom;
+
+    // Zastosuj transformację z ograniczeniami
+    ps_applyTransformWithBoundaries(img, imageContainer);
+    
+    // Dodaj animację dla płynniejszego zoomu
+    if (previousZoom !== currentImageZoom) {
+        img.style.transition = 'transform 0.2s ease-out';
+        setTimeout(() => {
+            img.style.transition = '';
+        }, 200);
+    }
+}
+
+function resetPreviewZoom() {
+    const imageContainer = document.querySelector('.pokestop-image-container');
+    const img = imageContainer.querySelector('img');
+
+    if (!img) return;
+
+    // Dodaj animację dla płynnego resetu
+    img.style.transition = 'transform 0.3s ease-out';
+    
+    // Resetuj zoom i przesunięcie
+    currentImageZoom = 1;
+    ps_translateX = 0;
+    ps_translateY = 0;
+    
+    // Zastosuj transformację z ograniczeniami
+    ps_applyTransformWithBoundaries(img, imageContainer);
+    
+    // Usuń przejście po zakończeniu animacji
+    setTimeout(() => {
+        img.style.transition = '';
+    }, 300);
+}
 
 function showImagePreview(mapName) {
     try {
@@ -193,12 +517,19 @@ function showImagePreview(mapName) {
 
         // Reset any previous zoom and scrolling
         currentImageZoom = 1;
-        translateX = 0;
-        translateY = 0;
+        ps_translateX = 0;
+        ps_translateY = 0;
+        ps_isDragging = false;
         imageContainer.innerHTML = '';
 
         currentImageIndex = 0;
         currentPreviewImage = mapName;
+
+        // Dodaj style do kontenera
+        imageContainer.style.display = 'flex';
+        imageContainer.style.justifyContent = 'center';
+        imageContainer.style.alignItems = 'center';
+        imageContainer.style.position = 'relative';
 
         const img = document.createElement('img');
         img.src = `resources/pokestops/${mapName}.png`;
@@ -207,22 +538,37 @@ function showImagePreview(mapName) {
         img.style.maxHeight = 'calc(95vh - 60px)';
         img.style.objectFit = 'contain';
         img.style.borderRadius = '4px';
-        img.style.transform = 'scale(1)';
-        img.style.transformOrigin = 'center';
-        img.style.transition = 'transform 0.2s ease';
+        img.style.transformOrigin = '0 0';
         img.style.cursor = 'grab';
 
+        // Dodaj loader podczas ładowania
+        const loader = document.createElement('div');
+        loader.className = 'image-loader';
+        loader.innerHTML = 'Loading...';
+        loader.style.position = 'absolute';
+        loader.style.top = '50%';
+        loader.style.left = '50%';
+        loader.style.transform = 'translate(-50%, -50%)';
+        loader.style.color = 'white';
+        loader.style.fontSize = '18px';
+        imageContainer.appendChild(loader);
+
         img.onload = function() {
+            // Usuń loader
+            if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+            }
+            
             imageContainer.appendChild(img);
             previewContainer.style.display = 'block';
 
             setTimeout(() => {
                 previewContainer.style.opacity = '1';
                 previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
+                
+                // Konfiguruj obsługę przeciągania i zoomowania
+                setupDragAndZoom(imageContainer);
             }, 10);
-
-            // Add wheel event for zooming
-            imageContainer.addEventListener('wheel', handleImageWheel);
 
             // Check if this location has a second image (only for Cerulean City)
             if (mapName === "Cerulean City") {
@@ -242,6 +588,9 @@ function showImagePreview(mapName) {
 
         img.onerror = function() {
             console.error(`Error loading PokéStop image: ${img.src}`);
+            if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+            }
             hideImagePreview();
             alert(`Error loading image for ${mapName}`);
         };
@@ -250,60 +599,6 @@ function showImagePreview(mapName) {
     }
 }
 
-function handleImageWheel(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const imageContainer = document.querySelector('.pokestop-image-container');
-    const img = imageContainer.querySelector('img');
-
-    if (!img) return;
-
-    // Determine zoom direction
-    const delta = e.deltaY < 0 ? 1.1 : 0.9;
-    zoomPreviewImage(delta);
-}
-
-function zoomPreviewImage(zoomFactor) {
-    const imageContainer = document.querySelector('.pokestop-image-container');
-    const img = imageContainer.querySelector('img');
-
-    if (!img) return;
-
-    // Update zoom level
-    currentImageZoom *= zoomFactor;
-
-    // Limit zoom
-    const minZoom = 0.5;
-    const maxZoom = 4;
-
-    if (currentImageZoom < minZoom) currentImageZoom = minZoom;
-    if (currentImageZoom > maxZoom) currentImageZoom = maxZoom;
-
-    // Apply zoom
-    img.style.transform = `scale(${currentImageZoom}) translate(${translateX / currentImageZoom}px, ${translateY / currentImageZoom}px)`;
-
-    // Update cursor based on zoom
-    if (currentImageZoom > 1) {
-        img.style.cursor = 'grab';
-    } else {
-        img.style.cursor = 'default';
-    }
-}
-
-function resetPreviewZoom() {
-    const imageContainer = document.querySelector('.pokestop-image-container');
-    const img = imageContainer.querySelector('img');
-
-    if (!img) return;
-
-    currentImageZoom = 1;
-    translateX = 0;
-    translateY = 0;
-    img.style.transform = 'scale(1)';
-    img.style.cursor = 'default';
-
-}
 function showLocationImages(location) {
     try {
         // Sprawdzamy czy okno podglądu jest już otwarte
@@ -324,11 +619,18 @@ function showLocationImages(location) {
         const imageContainer = previewContainer.querySelector('.pokestop-image-container');
         const nextButton = previewContainer.querySelector('.pokestop-preview-next');
 
-        // Resetujemy zoom i przewijanie
+        // Resetujemy wszystkie zmienne
         currentImageZoom = 1;
-        translateX = 0;
-        translateY = 0;
+        ps_translateX = 0;
+        ps_translateY = 0;
+        ps_isDragging = false;
         imageContainer.innerHTML = '';
+
+        // Dodaj style do kontenera
+        imageContainer.style.display = 'flex';
+        imageContainer.style.justifyContent = 'center';
+        imageContainer.style.alignItems = 'center';
+        imageContainer.style.position = 'relative';
 
         // Resetujemy indeks obrazu
         locationCurrentImageIndex = 0;
@@ -337,6 +639,18 @@ function showLocationImages(location) {
         locationCurrentPreviewImage = location.tooltip;
         locationImagesArray = location.images || [];
 
+        // Dodaj loader podczas ładowania
+        const loader = document.createElement('div');
+        loader.className = 'image-loader';
+        loader.innerHTML = 'Loading...';
+        loader.style.position = 'absolute';
+        loader.style.top = '50%';
+        loader.style.left = '50%';
+        loader.style.transform = 'translate(-50%, -50%)';
+        loader.style.color = 'white';
+        loader.style.fontSize = '18px';
+        imageContainer.appendChild(loader);
+
         // Jeśli nie ma obrazów, wyświetlamy komunikat
         if (!locationImagesArray || locationImagesArray.length === 0) {
             const noImagesMsg = document.createElement('div');
@@ -344,6 +658,12 @@ function showLocationImages(location) {
             noImagesMsg.style.color = 'white';
             noImagesMsg.style.textAlign = 'center';
             noImagesMsg.textContent = `No images available for ${location.tooltip}`;
+            
+            // Usuń loader
+            if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+            }
+            
             imageContainer.appendChild(noImagesMsg);
             previewContainer.style.display = 'block';
             
@@ -365,22 +685,25 @@ function showLocationImages(location) {
         img.style.maxHeight = 'calc(95vh - 60px)';
         img.style.objectFit = 'contain';
         img.style.borderRadius = '4px';
-        img.style.transform = 'scale(1)';
-        img.style.transformOrigin = 'center';
-        img.style.transition = 'transform 0.2s ease';
+        img.style.transformOrigin = '0 0';
         img.style.cursor = 'grab';
 
         img.onload = function() {
+            // Usuń loader
+            if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+            }
+            
             imageContainer.appendChild(img);
             previewContainer.style.display = 'block';
 
             setTimeout(() => {
                 previewContainer.style.opacity = '1';
                 previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
+                
+                // Konfiguruj obsługę przeciągania i zoomowania
+                setupDragAndZoom(imageContainer);
             }, 10);
-
-            // Dodajemy obsługę zdarzenia wheel dla zoomowania
-            imageContainer.addEventListener('wheel', handleImageWheel);
 
             // Sprawdzamy, czy lokacja ma więcej niż jeden obraz
             if (locationImagesArray.length > 1) {
@@ -394,6 +717,11 @@ function showLocationImages(location) {
 
         img.onerror = function() {
             console.error(`Error loading location image: ${img.src}`);
+            
+            // Usuń loader
+            if (loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+            }
             
             // Próbujemy załadować domyślny obraz dla lokacji
             img.src = `resources/maps/${location.tooltip}.png`;
@@ -423,8 +751,8 @@ function toggleLocationImage() {
     const imagePath = `resources/maps/${locationCurrentPreviewImage}/${locationImagesArray[locationCurrentImageIndex]}`;
 
     // Resetujemy pozycję przewijania dla nowego obrazu
-    translateX = 0;
-    translateY = 0;
+    ps_translateX = 0;
+    ps_translateY = 0;
 
     const newImg = document.createElement('img');
     newImg.src = imagePath;
@@ -449,9 +777,13 @@ function toggleLocationImage() {
         setTimeout(() => {
             imageContainer.innerHTML = '';
             imageContainer.appendChild(newImg);
+            
+            // Ponownie konfigurujemy obsługę przeciągania i zoomowania
+            setupDragAndZoom(imageContainer);
         }, 200);
     } else {
         imageContainer.appendChild(newImg);
+        setupDragAndZoom(imageContainer);
     }
     
     // Obsługa błędu ładowania obrazu
@@ -460,14 +792,22 @@ function toggleLocationImage() {
         newImg.src = 'resources/default-map.png';
     };
 }
+
 function hideImagePreview() {
     const previewContainer = document.getElementById('pokestop-preview-container');
     if (!previewContainer) return;
 
-    // Remove the wheel event listener
+    // Remove the event listeners
     const imageContainer = previewContainer.querySelector('.pokestop-image-container');
     if (imageContainer) {
-        imageContainer.removeEventListener('wheel', handleImageWheel);
+        imageContainer.removeEventListener('mousedown', ps_handleMouseDown);
+        imageContainer.removeEventListener('wheel', ps_handleImageWheel);
+        imageContainer.removeEventListener('touchstart', ps_handleTouchStart);
+        imageContainer.removeEventListener('touchmove', ps_handleTouchMove);
+        imageContainer.removeEventListener('touchend', ps_handleTouchEnd);
+        
+        document.removeEventListener('mousemove', ps_handleMouseMove);
+        document.removeEventListener('mouseup', ps_handleMouseUp);
     }
 
     previewContainer.style.opacity = '0';
@@ -477,8 +817,8 @@ function hideImagePreview() {
         previewContainer.style.display = 'none';
         // Reset zoom level for next time
         currentImageZoom = 1;
-        translateX = 0;
-        translateY = 0;
+        ps_translateX = 0;
+        ps_translateY = 0;
         // Reset blocking flag
         isPreviewOpen = false;
     }, 300);
@@ -497,8 +837,8 @@ function togglePreviewImage() {
         `resources/pokestops/${currentPreviewImage}_2.png`;
 
     // Reset scroll position for the new image
-    translateX = 0;
-    translateY = 0;
+    ps_translateX = 0;
+    ps_translateY = 0;
 
     const newImg = document.createElement('img');
     newImg.src = imagePath;
@@ -522,9 +862,13 @@ function togglePreviewImage() {
         setTimeout(() => {
             imageContainer.innerHTML = '';
             imageContainer.appendChild(newImg);
+            
+            // Ponownie konfigurujemy obsługę przeciągania i zoomowania
+            setupDragAndZoom(imageContainer);
         }, 200);
     } else {
         imageContainer.appendChild(newImg);
+        setupDragAndZoom(imageContainer);
     }
 }
 
