@@ -8,6 +8,9 @@
       2546,
       2019
     ],
+    "images": [
+      "Viridian_City.png"
+    ],
     "polygon_points": [
       [
         2521,
@@ -56,6 +59,9 @@
       2562,
       2089
     ],
+    "images": [
+      "Route_1.png"
+    ],
     "polygon_points": [
       [
         2556,
@@ -87,6 +93,9 @@
     "map_pos": [
       2564,
       2135
+    ],
+    "images": [
+      "Pallet_Town.png"
     ],
     "polygon_points": [
       [
@@ -136,6 +145,9 @@
       2562,
       1941
     ],
+    "images": [
+      "Route_2.png"
+    ],
     "polygon_points": [
       [
         2555,
@@ -167,6 +179,9 @@
     "map_pos": [
       2563,
       1934
+    ],
+    "images": [
+      "Viridian_Forest.png"
     ],
     "polygon_points": [
       [
@@ -211,6 +226,9 @@
     "map_pos": [
       2575,
       1846
+    ],
+    "images": [
+      "Pewter_City.png"
     ],
     "polygon_points": [
       [
@@ -260,6 +278,9 @@
       2656,
       1858
     ],
+    "images": [
+      "Route_3.png"
+    ],
     "polygon_points": [
       [
         2610,
@@ -300,6 +321,9 @@
       2740,
       1859
     ],
+    "images": [
+      "Route_4.png"
+    ],
     "polygon_points": [
       [
         2706,
@@ -339,6 +363,11 @@
     "map_pos": [
       2699,
       1858
+    ],
+    "images": [
+      "Mt._Moon_1F.png",
+      "Mt._Moon_B1F.png",
+      "Mt._Moon_B2F.png"
     ],
     "polygon_points": [
       [
@@ -387,6 +416,9 @@
     "map_pos": [
       2848,
       1872
+    ],
+    "images": [
+      "Cerulean_City.png"
     ],
     "polygon_points": [
       [
@@ -452,6 +484,11 @@
       2832,
       1854
     ],
+    "images": [
+      "Cerulean_Cave_1F.png",
+      "Cerulean_Cave_2F.png",
+      "Cerulean_Cave_B1F.png"
+    ],
     "polygon_points": [
       [
         2827,
@@ -495,6 +532,9 @@
     "map_pos": [
       2850,
       1981
+    ],
+    "images": [
+      "Saffron_City.png"
     ],
     "polygon_points": [
       [
@@ -544,6 +584,9 @@
       2753,
       2011
     ],
+    "images": [
+      "Celadon_City.png"
+    ],
     "polygon_points": [
       [
         2778,
@@ -591,6 +634,9 @@
     "map_pos": [
       2848,
       2078
+    ],
+    "images": [
+      "Vermilion_City.png"
     ],
     "polygon_points": [
       [
@@ -652,6 +698,7 @@
       2832,
       2095
     ],
+    "images": [],
     "polygon_points": [
       [
         2824,
@@ -695,6 +742,9 @@
     "map_pos": [
       2745,
       2178
+    ],
+    "images": [
+      "Fuchsia_City.png"
     ],
     "polygon_points": [
       [
@@ -756,6 +806,9 @@
       2969,
       1995
     ],
+    "images": [
+      "Lavender_Town.png"
+    ],
     "polygon_points": [
       [
         2957,
@@ -803,6 +856,9 @@
     "map_pos": [
       2929,
       1953
+    ],
+    "images": [
+      "Lavender_Town_Graveyard.png"
     ],
     "polygon_points": [
       [
@@ -856,6 +912,9 @@
       2914,
       1937
     ],
+    "images": [
+      "Forlorn_Court.png"
+    ],
     "polygon_points": [
       [
         2906,
@@ -899,6 +958,9 @@
     "map_pos": [
       2970,
       1933
+    ],
+    "images": [
+      "Power_Plant.png"
     ],
     "polygon_points": [
       [
@@ -948,6 +1010,9 @@
       2561,
       2268
     ],
+    "images": [
+      "Cinnabar_Island.png"
+    ],
     "polygon_points": [
       [
         2549,
@@ -996,6 +1061,9 @@
       2839,
       1923
     ],
+    "images": [
+      "Route_5.png"
+    ],
     "polygon_points": [
       [
         2832,
@@ -1027,6 +1095,9 @@
     "map_pos": [
       2839,
       2023
+    ],
+    "images": [
+      "Route_6.png"
     ],
     "polygon_points": [
       [
@@ -1060,6 +1131,9 @@
       2798,
       1992
     ],
+    "images": [
+      "Route_7.png"
+    ],
     "polygon_points": [
       [
         2782,
@@ -1092,6 +1166,9 @@
       2912,
       1992
     ],
+    "images": [
+      "Route_8.png"
+    ],
     "polygon_points": [
       [
         2885,
@@ -1123,6 +1200,9 @@
     "map_pos": [
       2943,
       1894
+    ],
+    "images": [
+      "Route_9.png"
     ],
     "polygon_points": [
       [
@@ -1172,6 +1252,9 @@
       2971,
       1952
     ],
+    "images": [
+      "Route_10.png"
+    ],
     "polygon_points": [
       [
         2964,
@@ -1211,6 +1294,10 @@
     "map_pos": [
       2970,
       1911
+    ],
+    "images": [
+      "Rock_Tunnel_1.png",
+      "Rock_Tunnel_2.png"
     ],
     "polygon_points": [
       [
@@ -1256,6 +1343,9 @@
       2866,
       1813
     ],
+    "images": [
+      "Route_24.png"
+    ],
     "polygon_points": [
       [
         2860,
@@ -1291,6 +1381,9 @@
     "map_pos": [
       2924,
       1789
+    ],
+    "images": [
+      "Route_25.png"
     ],
     "polygon_points": [
       [
@@ -1328,6 +1421,9 @@
       2931,
       2060
     ],
+    "images": [
+      "Route_11.png"
+    ],
     "polygon_points": [
       [
         2962,
@@ -1359,6 +1455,11 @@
     "map_pos": [
       2905,
       2061
+    ],
+    "images": [
+      "Digletts_Cave.png",
+      "Digletts_Cave_Entrance_1.png",
+      "Digletts_Cave_Entrance_2.png"
     ],
     "polygon_points": [
       [
@@ -1404,6 +1505,11 @@
       2563,
       1911
     ],
+    "images": [
+      "Digletts_Cave.png",
+      "Digletts_Cave_Entrance_1.png",
+      "Digletts_Cave_Entrance_2.png"
+    ],
     "polygon_points": [
       [
         2561,
@@ -1448,6 +1554,7 @@
       2903,
       2109
     ],
+    "images": [],
     "polygon_points": [
       [
         2900,
@@ -1496,6 +1603,9 @@
       2969,
       2080
     ],
+    "images": [
+      "Route_12.png"
+    ],
     "polygon_points": [
       [
         2963,
@@ -1535,6 +1645,9 @@
     "map_pos": [
       2925,
       2126
+    ],
+    "images": [
+      "Route_13.png"
     ],
     "polygon_points": [
       [
@@ -1584,6 +1697,9 @@
       2900,
       2174
     ],
+    "images": [
+      "Route_14.png"
+    ],
     "polygon_points": [
       [
         2895,
@@ -1628,6 +1744,9 @@
       2849,
       2197
     ],
+    "images": [
+      "Route_15.png"
+    ],
     "polygon_points": [
       [
         2893,
@@ -1659,6 +1778,9 @@
     "map_pos": [
       2686,
       2197
+    ],
+    "images": [
+      "Route_18.png"
     ],
     "polygon_points": [
       [
@@ -1700,6 +1822,9 @@
       2667,
       2124
     ],
+    "images": [
+      "Route_17.png"
+    ],
     "polygon_points": [
       [
         2674,
@@ -1731,6 +1856,9 @@
     "map_pos": [
       2679,
       2023
+    ],
+    "images": [
+      "Route_16.png"
     ],
     "polygon_points": [
       [
@@ -1768,6 +1896,9 @@
       2732,
       2231
     ],
+    "images": [
+      "Route_19.png"
+    ],
     "polygon_points": [
       [
         2726,
@@ -1799,6 +1930,9 @@
     "map_pos": [
       2668,
       2266
+    ],
+    "images": [
+      "Route_20.png"
     ],
     "polygon_points": [
       [
@@ -1839,6 +1973,13 @@
     "map_pos": [
       2665,
       2267
+    ],
+    "images": [
+      "Seafoam_1F.png",
+      "Seafoam_B1F.png",
+      "Seafoam_B2F.png",
+      "Seafoam_B3F.png",
+      "Seafoam_B4F.png"
     ],
     "polygon_points": [
       [
@@ -1884,6 +2025,9 @@
       2562,
       2190
     ],
+    "images": [
+      "Route_21.png"
+    ],
     "polygon_points": [
       [
         2556,
@@ -1916,6 +2060,9 @@
       2469,
       2025
     ],
+    "images": [
+      "Route_22.png"
+    ],
     "polygon_points": [
       [
         2437,
@@ -1943,10 +2090,15 @@
     "map": "Victory Road Kanto",
     "comparer": "Contains",
     "region": "Kanto",
-    "tooltip": "Victory Road",
+    "tooltip": "Victory Road Kanto",
     "map_pos": [
       2428,
       2005
+    ],
+    "images": [
+      "Victory_Road_Kanto_1F.png",
+      "Victory_Road_Kanto_2F.png",
+      "Victory_Road_Kanto_3F.png"
     ],
     "polygon_points": [
       [
@@ -1996,6 +2148,9 @@
       2427,
       1959
     ],
+    "images": [
+      "Indigo_Plateau.png"
+    ],
     "polygon_points": [
       [
         2422,
@@ -2040,6 +2195,9 @@
       2368,
       2026
     ],
+    "images": [
+      "Route_28.png"
+    ],
     "polygon_points": [
       [
         2417,
@@ -2079,6 +2237,15 @@
     "map_pos": [
       2322,
       2027
+    ],
+    "images": [
+      "Mt._Silver_1F.png",
+      "Mt._Silver_2F.png",
+      "Mt._Silver_3F.png",
+      "Mt._Silver_Expert_Belt.png",
+      "Mt._Silver_Lower_Mountainside.png",
+      "Mt._Silver_Moltres_Chamber.png",
+      "Mt._Silver_Upper_Mountainside.png"
     ],
     "polygon_points": [
       [
@@ -2120,6 +2287,9 @@
       2426,
       2089
     ],
+    "images": [
+      "Route_26.png"
+    ],
     "polygon_points": [
       [
         2420,
@@ -2159,6 +2329,9 @@
     "map_pos": [
       2364,
       2161
+    ],
+    "images": [
+      "Route_27.png"
     ],
     "polygon_points": [
       [
@@ -2200,6 +2373,7 @@
       2322,
       2163
     ],
+    "images": [],
     "polygon_points": [
       [
         2313,
@@ -2240,6 +2414,7 @@
       2729,
       2162
     ],
+    "images": [],
     "polygon_points": [
       [
         2722,
@@ -2276,6 +2451,7 @@
       2440,
       2269
     ],
+    "images": [],
     "polygon_points": [
       [
         2441,
@@ -2332,6 +2508,7 @@
       2431,
       2262
     ],
+    "images": [],
     "polygon_points": [
       [
         2424,
@@ -2372,6 +2549,7 @@
       3060,
       2171
     ],
+    "images": [],
     "polygon_points": [
       [
         3054,
@@ -2412,6 +2590,7 @@
       3178,
       1978
     ],
+    "images": [],
     "polygon_points": [
       [
         3171,
@@ -2456,6 +2635,9 @@
       3268,
       1731
     ],
+    "images": [
+      "Tutor_Heaven.png"
+    ],
     "polygon_points": [
       [
         3262,
@@ -2492,6 +2674,7 @@
       3588,
       1789
     ],
+    "images": [],
     "polygon_points": [
       [
         3582,
@@ -2532,6 +2715,7 @@
       3229,
       3813
     ],
+    "images": [],
     "polygon_points": [
       [
         3217,
@@ -2579,6 +2763,9 @@
     "map_pos": [
       2187,
       2165
+    ],
+    "images": [
+      "New_Bark_Town.png"
     ],
     "polygon_points": [
       [
@@ -2628,6 +2815,9 @@
       2132,
       2162
     ],
+    "images": [
+      "Route_29.png"
+    ],
     "polygon_points": [
       [
         2171,
@@ -2659,6 +2849,9 @@
     "map_pos": [
       2121,
       2130
+    ],
+    "images": [
+      "Route_46.png"
     ],
     "polygon_points": [
       [
@@ -2695,6 +2888,10 @@
     "map_pos": [
       2124,
       2098
+    ],
+    "images": [
+      "Dark_Cave_North.png",
+      "Dark_Cave_South.png"
     ],
     "polygon_points": [
       [
@@ -2735,6 +2932,10 @@
     "map_pos": [
       2157,
       1967
+    ],
+    "images": [
+      "Dark_Cave_North.png",
+      "Dark_Cave_South.png"
     ],
     "polygon_points": [
       [
@@ -2783,6 +2984,10 @@
     "map_pos": [
       2052,
       2030
+    ],
+    "images": [
+      "Dark_Cave_North.png",
+      "Dark_Cave_South.png"
     ],
     "polygon_points": [
       [
@@ -2836,6 +3041,9 @@
       2146,
       2064
     ],
+    "images": [
+      "Route_45.png"
+    ],
     "polygon_points": [
       [
         2130,
@@ -2888,6 +3096,9 @@
       2054,
       2073
     ],
+    "images": [
+      "Route_30.png"
+    ],
     "polygon_points": [
       [
         2048,
@@ -2923,6 +3134,9 @@
     "map_pos": [
       2039,
       2161
+    ],
+    "images": [
+      "Cherrygrove_City.png"
     ],
     "polygon_points": [
       [
@@ -2972,6 +3186,9 @@
       2021,
       2026
     ],
+    "images": [
+      "Route_31.png"
+    ],
     "polygon_points": [
       [
         1998,
@@ -3008,6 +3225,7 @@
       1968,
       2010
     ],
+    "images": [],
     "polygon_points": [
       [
         1940,
@@ -3068,6 +3286,7 @@
       2169,
       1908
     ],
+    "images": [],
     "polygon_points": [
       [
         2140,
@@ -3132,6 +3351,9 @@
       2077,
       1924
     ],
+    "images": [
+      "Route_44.png"
+    ],
     "polygon_points": [
       [
         2038,
@@ -3164,6 +3386,7 @@
       2019,
       1922
     ],
+    "images": [],
     "polygon_points": [
       [
         2006,
@@ -3211,6 +3434,9 @@
     "map_pos": [
       2015,
       1812
+    ],
+    "images": [
+      "Lake_Of_Rage.png"
     ],
     "polygon_points": [
       [
@@ -3260,6 +3486,9 @@
       2019,
       1880
     ],
+    "images": [
+      "Route_43.png"
+    ],
     "polygon_points": [
       [
         2013,
@@ -3292,6 +3521,9 @@
       1941,
       1925
     ],
+    "images": [
+      "Route_42.png"
+    ],
     "polygon_points": [
       [
         1900,
@@ -3323,6 +3555,13 @@
     "map_pos": [
       1947,
       1926
+    ],
+    "images": [
+      "Mt._Mortar_1F.png",
+      "Mt._Mortar_B1F.png",
+      "Mt._Mortar_Lower_Cave.png",
+      "Mt._Mortar_Northern_Entrance.png",
+      "Mt._Mortar_Upper_Cave.png"
     ],
     "polygon_points": [
       [
@@ -3363,6 +3602,9 @@
     "map_pos": [
       1946,
       2094
+    ],
+    "images": [
+      "Route_32.png"
     ],
     "polygon_points": [
       [
@@ -3416,6 +3658,9 @@
       1948,
       2219
     ],
+    "images": [
+      "Route_33.png"
+    ],
     "polygon_points": [
       [
         1944,
@@ -3468,6 +3713,10 @@
       1952,
       2194
     ],
+    "images": [
+      "Union_Cave_1F.png",
+      "Union_Cave_B1F.png"
+    ],
     "polygon_points": [
       [
         1945,
@@ -3511,6 +3760,15 @@
     "map_pos": [
       1908,
       2061
+    ],
+    "images": [
+      "Ruins_of_Alph.png",
+      "Ruins_of_Alph_Entrance.png",
+      "Ruins_of_Alph_First_Chamber.png",
+      "Ruins_of_Alph_Fourth_Chamber.png",
+      "Ruins_of_Alph_Interior.png",
+      "Ruins_of_Alph_Second_Chamber.png",
+      "Ruins_of_Alph_Third_Chamber.png"
     ],
     "polygon_points": [
       [
@@ -3559,6 +3817,9 @@
     "map_pos": [
       1903,
       2231
+    ],
+    "images": [
+      "Azalea_Town.png"
     ],
     "polygon_points": [
       [
@@ -3628,6 +3889,9 @@
       1851,
       2227
     ],
+    "images": [
+      "Ilex_Forest.png"
+    ],
     "polygon_points": [
       [
         1843,
@@ -3668,6 +3932,9 @@
       1848,
       2194
     ],
+    "images": [
+      "Route_34.png"
+    ],
     "polygon_points": [
       [
         1841,
@@ -3703,6 +3970,9 @@
     "map_pos": [
       1850,
       2026
+    ],
+    "images": [
+      "Route_35.png"
     ],
     "polygon_points": [
       [
@@ -3747,6 +4017,9 @@
     "map_pos": [
       1815,
       2110
+    ],
+    "images": [
+      "Goldenrod_City.png"
     ],
     "polygon_points": [
       [
@@ -3795,6 +4068,9 @@
     "map_pos": [
       1898,
       2006
+    ],
+    "images": [
+      "Route_36.png"
     ],
     "polygon_points": [
       [
@@ -3848,6 +4124,9 @@
       1832,
       1979
     ],
+    "images": [
+      "National_Park.png"
+    ],
     "polygon_points": [
       [
         1820,
@@ -3896,6 +4175,7 @@
       1882,
       1967
     ],
+    "images": [],
     "polygon_points": [
       [
         1876,
@@ -3928,6 +4208,7 @@
       1869,
       1903
     ],
+    "images": [],
     "polygon_points": [
       [
         1857,
@@ -4000,6 +4281,9 @@
       1774,
       1925
     ],
+    "images": [
+      "Route_38.png"
+    ],
     "polygon_points": [
       [
         1741,
@@ -4036,6 +4320,9 @@
       1746,
       1953
     ],
+    "images": [
+      "Route_39.png"
+    ],
     "polygon_points": [
       [
         1740,
@@ -4068,6 +4355,7 @@
       1763,
       2013
     ],
+    "images": [],
     "polygon_points": [
       [
         1735,
@@ -4128,6 +4416,7 @@
       1783,
       2031
     ],
+    "images": [],
     "polygon_points": [
       [
         1776,
@@ -4167,6 +4456,11 @@
     "map_pos": [
       1988,
       1993
+    ],
+    "images": [
+      "Sprout_Tower_F1.png",
+      "Sprout_Tower_F2.png",
+      "Sprout_Tower_F3.png"
     ],
     "polygon_points": [
       [
@@ -4212,6 +4506,10 @@
       1847,
       1888
     ],
+    "images": [
+      "Burned_Tower_Floor_2.png",
+      "Burned_Tower_Top_Floor.png"
+    ],
     "polygon_points": [
       [
         1842,
@@ -4256,6 +4554,21 @@
       1890,
       1887
     ],
+    "images": [
+      "Bell_Tower.png",
+      "Bell_Tower_Barrier_Station_1F.png",
+      "Bell_Tower_Barrier_Station_B1F.png",
+      "Bell_Tower_Floor_10.png",
+      "Bell_Tower_Floor_2.png",
+      "Bell_Tower_Floor_3.png",
+      "Bell_Tower_Floor_4.png",
+      "Bell_Tower_Floor_5.png",
+      "Bell_Tower_Floor_6.png",
+      "Bell_Tower_Floor_7.png",
+      "Bell_Tower_Floor_8.png",
+      "Bell_Tower_Floor_9.png",
+      "Bell_Tower_Roof.png"
+    ],
     "polygon_points": [
       [
         1883,
@@ -4295,6 +4608,12 @@
     "map_pos": [
       2188,
       1894
+    ],
+    "images": [
+      "Ice_Path_1F.png",
+      "Ice_Path_B1F.png",
+      "Ice_Path_B2F.png",
+      "Ice_Path_B3F.png"
     ],
     "polygon_points": [
       [
@@ -4336,6 +4655,10 @@
       1921,
       2231
     ],
+    "images": [
+      "Slowpoke_Well.png",
+      "Slowpoke_Well_L1.png"
+    ],
     "polygon_points": [
       [
         1915,
@@ -4371,6 +4694,16 @@
     "map_pos": [
       1713,
       2126
+    ],
+    "images": [
+      "Whirl_Islands_1F_NorthEast.png",
+      "Whirl_Islands_1F_NorthWest.png",
+      "Whirl_Islands_1F_SouthEast.png",
+      "Whirl_Islands_1F_SouthWest.png",
+      "Whirl_Islands_B1F.png",
+      "Whirl_Islands_B2F.png",
+      "Whirl_Islands_B3F.png",
+      "Whirl_Islands_B4F.png"
     ],
     "polygon_points": [
       [
@@ -4411,6 +4744,9 @@
     "map_pos": [
       1695,
       2113
+    ],
+    "images": [
+      "Route_41.png"
     ],
     "polygon_points": [
       [
@@ -4459,6 +4795,9 @@
     "map_pos": [
       1718,
       2037
+    ],
+    "images": [
+      "Route_40.png"
     ],
     "polygon_points": [
       [
@@ -4512,6 +4851,7 @@
       1714,
       1992
     ],
+    "images": [],
     "polygon_points": [
       [
         1711,
@@ -4564,6 +4904,7 @@
       1560,
       2046
     ],
+    "images": [],
     "polygon_points": [
       [
         1547,
@@ -4607,11 +4948,12 @@
     "map": "Victory Road Johto",
     "comparer": "Contains",
     "region": "Johto",
-    "tooltip": "Victory Road",
+    "tooltip": "Victory Road Johto",
     "map_pos": [
       377,
       771
-    ]
+    ],
+    "images": []
   },
   {
     "map": "Cianwood",
@@ -4622,6 +4964,7 @@
       1643,
       2111
     ],
+    "images": [],
     "polygon_points": [
       [
         1632,
@@ -4669,6 +5012,9 @@
     "map_pos": [
       1598,
       2143
+    ],
+    "images": [
+      "Route_47.png"
     ],
     "polygon_points": [
       [
@@ -4722,6 +5068,9 @@
       1561,
       2095
     ],
+    "images": [
+      "Route_48.png"
+    ],
     "polygon_points": [
       [
         1540,
@@ -4757,7 +5106,8 @@
     "map_pos": [
       111,
       769
-    ]
+    ],
+    "images": []
   },
   {
     "map": "Celestic",
@@ -4767,6 +5117,9 @@
     "map_pos": [
       2796,
       463
+    ],
+    "images": [
+      "Celestic_Town.png"
     ],
     "polygon_points": [
       [
@@ -4820,6 +5173,7 @@
       2886,
       563
     ],
+    "images": [],
     "polygon_points": [
       [
         2858,
@@ -4880,6 +5234,9 @@
       2905,
       573
     ],
+    "images": [
+      "Maniac_Tunnel.png"
+    ],
     "polygon_points": [
       [
         2899,
@@ -4932,6 +5289,9 @@
       2806,
       605
     ],
+    "images": [
+      "Hearthome_City.png"
+    ],
     "polygon_points": [
       [
         2781,
@@ -4980,6 +5340,7 @@
       2908,
       695
     ],
+    "images": [],
     "polygon_points": [
       [
         2883,
@@ -5028,6 +5389,7 @@
       3120,
       651
     ],
+    "images": [],
     "polygon_points": [
       [
         3095,
@@ -5075,6 +5437,10 @@
     "map_pos": [
       2963,
       636
+    ],
+    "images": [
+      "Lake_Valor.png",
+      "Lake_Valor_Exploded.png"
     ],
     "polygon_points": [
       [
@@ -5128,6 +5494,7 @@
       2982,
       521
     ],
+    "images": [],
     "polygon_points": [
       [
         2958,
@@ -5176,6 +5543,7 @@
       3110,
       490
     ],
+    "images": [],
     "polygon_points": [
       [
         3099,
@@ -5223,6 +5591,9 @@
     "map_pos": [
       2678,
       476
+    ],
+    "images": [
+      "Eterna_City.png"
     ],
     "polygon_points": [
       [
@@ -5284,6 +5655,7 @@
       2660,
       651
     ],
+    "images": [],
     "polygon_points": [
       [
         2634,
@@ -5344,6 +5716,9 @@
       2569,
       541
     ],
+    "images": [
+      "Floaroma_Town.png"
+    ],
     "polygon_points": [
       [
         2558,
@@ -5391,6 +5766,9 @@
     "map_pos": [
       2560,
       646
+    ],
+    "images": [
+      "Jubilife_City.png"
     ],
     "polygon_points": [
       [
@@ -5440,6 +5818,9 @@
       2569,
       710
     ],
+    "images": [
+      "Sandgem_Town.png"
+    ],
     "polygon_points": [
       [
         2556,
@@ -5487,6 +5868,9 @@
     "map_pos": [
       2508,
       737
+    ],
+    "images": [
+      "Twinleaf_Town.png"
     ],
     "polygon_points": [
       [
@@ -5540,6 +5924,9 @@
       2472,
       677
     ],
+    "images": [
+      "Lake_Verity.png"
+    ],
     "polygon_points": [
       [
         2458,
@@ -5583,6 +5970,9 @@
     "map_pos": [
       2473,
       622
+    ],
+    "images": [
+      "Canalave_City.png"
     ],
     "polygon_points": [
       [
@@ -5632,6 +6022,9 @@
       2673,
       757
     ],
+    "images": [
+      "Pal_Park.png"
+    ],
     "polygon_points": [
       [
         2667,
@@ -5676,6 +6069,15 @@
       2525,
       439
     ],
+    "images": [
+      "Iron_Island.png",
+      "Iron_Island_1F.png",
+      "Iron_Island_B1F_L.png",
+      "Iron_Island_B1F_R.png",
+      "Iron_Island_B2F_L.png",
+      "Iron_Island_B2F_R.png",
+      "Iron_Island_Exit_Room.png"
+    ],
     "polygon_points": [
       [
         2519,
@@ -5715,6 +6117,9 @@
     "map_pos": [
       2629,
       548
+    ],
+    "images": [
+      "Valley_Windworks.png"
     ],
     "polygon_points": [
       [
@@ -5759,6 +6164,9 @@
     "map_pos": [
       2667,
       204
+    ],
+    "images": [
+      "Lake_Acuity.png"
     ],
     "polygon_points": [
       [
@@ -5808,6 +6216,7 @@
       2718,
       232
     ],
+    "images": [],
     "polygon_points": [
       [
         2707,
@@ -5860,6 +6269,11 @@
       3014,
       203
     ],
+    "images": [
+      "Stark_Mountain_Entrance_Pt.png",
+      "Stark_Mountain_Exterior_Pt.png",
+      "Stark_Mountain_Main_Cavern_Pt.png"
+    ],
     "polygon_points": [
       [
         3003,
@@ -5904,6 +6318,7 @@
       2955,
       278
     ],
+    "images": [],
     "polygon_points": [
       [
         2943,
@@ -5952,6 +6367,7 @@
       2933,
       349
     ],
+    "images": [],
     "polygon_points": [
       [
         2909,
@@ -6000,6 +6416,7 @@
       3068,
       383
     ],
+    "images": [],
     "polygon_points": [
       [
         3055,
@@ -6048,6 +6465,9 @@
       2641,
       758
     ],
+    "images": [
+      "Route_221.png"
+    ],
     "polygon_points": [
       [
         2666,
@@ -6088,6 +6508,9 @@
       2571,
       757
     ],
+    "images": [
+      "Route_220.png"
+    ],
     "polygon_points": [
       [
         2578,
@@ -6124,6 +6547,9 @@
       2569,
       735
     ],
+    "images": [
+      "Route_219.png"
+    ],
     "polygon_points": [
       [
         2562,
@@ -6155,6 +6581,9 @@
     "map_pos": [
       2492,
       706
+    ],
+    "images": [
+      "Route_201.png"
     ],
     "polygon_points": [
       [
@@ -6200,6 +6629,9 @@
       2569,
       685
     ],
+    "images": [
+      "Route_202.png"
+    ],
     "polygon_points": [
       [
         2562,
@@ -6231,6 +6663,9 @@
     "map_pos": [
       2509,
       633
+    ],
+    "images": [
+      "Route_218.png"
     ],
     "polygon_points": [
       [
@@ -6284,6 +6719,7 @@
       2509,
       617
     ],
+    "images": [],
     "polygon_points": [
       [
         2502,
@@ -6340,6 +6776,9 @@
       2570,
       597
     ],
+    "images": [
+      "Route_204.png"
+    ],
     "polygon_points": [
       [
         2563,
@@ -6372,6 +6811,7 @@
       2610,
       638
     ],
+    "images": [],
     "polygon_points": [
       [
         2595,
@@ -6403,6 +6843,9 @@
     "map_pos": [
       2607,
       505
+    ],
+    "images": [
+      "Route_205.png"
     ],
     "polygon_points": [
       [
@@ -6520,6 +6963,9 @@
       2594,
       468
     ],
+    "images": [
+      "Eterna_Forest.png"
+    ],
     "polygon_points": [
       [
         2588,
@@ -6560,6 +7006,9 @@
       2670,
       546
     ],
+    "images": [
+      "Route_206.png"
+    ],
     "polygon_points": [
       [
         2663,
@@ -6591,6 +7040,9 @@
     "map_pos": [
       2685,
       614
+    ],
+    "images": [
+      "Route_207.png"
     ],
     "polygon_points": [
       [
@@ -6632,6 +7084,9 @@
       2735,
       606
     ],
+    "images": [
+      "Route_208.png"
+    ],
     "polygon_points": [
       [
         2713,
@@ -6668,6 +7123,7 @@
       2817,
       686
     ],
+    "images": [],
     "polygon_points": [
       [
         2792,
@@ -6716,6 +7172,7 @@
       2971,
       697
     ],
+    "images": [],
     "polygon_points": [
       [
         2942,
@@ -6752,6 +7209,7 @@
       3038,
       666
     ],
+    "images": [],
     "polygon_points": [
       [
         3003,
@@ -6784,6 +7242,7 @@
       3010,
       603
     ],
+    "images": [],
     "polygon_points": [
       [
         2988,
@@ -6852,6 +7311,7 @@
       3025,
       576
     ],
+    "images": [],
     "polygon_points": [
       [
         3019,
@@ -6892,6 +7352,7 @@
       2862,
       603
     ],
+    "images": [],
     "polygon_points": [
       [
         2843,
@@ -6940,6 +7401,7 @@
       2856,
       487
     ],
+    "images": [],
     "polygon_points": [
       [
         2818,
@@ -6992,6 +7454,7 @@
       2910,
       512
     ],
+    "images": [],
     "polygon_points": [
       [
         2881,
@@ -7023,6 +7486,9 @@
     "map_pos": [
       2743,
       463
+    ],
+    "images": [
+      "Route_211.png"
     ],
     "polygon_points": [
       [
@@ -7056,6 +7522,7 @@
       2716,
       370
     ],
+    "images": [],
     "polygon_points": [
       [
         2738,
@@ -7099,6 +7566,11 @@
     "map_pos": [
       2733,
       520
+    ],
+    "images": [
+      "Mt._Coronet_6F.png",
+      "Mt._Coronet_7F.png",
+      "Spear_Pillar.png"
     ],
     "polygon_points": [
       [
@@ -7164,6 +7636,7 @@
       2677,
       264
     ],
+    "images": [],
     "polygon_points": [
       [
         2661,
@@ -7220,6 +7693,7 @@
       2935,
       304
     ],
+    "images": [],
     "polygon_points": [
       [
         2955,
@@ -7280,6 +7754,7 @@
       2995,
       350
     ],
+    "images": [],
     "polygon_points": [
       [
         2968,
@@ -7312,6 +7787,7 @@
       3055,
       353
     ],
+    "images": [],
     "polygon_points": [
       [
         3035,
@@ -7364,6 +7840,7 @@
       3038,
       301
     ],
+    "images": [],
     "polygon_points": [
       [
         3033,
@@ -7408,6 +7885,7 @@
       2995,
       275
     ],
+    "images": [],
     "polygon_points": [
       [
         2973,
@@ -7440,6 +7918,7 @@
       3015,
       249
     ],
+    "images": [],
     "polygon_points": [
       [
         3008,
@@ -7472,6 +7951,7 @@
       3110,
       555
     ],
+    "images": [],
     "polygon_points": [
       [
         3104,
@@ -7507,11 +7987,12 @@
     "map": "Victory Road Sinnoh",
     "comparer": "Contains",
     "region": "Sinnoh",
-    "tooltip": "Victory Road",
+    "tooltip": "Victory Road Sinnoh",
     "map_pos": [
       3110,
       518
     ],
+    "images": [],
     "polygon_points": [
       [
         3104,
@@ -7564,6 +8045,7 @@
       3128,
       409
     ],
+    "images": [],
     "polygon_points": [
       [
         3104,
@@ -7628,6 +8110,7 @@
       3145,
       223
     ],
+    "images": [],
     "polygon_points": [
       [
         3137,
@@ -7668,6 +8151,7 @@
       3234,
       607
     ],
+    "images": [],
     "polygon_points": [
       [
         3227,
@@ -7704,6 +8188,7 @@
       2473,
       260
     ],
+    "images": [],
     "polygon_points": [
       [
         2467,
@@ -7744,6 +8229,7 @@
       2525,
       263
     ],
+    "images": [],
     "polygon_points": [
       [
         2519,
@@ -7784,6 +8270,7 @@
       3409,
       279
     ],
+    "images": [],
     "polygon_points": [
       [
         3402,
@@ -7820,6 +8307,7 @@
       977,
       2706
     ],
+    "images": [],
     "polygon_points": [
       [
         964,
@@ -7868,6 +8356,9 @@
       977,
       2676
     ],
+    "images": [
+      "Route_101.png"
+    ],
     "polygon_points": [
       [
         971,
@@ -7899,6 +8390,9 @@
     "map_pos": [
       977,
       2641
+    ],
+    "images": [
+      "Oldale_Town.png"
     ],
     "polygon_points": [
       [
@@ -7948,6 +8442,9 @@
       942,
       2638
     ],
+    "images": [
+      "Route_102.png"
+    ],
     "polygon_points": [
       [
         928,
@@ -7980,6 +8477,7 @@
       893,
       2639
     ],
+    "images": [],
     "polygon_points": [
       [
         868,
@@ -8028,6 +8526,9 @@
       1012,
       2613
     ],
+    "images": [
+      "Route_103.png"
+    ],
     "polygon_points": [
       [
         986,
@@ -8072,6 +8573,9 @@
       1111,
       2597
     ],
+    "images": [
+      "Route_110.png"
+    ],
     "polygon_points": [
       [
         1106,
@@ -8103,6 +8607,9 @@
     "map_pos": [
       1110,
       2673
+    ],
+    "images": [
+      "Slateport_City.png"
     ],
     "polygon_points": [
       [
@@ -8152,6 +8659,7 @@
       1092,
       2505
     ],
+    "images": [],
     "polygon_points": [
       [
         1069,
@@ -8212,6 +8720,9 @@
       1025,
       2515
     ],
+    "images": [
+      "Route_117.png"
+    ],
     "polygon_points": [
       [
         996,
@@ -8244,6 +8755,9 @@
       1110,
       2735
     ],
+    "images": [
+      "Route_109.png"
+    ],
     "polygon_points": [
       [
         1103,
@@ -8275,6 +8789,9 @@
     "map_pos": [
       1059,
       2792
+    ],
+    "images": [
+      "Route_108.png"
     ],
     "polygon_points": [
       [
@@ -8312,6 +8829,7 @@
       1144,
       2795
     ],
+    "images": [],
     "polygon_points": [
       [
         1136,
@@ -8348,6 +8866,7 @@
       1142,
       2828
     ],
+    "images": [],
     "polygon_points": [
       [
         1116,
@@ -8420,6 +8939,7 @@
       1123,
       2835
     ],
+    "images": [],
     "polygon_points": [
       [
         1117,
@@ -8456,6 +8976,7 @@
       1164,
       2822
     ],
+    "images": [],
     "polygon_points": [
       [
         1159,
@@ -8492,6 +9013,9 @@
       967,
       2792
     ],
+    "images": [
+      "Route_107.png"
+    ],
     "polygon_points": [
       [
         932,
@@ -8527,6 +9051,19 @@
     "map_pos": [
       1011,
       2792
+    ],
+    "images": [
+      "Abandoned_Ship_1F.png",
+      "Abandoned_Ship_1F_Room_1.png",
+      "Abandoned_Ship_1F_Room_2.png",
+      "Abandoned_Ship_B1F.png",
+      "Abandoned_Ship_B1F_Room_1.png",
+      "Abandoned_Ship_B1F_Room_2.png",
+      "Abandoned_Ship_B1F_Room_3.png",
+      "Abandoned_Ship_B1F_Room_4.png",
+      "Abandoned_Ship_Exterior.png",
+      "Captains_Office.png",
+      "Storage_Unit.png"
     ],
     "polygon_points": [
       [
@@ -8580,6 +9117,9 @@
       912,
       2791
     ],
+    "images": [
+      "Dewford_Town.png"
+    ],
     "polygon_points": [
       [
         900,
@@ -8628,6 +9168,9 @@
       877,
       2765
     ],
+    "images": [
+      "Route_106.png"
+    ],
     "polygon_points": [
       [
         843,
@@ -8668,6 +9211,9 @@
       847,
       2691
     ],
+    "images": [
+      "Route_105.png"
+    ],
     "polygon_points": [
       [
         842,
@@ -8700,6 +9246,7 @@
       849,
       2706
     ],
+    "images": [],
     "polygon_points": [
       [
         848,
@@ -8735,6 +9282,9 @@
     "map_pos": [
       852,
       2594
+    ],
+    "images": [
+      "Route_104.png"
     ],
     "polygon_points": [
       [
@@ -8776,6 +9326,9 @@
       847,
       2608
     ],
+    "images": [
+      "Petalburg_Woods.png"
+    ],
     "polygon_points": [
       [
         842,
@@ -8816,6 +9369,7 @@
       860,
       2503
     ],
+    "images": [],
     "polygon_points": [
       [
         836,
@@ -8871,6 +9425,9 @@
     "map_pos": [
       953,
       2490
+    ],
+    "images": [
+      "Route_116.png"
     ],
     "polygon_points": [
       [
@@ -8928,6 +9485,9 @@
       979,
       2487
     ],
+    "images": [
+      "Rusturf_Tunnel.png"
+    ],
     "polygon_points": [
       [
         971,
@@ -8967,6 +9527,9 @@
     "map_pos": [
       976,
       2517
+    ],
+    "images": [
+      "Verdanturf_Town.png"
     ],
     "polygon_points": [
       [
@@ -9020,6 +9583,7 @@
       843,
       2481
     ],
+    "images": [],
     "polygon_points": [
       [
         837,
@@ -9060,6 +9624,9 @@
       879,
       2407
     ],
+    "images": [
+      "Route_115.png"
+    ],
     "polygon_points": [
       [
         871,
@@ -9099,6 +9666,9 @@
     "map_pos": [
       911,
       2343
+    ],
+    "images": [
+      "Route_114.png"
     ],
     "polygon_points": [
       [
@@ -9156,6 +9726,9 @@
       1049,
       2323
     ],
+    "images": [
+      "Route_113.png"
+    ],
     "polygon_points": [
       [
         963,
@@ -9196,6 +9769,7 @@
       1074,
       2418
     ],
+    "images": [],
     "polygon_points": [
       [
         1104,
@@ -9228,6 +9802,7 @@
       1111,
       2387
     ],
+    "images": [],
     "polygon_points": [
       [
         1105,
@@ -9259,6 +9834,9 @@
     "map_pos": [
       944,
       2322
+    ],
+    "images": [
+      "Fallarbor_Town.png"
     ],
     "polygon_points": [
       [
@@ -9308,6 +9886,7 @@
       1010,
       2420
     ],
+    "images": [],
     "polygon_points": [
       [
         998,
@@ -9356,6 +9935,10 @@
       1011,
       2449
     ],
+    "images": [
+      "Valley_Of_Steel.png",
+      "Valley_Of_Steel_Entrance.png"
+    ],
     "polygon_points": [
       [
         1005,
@@ -9400,6 +9983,9 @@
       1077,
       2419
     ],
+    "images": [
+      "Fiery_Path.png"
+    ],
     "polygon_points": [
       [
         1074,
@@ -9439,6 +10025,9 @@
     "map_pos": [
       1113,
       2388
+    ],
+    "images": [
+      "Route_111_Desert.png"
     ],
     "polygon_points": [
       [
@@ -9480,6 +10069,7 @@
       1137,
       2388
     ],
+    "images": [],
     "polygon_points": [
       [
         1131,
@@ -9532,6 +10122,12 @@
       879,
       2425
     ],
+    "images": [
+      "Meteor_Falls_1F_1R.png",
+      "Meteor_Falls_1F_2R.png",
+      "Meteor_Falls_B1F_1R.png",
+      "Meteor_Falls_B1F_2R.png"
+    ],
     "polygon_points": [
       [
         877,
@@ -9568,6 +10164,9 @@
       1204,
       2486
     ],
+    "images": [
+      "Route_118.png"
+    ],
     "polygon_points": [
       [
         1129,
@@ -9603,6 +10202,9 @@
     "map_pos": [
       1325,
       2510
+    ],
+    "images": [
+      "Route_123.png"
     ],
     "polygon_points": [
       [
@@ -9660,6 +10262,9 @@
       1210,
       2363
     ],
+    "images": [
+      "Route_119A.png"
+    ],
     "polygon_points": [
       [
         1203,
@@ -9692,6 +10297,9 @@
       1210,
       2432
     ],
+    "images": [
+      "Route_119B.png"
+    ],
     "polygon_points": [
       [
         1203,
@@ -9723,6 +10331,9 @@
     "map_pos": [
       1297,
       2354
+    ],
+    "images": [
+      "Route_120.png"
     ],
     "polygon_points": [
       [
@@ -9772,6 +10383,7 @@
       1307,
       2387
     ],
+    "images": [],
     "polygon_points": [
       [
         1306,
@@ -9820,6 +10432,7 @@
       1317,
       2181
     ],
+    "images": [],
     "polygon_points": [
       [
         1311,
@@ -9868,6 +10481,9 @@
       1333,
       2427
     ],
+    "images": [
+      "Route_121.png"
+    ],
     "polygon_points": [
       [
         1300,
@@ -9904,6 +10520,9 @@
       1369,
       2464
     ],
+    "images": [
+      "Route_122.png"
+    ],
     "polygon_points": [
       [
         1363,
@@ -9935,6 +10554,14 @@
     "map_pos": [
       1370,
       2465
+    ],
+    "images": [
+      "Mt._Pyre_1F.png",
+      "Mt._Pyre_2F.png",
+      "Mt._Pyre_3F.png",
+      "Mt._Pyre_4F.png",
+      "Mt._Pyre_Exterior.png",
+      "Mt._Pyre_Summit.png"
     ],
     "polygon_points": [
       [
@@ -9975,6 +10602,9 @@
     "map_pos": [
       1443,
       2409
+    ],
+    "images": [
+      "Lilycove_City.png"
     ],
     "polygon_points": [
       [
@@ -10036,6 +10666,13 @@
       1475,
       2394
     ],
+    "images": [
+      "Team_Aqua_Hideout_1F.png",
+      "Team_Aqua_Hideout_B1F.png",
+      "Team_Aqua_Hideout_B2F.png",
+      "Team_Aqua_Hideout_Entrance.png",
+      "Team_Aqua_Hideout_Warp_Hallway.png"
+    ],
     "polygon_points": [
       [
         1468,
@@ -10076,6 +10713,9 @@
       1165,
       2660
     ],
+    "images": [
+      "Route_134.png"
+    ],
     "polygon_points": [
       [
         1129,
@@ -10112,6 +10752,9 @@
       1268,
       2661
     ],
+    "images": [
+      "Route_133.png"
+    ],
     "polygon_points": [
       [
         1239,
@@ -10144,6 +10787,9 @@
       1341,
       2661
     ],
+    "images": [
+      "Route_132.png"
+    ],
     "polygon_points": [
       [
         1309,
@@ -10175,6 +10821,9 @@
     "map_pos": [
       1404,
       2659
+    ],
+    "images": [
+      "Pacifidlog_Town.png"
     ],
     "polygon_points": [
       [
@@ -10224,6 +10873,9 @@
       1458,
       2660
     ],
+    "images": [
+      "Route_131.png"
+    ],
     "polygon_points": [
       [
         1424,
@@ -10259,6 +10911,16 @@
     "map_pos": [
       1503,
       2634
+    ],
+    "images": [
+      "Sky_Pillar_1F.png",
+      "Sky_Pillar_2F.png",
+      "Sky_Pillar_3F.png",
+      "Sky_Pillar_4F.png",
+      "Sky_Pillar_5F.png",
+      "Sky_Pillar_6F.png",
+      "Sky_Pillar_Entrance.png",
+      "Sky_Pillar_Entrance_Cave_1F.png"
     ],
     "polygon_points": [
       [
@@ -10304,6 +10966,7 @@
       1484,
       2760
     ],
+    "images": [],
     "polygon_points": [
       [
         1476,
@@ -10347,6 +11010,9 @@
     "map_pos": [
       1652,
       2732
+    ],
+    "images": [
+      "Leev_Town.png"
     ],
     "polygon_points": [
       [
@@ -10400,6 +11066,13 @@
       1502,
       2660
     ],
+    "images": [
+      "Mirage_Island_Cave_1F.png",
+      "Mirage_Island_Cave_2F.png",
+      "Mirage_Island_Cave_3F.png",
+      "Mirage_Island_Lake.png",
+      "Mirage_Island_Summit.png"
+    ],
     "polygon_points": [
       [
         1495,
@@ -10443,6 +11116,9 @@
     "map_pos": [
       1424,
       2722
+    ],
+    "images": [
+      "Eumi_Island.png"
     ],
     "polygon_points": [
       [
@@ -10504,6 +11180,7 @@
       1416,
       2730
     ],
+    "images": [],
     "polygon_points": [
       [
         1410,
@@ -10547,6 +11224,9 @@
     "map_pos": [
       1576,
       2660
+    ],
+    "images": [
+      "Route_130.png"
     ],
     "polygon_points": [
       [
@@ -10595,6 +11275,9 @@
     "map_pos": [
       1624,
       2586
+    ],
+    "images": [
+      "Route_129.png"
     ],
     "polygon_points": [
       [
@@ -10648,6 +11331,9 @@
       1708,
       2625
     ],
+    "images": [
+      "Route_128.png"
+    ],
     "polygon_points": [
       [
         1690,
@@ -10683,6 +11369,9 @@
     "map_pos": [
       1618,
       2493
+    ],
+    "images": [
+      "Route_127.png"
     ],
     "polygon_points": [
       [
@@ -10732,6 +11421,7 @@
       1678,
       2370
     ],
+    "images": [],
     "polygon_points": [
       [
         1672,
@@ -10763,6 +11453,9 @@
     "map_pos": [
       1679,
       2278
+    ],
+    "images": [
+      "Nap_Town.png"
     ],
     "polygon_points": [
       [
@@ -10812,6 +11505,9 @@
       1646,
       2269
     ],
+    "images": [
+      "Sleeping_Path.png"
+    ],
     "polygon_points": [
       [
         1635,
@@ -10860,6 +11556,10 @@
       1643,
       2251
     ],
+    "images": [
+      "Nap_Cave.png",
+      "Nap_Cave_B1F.png"
+    ],
     "polygon_points": [
       [
         1637,
@@ -10900,6 +11600,9 @@
       1643,
       2234
     ],
+    "images": [
+      "Secret_Nap_Area.png"
+    ],
     "polygon_points": [
       [
         1636,
@@ -10939,6 +11642,9 @@
     "map_pos": [
       1708,
       2273
+    ],
+    "images": [
+      "Nap_Shore.png"
     ],
     "polygon_points": [
       [
@@ -10996,6 +11702,9 @@
       1713,
       2302
     ],
+    "images": [
+      "Nap_Forest.png"
+    ],
     "polygon_points": [
       [
         1706,
@@ -11040,6 +11749,9 @@
       1713,
       2167
     ],
+    "images": [
+      "Route_49.png"
+    ],
     "polygon_points": [
       [
         1707,
@@ -11079,6 +11791,9 @@
     "map_pos": [
       1659,
       2451
+    ],
+    "images": [
+      "Route_125.png"
     ],
     "polygon_points": [
       [
@@ -11120,6 +11835,9 @@
       1527,
       2570
     ],
+    "images": [
+      "Route_126.png"
+    ],
     "polygon_points": [
       [
         1575,
@@ -11160,6 +11878,9 @@
       1527,
       2462
     ],
+    "images": [
+      "Route_124.png"
+    ],
     "polygon_points": [
       [
         1487,
@@ -11192,6 +11913,7 @@
       1537,
       2562
     ],
+    "images": [],
     "polygon_points": [
       [
         1524,
@@ -11240,6 +11962,17 @@
       1603,
       2564
     ],
+    "images": [
+      "Seafloor_Cavern_R1.png",
+      "Seafloor_Cavern_R2.png",
+      "Seafloor_Cavern_R3.png",
+      "Seafloor_Cavern_R4.png",
+      "Seafloor_Cavern_R5.png",
+      "Seafloor_Cavern_R6.png",
+      "Seafloor_Cavern_R7.png",
+      "Seafloor_Cavern_R8.png",
+      "Seafloor_Cavern_R9.png"
+    ],
     "polygon_points": [
       [
         1596,
@@ -11279,6 +12012,9 @@
     "map_pos": [
       1662,
       2507
+    ],
+    "images": [
+      "Mossdeep_City.png"
     ],
     "polygon_points": [
       [
@@ -11328,6 +12064,11 @@
       1675,
       2455
     ],
+    "images": [
+      "High_Tide_Entrance_Room.png",
+      "Low_Tide_Entrance_Room.png",
+      "Low_Tide_Ice_Room.png"
+    ],
     "polygon_points": [
       [
         1670,
@@ -11368,6 +12109,9 @@
       1732,
       2624
     ],
+    "images": [
+      "Ever_Grande_City.png"
+    ],
     "polygon_points": [
       [
         1727,
@@ -11407,6 +12151,11 @@
     "map_pos": [
       1733,
       2609
+    ],
+    "images": [
+      "Victory_Road_Hoenn_1F.png",
+      "Victory_Road_Hoenn_B1F.png",
+      "Victory_Road_Hoenn_B2F.png"
     ],
     "polygon_points": [
       [
@@ -11456,6 +12205,7 @@
       1733,
       2582
     ],
+    "images": [],
     "polygon_points": [
       [
         1721,
@@ -11503,6 +12253,9 @@
     "map_pos": [
       1223,
       2321
+    ],
+    "images": [
+      "Fortree_City.png"
     ],
     "polygon_points": [
       [
@@ -11552,6 +12305,7 @@
       2631,
       2590
     ],
+    "images": [],
     "polygon_points": [
       [
         2619,
@@ -11600,6 +12354,7 @@
       2632,
       2658
     ],
+    "images": [],
     "polygon_points": [
       [
         2631,
@@ -11636,6 +12391,7 @@
       2661,
       2535
     ],
+    "images": [],
     "polygon_points": [
       [
         2650,
@@ -11684,6 +12440,7 @@
       2665,
       2424
     ],
+    "images": [],
     "polygon_points": [
       [
         2661,
@@ -11728,6 +12485,7 @@
       2894,
       2625
     ],
+    "images": [],
     "polygon_points": [
       [
         2882,
@@ -11776,6 +12534,7 @@
       2896,
       2582
     ],
+    "images": [],
     "polygon_points": [
       [
         2888,
@@ -11816,6 +12575,7 @@
       3190,
       2724
     ],
+    "images": [],
     "polygon_points": [
       [
         3175,
@@ -11860,6 +12620,7 @@
       3194,
       2745
     ],
+    "images": [],
     "polygon_points": [
       [
         3184,
@@ -11896,6 +12657,7 @@
       3221,
       2745
     ],
+    "images": [],
     "polygon_points": [
       [
         3210,
@@ -11932,6 +12694,7 @@
       3121,
       2719
     ],
+    "images": [],
     "polygon_points": [
       [
         3173,
@@ -11967,6 +12730,9 @@
     "map_pos": [
       3058,
       2720
+    ],
+    "images": [
+      "Berry_Forest.png"
     ],
     "polygon_points": [
       [
@@ -12012,6 +12778,7 @@
       2631,
       2995
     ],
+    "images": [],
     "polygon_points": [
       [
         2619,
@@ -12060,6 +12827,7 @@
       3057,
       3160
     ],
+    "images": [],
     "polygon_points": [
       [
         3045,
@@ -12108,6 +12876,7 @@
       3058,
       3121
     ],
+    "images": [],
     "polygon_points": [
       [
         3052,
@@ -12140,6 +12909,7 @@
       3016,
       3121
     ],
+    "images": [],
     "polygon_points": [
       [
         2996,
@@ -12176,6 +12946,7 @@
       3078,
       3097
     ],
+    "images": [],
     "polygon_points": [
       [
         3053,
@@ -12224,6 +12995,7 @@
       3125,
       3092
     ],
+    "images": [],
     "polygon_points": [
       [
         3118,
@@ -12268,6 +13040,7 @@
       3091,
       3178
     ],
+    "images": [],
     "polygon_points": [
       [
         3105,
@@ -12332,6 +13105,7 @@
       3124,
       3212
     ],
+    "images": [],
     "polygon_points": [
       [
         3105,
@@ -12384,6 +13158,7 @@
       3093,
       3611
     ],
+    "images": [],
     "polygon_points": [
       [
         3081,
@@ -12432,6 +13207,7 @@
       3113,
       3616
     ],
+    "images": [],
     "polygon_points": [
       [
         3110,
@@ -12492,6 +13268,7 @@
       3091,
       3544
     ],
+    "images": [],
     "polygon_points": [
       [
         3085,
@@ -12536,6 +13313,7 @@
       3027,
       3463
     ],
+    "images": [],
     "polygon_points": [
       [
         3021,
@@ -12576,6 +13354,7 @@
       3027,
       3447
     ],
+    "images": [],
     "polygon_points": [
       [
         3020,
@@ -12620,6 +13399,7 @@
       3087,
       3700
     ],
+    "images": [],
     "polygon_points": [
       [
         3108,
@@ -12672,6 +13452,7 @@
       3058,
       3709
     ],
+    "images": [],
     "polygon_points": [
       [
         3053,
@@ -12716,6 +13497,7 @@
       2665,
       3674
     ],
+    "images": [],
     "polygon_points": [
       [
         2652,
@@ -12764,6 +13546,7 @@
       2664,
       3636
     ],
+    "images": [],
     "polygon_points": [
       [
         2658,
@@ -12800,6 +13583,7 @@
       2672,
       3699
     ],
+    "images": [],
     "polygon_points": [
       [
         2657,
@@ -12836,6 +13620,7 @@
       2704,
       3724
     ],
+    "images": [],
     "polygon_points": [
       [
         2698,
@@ -12880,6 +13665,7 @@
       2707,
       3807
     ],
+    "images": [],
     "polygon_points": [
       [
         2793,
@@ -12932,6 +13718,7 @@
       390,
       1591
     ],
+    "images": [],
     "polygon_points": [
       [
         366,
@@ -12964,6 +13751,7 @@
       444,
       1591
     ],
+    "images": [],
     "polygon_points": [
       [
         431,
@@ -13012,6 +13800,7 @@
       494,
       1592
     ],
+    "images": [],
     "polygon_points": [
       [
         474,
@@ -13056,6 +13845,7 @@
       543,
       1575
     ],
+    "images": [],
     "polygon_points": [
       [
         531,
@@ -13104,6 +13894,7 @@
       542,
       1513
     ],
+    "images": [],
     "polygon_points": [
       [
         535,
@@ -13136,6 +13927,7 @@
       543,
       1477
     ],
+    "images": [],
     "polygon_points": [
       [
         537,
@@ -13168,6 +13960,7 @@
       540,
       1421
     ],
+    "images": [],
     "polygon_points": [
       [
         516,
@@ -13216,6 +14009,7 @@
       542,
       1369
     ],
+    "images": [],
     "polygon_points": [
       [
         538,
@@ -13256,6 +14050,7 @@
       428,
       1518
     ],
+    "images": [],
     "polygon_points": [
       [
         419,
@@ -13332,6 +14127,7 @@
       409,
       1502
     ],
+    "images": [],
     "polygon_points": [
       [
         402,
@@ -13372,6 +14168,7 @@
       444,
       1645
     ],
+    "images": [],
     "polygon_points": [
       [
         438,
@@ -13404,6 +14201,7 @@
       442,
       1728
     ],
+    "images": [],
     "polygon_points": [
       [
         418,
@@ -13452,6 +14250,7 @@
       382,
       1729
     ],
+    "images": [],
     "polygon_points": [
       [
         361,
@@ -13484,6 +14283,7 @@
       338,
       1730
     ],
+    "images": [],
     "polygon_points": [
       [
         359,
@@ -13524,6 +14324,7 @@
       305,
       1730
     ],
+    "images": [],
     "polygon_points": [
       [
         298,
@@ -13564,6 +14365,7 @@
       351,
       1794
     ],
+    "images": [],
     "polygon_points": [
       [
         345,
@@ -13596,6 +14398,7 @@
       333,
       1838
     ],
+    "images": [],
     "polygon_points": [
       [
         309,
@@ -13632,6 +14435,7 @@
       289,
       1823
     ],
+    "images": [],
     "polygon_points": [
       [
         277,
@@ -13680,6 +14484,7 @@
       288,
       1874
     ],
+    "images": [],
     "polygon_points": [
       [
         282,
@@ -13716,6 +14521,7 @@
       253,
       1810
     ],
+    "images": [],
     "polygon_points": [
       [
         244,
@@ -13760,6 +14566,7 @@
       1010,
       370
     ],
+    "images": [],
     "polygon_points": [
       [
         973,
@@ -13808,6 +14615,7 @@
       1012,
       488
     ],
+    "images": [],
     "polygon_points": [
       [
         988,
@@ -13856,6 +14664,7 @@
       1015,
       435
     ],
+    "images": [],
     "polygon_points": [
       [
         1009,
@@ -13888,6 +14697,7 @@
       909,
       490
     ],
+    "images": [],
     "polygon_points": [
       [
         897,
@@ -13936,6 +14746,7 @@
       1015,
       548
     ],
+    "images": [],
     "polygon_points": [
       [
         1008,
@@ -13967,6 +14778,9 @@
     "map_pos": [
       1016,
       600
+    ],
+    "images": [
+      "Evergreen_Island_Valley_Path.png"
     ],
     "polygon_points": [
       [
@@ -14008,6 +14822,9 @@
       1040,
       600
     ],
+    "images": [
+      "Evergreen_Island_Frozen_Cave.png"
+    ],
     "polygon_points": [
       [
         1035,
@@ -14043,6 +14860,9 @@
     "map_pos": [
       1032,
       614
+    ],
+    "images": [
+      "Evergreen_Island_Valley.png"
     ],
     "polygon_points": [
       [
@@ -14112,6 +14932,7 @@
       1076,
       652
     ],
+    "images": [],
     "polygon_points": [
       [
         1071,
@@ -14151,6 +14972,9 @@
     "map_pos": [
       1145,
       651
+    ],
+    "images": [
+      "Evergreen_Island_Crystal_Cave.png"
     ],
     "polygon_points": [
       [
@@ -14195,6 +15019,9 @@
     "map_pos": [
       1109,
       634
+    ],
+    "images": [
+      "Evergreen_Island_Village.png"
     ],
     "polygon_points": [
       [
@@ -14268,6 +15095,9 @@
       1110,
       678
     ],
+    "images": [
+      "Evergreen_Island_Shore.png"
+    ],
     "polygon_points": [
       [
         1104,
@@ -14304,6 +15134,7 @@
       1190,
       626
     ],
+    "images": [],
     "polygon_points": [
       [
         1157,
@@ -14340,6 +15171,7 @@
       1230,
       631
     ],
+    "images": [],
     "polygon_points": [
       [
         1224,
@@ -14380,6 +15212,7 @@
       1248,
       658
     ],
+    "images": [],
     "polygon_points": [
       [
         1278,
@@ -14432,6 +15265,7 @@
       1295,
       633
     ],
+    "images": [],
     "polygon_points": [
       [
         1280,
@@ -14496,6 +15330,7 @@
       1287,
       595
     ],
+    "images": [],
     "polygon_points": [
       [
         1283,
@@ -14532,6 +15367,7 @@
       1324,
       552
     ],
+    "images": [],
     "polygon_points": [
       [
         1300,
@@ -14580,6 +15416,7 @@
       1326,
       606
     ],
+    "images": [],
     "polygon_points": [
       [
         1325,
@@ -14620,6 +15457,7 @@
       1417,
       551
     ],
+    "images": [],
     "polygon_points": [
       [
         1412,
@@ -14660,6 +15498,7 @@
       1324,
       491
     ],
+    "images": [],
     "polygon_points": [
       [
         1318,
@@ -14696,6 +15535,7 @@
       1323,
       455
     ],
+    "images": [],
     "polygon_points": [
       [
         1318,
@@ -14732,6 +15572,7 @@
       1244,
       700
     ],
+    "images": [],
     "polygon_points": [
       [
         1220,
@@ -14780,6 +15621,7 @@
       1278,
       732
     ],
+    "images": [],
     "polygon_points": [
       [
         1255,
@@ -14828,6 +15670,7 @@
       1322,
       738
     ],
+    "images": [],
     "polygon_points": [
       [
         1315,
@@ -14868,6 +15711,7 @@
       3496,
       2325
     ],
+    "images": [],
     "polygon_points": [
       [
         3464,
@@ -14928,6 +15772,7 @@
       3470,
       2342
     ],
+    "images": [],
     "polygon_points": [
       [
         3463,
@@ -14964,6 +15809,7 @@
       3477,
       2270
     ],
+    "images": [],
     "polygon_points": [
       [
         3471,
@@ -15008,6 +15854,7 @@
       3531,
       2269
     ],
+    "images": [],
     "polygon_points": [
       [
         3526,
@@ -15052,6 +15899,7 @@
       3500,
       2259
     ],
+    "images": [],
     "polygon_points": [
       [
         3486,
@@ -15096,6 +15944,7 @@
       3579,
       2321
     ],
+    "images": [],
     "polygon_points": [
       [
         3551,
@@ -15131,6 +15980,9 @@
     "map_pos": [
       3616,
       2320
+    ],
+    "images": [
+      "Vulcan_Island_Shore.png"
     ],
     "polygon_points": [
       [
@@ -15171,6 +16023,9 @@
     "map_pos": [
       3621,
       2289
+    ],
+    "images": [
+      "Vulcan_Path.png"
     ],
     "polygon_points": [
       [
@@ -15224,6 +16079,9 @@
       3658,
       2256
     ],
+    "images": [
+      "Vulcan_Forest.png"
+    ],
     "polygon_points": [
       [
         3646,
@@ -15272,6 +16130,7 @@
       3586,
       2200
     ],
+    "images": [],
     "polygon_points": [
       [
         3579,
@@ -15316,6 +16175,7 @@
       3604,
       2230
     ],
+    "images": [],
     "polygon_points": [
       [
         3641,
@@ -15364,6 +16224,7 @@
       3670,
       2200
     ],
+    "images": [],
     "polygon_points": [
       [
         3645,
@@ -15412,6 +16273,7 @@
       3745,
       2191
     ],
+    "images": [],
     "polygon_points": [
       [
         3751,
@@ -15460,6 +16322,7 @@
       3758,
       2156
     ],
+    "images": [],
     "polygon_points": [
       [
         3751,
@@ -15496,6 +16359,7 @@
       3758,
       2132
     ],
+    "images": [],
     "polygon_points": [
       [
         3752,
@@ -15536,6 +16400,7 @@
       3645,
       2158
     ],
+    "images": [],
     "polygon_points": [
       [
         3639,
@@ -15596,6 +16461,7 @@
       3658,
       2144
     ],
+    "images": [],
     "polygon_points": [
       [
         3652,
@@ -15636,6 +16502,7 @@
       3629,
       2117
     ],
+    "images": [],
     "polygon_points": [
       [
         3624,
@@ -15672,6 +16539,7 @@
       3630,
       2090
     ],
+    "images": [],
     "polygon_points": [
       [
         3624,
@@ -15712,6 +16580,7 @@
       3667,
       2335
     ],
+    "images": [],
     "polygon_points": [
       [
         3625,
@@ -15788,6 +16657,7 @@
       3679,
       2363
     ],
+    "images": [],
     "polygon_points": [
       [
         3672,
@@ -15832,6 +16702,7 @@
       3725,
       2344
     ],
+    "images": [],
     "polygon_points": [
       [
         3713,
@@ -15880,6 +16751,7 @@
       3775,
       2343
     ],
+    "images": [],
     "polygon_points": [
       [
         3743,
@@ -15916,6 +16788,7 @@
       3815,
       2343
     ],
+    "images": [],
     "polygon_points": [
       [
         3808,
@@ -15960,6 +16833,7 @@
       3426,
       1404
     ],
+    "images": [],
     "polygon_points": [
       [
         3420,
@@ -15999,6 +16873,9 @@
     "map_pos": [
       3474,
       1405
+    ],
+    "images": [
+      "Breezy_Path.png"
     ],
     "polygon_points": [
       [
@@ -16100,6 +16977,9 @@
       3471,
       1473
     ],
+    "images": [
+      "Breezy_Town.png"
+    ],
     "polygon_points": [
       [
         3445,
@@ -16148,6 +17028,7 @@
       3472,
       1359
     ],
+    "images": [],
     "polygon_points": [
       [
         3460,
@@ -16196,6 +17077,9 @@
       3496,
       1392
     ],
+    "images": [
+      "Breezy_Cave.png"
+    ],
     "polygon_points": [
       [
         3489,
@@ -16240,6 +17124,7 @@
       3534,
       1419
     ],
+    "images": [],
     "polygon_points": [
       [
         3506,
@@ -16272,6 +17157,7 @@
       3539,
       1396
     ],
+    "images": [],
     "polygon_points": [
       [
         3533,
@@ -16308,6 +17194,7 @@
       3540,
       1372
     ],
+    "images": [],
     "polygon_points": [
       [
         3535,
@@ -16352,6 +17239,7 @@
       3603,
       1415
     ],
+    "images": [],
     "polygon_points": [
       [
         3578,
@@ -16400,6 +17288,7 @@
       3654,
       1419
     ],
+    "images": [],
     "polygon_points": [
       [
         3638,
@@ -16436,6 +17325,7 @@
       3631,
       1344
     ],
+    "images": [],
     "polygon_points": [
       [
         3664,
@@ -16484,6 +17374,7 @@
       3673,
       1333
     ],
+    "images": [],
     "polygon_points": [
       [
         3667,
@@ -16524,6 +17415,7 @@
       3688,
       1323
     ],
+    "images": [],
     "polygon_points": [
       [
         3683,
@@ -16580,6 +17472,7 @@
       605,
       3799
     ],
+    "images": [],
     "polygon_points": [
       [
         593,
@@ -16628,6 +17521,7 @@
       546,
       3736
     ],
+    "images": [],
     "polygon_points": [
       [
         534,
@@ -16676,6 +17570,7 @@
       552,
       3588
     ],
+    "images": [],
     "polygon_points": [
       [
         526,
@@ -16724,6 +17619,7 @@
       474,
       3677
     ],
+    "images": [],
     "polygon_points": [
       [
         467,
@@ -16764,6 +17660,7 @@
       722,
       3764
     ],
+    "images": [],
     "polygon_points": [
       [
         731,
@@ -16816,6 +17713,7 @@
       669,
       3681
     ],
+    "images": [],
     "polygon_points": [
       [
         663,
@@ -16856,6 +17754,7 @@
       568,
       3518
     ],
+    "images": [],
     "polygon_points": [
       [
         575,
@@ -16888,6 +17787,7 @@
       576,
       3485
     ],
+    "images": [],
     "polygon_points": [
       [
         559,
@@ -16928,6 +17828,7 @@
       605,
       3485
     ],
+    "images": [],
     "polygon_points": [
       [
         599,
@@ -16968,6 +17869,7 @@
       568,
       3528
     ],
+    "images": [],
     "polygon_points": [
       [
         566,
@@ -17008,6 +17910,7 @@
       527,
       3497
     ],
+    "images": [],
     "polygon_points": [
       [
         524,
@@ -17056,6 +17959,7 @@
       539,
       3541
     ],
+    "images": [],
     "polygon_points": [
       [
         533,
@@ -17088,6 +17992,7 @@
       535,
       3503
     ],
+    "images": [],
     "polygon_points": [
       [
         536,
@@ -17152,6 +18057,7 @@
       475,
       3584
     ],
+    "images": [],
     "polygon_points": [
       [
         477,
@@ -17212,6 +18118,7 @@
       504,
       3583
     ],
+    "images": [],
     "polygon_points": [
       [
         492,
@@ -17244,6 +18151,7 @@
       466,
       3577
     ],
+    "images": [],
     "polygon_points": [
       [
         460,
@@ -17288,6 +18196,7 @@
       738,
       3743
     ],
+    "images": [],
     "polygon_points": [
       [
         730,
@@ -17328,6 +18237,7 @@
       635,
       3584
     ],
+    "images": [],
     "polygon_points": [
       [
         634,
@@ -17384,6 +18294,7 @@
       643,
       3578
     ],
+    "images": [],
     "polygon_points": [
       [
         637,
@@ -17424,6 +18335,7 @@
       600,
       3583
     ],
+    "images": [],
     "polygon_points": [
       [
         587,
@@ -17456,6 +18368,7 @@
       1836,
       2535
     ],
+    "images": [],
     "polygon_points": [
       [
         1837,
@@ -17520,6 +18433,7 @@
       1827,
       2528
     ],
+    "images": [],
     "polygon_points": [
       [
         1821,
@@ -17564,6 +18478,7 @@
       1882,
       2535
     ],
+    "images": [],
     "polygon_points": [
       [
         1874,
@@ -17608,6 +18523,7 @@
       1863,
       2535
     ],
+    "images": [],
     "polygon_points": [
       [
         1851,
@@ -17648,6 +18564,7 @@
       1784,
       2451
     ],
+    "images": [],
     "polygon_points": [
       [
         1783,
@@ -17692,6 +18609,7 @@
       1913,
       2494
     ],
+    "images": [],
     "polygon_points": [
       [
         1906,
@@ -17736,6 +18654,7 @@
       1832,
       2499
     ],
+    "images": [],
     "polygon_points": [
       [
         1777,
@@ -17796,6 +18715,7 @@
       1783,
       2467
     ],
+    "images": [],
     "polygon_points": [
       [
         1777,
@@ -17832,6 +18752,7 @@
       3331,
       215
     ],
+    "images": [],
     "polygon_points": [
       [
         3332,
@@ -17896,6 +18817,7 @@
       3321,
       208
     ],
+    "images": [],
     "polygon_points": [
       [
         3315,
@@ -17940,6 +18862,7 @@
       3322,
       190
     ],
+    "images": [],
     "polygon_points": [
       [
         3315,
@@ -17976,6 +18899,7 @@
       3322,
       173
     ],
+    "images": [],
     "polygon_points": [
       [
         3317,
@@ -18016,6 +18940,7 @@
       3371,
       263
     ],
+    "images": [],
     "polygon_points": [
       [
         3364,
@@ -18060,6 +18985,7 @@
       3418,
       215
     ],
+    "images": [],
     "polygon_points": [
       [
         3411,
@@ -18100,6 +19026,7 @@
       3369,
       169
     ],
+    "images": [],
     "polygon_points": [
       [
         3365,
@@ -18140,6 +19067,7 @@
       3370,
       192
     ],
+    "images": [],
     "polygon_points": [
       [
         3363,
@@ -18176,6 +19104,7 @@
       3367,
       214
     ],
+    "images": [],
     "polygon_points": [
       [
         3380,
@@ -18208,6 +19137,7 @@
       3395,
       215
     ],
+    "images": [],
     "polygon_points": [
       [
         3381,
@@ -18244,6 +19174,7 @@
       3844,
       2854
     ],
+    "images": [],
     "polygon_points": [
       [
         3838,
@@ -18284,6 +19215,7 @@
       3784,
       2908
     ],
+    "images": [],
     "polygon_points": [
       [
         3779,
@@ -18324,6 +19256,7 @@
       3902,
       2909
     ],
+    "images": [],
     "polygon_points": [
       [
         3898,
@@ -18364,6 +19297,7 @@
       3843,
       3011
     ],
+    "images": [],
     "polygon_points": [
       [
         3834,
@@ -18416,6 +19350,7 @@
       3843,
       2966
     ],
+    "images": [],
     "polygon_points": [
       [
         3837,
@@ -18448,6 +19383,7 @@
       3844,
       2936
     ],
+    "images": [],
     "polygon_points": [
       [
         3837,
@@ -18480,6 +19416,7 @@
       3818,
       2937
     ],
+    "images": [],
     "polygon_points": [
       [
         3835,
@@ -18512,6 +19449,7 @@
       3784,
       2928
     ],
+    "images": [],
     "polygon_points": [
       [
         3779,
@@ -18552,6 +19490,7 @@
       3893,
       2929
     ],
+    "images": [],
     "polygon_points": [
       [
         3897,
@@ -18600,6 +19539,7 @@
       3844,
       2896
     ],
+    "images": [],
     "polygon_points": [
       [
         3838,
@@ -18636,6 +19576,7 @@
       3666,
       3329
     ],
+    "images": [],
     "polygon_points": [
       [
         3664,
@@ -18676,6 +19617,9 @@
       3664,
       3344
     ],
+    "images": [
+      "Pinkan_Island_Peaks.png"
+    ],
     "polygon_points": [
       [
         3658,
@@ -18712,6 +19656,9 @@
       3664,
       3362
     ],
+    "images": [
+      "Pinkan_Island_Mountains.png"
+    ],
     "polygon_points": [
       [
         3659,
@@ -18744,6 +19691,9 @@
       3664,
       3380
     ],
+    "images": [
+      "Pinkan_Island_Vale.png"
+    ],
     "polygon_points": [
       [
         3657,
@@ -18775,6 +19725,11 @@
     "map_pos": [
       3664,
       3406
+    ],
+    "images": [
+      "Pinkan_Island_Woodlands.png",
+      "Pinkan_Island_Woodlands_East.png",
+      "Pinkan_Island_Woodlands_West.png"
     ],
     "polygon_points": [
       [
@@ -18824,6 +19779,9 @@
       3665,
       3445
     ],
+    "images": [
+      "Pinkan_Island_Path.png"
+    ],
     "polygon_points": [
       [
         3659,
@@ -18859,6 +19817,9 @@
     "map_pos": [
       3665,
       3475
+    ],
+    "images": [
+      "Pinkan_Island_Cave.png"
     ],
     "polygon_points": [
       [
@@ -18900,6 +19861,9 @@
       3621,
       3475
     ],
+    "images": [
+      "Pinkan_Island_Forest.png"
+    ],
     "polygon_points": [
       [
         3603,
@@ -18940,6 +19904,7 @@
       3610,
       3497
     ],
+    "images": [],
     "polygon_points": [
       [
         3604,
@@ -18975,6 +19940,10 @@
     "map_pos": [
       3587,
       3475
+    ],
+    "images": [
+      "Pinkan_Island_Meadow.png",
+      "Pinkan_Island_Meadow_Tunnel.png"
     ],
     "polygon_points": [
       [
@@ -19015,6 +19984,9 @@
     "map_pos": [
       3610,
       3440
+    ],
+    "images": [
+      "Pinkan_City.png"
     ],
     "polygon_points": [
       [
@@ -19064,6 +20036,7 @@
       2358,
       1743
     ],
+    "images": [],
     "polygon_points": [
       [
         2352,
@@ -19100,6 +20073,7 @@
       2343,
       1782
     ],
+    "images": [],
     "polygon_points": [
       [
         2349,
@@ -19160,6 +20134,7 @@
       2359,
       1765
     ],
+    "images": [],
     "polygon_points": [
       [
         2353,
@@ -19208,6 +20183,7 @@
       2327,
       1831
     ],
+    "images": [],
     "polygon_points": [
       [
         2320,
@@ -19244,6 +20220,7 @@
       2326,
       1846
     ],
+    "images": [],
     "polygon_points": [
       [
         2319,
@@ -19284,6 +20261,7 @@
       2332,
       1870
     ],
+    "images": [],
     "polygon_points": [
       [
         2320,
@@ -19344,6 +20322,7 @@
       2352,
       1872
     ],
+    "images": [],
     "polygon_points": [
       [
         2346,
@@ -19388,6 +20367,7 @@
       2326,
       1896
     ],
+    "images": [],
     "polygon_points": [
       [
         2320,
@@ -19441,6 +20421,7 @@
       342,
       1468
     ],
+    "images": [],
     "polygon_points": [
       [
         318,
@@ -19505,6 +20486,7 @@
       365,
       1448
     ],
+    "images": [],
     "polygon_points": [
       [
         359,
@@ -19545,6 +20527,7 @@
       293,
       1466
     ],
+    "images": [],
     "polygon_points": [
       [
         279,
@@ -19581,6 +20564,7 @@
       331,
       1530
     ],
+    "images": [],
     "polygon_points": [
       [
         325,
@@ -19613,6 +20597,7 @@
       330,
       1590
     ],
+    "images": [],
     "polygon_points": [
       [
         307,
@@ -19661,6 +20646,7 @@
       333,
       1550
     ],
+    "images": [],
     "polygon_points": [
       [
         331,

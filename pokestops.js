@@ -3,7 +3,10 @@ let currentPreviewImage = null;
 let currentImageIndex = 0;
 let isPreviewOpen = false; // Flag blocking multiple openings
 let previewClickCooldown = false; // Additional protection against multiple clicks
-let locationImages = {}; // Cache for discovered location images
+let locationCurrentImageIndex = 0; // Aktualny indeks obrazu lokacji
+let locationImagesArray = []; // Tablica z obrazami dla aktualnej lokacji
+let locationCurrentPreviewImage = null; // Nazwa aktualnej lokacji
+
 
 function createImagePreviewContainer() {
     if (document.getElementById('pokestop-preview-container')) {
@@ -164,112 +167,9 @@ function createImagePreviewContainer() {
 
     return previewContainer;
 }
-function showNoImagesMessage(locationName) {
-    // Możesz dostosować styl komunikatu według własnych preferencji
-    const message = `Lokacja "${locationName}" nie posiada żadnych zdjęć.`;
-    alert(message);
-}
+
 // Track zoom level
 let currentImageZoom = 1;
-
-// Function to discover images in location directory
-async function discoverLocationImages(locationName) {
-    // Jeśli mamy już obrazy w cache, zwróć je
-    if (locationImages[locationName]) {
-        return locationImages[locationName];
-    }
-    
-    // Jeśli wiemy, że lokacja nie ma obrazów, zwróć pustą tablicę
-    if (locationImages[locationName] === false) {
-        return [];
-    }
-    
-    // W innym przypadku, musimy sprawdzić folder lokacji
-    try {
-        const baseUrl = `resources/maps/${encodeURIComponent(locationName)}/`;
-        
-        // Wykonaj tylko jedno zapytanie do folderu
-        const response = await fetch(baseUrl);
-        
-        if (!response.ok) {
-            locationImages[locationName] = false;
-            return [];
-        }
-        
-        // Szukaj plików PNG w odpowiedzi
-        const html = await response.text();
-        const pngRegex = /href=["']([^"']+\.png)["']/gi;
-        const matches = [...html.matchAll(pngRegex)];
-        
-        if (matches.length === 0) {
-            locationImages[locationName] = false;
-            return [];
-        }
-        
-        // Znaleziono obrazy PNG
-        const foundImages = matches.map(match => `${baseUrl}${match[1]}`);
-        locationImages[locationName] = foundImages;
-        return foundImages;
-    } catch (error) {
-        console.error(`Error discovering images for ${locationName}:`, error);
-        locationImages[locationName] = false;
-        return [];
-    }
-}
-
-// Ta funkcja będzie wywoływana ze script.js gdy użytkownik kliknie na lokację
-async function handleLocationClick(location) {
-    if (location && location.tooltip) {
-        try {
-            // Sprawdź, czy lokacja jest już w cache
-            if (locationImages[location.tooltip] === false) {
-                console.log(`No images available for ${location.tooltip} (cached)`);
-                showNoImagesMessage(location.tooltip);
-                return;
-            }
-            
-            // Wykonaj tylko jedno zapytanie do folderu lokacji
-            const baseUrl = `resources/maps/${encodeURIComponent(location.tooltip)}/`;
-            
-            try {
-                // Najpierw sprawdź czy folder w ogóle istnieje
-                const response = await fetch(baseUrl);
-                
-                if (!response.ok) {
-                    console.log(`Location directory not found for ${location.tooltip}`);
-                    locationImages[location.tooltip] = false; // Zapisz w cache
-                    showNoImagesMessage(location.tooltip);
-                    return;
-                }
-                
-                // Sprawdź czy folder zawiera jakiekolwiek pliki PNG
-                const html = await response.text();
-                const pngRegex = /href=["']([^"']+\.png)["']/gi;
-                const matches = [...html.matchAll(pngRegex)];
-                
-                if (matches.length === 0) {
-                    console.log(`No PNG images found in directory for ${location.tooltip}`);
-                    locationImages[location.tooltip] = false; // Zapisz w cache
-                    showNoImagesMessage(location.tooltip);
-                    return;
-                }
-                
-                // Znaleziono obrazy PNG, zapisz je w cache
-                const foundImages = matches.map(match => `${baseUrl}${match[1]}`);
-                locationImages[location.tooltip] = foundImages;
-                
-                // Pokaż podgląd obrazów
-                showMapImagePreview(location.tooltip);
-            } catch (error) {
-                console.error(`Error checking location directory for ${location.tooltip}:`, error);
-                locationImages[location.tooltip] = false; // Zapisz w cache
-                showNoImagesMessage(location.tooltip);
-            }
-        } catch (error) {
-            console.error(`Error handling location click for ${location.tooltip}:`, error);
-        }
-    }
-}
 
 function showImagePreview(mapName) {
     try {
@@ -350,88 +250,6 @@ function showImagePreview(mapName) {
     }
 }
 
-async function showMapImagePreview(mapName) {
-    try {
-        // Sprawdź, czy okno podglądu jest już otwarte
-        if (isPreviewOpen || previewClickCooldown) {
-            return;
-        }
-        
-        // Pobierz ścieżki obrazów dla tej lokacji
-        const imagePaths = await discoverLocationImages(mapName);
-        
-        if (!imagePaths || imagePaths.length === 0) {
-            console.log(`No images found for location: ${mapName}`);
-            showNoImagesMessage(mapName);
-            return;
-        }
-        
-        // Ustaw flagi blokujące
-        isPreviewOpen = true;
-        previewClickCooldown = true;
-        
-        // Dodaj timeout do zresetowania dodatkowej blokady po 500ms
-        setTimeout(() => {
-            previewClickCooldown = false;
-        }, 500);
-        
-        // Reszta kodu pozostaje bez zmian...
-        const previewContainer = createImagePreviewContainer();
-        const imageContainer = previewContainer.querySelector('.pokestop-image-container');
-        const nextButton = previewContainer.querySelector('.pokestop-preview-next');
-        
-        // Zresetuj poprzednie powiększenie i przewijanie
-        currentImageZoom = 1;
-        translateX = 0;
-        translateY = 0;
-        imageContainer.innerHTML = '';
-        
-        currentImageIndex = 0;
-        currentPreviewImage = mapName;
-        
-        // Wyświetl pierwszy obraz
-        const img = document.createElement('img');
-        img.src = imagePaths[0];
-        img.alt = `Location: ${mapName}`;
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = 'calc(95vh - 60px)';
-        img.style.objectFit = 'contain';
-        img.style.borderRadius = '4px';
-        img.style.transform = 'scale(1)';
-        img.style.transformOrigin = 'center';
-        img.style.transition = 'transform 0.2s ease';
-        img.style.cursor = 'grab';
-        
-        img.onload = function() {
-            imageContainer.appendChild(img);
-            previewContainer.style.display = 'block';
-            
-            setTimeout(() => {
-                previewContainer.style.opacity = '1';
-                previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
-            }, 10);
-            
-            // Dodaj zdarzenie wheel do powiększania
-            imageContainer.addEventListener('wheel', handleImageWheel);
-            
-            // Pokaż przycisk next, jeśli mamy wiele obrazów
-            if (imagePaths.length > 1) {
-                nextButton.style.display = 'flex';
-            } else {
-                nextButton.style.display = 'none';
-            }
-        };
-        
-        img.onerror = function() {
-            console.error(`Error loading image: ${img.src}`);
-            hideImagePreview();
-        };
-    } catch (error) {
-        console.error('Error showing image preview:', error);
-        hideImagePreview();
-    }
-}
-
 function handleImageWheel(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -486,7 +304,162 @@ function resetPreviewZoom() {
     img.style.cursor = 'default';
 
 }
+function showLocationImages(location) {
+    try {
+        // Sprawdzamy czy okno podglądu jest już otwarte
+        if (isPreviewOpen || previewClickCooldown) {
+            return; // Zapobiegamy wielokrotnemu otwarciu
+        }
 
+        // Ustawiamy flagi blokujące
+        isPreviewOpen = true;
+        previewClickCooldown = true;
+
+        // Dodajemy timeout, aby zresetować dodatkową blokadę po 500ms
+        setTimeout(() => {
+            previewClickCooldown = false;
+        }, 500);
+
+        const previewContainer = createImagePreviewContainer();
+        const imageContainer = previewContainer.querySelector('.pokestop-image-container');
+        const nextButton = previewContainer.querySelector('.pokestop-preview-next');
+
+        // Resetujemy zoom i przewijanie
+        currentImageZoom = 1;
+        translateX = 0;
+        translateY = 0;
+        imageContainer.innerHTML = '';
+
+        // Resetujemy indeks obrazu
+        locationCurrentImageIndex = 0;
+        
+        // Zapisujemy nazwę lokacji i obrazy
+        locationCurrentPreviewImage = location.tooltip;
+        locationImagesArray = location.images || [];
+
+        // Jeśli nie ma obrazów, wyświetlamy komunikat
+        if (!locationImagesArray || locationImagesArray.length === 0) {
+            const noImagesMsg = document.createElement('div');
+            noImagesMsg.style.padding = '20px';
+            noImagesMsg.style.color = 'white';
+            noImagesMsg.style.textAlign = 'center';
+            noImagesMsg.textContent = `No images available for ${location.tooltip}`;
+            imageContainer.appendChild(noImagesMsg);
+            previewContainer.style.display = 'block';
+            
+            setTimeout(() => {
+                previewContainer.style.opacity = '1';
+                previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 10);
+            
+            return;
+        }
+
+        // Budujemy ścieżkę do obrazu
+        const imagePath = `resources/maps/${location.tooltip}/${locationImagesArray[0]}`;
+        
+        const img = document.createElement('img');
+        img.src = imagePath;
+        img.alt = `Map of ${location.tooltip}`;
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = 'calc(95vh - 60px)';
+        img.style.objectFit = 'contain';
+        img.style.borderRadius = '4px';
+        img.style.transform = 'scale(1)';
+        img.style.transformOrigin = 'center';
+        img.style.transition = 'transform 0.2s ease';
+        img.style.cursor = 'grab';
+
+        img.onload = function() {
+            imageContainer.appendChild(img);
+            previewContainer.style.display = 'block';
+
+            setTimeout(() => {
+                previewContainer.style.opacity = '1';
+                previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 10);
+
+            // Dodajemy obsługę zdarzenia wheel dla zoomowania
+            imageContainer.addEventListener('wheel', handleImageWheel);
+
+            // Sprawdzamy, czy lokacja ma więcej niż jeden obraz
+            if (locationImagesArray.length > 1) {
+                nextButton.style.display = 'flex';
+                // Zmieniamy obsługę przycisku, aby używał nowej funkcji
+                nextButton.onclick = toggleLocationImage;
+            } else {
+                nextButton.style.display = 'none';
+            }
+        };
+
+        img.onerror = function() {
+            console.error(`Error loading location image: ${img.src}`);
+            
+            // Próbujemy załadować domyślny obraz dla lokacji
+            img.src = `resources/maps/${location.tooltip}.png`;
+            
+            img.onerror = function() {
+                // Jeśli drugi raz wystąpił błąd, pokazujemy komunikat
+                hideImagePreview();
+                alert(`Error loading image for ${location.tooltip}`);
+            };
+        };
+    } catch (error) {
+        console.error('Error showing location image preview:', error);
+    }
+}
+
+// Funkcja do przełączania między obrazami lokacji
+function toggleLocationImage() {
+    if (!locationCurrentPreviewImage || locationImagesArray.length <= 1) return;
+
+    const previewContainer = document.getElementById('pokestop-preview-container');
+    const imageContainer = previewContainer.querySelector('.pokestop-image-container');
+
+    // Zwiększamy indeks lub wracamy do początku
+    locationCurrentImageIndex = (locationCurrentImageIndex + 1) % locationImagesArray.length;
+
+    // Tworzymy ścieżkę do następnego obrazu
+    const imagePath = `resources/maps/${locationCurrentPreviewImage}/${locationImagesArray[locationCurrentImageIndex]}`;
+
+    // Resetujemy pozycję przewijania dla nowego obrazu
+    translateX = 0;
+    translateY = 0;
+
+    const newImg = document.createElement('img');
+    newImg.src = imagePath;
+    newImg.alt = `Map of ${locationCurrentPreviewImage}`;
+    newImg.style.maxWidth = '100%';
+    newImg.style.maxHeight = 'calc(95vh - 60px)';
+    newImg.style.objectFit = 'contain';
+    newImg.style.borderRadius = '4px';
+
+    // Stosujemy aktualny poziom zoomu do nowego obrazu
+    newImg.style.transform = `scale(${currentImageZoom})`;
+    newImg.style.transformOrigin = 'center';
+    newImg.style.transition = 'transform 0.2s ease';
+
+    // Ustawiamy kursor w zależności od poziomu zoomu
+    newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
+
+    // Zastępujemy aktualny obraz nowym
+    const currentImg = imageContainer.querySelector('img');
+    if (currentImg) {
+        currentImg.style.opacity = '0';
+        setTimeout(() => {
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(newImg);
+        }, 200);
+    } else {
+        imageContainer.appendChild(newImg);
+    }
+    
+    // Obsługa błędu ładowania obrazu
+    newImg.onerror = function() {
+        console.error(`Error loading location image: ${newImg.src}`);
+        newImg.src = 'resources/default-map.png';
+    };
+}
 function hideImagePreview() {
     const previewContainer = document.getElementById('pokestop-preview-container');
     if (!previewContainer) return;
@@ -511,91 +484,47 @@ function hideImagePreview() {
     }, 300);
 }
 
-async function togglePreviewImage() {
+function togglePreviewImage() {
     if (!currentPreviewImage) return;
 
     const previewContainer = document.getElementById('pokestop-preview-container');
     const imageContainer = previewContainer.querySelector('.pokestop-image-container');
 
-    // Check if we're showing a map image or a pokestop image
-    if (currentPreviewImage === "Cerulean City" && document.querySelector('.pokestop-image-container img')?.src.includes('pokestops')) {
-        // For PokéStop images with known secondary images
-        currentImageIndex = currentImageIndex === 0 ? 1 : 0;
+    currentImageIndex = currentImageIndex === 0 ? 1 : 0;
 
-        const imagePath = currentImageIndex === 0 ? 
-            `resources/pokestops/${currentPreviewImage}.png` : 
-            `resources/pokestops/${currentPreviewImage}_2.png`;
+    const imagePath = currentImageIndex === 0 ? 
+        `resources/pokestops/${currentPreviewImage}.png` : 
+        `resources/pokestops/${currentPreviewImage}_2.png`;
 
-        // Reset scroll position for the new image
-        translateX = 0;
-        translateY = 0;
+    // Reset scroll position for the new image
+    translateX = 0;
+    translateY = 0;
 
-        const newImg = document.createElement('img');
-        newImg.src = imagePath;
-        newImg.alt = `PokéStop at ${currentPreviewImage}`;
-        newImg.style.maxWidth = '100%';
-        newImg.style.maxHeight = 'calc(95vh - 60px)';
-        newImg.style.objectFit = 'contain';
-        newImg.style.borderRadius = '4px';
+    const newImg = document.createElement('img');
+    newImg.src = imagePath;
+    newImg.alt = `PokéStop at ${currentPreviewImage}`;
+    newImg.style.maxWidth = '100%';
+    newImg.style.maxHeight = 'calc(95vh - 60px)';
+    newImg.style.objectFit = 'contain';
+    newImg.style.borderRadius = '4px';
 
-        // Apply current zoom level to the new image
-        newImg.style.transform = `scale(${currentImageZoom})`;
-        newImg.style.transformOrigin = 'center';
-        newImg.style.transition = 'transform 0.2s ease';
+    // Apply current zoom level to the new image
+    newImg.style.transform = `scale(${currentImageZoom})`;
+    newImg.style.transformOrigin = 'center';
+    newImg.style.transition = 'transform 0.2s ease';
 
-        // Set cursor based on zoom level
-        newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
+    // Set cursor based on zoom level
+    newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
 
-        const currentImg = imageContainer.querySelector('img');
-        if (currentImg) {
-            currentImg.style.opacity = '0';
-            setTimeout(() => {
-                imageContainer.innerHTML = '';
-                imageContainer.appendChild(newImg);
-            }, 200);
-        } else {
+    const currentImg = imageContainer.querySelector('img');
+    if (currentImg) {
+        currentImg.style.opacity = '0';
+        setTimeout(() => {
+            imageContainer.innerHTML = '';
             imageContainer.appendChild(newImg);
-        }
+        }, 200);
     } else {
-        // For map images from resources/maps/
-        // Get all images for the current location
-        const imagePaths = await discoverLocationImages(currentPreviewImage);
-        if (!imagePaths || imagePaths.length <= 1) return;
-
-        // Increment index and wrap around if necessary
-        currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
-        const imagePath = imagePaths[currentImageIndex];
-
-        // Reset scroll position for the new image
-        translateX = 0;
-        translateY = 0;
-
-        const newImg = document.createElement('img');
-        newImg.src = imagePath;
-        newImg.alt = `Location: ${currentPreviewImage}`;
-        newImg.style.maxWidth = '100%';
-        newImg.style.maxHeight = 'calc(95vh - 60px)';
-        newImg.style.objectFit = 'contain';
-        newImg.style.borderRadius = '4px';
-
-        // Apply current zoom level to the new image
-        newImg.style.transform = `scale(${currentImageZoom})`;
-        newImg.style.transformOrigin = 'center';
-        newImg.style.transition = 'transform 0.2s ease';
-
-        // Set cursor based on zoom level
-        newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
-
-        const currentImg = imageContainer.querySelector('img');
-        if (currentImg) {
-            currentImg.style.opacity = '0';
-            setTimeout(() => {
-                imageContainer.innerHTML = '';
-                imageContainer.appendChild(newImg);
-            }, 200);
-        } else {
-            imageContainer.appendChild(newImg);
-        }
+        imageContainer.appendChild(newImg);
     }
 }
 
@@ -815,6 +744,35 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM loaded, initializing PokéStop button");
     // Wait a moment to make sure all elements are ready
     setTimeout(initPokestopToggle, 1000);
+    
+    // Po załadowaniu DOM, sprawdzamy czy trzeba zaktualizować obsługę kliknięcia obszarów na mapie
+    setTimeout(function() {
+        const areaPolygons = document.querySelectorAll('.area-polygon');
+        
+        areaPolygons.forEach(polygon => {
+            // Usuwamy stare zdarzenie kliknięcia, jeśli istnieje
+            const oldClickListener = polygon._clickListener;
+            if (oldClickListener) {
+                polygon.removeEventListener('click', oldClickListener);
+            }
+            
+            // Dodajemy nowe zdarzenie kliknięcia
+            const newClickListener = function(e) {
+                e.stopPropagation();
+                const locationName = this.dataset.name;
+                const location = window.locations.find(loc => loc.tooltip === locationName);
+                
+                if (location) {
+                    showLocationImages(location);
+                }
+            };
+            
+            polygon._clickListener = newClickListener;
+            polygon.addEventListener('click', newClickListener);
+        });
+        
+        console.log("Updated click handlers for area polygons");
+    }, 2000); // Dajemy trochę czasu na załadowanie mapy i obszarów
 });
 
 window.addEventListener('load', function() {
@@ -871,4 +829,19 @@ window.addEventListener('load', function() {
         // Check and initialize button again (in case DOMContentLoaded didn't work)
         initPokestopToggle();
     }, 3000);
+    
+    console.log("Initializing location preview functionality");
+    window.showLocationImages = showLocationImages;
+    const originalCenterMapOnLocation = window.centerMapOnLocation;
+    window.centerMapOnLocation = function(location, fromSearch) {
+        if (fromSearch) {
+            if (typeof originalCenterMapOnLocation === 'function') {
+                originalCenterMapOnLocation(location, true);
+            }
+        } else {
+            showLocationImages(location);
+        }
+    };
+    
+    console.log("Location preview functionality initialized");
 });

@@ -751,9 +751,16 @@ function renderAreaPolygon(location) {
     svg.dataset.name = location.tooltip;
     svg.addEventListener('mousemove', showTooltip);
     svg.addEventListener('mouseleave', hideTooltip);
+    
+    // Zmiana - teraz po kliknięciu w lokację pokaże obrazy zamiast centrowania mapy
     svg.addEventListener('click', function(e) {
         e.stopPropagation();
-        handleLocationClick(location);
+        // Wywołujemy nową funkcję showLocationImages zamiast centerMapOnLocation
+        if (typeof showLocationImages === 'function') {
+            showLocationImages(location);
+        } else {
+            console.error("Funkcja showLocationImages nie jest dostępna");
+        }
     });
     
     map.appendChild(svg);
@@ -967,17 +974,28 @@ function loadFromJson() {
 }
 
 function centerMapOnLocation(location) {
-    // Zamiast zoomowania mapy, wywołujemy funkcję handleLocationClick
     if (!location.map_pos || !Array.isArray(location.map_pos) || location.map_pos.length < 2) {
         console.log(window.i18n.t("log.locationHasNoCoordinates", [location.tooltip]));
         return;
     }
     
-    // Wywołaj funkcję handleLocationClick z pokestops.js
-    if (typeof handleLocationClick === 'function') {
-        handleLocationClick(location);
+    // Jeśli przekazano argument fromClick=true, to nie centrujemy widoku
+    // Ten argument będzie używany tylko w przypadku wyszukiwania lokacji lub innych funkcji programowych
+    if (arguments.length > 1 && arguments[1] === true) {
+        const containerWidth = mapContainer.clientWidth;
+        const containerHeight = mapContainer.clientHeight;
+        scale = 2;
+        offsetX = (containerWidth / 2) - (location.map_pos[0] * scale);
+        offsetY = (containerHeight / 2) - (location.map_pos[1] * scale);
+        
+        updateMapTransform();
     } else {
-        console.error("handleLocationClick function not found");
+        // W przypadku kliknięcia w lokację, wywołujemy funkcję pokazującą obrazy
+        if (typeof showLocationImages === 'function') {
+            showLocationImages(location);
+        } else {
+            console.error("Funkcja showLocationImages nie jest dostępna");
+        }
     }
 }
 
