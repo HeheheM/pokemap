@@ -186,7 +186,7 @@ async function discoverLocationImages(locationName) {
     
     // W innym przypadku, musimy sprawdzić folder lokacji
     try {
-        const baseUrl = `resources/maps/${(locationName)}/`;
+        const baseUrl = `resources/maps/${encodeURIComponent(locationName)}/`;
         
         // Wykonaj tylko jedno zapytanie do folderu
         const response = await fetch(baseUrl);
@@ -229,7 +229,7 @@ async function handleLocationClick(location) {
             }
             
             // Wykonaj tylko jedno zapytanie do folderu lokacji
-            const baseUrl = `resources/maps/${(location.tooltip)}/`;
+            const baseUrl = `resources/maps/${encodeURIComponent(location.tooltip)}/`;
             
             try {
                 // Najpierw sprawdź czy folder w ogóle istnieje
