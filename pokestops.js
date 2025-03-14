@@ -229,90 +229,11 @@ async function discoverLocationImages(locationName) {
 // Ta funkcja będzie wywoływana ze script.js gdy użytkownik kliknie na lokację
 async function handleLocationClick(location) {
     if (location && location.tooltip) {
-        showMapImagePreview(location.tooltip);
+        showImagePreview(location.tooltip);
     }
 }
 
-function showImagePreview(mapName) {
-    try {
-        // Check if preview window is already open
-        if (isPreviewOpen || previewClickCooldown) {
-            return; // Prevent multiple openings
-        }
-
-        // Set blocking flags
-        isPreviewOpen = true;
-        previewClickCooldown = true;
-
-        // Add timeout to reset additional block after 500ms
-        setTimeout(() => {
-            previewClickCooldown = false;
-        }, 500);
-
-        const previewContainer = createImagePreviewContainer();
-        const imageContainer = previewContainer.querySelector('.pokestop-image-container');
-        const nextButton = previewContainer.querySelector('.pokestop-preview-next');
-
-        // Reset any previous zoom and scrolling
-        currentImageZoom = 1;
-        translateX = 0;
-        translateY = 0;
-        imageContainer.innerHTML = '';
-
-        currentImageIndex = 0;
-        currentPreviewImage = mapName;
-
-        const img = document.createElement('img');
-        img.src = `resources/pokestops/${mapName}.png`;
-        img.alt = `PokéStop at ${mapName}`;
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = 'calc(95vh - 60px)';
-        img.style.objectFit = 'contain';
-        img.style.borderRadius = '4px';
-        img.style.transform = 'scale(1)';
-        img.style.transformOrigin = 'center';
-        img.style.transition = 'transform 0.2s ease';
-        img.style.cursor = 'grab';
-
-        img.onload = function() {
-            imageContainer.appendChild(img);
-            previewContainer.style.display = 'block';
-
-            setTimeout(() => {
-                previewContainer.style.opacity = '1';
-                previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
-            }, 10);
-
-            // Add wheel event for zooming
-            imageContainer.addEventListener('wheel', handleImageWheel);
-
-            // Check if this location has a second image (only for Cerulean City)
-            if (mapName === "Cerulean City") {
-                const secondImg = new Image();
-                secondImg.onload = function() {
-                    nextButton.style.display = 'flex';
-                };
-                secondImg.onerror = function() {
-                    nextButton.style.display = 'none';
-                };
-                secondImg.src = `resources/pokestops/${mapName}_2.png`;
-            } else {
-                // For other locations do not check for second image
-                nextButton.style.display = 'none';
-            }
-        };
-
-        img.onerror = function() {
-            console.error(`Error loading PokéStop image: ${img.src}`);
-            hideImagePreview();
-            alert(`Error loading image for ${mapName}`);
-        };
-    } catch (error) {
-        console.error('Error showing image preview:', error);
-    }
-}
-
-async function showMapImagePreview(mapName) {
+async function showImagePreview(mapName) {
     try {
         // Check if preview window is already open
         if (isPreviewOpen || previewClickCooldown) {
@@ -347,6 +268,7 @@ async function showMapImagePreview(mapName) {
         if (!imagePaths || imagePaths.length === 0) {
             console.error(`No images found for location: ${mapName}`);
             hideImagePreview();
+            alert(`No images found for ${mapName}`);
             return;
         }
 
@@ -410,10 +332,12 @@ async function showMapImagePreview(mapName) {
                 
                 // If we reach here, we couldn't find any images
                 hideImagePreview();
+                alert(`Error loading images for ${mapName}. No PNG files found.`);
             };
             
             xhr.onerror = function() {
                 hideImagePreview();
+                alert(`Error loading images for ${mapName}`);
             };
             
             xhr.send();
@@ -477,7 +401,6 @@ function resetPreviewZoom() {
     translateY = 0;
     img.style.transform = 'scale(1)';
     img.style.cursor = 'default';
-
 }
 
 function hideImagePreview() {
@@ -507,88 +430,46 @@ function hideImagePreview() {
 async function togglePreviewImage() {
     if (!currentPreviewImage) return;
 
+    // Get all images for the current location
+    const imagePaths = await discoverLocationImages(currentPreviewImage);
+    if (!imagePaths || imagePaths.length <= 1) return;
+
     const previewContainer = document.getElementById('pokestop-preview-container');
     const imageContainer = previewContainer.querySelector('.pokestop-image-container');
 
-    // Check if we're showing a map image or a pokestop image
-    if (currentPreviewImage === "Cerulean City" && document.querySelector('.pokestop-image-container img')?.src.includes('pokestops')) {
-        // For PokéStop images with known secondary images
-        currentImageIndex = currentImageIndex === 0 ? 1 : 0;
+    // Increment index and wrap around if necessary
+    currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
+    const imagePath = imagePaths[currentImageIndex];
 
-        const imagePath = currentImageIndex === 0 ? 
-            `resources/pokestops/${currentPreviewImage}.png` : 
-            `resources/pokestops/${currentPreviewImage}_2.png`;
+    // Reset scroll position for the new image
+    translateX = 0;
+    translateY = 0;
 
-        // Reset scroll position for the new image
-        translateX = 0;
-        translateY = 0;
+    const newImg = document.createElement('img');
+    newImg.src = imagePath;
+    newImg.alt = `Location: ${currentPreviewImage}`;
+    newImg.style.maxWidth = '100%';
+    newImg.style.maxHeight = 'calc(95vh - 60px)';
+    newImg.style.objectFit = 'contain';
+    newImg.style.borderRadius = '4px';
 
-        const newImg = document.createElement('img');
-        newImg.src = imagePath;
-        newImg.alt = `PokéStop at ${currentPreviewImage}`;
-        newImg.style.maxWidth = '100%';
-        newImg.style.maxHeight = 'calc(95vh - 60px)';
-        newImg.style.objectFit = 'contain';
-        newImg.style.borderRadius = '4px';
+    // Apply current zoom level to the new image
+    newImg.style.transform = `scale(${currentImageZoom})`;
+    newImg.style.transformOrigin = 'center';
+    newImg.style.transition = 'transform 0.2s ease';
 
-        // Apply current zoom level to the new image
-        newImg.style.transform = `scale(${currentImageZoom})`;
-        newImg.style.transformOrigin = 'center';
-        newImg.style.transition = 'transform 0.2s ease';
+    // Set cursor based on zoom level
+    newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
 
-        // Set cursor based on zoom level
-        newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
-
-        const currentImg = imageContainer.querySelector('img');
-        if (currentImg) {
-            currentImg.style.opacity = '0';
-            setTimeout(() => {
-                imageContainer.innerHTML = '';
-                imageContainer.appendChild(newImg);
-            }, 200);
-        } else {
+    const currentImg = imageContainer.querySelector('img');
+    if (currentImg) {
+        currentImg.style.opacity = '0';
+        setTimeout(() => {
+            imageContainer.innerHTML = '';
             imageContainer.appendChild(newImg);
-        }
+        }, 200);
     } else {
-        // For map images from resources/maps/
-        // Get all images for the current location
-        const imagePaths = await discoverLocationImages(currentPreviewImage);
-        if (!imagePaths || imagePaths.length <= 1) return;
-
-        // Increment index and wrap around if necessary
-        currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
-        const imagePath = imagePaths[currentImageIndex];
-
-        // Reset scroll position for the new image
-        translateX = 0;
-        translateY = 0;
-
-        const newImg = document.createElement('img');
-        newImg.src = imagePath;
-        newImg.alt = `Location: ${currentPreviewImage}`;
-        newImg.style.maxWidth = '100%';
-        newImg.style.maxHeight = 'calc(95vh - 60px)';
-        newImg.style.objectFit = 'contain';
-        newImg.style.borderRadius = '4px';
-
-        // Apply current zoom level to the new image
-        newImg.style.transform = `scale(${currentImageZoom})`;
-        newImg.style.transformOrigin = 'center';
-        newImg.style.transition = 'transform 0.2s ease';
-
-        // Set cursor based on zoom level
-        newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
-
-        const currentImg = imageContainer.querySelector('img');
-        if (currentImg) {
-            currentImg.style.opacity = '0';
-            setTimeout(() => {
-                imageContainer.innerHTML = '';
-                imageContainer.appendChild(newImg);
-            }, 200);
-        } else {
-            imageContainer.appendChild(newImg);
-        }
+        imageContainer.appendChild(newImg);
     }
 }
 
@@ -654,12 +535,14 @@ function clearPokestopIcons() {
     pokestopIcons = [];
 }
 
-// Function to get filenames from the resources/pokestops/ folder
-async function getPokestopFiles() {
-    // We use window.pokestopFileList as a way to provide the file list,
-    // Because JavaScript in the browser cannot directly read folder contents
-    const fileList = window.pokestopFileList || [];
-    return fileList;
+// Function to get locations from window.locations
+async function getLocations() {
+    if (!window.locations || !Array.isArray(window.locations)) {
+        console.error('Locations data is not available');
+        return [];
+    }
+    
+    return window.locations;
 }
 
 async function displayAllPokestopIcons() {
@@ -667,47 +550,18 @@ async function displayAllPokestopIcons() {
     createImagePreviewContainer();
 
     try {
-        if (!window.locations || !Array.isArray(window.locations)) {
-            console.error('Locations data is not available');
+        const locations = await getLocations();
+        if (!locations || locations.length === 0) {
+            console.error('No locations found');
             return;
         }
 
-        // Get the list of files from the pokestops folder
-        let pokestopFiles = await getPokestopFiles();
+        console.log(`Processing ${locations.length} locations`);
 
-        if (!pokestopFiles || pokestopFiles.length === 0) {
-            console.error('No pokestop image files found. Please define window.pokestopFileList array with your PNG filenames.');
-            console.log('INSTRUCTION: In the script uncomment or add PNG filenames to the window.pokestopFileList array.');
-
-            // Display alert so the user knows what to do
-            alert('No PokéStop files found. Please add PNG filenames to the window.pokestopFileList array in the script.');
-            return;
-        }
-
-        console.log(`Processing ${pokestopFiles.length} pokestop image files`);
-
-        // Process only PNG files that don't have the _2 suffix
-        for (const fileName of pokestopFiles) {
-            if (!fileName.endsWith('.png')) continue;
-
-            let mapName = fileName.replace('.png', '');
-
-            // Skip secondary files (those with _2 at the end)
-            if (mapName.endsWith('_2')) {
-                continue;
-            }
-
-            // Find location that has tooltip matching the map name
-            // Use case-insensitive comparison
-            const location = window.locations.find(loc => 
-                (loc.tooltip && loc.tooltip.toLowerCase() === mapName.toLowerCase())
-            );
-
-            // Create icon only if matching location with map_pos was found
-            if (location && location.map_pos) {
-                createPokestopIcon(mapName, location.map_pos);
-            } else {
-                console.warn(`No map coordinates found for PokéStop location: ${mapName}`);
+        // Create icon for each location with a tooltip
+        for (const location of locations) {
+            if (location.tooltip && location.map_pos) {
+                createPokestopIcon(location.tooltip, location.map_pos);
             }
         }
 
@@ -812,50 +666,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('load', function() {
     console.log("Page fully loaded");
-    window.pokestopFileList = [
-        "Azalea Town.png",
-        "Celestic Town.png",
-        "Cerulean City.png",
-        "Cerulean City_2.png",
-        "Cinnabar Island.png",
-        "Digletts Cave.png",
-        "Ecruteak City.png",
-        "Eterna Forest.png",
-        "Hearthome City.png",
-        "Ilex Forest.png",
-        "Jubilife City.png",
-        "Lake of Rage.png",
-        "Lavaridge Town.png",
-        "Lilycove City.png",
-        "Mossdeep City.png",
-        "National Park.png",
-        "Olivine City.png",
-        "Pacifidlog Town.png",
-        "Pastoria City.png",
-        "Petalburg Woods.png",
-        "Pewter City.png",
-        "Route 10.png",
-        "Route 110.png",
-        "Route 111 Desert.png",
-        "Route 115.png",
-        "Route 119A.png",
-        "Turnback Cave.png",
-        "Route 3.png",
-        "Route 32.png",
-        "Route 45.png",
-        "Route 5.png",
-        "Slateport City.png",
-        "Snowpoint City.png",
-        "Solaceon Town.png",
-        "Sootopolis City.png",
-        "Sunyshore City.png",
-        "Veilstone City.png",
-        "Vermilion City.png",
-        "Violet City.png",
-        "Viridian Forest.png",
-        "Viridian City.png",
-    ];
-
+    
+    // We don't need pokestopFileList anymore as we're now discovering images dynamically
+    
     setTimeout(function() {
         console.log("Initializing PokéStop icons");
         displayAllPokestopIcons();
