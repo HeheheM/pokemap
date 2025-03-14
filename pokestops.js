@@ -164,102 +164,110 @@ function createImagePreviewContainer() {
 
     return previewContainer;
 }
-
+function showNoImagesMessage(locationName) {
+    // Możesz dostosować styl komunikatu według własnych preferencji
+    const message = `Lokacja "${locationName}" nie posiada żadnych zdjęć.`;
+    alert(message);
+}
 // Track zoom level
 let currentImageZoom = 1;
 
 // Function to discover images in location directory
 async function discoverLocationImages(locationName) {
-    // If we already have cached images for this location, return them
-    if (locationImages[locationName] && locationImages[locationName].length > 0) {
+    // Jeśli mamy już obrazy w cache, zwróć je
+    if (locationImages[locationName]) {
         return locationImages[locationName];
     }
-
-    // Try to fetch available images by testing access to potential files
+    
+    // Jeśli wiemy, że lokacja nie ma obrazów, zwróć pustą tablicę
+    if (locationImages[locationName] === false) {
+        return [];
+    }
+    
+    // W innym przypadku, musimy sprawdzić folder lokacji
     try {
         const baseUrl = `resources/maps/${(locationName)}/`;
         
-        // Try to fetch the directory listing or test for known image patterns
-        const response = await fetch(`${baseUrl}?list=true`);
+        // Wykonaj tylko jedno zapytanie do folderu
+        const response = await fetch(baseUrl);
         
-        if (response.ok) {
-            // If server supports directory listing, parse the response
-            const html = await response.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            
-            // Find all links to PNG files
-            const links = Array.from(doc.querySelectorAll('a'));
-            const pngFiles = links
-                .map(link => link.getAttribute('href'))
-                .filter(href => href && href.toLowerCase().endsWith('.png'));
-            
-            if (pngFiles.length > 0) {
-                locationImages[locationName] = pngFiles.map(file => `${baseUrl}${file}`);
-                return locationImages[locationName];
-            }
+        if (!response.ok) {
+            locationImages[locationName] = false;
+            return [];
         }
         
-        // If directory listing failed or returned no PNG files, 
-        // check for existence of any PNG files with number patterns
-        const testPatterns = [
-            // Test various naming patterns
-            'image1.png', 'image2.png', 'image3.png',
-            '1.png', '2.png', '3.png',
-            'map1.png', 'map2.png', 'map3.png',
-            'img1.png', 'img2.png', 'img3.png'
-        ];
+        // Szukaj plików PNG w odpowiedzi
+        const html = await response.text();
+        const pngRegex = /href=["']([^"']+\.png)["']/gi;
+        const matches = [...html.matchAll(pngRegex)];
         
-        const discoveredImages = [];
-        
-        for (const pattern of testPatterns) {
-            const testUrl = `${baseUrl}${pattern}`;
-            try {
-                const testResponse = await fetch(testUrl, { method: 'HEAD' });
-                if (testResponse.ok) {
-                    discoveredImages.push(testUrl);
-                }
-            } catch (error) {
-                // Ignore errors for individual test requests
-                console.debug(`Image not found at ${testUrl}`);
-            }
+        if (matches.length === 0) {
+            locationImages[locationName] = false;
+            return [];
         }
         
-        if (discoveredImages.length > 0) {
-            locationImages[locationName] = discoveredImages;
-            return discoveredImages;
-        }
-        
-        // If all specific checks failed, try a generic fallback approach
-        // Look for any PNG file in the directory
-        const fallbackResponse = await fetch(`${baseUrl}`);
-        if (fallbackResponse.ok) {
-            const html = await fallbackResponse.text();
-            // Simple regex to find PNG files in directory listing
-            const pngRegex = /href=["']([^"']+\.png)["']/gi;
-            const matches = [...html.matchAll(pngRegex)];
-            
-            if (matches.length > 0) {
-                const foundImages = matches.map(match => `${baseUrl}${match[1]}`);
-                locationImages[locationName] = foundImages;
-                return foundImages;
-            }
-        }
-        
-        // Final fallback: create a tentative list of possible image paths
-        // We'll need to validate these URLs when we try to display them
-        return [`${baseUrl}image.png`];
+        // Znaleziono obrazy PNG
+        const foundImages = matches.map(match => `${baseUrl}${match[1]}`);
+        locationImages[locationName] = foundImages;
+        return foundImages;
     } catch (error) {
         console.error(`Error discovering images for ${locationName}:`, error);
-        // Return a fallback path that will be tested when showing the preview
-        //return [`resources/maps/${encodeURIComponent(locationName)}/image.png`];
+        locationImages[locationName] = false;
+        return [];
     }
 }
 
 // Ta funkcja będzie wywoływana ze script.js gdy użytkownik kliknie na lokację
 async function handleLocationClick(location) {
     if (location && location.tooltip) {
-        showMapImagePreview(location.tooltip);
+        try {
+            // Sprawdź, czy lokacja jest już w cache
+            if (locationImages[location.tooltip] === false) {
+                console.log(`No images available for ${location.tooltip} (cached)`);
+                showNoImagesMessage(location.tooltip);
+                return;
+            }
+            
+            // Wykonaj tylko jedno zapytanie do folderu lokacji
+            const baseUrl = `resources/maps/${(location.tooltip)}/`;
+            
+            try {
+                // Najpierw sprawdź czy folder w ogóle istnieje
+                const response = await fetch(baseUrl);
+                
+                if (!response.ok) {
+                    console.log(`Location directory not found for ${location.tooltip}`);
+                    locationImages[location.tooltip] = false; // Zapisz w cache
+                    showNoImagesMessage(location.tooltip);
+                    return;
+                }
+                
+                // Sprawdź czy folder zawiera jakiekolwiek pliki PNG
+                const html = await response.text();
+                const pngRegex = /href=["']([^"']+\.png)["']/gi;
+                const matches = [...html.matchAll(pngRegex)];
+                
+                if (matches.length === 0) {
+                    console.log(`No PNG images found in directory for ${location.tooltip}`);
+                    locationImages[location.tooltip] = false; // Zapisz w cache
+                    showNoImagesMessage(location.tooltip);
+                    return;
+                }
+                
+                // Znaleziono obrazy PNG, zapisz je w cache
+                const foundImages = matches.map(match => `${baseUrl}${match[1]}`);
+                locationImages[location.tooltip] = foundImages;
+                
+                // Pokaż podgląd obrazów
+                showMapImagePreview(location.tooltip);
+            } catch (error) {
+                console.error(`Error checking location directory for ${location.tooltip}:`, error);
+                locationImages[location.tooltip] = false; // Zapisz w cache
+                showNoImagesMessage(location.tooltip);
+            }
+        } catch (error) {
+            console.error(`Error handling location click for ${location.tooltip}:`, error);
+        }
     }
 }
 
@@ -344,43 +352,44 @@ function showImagePreview(mapName) {
 
 async function showMapImagePreview(mapName) {
     try {
-        // Check if preview window is already open
+        // Sprawdź, czy okno podglądu jest już otwarte
         if (isPreviewOpen || previewClickCooldown) {
-            return; // Prevent multiple openings
+            return;
         }
-
-        // Set blocking flags
+        
+        // Pobierz ścieżki obrazów dla tej lokacji
+        const imagePaths = await discoverLocationImages(mapName);
+        
+        if (!imagePaths || imagePaths.length === 0) {
+            console.log(`No images found for location: ${mapName}`);
+            showNoImagesMessage(mapName);
+            return;
+        }
+        
+        // Ustaw flagi blokujące
         isPreviewOpen = true;
         previewClickCooldown = true;
-
-        // Add timeout to reset additional block after 500ms
+        
+        // Dodaj timeout do zresetowania dodatkowej blokady po 500ms
         setTimeout(() => {
             previewClickCooldown = false;
         }, 500);
-
+        
+        // Reszta kodu pozostaje bez zmian...
         const previewContainer = createImagePreviewContainer();
         const imageContainer = previewContainer.querySelector('.pokestop-image-container');
         const nextButton = previewContainer.querySelector('.pokestop-preview-next');
-
-        // Reset any previous zoom and scrolling
+        
+        // Zresetuj poprzednie powiększenie i przewijanie
         currentImageZoom = 1;
         translateX = 0;
         translateY = 0;
         imageContainer.innerHTML = '';
-
+        
         currentImageIndex = 0;
         currentPreviewImage = mapName;
-
-        // Discover images for this location
-        const imagePaths = await discoverLocationImages(mapName);
         
-        if (!imagePaths || imagePaths.length === 0) {
-            console.error(`No images found for location: ${mapName}`);
-            hideImagePreview();
-            return;
-        }
-
-        // Display the first image
+        // Wyświetl pierwszy obraz
         const img = document.createElement('img');
         img.src = imagePaths[0];
         img.alt = `Location: ${mapName}`;
@@ -392,63 +401,31 @@ async function showMapImagePreview(mapName) {
         img.style.transformOrigin = 'center';
         img.style.transition = 'transform 0.2s ease';
         img.style.cursor = 'grab';
-
+        
         img.onload = function() {
             imageContainer.appendChild(img);
             previewContainer.style.display = 'block';
-
+            
             setTimeout(() => {
                 previewContainer.style.opacity = '1';
                 previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
             }, 10);
-
-            // Add wheel event for zooming
+            
+            // Dodaj zdarzenie wheel do powiększania
             imageContainer.addEventListener('wheel', handleImageWheel);
-
-            // Show next button if we have multiple images
+            
+            // Pokaż przycisk next, jeśli mamy wiele obrazów
             if (imagePaths.length > 1) {
                 nextButton.style.display = 'flex';
             } else {
                 nextButton.style.display = 'none';
             }
         };
-
+        
         img.onerror = function() {
             console.error(`Error loading image: ${img.src}`);
-            
-            // Try a different approach - look for any PNG files in the folder
-            const basePath = `resources/maps/${(mapName)}/`;
-            
-            // Create an XHR to try to get directory listing (this may not work on all servers)
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', basePath, true);
-            
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    // Try to find PNG files in the response
-                    const response = xhr.responseText;
-                    const pngRegex = /href=["']([^"']+\.png)["']/gi;
-                    const matches = [...response.matchAll(pngRegex)];
-                    
-                    if (matches.length > 0) {
-                        // Found PNG files, use the first one
-                        const newSrc = `${basePath}${matches[0][1]}`;
-                        img.src = newSrc;
-                        return;
-                    }
-                }
-                
-                // If we reach here, we couldn't find any images
-                hideImagePreview();
-            };
-            
-            xhr.onerror = function() {
-                hideImagePreview();
-            };
-            
-            xhr.send();
+            hideImagePreview();
         };
-
     } catch (error) {
         console.error('Error showing image preview:', error);
         hideImagePreview();
