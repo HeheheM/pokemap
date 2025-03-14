@@ -200,36 +200,6 @@ async function discoverLocationImages(locationName) {
             }
         }
         
-        // If directory listing failed or returned no PNG files, 
-        // check for existence of any PNG files with number patterns
-        const testPatterns = [
-            // Test various naming patterns
-            'image1.png', 'image2.png', 'image3.png',
-            '1.png', '2.png', '3.png',
-            'map1.png', 'map2.png', 'map3.png',
-            'img1.png', 'img2.png', 'img3.png'
-        ];
-        
-        const discoveredImages = [];
-        
-        for (const pattern of testPatterns) {
-            const testUrl = `${baseUrl}${pattern}`;
-            try {
-                const testResponse = await fetch(testUrl, { method: 'HEAD' });
-                if (testResponse.ok) {
-                    discoveredImages.push(testUrl);
-                }
-            } catch (error) {
-                // Ignore errors for individual test requests
-                console.debug(`Image not found at ${testUrl}`);
-            }
-        }
-        
-        if (discoveredImages.length > 0) {
-            locationImages[locationName] = discoveredImages;
-            return discoveredImages;
-        }
-        
         // If all specific checks failed, try a generic fallback approach
         // Look for any PNG file in the directory
         const fallbackResponse = await fetch(`${baseUrl}`);
