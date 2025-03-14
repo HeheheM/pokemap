@@ -753,7 +753,7 @@ function renderAreaPolygon(location) {
     svg.addEventListener('mouseleave', hideTooltip);
     svg.addEventListener('click', function(e) {
         e.stopPropagation();
-        centerMapOnLocation(location);
+        handleLocationClick(location);
     });
     
     map.appendChild(svg);
@@ -967,18 +967,18 @@ function loadFromJson() {
 }
 
 function centerMapOnLocation(location) {
+    // Zamiast zoomowania mapy, wywołujemy funkcję handleLocationClick
     if (!location.map_pos || !Array.isArray(location.map_pos) || location.map_pos.length < 2) {
         console.log(window.i18n.t("log.locationHasNoCoordinates", [location.tooltip]));
         return;
     }
     
-    const containerWidth = mapContainer.clientWidth;
-    const containerHeight = mapContainer.clientHeight;
-    scale = 2;
-    offsetX = (containerWidth / 2) - (location.map_pos[0] * scale);
-    offsetY = (containerHeight / 2) - (location.map_pos[1] * scale);
-    
-    updateMapTransform();
+    // Wywołaj funkcję handleLocationClick z pokestops.js
+    if (typeof handleLocationClick === 'function') {
+        handleLocationClick(location);
+    } else {
+        console.error("handleLocationClick function not found");
+    }
 }
 
 function setupRegionFilter() {
