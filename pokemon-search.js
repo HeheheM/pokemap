@@ -936,8 +936,8 @@ function displayPokemonLocations(pokemonName) {
             const locationInfo = locationsWithAvailability.find(l => l.location.Map === locationName);
 
             if (locationInfo && locationInfo.isOnMap) {
-                centerMapOnLocation(locationInfo.mapLoc);
-                // Don't clear other icons, just highlight this one
+                centerMapOnLocation(locationInfo.mapLoc, true);
+                // Don't clear other icons, just highlight this one with an animation
                 highlightPokemonLocation(locationInfo.location, locationInfo.mapLoc);
             } else {
                 alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
@@ -1433,8 +1433,8 @@ function displayPokemonsByLocation(locationName) {
     // If location is on the map, center the map and display marker
     if (isOnMap) {
         // Center map on this location
-        centerMapOnLocation(mapLoc);
-
+        centerMapOnLocation(mapLoc, true);
+    
         // Display location marker
         displayLocationMarker(mapLoc);
     }
