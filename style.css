@@ -1399,14 +1399,110 @@ body {
     filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
 }
 
+
+.pokestop-tooltip {
+    background-color: #1e1e1e;
+    border: 2px solid #b41212;
+    border-radius: 5px;
+    padding: 8px 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: nowrap;
+    z-index: 2100;
+    position: fixed;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Tooltip dla dostępnego pokestopa (z zieloną ramką) */
+.pokestop-tooltip-available {
+    border-color: #2eb82e;
+}
+
+/* Tooltip dla pokestopa na cooldownie (z czerwoną ramką) */
+.pokestop-tooltip-cooldown {
+    border-color: #b41212;
+}
+
+/* Nagłówek tooltipa */
+.tooltip-header {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* Informacja w tooltipie */
+.tooltip-info {
+    font-size: 13px;
+}
+
+/* Licznik cooldownu */
+.tooltip-cooldown {
+    font-weight: bold;
+    color: #ff5c33;
+}
+
+/* Dodaj style dla animacji płynnej zmiany profilu */
+.profile-transition {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0.5;
+}
+
 /* Style dla podglądu obrazów PokéStop */
 .pokestop-image-container img {
     display: block;
     transition: opacity 0.2s ease;
 }
+.pokestop-preview-next {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2001;
+    transition: background-color 0.2s;
+}
+.pokestop-preview-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 
+.pokestop-preview-back {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2001;
+    transition: background-color 0.2s;
+}
+.pokestop-preview-back:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
 .pokestop-preview-close,
-.pokestop-preview-next,
 .pokestop-preview-zoom {
     position: absolute;
     color: white;
@@ -1428,18 +1524,12 @@ body {
     right: 10px;
 }
 
-.pokestop-preview-next {
-    top: 10px;
-    right: 60px;
-}
-
 .pokestop-preview-zoom {
     top: 10px;
     right: 110px;
 }
 
 .pokestop-preview-close:hover,
-.pokestop-preview-next:hover,
 .pokestop-preview-zoom:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -1477,4 +1567,66 @@ body {
     .pokestop-toggle-btn {
         padding: 12px 15px;
     }
+}
+.toggle-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    gap: 10px;
+}
+/* Style for the container that will hold both buttons */
+.toggle-buttons-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    margin: 5px 0;
+}
+
+/* Position the boss button in the middle column and shift it left */
+#boss-toggle-btn {
+    grid-column: 2;
+    justify-self: center;
+    margin: 0 auto;
+    transform: translateX(-40px); /* Move 45px to the left */
+}
+
+/* Keep pokestop button in the first column */
+#pokestop-toggle-btn {
+    grid-column: 1;
+}
+
+/* Make sure both buttons have the same styling */
+.pokestop-toggle-btn, .boss-toggle-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    background-color: #555;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    user-select: none;
+    width: 100%;
+    max-width: 60px;
+    text-align: center;
+}
+
+.pokestop-toggle-btn:hover, .boss-toggle-btn:hover {
+    transform: scale(1.05);
+}
+
+.pokestop-toggle-btn.active, .boss-toggle-btn.active {
+    background-color: #4CAF50;
+}
+
+.pokestop-toggle-btn img, .boss-toggle-btn img {
+    width: 34px;
+    height: 43px;
+    margin-bottom: 5px;
+}
+
+.pokestop-toggle-btn span, .boss-toggle-btn span {
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
 }

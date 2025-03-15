@@ -231,6 +231,7 @@ function createNewProfile(profileName) {
             lastWeeklyReset: null,
             killedBosses: {},
             bossRoutes: [],
+            clickedPokestops: {}, // Dodajemy pustą właściwość dla pokestopów
 
             mapSettings: {
                 defaultScale: DEFAULT_SCALE,
@@ -363,6 +364,7 @@ function saveCurrentProfileData() {
         lastWeeklyReset: null,
         killedBosses: {},
         bossRoutes: [],
+        clickedPokestops: {}, // Dodajemy nową właściwość dla pokestopów
         mapSettings: mapSettings || {
             defaultScale: DEFAULT_SCALE,
             defaultOffsetX: 0,
@@ -419,6 +421,17 @@ function saveCurrentProfileData() {
             }
         }
 
+        // Zapisz dane clickedPokestops - dodajemy obsługę pokestopów
+        const clickedPokestops = localStorage.getItem('clickedPokestops');
+        if (clickedPokestops) {
+            try {
+                data.clickedPokestops = JSON.parse(clickedPokestops);
+            } catch (e) {
+                console.warn("Error parsing clickedPokestops:", e);
+                data.clickedPokestops = {};
+            }
+        }
+
         // Aktualizuj dane profilu
         profiles[currentProfile].data = data;
         
@@ -464,6 +477,7 @@ function loadProfileData(profileId) {
         localStorage.removeItem('lastWeeklyReset');
         localStorage.removeItem('killedBosses');
         localStorage.removeItem('bossRoutes');
+        localStorage.removeItem('clickedPokestops'); // Dodajemy czyszczenie danych pokestopów
 
         // Załaduj dane z profilu do localStorage
         if (profileData.weeklyKillData) {
@@ -480,6 +494,11 @@ function loadProfileData(profileId) {
         
         if (profileData.bossRoutes) {
             localStorage.setItem('bossRoutes', JSON.stringify(profileData.bossRoutes));
+        }
+        
+        // Załaduj dane clickedPokestops
+        if (profileData.clickedPokestops) {
+            localStorage.setItem('clickedPokestops', JSON.stringify(profileData.clickedPokestops));
         }
         
         // Resetuj stan tras
@@ -518,6 +537,10 @@ function loadProfileData(profileId) {
             try {
                 if (typeof updateBossTimers === 'function') {
                     updateBossTimers();
+                }
+
+                if (typeof updatePokestopTimers === 'function') {
+                    updatePokestopTimers(); // Dodajemy aktualizację timerów pokestopów
                 }
 
                 if (typeof updateWeeklyKillsDisplay === 'function') {
@@ -725,6 +748,13 @@ function migrateExistingProfiles() {
             
             needsSave = true;
         }
+
+        // Dodajemy sprawdzenie i migrację dla clickedPokestops
+        if (!profile.data.clickedPokestops) {
+            console.log(`Adding clickedPokestops property to profile: ${profile.name}`);
+            profile.data.clickedPokestops = {};
+            needsSave = true;
+        }
     });
     
     if (needsSave) {
@@ -742,7 +772,7 @@ function setupLocalStorageChangeListener() {
         originalSetItem.apply(this, arguments);
         
         // Sprawdź, czy zmodyfikowane dane są związane z profilem
-        const profileKeys = ['killedBosses', 'bossRoutes', 'weeklyKillData', 'lastWeeklyReset'];
+        const profileKeys = ['killedBosses', 'bossRoutes', 'weeklyKillData', 'lastWeeklyReset', 'clickedPokestops']; // Dodajemy clickedPokestops
         if (profileKeys.includes(key) && currentProfile) {
             // Zaplanuj zapisanie profilu za chwilę (aby zbiorczo zapisać wiele zmian)
             setTimeout(() => {

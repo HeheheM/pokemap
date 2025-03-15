@@ -5,6 +5,14 @@ let uniqueItems = new Set();
 let uniqueLocationNames = new Set();
 let currentPokemonName = null; // Track current Pokemon being displayed
 
+// Dodanie zmiennych do śledzenia kierunku sortowania
+let sortDirections = {
+    'az': true, // true = A-Z, false = Z-A
+    'level': true, // true = najniższy-najwyższy, false = najwyższy-najniższy
+    'item': true, // true = bez itema-z itemem, false = z itemem-bez itema
+    'location': true // true = A-Z, false = Z-A
+};
+
 async function initPokemonSearch() {
     console.log("Initializing Pokemon search functionality...");
 
@@ -99,13 +107,13 @@ function createDaytimeIconsHTML(daytimeArray) {
 
     let html = '';
     if (daytimeArray[0]) {
-        html += `<img src="resources/morning.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.morning') : 'Morning'}" alt="Morning">`;
+        html += `<img src="resources/morning.webp" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.morning') : 'Morning'}" alt="Morning">`;
     }
     if (daytimeArray[1]) {
-        html += `<img src="resources/day.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.day') : 'Day'}" alt="Day">`;
+        html += `<img src="resources/day.webp" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.day') : 'Day'}" alt="Day">`;
     }
     if (daytimeArray[2]) {
-        html += `<img src="resources/night.png" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.night') : 'Night'}" alt="Night">`;
+        html += `<img src="resources/night.webp" class="pokemon-location-icon" title="${window.i18n ? window.i18n.t('pokemon.night') : 'Night'}" alt="Night">`;
     }
 
     return html;
@@ -113,35 +121,35 @@ function createDaytimeIconsHTML(daytimeArray) {
 
 function createTierIconHTML(tier) {
     if (!tier) return '';
-    return `<img src="resources/${tier.toLowerCase()}.png" class="pokemon-location-icon" title="${tier}" alt="${tier}" onerror="this.style.display='none'">`;
+    return `<img src="resources/${tier.toLowerCase()}.webp" class="pokemon-location-icon" title="${tier}" alt="${tier}" onerror="this.style.display='none'">`;
 }
 
 function createItemIconHTML(item) {
     if (!item) return '';
-    return `<img src="resources/items/${item}.png" class="pokemon-location-icon pokemon-item-icon" title="${item}" alt="${item}" onerror="this.style.display='none'">`;
+    return `<img src="resources/items/${item}.webp" class="pokemon-location-icon pokemon-item-icon" title="${item}" alt="${item}" onerror="this.style.display='none'">`;
 }
 
 function createSourceIconHTML(source) {
     if (!source) return '';
-    const iconName = source === 'land' ? 'land.png' : 'surf.png';
+    const iconName = source === 'land' ? 'land.webp' : 'surf.webp';
     const title = source === 'land' ? (window.i18n ? window.i18n.t('pokemon.landSpawn') : 'Land Spawn') : (window.i18n ? window.i18n.t('pokemon.waterSpawn') : 'Water Spawn');
     return `<span class="pokemon-spawn-type"><img src="resources/${iconName}" class="pokemon-location-icon pokemon-source-icon" title="${title}" alt="${title}"></span>`;
 }
 
 function createMembershipIconHTML(isMemberOnly) {
     if (!isMemberOnly) return '';
-    return `<img src="resources/membership.png" class="pokemon-location-icon pokemon-membership-icon" title="${window.i18n ? window.i18n.t('pokemon.memberOnly') : 'Member Only'}" alt="Member Only">`;
+    return `<img src="resources/membership.webp" class="pokemon-location-icon pokemon-membership-icon" title="${window.i18n ? window.i18n.t('pokemon.memberOnly') : 'Member Only'}" alt="Member Only">`;
 }
 
 function createFishingIconHTML(fishingOnly, requiredRod) {
     if (!fishingOnly) return '';
     const rodTitle = requiredRod ? requiredRod : (window.i18n ? window.i18n.t('pokemon.fishingRequired') : 'Fishing Required');
-    return `<img src="resources/fishing.png" class="pokemon-location-icon pokemon-fishing-icon" title="${rodTitle}" alt="Fishing">`;
+    return `<img src="resources/fishing.webp" class="pokemon-location-icon pokemon-fishing-icon" title="${rodTitle}" alt="Fishing">`;
 }
 
 function createRepelIconHTML(requiresRepel) {
     if (!requiresRepel) return '';
-    return `<img src="resources/repel.png" class="pokemon-location-icon pokemon-repel-icon" title="${window.i18n ? window.i18n.t('pokemon.repelRequired') : 'Repel Required'}" alt="Repel">`;
+    return `<img src="resources/repel.webp" class="pokemon-location-icon pokemon-repel-icon" title="${window.i18n ? window.i18n.t('pokemon.repelRequired') : 'Repel Required'}" alt="Repel">`;
 }
 
 function createLocationIconsHTML(pokemonLocation) {
@@ -169,6 +177,68 @@ function createLocationIconsHTML(pokemonLocation) {
     iconsHTML += createDaytimeIconsHTML(pokemonLocation.Daytime);
 
     return iconsHTML;
+}
+
+// Funkcje do sortowania
+function sortLocationsByDefault(locationsArray, ascending) {
+    locationsArray.sort((a, b) => {
+        if (a.isOnMap && !b.isOnMap) return -1;
+        if (!a.isOnMap && b.isOnMap) return 1;
+        
+        const compareResult = a.location.Map.localeCompare(b.location.Map);
+        return ascending ? compareResult : -compareResult;
+    });
+}
+
+function sortLocationsByLevel(locationsArray, ascending) {
+    locationsArray.sort((a, b) => {
+        // Najpierw sprawdzamy dostępność na mapie
+        if (a.isOnMap && !b.isOnMap) return -1;
+        if (!a.isOnMap && b.isOnMap) return 1;
+        
+        // Potem sortujemy wg poziomu
+        const aMinLevel = a.location.MinLVL || 0;
+        const bMinLevel = b.location.MinLVL || 0;
+        
+        if (aMinLevel !== bMinLevel) {
+            // Sortowanie po minimalnym poziomie - kierunek zależy od parametru ascending
+            return ascending ? (aMinLevel - bMinLevel) : (bMinLevel - aMinLevel);
+        }
+        
+        // Jeśli minimalny poziom jest taki sam, sprawdź maksymalny
+        const aMaxLevel = a.location.MaxLVL || 0;
+        const bMaxLevel = b.location.MaxLVL || 0;
+        
+        if (aMaxLevel !== bMaxLevel) {
+            // Sortowanie po maksymalnym poziomie - kierunek zależy od parametru ascending
+            return ascending ? (aMaxLevel - bMaxLevel) : (bMaxLevel - aMaxLevel);
+        }
+        
+        // Jeśli poziomy są takie same, sortuj alfabetycznie
+        return a.location.Map.localeCompare(b.location.Map);
+    });
+}
+
+function sortLocationsByItem(locationsArray, ascending) {
+    locationsArray.sort((a, b) => {
+        // Najpierw sprawdzamy dostępność na mapie
+        if (a.isOnMap && !b.isOnMap) return -1;
+        if (!a.isOnMap && b.isOnMap) return 1;
+        
+        // Potem sortujemy wg posiadania przedmiotu
+        const aHasItem = a.location.Item ? 1 : 0;
+        const bHasItem = b.location.Item ? 1 : 0;
+        
+        if (aHasItem !== bHasItem) {
+            // Kierunek zależy od parametru ascending
+            // Gdy ascending=true: najpierw bez przedmiotów (0), potem z przedmiotami (1)
+            // Gdy ascending=false: najpierw z przedmiotami (1), potem bez przedmiotów (0)
+            return ascending ? (aHasItem - bHasItem) : (bHasItem - aHasItem);
+        }
+        
+        // Jeśli oba mają lub nie mają przedmiotu, sortuj alfabetycznie
+        return a.location.Map.localeCompare(b.location.Map);
+    });
 }
 
 // Function to refresh the Pokemon panel when language changes
@@ -211,7 +281,7 @@ function refreshPokemonPanel(pokemonName) {
 
     // Get the Pokemon image from first location
     const monsterID = locations[0].MonsterID;
-    const pokemonImageSrc = `resources/pokemons/${monsterID}.png`;
+    const pokemonImageSrc = `resources/pokemons/${monsterID}.webp`;
 
     // Prepare locations with map availability info
     const locationsWithAvailability = locations.map(loc => {
@@ -225,27 +295,39 @@ function refreshPokemonPanel(pokemonName) {
     });
 
     // Sort locations - available on map first
-    locationsWithAvailability.sort((a, b) => {
-        if (a.isOnMap && !b.isOnMap) return -1;
-        if (!a.isOnMap && b.isOnMap) return 1;
-        return a.location.Map.localeCompare(b.location.Map);
-    });
+    sortLocationsByDefault(locationsWithAvailability, true);
+
+    // Reset sort directions for this refreshed panel
+    sortDirections = {
+        'az': true,
+        'level': true,
+        'item': true,
+        'location': true
+    };
 
     // Update the panel content with new language
     locationsPanel.innerHTML = `
         <div class="pokemon-locations-header">
             <h3>
-                <img src="${pokemonImageSrc}" alt="${pokemonName}" onerror="this.src='resources/pokemons/default-poke.png'">
+                <img src="${pokemonImageSrc}" alt="${pokemonName}" onerror="this.src='resources/pokemons/default-poke.webp'">
                 ${pokemonName}
             </h3>
             <span class="close-locations-panel">&times;</span>
         </div>
         <div class="pokemon-locations-content">
             <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.locationsTitle") : "This Pokemon can be found in these locations:"}</p>
-            <ul class="pokemon-locations-list">
+            <div class="pokemon-sort-options">
+                <button class="sort-button sort-az active" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
+                <button class="sort-button sort-level" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
+                <button class="sort-button sort-item" data-sort="item">${window.i18n ? window.i18n.t("pokesearch.sortItem") : "Has Item"}</button>
+            </div>
+            <ul class="pokemon-locations-list" id="pokemon-locations-list">
                 ${locationsWithAvailability.map(item => {
-                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}">
-                        <div class="pokemon-location-name">${item.location.Map}</div>
+                    const levelRange = item.location.MinLVL && item.location.MaxLVL ? 
+                        ` (${item.location.MinLVL}-${item.location.MaxLVL})` : '';
+                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}"
+                        data-min-level="${item.location.MinLVL || 0}" data-max-level="${item.location.MaxLVL || 0}" data-has-item="${item.location.Item ? '1' : '0'}">
+                        <div class="pokemon-location-name">${item.location.Map}${levelRange}</div>
                         <div class="pokemon-location-icons">${createLocationIconsHTML(item.location)}</div>
                     </li>`;
                 }).join('')}
@@ -273,6 +355,74 @@ function refreshPokemonPanel(pokemonName) {
             } else {
                 alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
             }
+        });
+    });
+
+    // Add sorting functionality
+    const sortButtons = locationsPanel.querySelectorAll('.sort-button');
+    sortButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const sortType = this.dataset.sort;
+
+            // Jeśli kliknięto w aktywny przycisk, zmień kierunek sortowania
+            if (this.classList.contains('active')) {
+                sortDirections[sortType] = !sortDirections[sortType];
+                // Dodaj klasę wskazującą kierunek sortowania
+                if (sortDirections[sortType]) {
+                    this.classList.remove('descending');
+                } else {
+                    this.classList.add('descending');
+                }
+            } else {
+                // Remove active class from all buttons
+                sortButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.classList.remove('descending');
+                });
+                // Add active class to clicked button
+                this.classList.add('active');
+                // Ustaw domyślny kierunek sortowania
+                sortDirections[sortType] = true;
+            }
+            
+            // Sort the locations based on the selected sort type and direction
+            if (sortType === 'az') {
+                sortLocationsByDefault(locationsWithAvailability, sortDirections.az);
+            } else if (sortType === 'level') {
+                sortLocationsByLevel(locationsWithAvailability, sortDirections.level);
+            } else if (sortType === 'item') {
+                sortLocationsByItem(locationsWithAvailability, sortDirections.item);
+            }
+            
+            // Get the updated list
+            const list = locationsPanel.querySelector('#pokemon-locations-list');
+            
+            // Update the list with the sorted locations
+            list.innerHTML = locationsWithAvailability.map(item => {
+                const levelRange = item.location.MinLVL && item.location.MaxLVL ? 
+                    ` (${item.location.MinLVL}-${item.location.MaxLVL})` : '';
+                return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}"
+                    data-min-level="${item.location.MinLVL || 0}" data-max-level="${item.location.MaxLVL || 0}" data-has-item="${item.location.Item ? '1' : '0'}">
+                    <div class="pokemon-location-name">${item.location.Map}${levelRange}</div>
+                    <div class="pokemon-location-icons">${createLocationIconsHTML(item.location)}</div>
+                </li>`;
+            }).join('');
+            
+            // Re-add click event listeners to the newly created list items
+            list.querySelectorAll('li').forEach(item => {
+                item.addEventListener('click', function() {
+                    const locationName = this.dataset.location;
+                    const locationInfo = locationsWithAvailability.find(l => l.location.Map === locationName);
+        
+                    if (locationInfo && locationInfo.isOnMap) {
+                        centerMapOnLocation(locationInfo.mapLoc);
+                        // Don't clear other icons, just highlight this one with an animation
+                        highlightPokemonLocation(locationInfo.location, locationInfo.mapLoc);
+                    } else {
+                        alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
+                    }
+                });
+            });
         });
     });
 
@@ -511,7 +661,6 @@ function isPokemonWithRepel(pokemonName) {
         entry.Pokemon === pokemonName && entry.RequiresRepel
     );
 }
-
 // Function to setup the repel filter checkbox
 function addRepelFilterCheckbox() {
     const checkbox = document.getElementById('repel-filter-checkbox');
@@ -880,7 +1029,7 @@ function displayPokemonLocations(pokemonName) {
 
     // Get the Pokemon image
     const monsterID = locations[0].MonsterID;
-    const pokemonImageSrc = `resources/pokemons/${monsterID}.png`;
+    const pokemonImageSrc = `resources/pokemons/${monsterID}.webp`;
 
     // Prepare locations with map availability info for sorting
     const locationsWithAvailability = locations.map(loc => {
@@ -893,28 +1042,40 @@ function displayPokemonLocations(pokemonName) {
         };
     });
 
-    // Sort locations - available on map first
-    locationsWithAvailability.sort((a, b) => {
-        if (a.isOnMap && !b.isOnMap) return -1;
-        if (!a.isOnMap && b.isOnMap) return 1;
-        return a.location.Map.localeCompare(b.location.Map);
-    });
+    // Default sort - available on map first, then alphabetically
+    sortLocationsByDefault(locationsWithAvailability, true);
+
+    // Reset sort directions for this new panel
+    sortDirections = {
+        'az': true,
+        'level': true,
+        'item': true,
+        'location': true
+    };
 
     // Create the panel content
     locationsPanel.innerHTML = `
         <div class="pokemon-locations-header">
             <h3>
-                <img src="${pokemonImageSrc}" alt="${pokemonName}" onerror="this.src='resources/pokemons/default-poke.png'">
+                <img src="${pokemonImageSrc}" alt="${pokemonName}" onerror="this.src='resources/pokemons/default-poke.webp'">
                 ${pokemonName}
             </h3>
             <span class="close-locations-panel">&times;</span>
         </div>
         <div class="pokemon-locations-content">
             <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.locationsTitle") : "This Pokemon can be found in these locations:"}</p>
-            <ul class="pokemon-locations-list">
+            <div class="pokemon-sort-options">
+                <button class="sort-button sort-az active" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
+                <button class="sort-button sort-level" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
+                <button class="sort-button sort-item" data-sort="item">${window.i18n ? window.i18n.t("pokesearch.sortItem") : "Has Item"}</button>
+            </div>
+            <ul class="pokemon-locations-list" id="pokemon-locations-list">
                 ${locationsWithAvailability.map(item => {
-                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}">
-                        <div class="pokemon-location-name">${item.location.Map}</div>
+                    const levelRange = item.location.MinLVL && item.location.MaxLVL ? 
+                        ` (${item.location.MinLVL}-${item.location.MaxLVL})` : '';
+                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}"
+                        data-min-level="${item.location.MinLVL || 0}" data-max-level="${item.location.MaxLVL || 0}" data-has-item="${item.location.Item ? '1' : '0'}">
+                        <div class="pokemon-location-name">${item.location.Map}${levelRange}</div>
                         <div class="pokemon-location-icons">${createLocationIconsHTML(item.location)}</div>
                     </li>`;
                 }).join('')}
@@ -942,6 +1103,74 @@ function displayPokemonLocations(pokemonName) {
             } else {
                 alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
             }
+        });
+    });
+
+    // Add sorting functionality
+    const sortButtons = locationsPanel.querySelectorAll('.sort-button');
+    sortButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const sortType = this.dataset.sort;
+
+            // Jeśli kliknięto w aktywny przycisk, zmień kierunek sortowania
+            if (this.classList.contains('active')) {
+                sortDirections[sortType] = !sortDirections[sortType];
+                // Dodaj klasę wskazującą kierunek sortowania
+                if (sortDirections[sortType]) {
+                    this.classList.remove('descending');
+                } else {
+                    this.classList.add('descending');
+                }
+            } else {
+                // Remove active class from all buttons
+                sortButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.classList.remove('descending');
+                });
+                // Add active class to clicked button
+                this.classList.add('active');
+                // Ustaw domyślny kierunek sortowania
+                sortDirections[sortType] = true;
+            }
+            
+            // Sort the locations based on the selected sort type and direction
+            if (sortType === 'az') {
+                sortLocationsByDefault(locationsWithAvailability, sortDirections.az);
+            } else if (sortType === 'level') {
+                sortLocationsByLevel(locationsWithAvailability, sortDirections.level);
+            } else if (sortType === 'item') {
+                sortLocationsByItem(locationsWithAvailability, sortDirections.item);
+            }
+            
+            // Get the updated list
+            const list = locationsPanel.querySelector('#pokemon-locations-list');
+            
+            // Update the list with the sorted locations
+            list.innerHTML = locationsWithAvailability.map(item => {
+                const levelRange = item.location.MinLVL && item.location.MaxLVL ? 
+                    ` (${item.location.MinLVL}-${item.location.MaxLVL})` : '';
+                return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}"
+                    data-min-level="${item.location.MinLVL || 0}" data-max-level="${item.location.MaxLVL || 0}" data-has-item="${item.location.Item ? '1' : '0'}">
+                    <div class="pokemon-location-name">${item.location.Map}${levelRange}</div>
+                    <div class="pokemon-location-icons">${createLocationIconsHTML(item.location)}</div>
+                </li>`;
+            }).join('');
+            
+            // Re-add click event listeners to the newly created list items
+            list.querySelectorAll('li').forEach(item => {
+                item.addEventListener('click', function() {
+                    const locationName = this.dataset.location;
+                    const locationInfo = locationsWithAvailability.find(l => l.location.Map === locationName);
+        
+                    if (locationInfo && locationInfo.isOnMap) {
+                        centerMapOnLocation(locationInfo.mapLoc, true);
+                        // Don't clear other icons, just highlight this one with an animation
+                        highlightPokemonLocation(locationInfo.location, locationInfo.mapLoc);
+                    } else {
+                        alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
+                    }
+                });
+            });
         });
     });
 
@@ -1009,7 +1238,6 @@ function clearOnlyPokemonIcons() {
 }
 
 // Helper function to create a single Pokemon icon
-// Helper function to create a single Pokemon icon
 function createPokemonIcon(pokemonLocation, mapLoc) {
     const map = document.getElementById('map');
 
@@ -1029,7 +1257,7 @@ function createPokemonIcon(pokemonLocation, mapLoc) {
 
     // Create image
     const img = document.createElement('img');
-    img.src = `resources/pokemons/${pokemonLocation.MonsterID}.png`;
+    img.src = `resources/pokemons/${pokemonLocation.MonsterID}.webp`;
     img.alt = pokemonLocation.Pokemon;
 
     // Set image to fill the icon container
@@ -1041,7 +1269,7 @@ function createPokemonIcon(pokemonLocation, mapLoc) {
     // Fallback if image doesn't exist
     img.onerror = function() {
         this.onerror = null;
-        this.src = 'resources/pokemons/default-poke.png';
+        this.src = 'resources/pokemons/default-poke.webp';
     };
 
     icon.appendChild(img);
@@ -1483,6 +1711,14 @@ function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
     // Set display title
     const displayName = (mapLoc && mapLoc.tooltip) ? mapLoc.tooltip : locationName;
 
+    // Reset sort directions for this new panel
+    sortDirections = {
+        'az': true,
+        'level': true,
+        'item': true,
+        'location': true
+    };
+
     // Create panel content
     panel.innerHTML = `
         <div class="pokemon-locations-header">
@@ -1491,12 +1727,22 @@ function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
         </div>
         <div class="pokemon-locations-content">
             <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.pokemonAtLocation") : "Pokemon available at this location:"}</p>
-            <ul class="pokemon-locations-list">
+            <div class="pokemon-sort-options">
+                <button class="sort-button sort-az active" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
+                <button class="sort-button sort-level" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
+                <button class="sort-button sort-item" data-sort="item">${window.i18n ? window.i18n.t("pokesearch.sortItem") : "Has Item"}</button>
+            </div>
+            <ul class="pokemon-locations-list" id="location-pokemon-list">
                 ${pokemonList.map(pokemon => {
-                    return `<li data-pokemon="${pokemon.Pokemon}" data-monster-id="${pokemon.MonsterID}" title="${window.i18n ? window.i18n.t("pokesearch.clickToShowInfo") : 'Click to show info'}">
+                    const levelRange = pokemon.MinLVL && pokemon.MaxLVL ? 
+                        ` (${pokemon.MinLVL}-${pokemon.MaxLVL})` : '';
+                    return `<li data-pokemon="${pokemon.Pokemon}" data-monster-id="${pokemon.MonsterID}" 
+                        data-min-level="${pokemon.MinLVL || 0}" data-max-level="${pokemon.MaxLVL || 0}" 
+                        data-has-item="${pokemon.Item ? '1' : '0'}" 
+                        title="${window.i18n ? window.i18n.t("pokesearch.clickToShowInfo") : 'Click to show info'}">
                         <div class="pokemon-location-name">
-                            <img src="resources/pokemons/${pokemon.MonsterID}.png" class="pokemon-mini-icon" alt="${pokemon.Pokemon}" onerror="this.src='resources/pokemons/default-poke.png'">
-                            ${pokemon.Pokemon}
+                            <img src="resources/pokemons/${pokemon.MonsterID}.webp" class="pokemon-mini-icon" alt="${pokemon.Pokemon}" onerror="this.src='resources/pokemons/default-poke.webp'">
+                            ${pokemon.Pokemon}${levelRange}
                         </div>
                         <div class="pokemon-location-icons">${createLocationIconsHTML(pokemon)}</div>
                     </li>`;
@@ -1536,7 +1782,116 @@ function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
         });
     });
 
-    // Enable mouse wheel scrolling on the location content
+    // Add sorting functionality
+    panel.querySelectorAll('.sort-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const sortType = this.dataset.sort;
+            let sortedList = [...pokemonList]; // Create a copy of the Pokemon list
+            
+            // Jeśli kliknięto w aktywny przycisk, zmień kierunek sortowania
+            if (this.classList.contains('active')) {
+                sortDirections[sortType] = !sortDirections[sortType];
+                // Dodaj klasę wskazującą kierunek sortowania
+                if (sortDirections[sortType]) {
+                    this.classList.remove('descending');
+                } else {
+                    this.classList.add('descending');
+                }
+            } else {
+                // Remove active class from all buttons
+                panel.querySelectorAll('.sort-button').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.classList.remove('descending');
+                });
+                // Add active class to clicked button
+                this.classList.add('active');
+                // Ustaw domyślny kierunek sortowania
+                sortDirections[sortType] = true;
+            }
+            
+            // Sort the Pokemon list based on the selected sort type and direction
+            const ascending = sortDirections[sortType];
+            if (sortType === 'az') {
+                sortedList.sort((a, b) => {
+                    const compareResult = a.Pokemon.localeCompare(b.Pokemon);
+                    return ascending ? compareResult : -compareResult;
+                });
+            } else if (sortType === 'level') {
+                sortedList.sort((a, b) => {
+                    const aMinLevel = a.MinLVL || 0;
+                    const bMinLevel = b.MinLVL || 0;
+                    
+                    if (aMinLevel !== bMinLevel) {
+                        return ascending ? (aMinLevel - bMinLevel) : (bMinLevel - aMinLevel);
+                    }
+                    
+                    const aMaxLevel = a.MaxLVL || 0;
+                    const bMaxLevel = b.MaxLVL || 0;
+                    
+                    if (aMaxLevel !== bMaxLevel) {
+                        return ascending ? (aMaxLevel - bMaxLevel) : (bMaxLevel - aMaxLevel);
+                    }
+                    
+                    return a.Pokemon.localeCompare(b.Pokemon);
+                });
+            } else if (sortType === 'item') {
+                sortedList.sort((a, b) => {
+                    const aHasItem = a.Item ? 1 : 0;
+                    const bHasItem = b.Item ? 1 : 0;
+                    
+                    if (aHasItem !== bHasItem) {
+                        return ascending ? (aHasItem - bHasItem) : (bHasItem - aHasItem);
+                    }
+                    
+                    return a.Pokemon.localeCompare(b.Pokemon);
+                });
+            }
+            
+            // Get the list element and update it with the sorted Pokemon
+            const list = panel.querySelector('#location-pokemon-list');
+            list.innerHTML = sortedList.map(pokemon => {
+                const levelRange = pokemon.MinLVL && pokemon.MaxLVL ? 
+                    ` (${pokemon.MinLVL}-${pokemon.MaxLVL})` : '';
+                return `<li data-pokemon="${pokemon.Pokemon}" data-monster-id="${pokemon.MonsterID}" 
+                    data-min-level="${pokemon.MinLVL || 0}" data-max-level="${pokemon.MaxLVL || 0}" 
+                    data-has-item="${pokemon.Item ? '1' : '0'}" 
+                    title="${window.i18n ? window.i18n.t("pokesearch.clickToShowInfo") : 'Click to show info'}">
+                    <div class="pokemon-location-name">
+                        <img src="resources/pokemons/${pokemon.MonsterID}.webp" class="pokemon-mini-icon" alt="${pokemon.Pokemon}" onerror="this.src='resources/pokemons/default-poke.webp'">
+                        ${pokemon.Pokemon}${levelRange}
+                    </div>
+                    <div class="pokemon-location-icons">${createLocationIconsHTML(pokemon)}</div>
+                </li>`;
+            }).join('');
+            
+            // Re-add click event listeners to the newly created list items
+            list.querySelectorAll('li').forEach(item => {
+                item.addEventListener('click', function() {
+                    const pokemonName = this.dataset.pokemon;
+                    const pokemonData = sortedList.find(p => p.Pokemon === pokemonName);
+        
+                    if (pokemonData) {
+                        if (isOnMap) {
+                            // If location is on the map, display the Pokemon icon
+                            clearPokemonIconsExceptMarker();
+                            const pokemonIcon = createPokemonIcon(pokemonData, mapLoc);
+        
+                            // Add animation to the newly created icon
+                            setTimeout(() => {
+                                pokemonIcon.style.animation = 'pokemon-pulse 0.8s ease-in-out 2';
+                            }, 10);
+                        }
+        
+                        // Show tooltip with Pokemon info regardless of whether the location is on the map
+                        const rect = this.getBoundingClientRect();
+                        displayPokemonTooltip(pokemonData, rect.right, rect.top);
+                    }
+                });
+            });
+        });
+    });
+
+    // Enable mouse wheel scrolling on the locations content
     const locationsContent = panel.querySelector('.pokemon-locations-content');
     locationsContent.addEventListener('wheel', function(e) {
         e.stopPropagation();
@@ -1622,7 +1977,7 @@ function displayItemPokemonPanel(itemName, pokemonList) {
     document.getElementById('map-container').appendChild(panel);
 
     // Get item image
-    const itemImageSrc = `resources/items/${itemName}.png`;
+    const itemImageSrc = `resources/items/${itemName}.webp`;
 
     // Prepare the list of Pokemon with information about map availability
     const pokemonWithAvailability = pokemonList.map(pokemon => {
@@ -1635,7 +1990,7 @@ function displayItemPokemonPanel(itemName, pokemonList) {
         };
     });
 
-    // Sort - those available on the map first
+    // Default sort - those available on the map first, then alphabetically
     pokemonWithAvailability.sort((a, b) => {
         if (a.isOnMap && !b.isOnMap) return -1;
         if (!a.isOnMap && b.isOnMap) return 1;
@@ -1643,23 +1998,41 @@ function displayItemPokemonPanel(itemName, pokemonList) {
         return a.pokemon.Pokemon.localeCompare(b.pokemon.Pokemon);
     });
 
+    // Reset sort directions for this new panel
+    sortDirections = {
+        'az': true,
+        'level': true,
+        'item': true,
+        'location': true
+    };
+
     // Create panel content
     panel.innerHTML = `
         <div class="pokemon-locations-header">
             <h3>
-                <img src="${itemImageSrc}" class="item-icon" alt="${itemName}" onerror="this.src='resources/items/default-item.png'" style="width: 32px; height: 32px; margin-right: 10px;">
+                <img src="${itemImageSrc}" class="item-icon" alt="${itemName}" onerror="this.src='resources/items/default-item.webp'" style="width: 32px; height: 32px; margin-right: 10px;">
                 ${itemName}
             </h3>
             <span class="close-locations-panel">&times;</span>
         </div>
         <div class="pokemon-locations-content">
             <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.pokemonWithItem") : "Pokemon with this item:"}</p>
-            <ul class="pokemon-locations-list">
+            <div class="pokemon-sort-options">
+                <button class="sort-button sort-az active" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
+                <button class="sort-button sort-level" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
+                <button class="sort-button sort-location" data-sort="location">${window.i18n ? window.i18n.t("pokesearch.sortLocation") : "Location"}</button>
+            </div>
+            <ul class="pokemon-locations-list" id="item-pokemon-list">
                 ${pokemonWithAvailability.map(item => {
-                    return `<li data-pokemon="${item.pokemon.Pokemon}" data-location="${item.pokemon.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}">
+                    const levelRange = item.pokemon.MinLVL && item.pokemon.MaxLVL ? 
+                        ` (${item.pokemon.MinLVL}-${item.pokemon.MaxLVL})` : '';
+                    return `<li data-pokemon="${item.pokemon.Pokemon}" data-location="${item.pokemon.Map}" 
+                        class="${item.isOnMap ? '' : 'not-on-map'}" 
+                        data-min-level="${item.pokemon.MinLVL || 0}" data-max-level="${item.pokemon.MaxLVL || 0}" 
+                        title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}">
                         <div class="pokemon-location-name">
-                            <img src="resources/pokemons/${item.pokemon.MonsterID}.png" class="pokemon-mini-icon" alt="${item.pokemon.Pokemon}" onerror="this.src='resources/pokemons/default-poke.png'">
-                            ${item.pokemon.Pokemon}
+                            <img src="resources/pokemons/${item.pokemon.MonsterID}.webp" class="pokemon-mini-icon" alt="${item.pokemon.Pokemon}" onerror="this.src='resources/pokemons/default-poke.webp'">
+                            ${item.pokemon.Pokemon}${levelRange}
                         </div>
                         <div class="pokemon-location-details">
                             <span class="pokemon-location-map">${item.pokemon.Map}</span>
@@ -1712,6 +2085,132 @@ function displayItemPokemonPanel(itemName, pokemonList) {
         });
     });
 
+    // Add sorting functionality
+    panel.querySelectorAll('.sort-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const sortType = this.dataset.sort;
+            
+            // Jeśli kliknięto w aktywny przycisk, zmień kierunek sortowania
+            if (this.classList.contains('active')) {
+                sortDirections[sortType] = !sortDirections[sortType];
+                // Dodaj klasę wskazującą kierunek sortowania
+                if (sortDirections[sortType]) {
+                    this.classList.remove('descending');
+                } else {
+                    this.classList.add('descending');
+                }
+            } else {
+                // Remove active class from all buttons
+                panel.querySelectorAll('.sort-button').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.classList.remove('descending');
+                });
+                // Add active class to clicked button
+                this.classList.add('active');
+                // Ustaw domyślny kierunek sortowania
+                sortDirections[sortType] = true;
+            }
+            
+            // Sort the Pokemon list based on the selected sort type and direction
+            const ascending = sortDirections[sortType];
+            let sortedList = [...pokemonWithAvailability]; // Create a copy of the Pokemon list
+            
+            if (sortType === 'az') {
+                sortedList.sort((a, b) => {
+                    if (a.isOnMap && !b.isOnMap) return -1;
+                    if (!a.isOnMap && b.isOnMap) return 1;
+                    const compareResult = a.pokemon.Pokemon.localeCompare(b.pokemon.Pokemon);
+                    return ascending ? compareResult : -compareResult;
+                });
+            } else if (sortType === 'level') {
+                sortedList.sort((a, b) => {
+                    if (a.isOnMap && !b.isOnMap) return -1;
+                    if (!a.isOnMap && b.isOnMap) return 1;
+                    
+                    const aMinLevel = a.pokemon.MinLVL || 0;
+                    const bMinLevel = b.pokemon.MinLVL || 0;
+                    
+                    if (aMinLevel !== bMinLevel) {
+                        return ascending ? (aMinLevel - bMinLevel) : (bMinLevel - aMinLevel);
+                    }
+                    
+                    const aMaxLevel = a.pokemon.MaxLVL || 0;
+                    const bMaxLevel = b.pokemon.MaxLVL || 0;
+                    
+                    if (aMaxLevel !== bMaxLevel) {
+                        return ascending ? (aMaxLevel - bMaxLevel) : (bMaxLevel - aMaxLevel);
+                    }
+                    
+                    return a.pokemon.Pokemon.localeCompare(b.pokemon.Pokemon);
+                });
+            } else if (sortType === 'location') {
+                sortedList.sort((a, b) => {
+                    if (a.isOnMap && !b.isOnMap) return -1;
+                    if (!a.isOnMap && b.isOnMap) return 1;
+                    
+                    // Sort by location name
+                    const compareResult = a.pokemon.Map.localeCompare(b.pokemon.Map);
+                    return ascending ? compareResult : -compareResult;
+                });
+            }
+            
+            // Get the list element and update it with the sorted Pokemon
+            const list = panel.querySelector('#item-pokemon-list');
+            list.innerHTML = sortedList.map(item => {
+                const levelRange = item.pokemon.MinLVL && item.pokemon.MaxLVL ? 
+                    ` (${item.pokemon.MinLVL}-${item.pokemon.MaxLVL})` : '';
+                return `<li data-pokemon="${item.pokemon.Pokemon}" data-location="${item.pokemon.Map}" 
+                    class="${item.isOnMap ? '' : 'not-on-map'}" 
+                    data-min-level="${item.pokemon.MinLVL || 0}" data-max-level="${item.pokemon.MaxLVL || 0}" 
+                    title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}">
+                    <div class="pokemon-location-name">
+                        <img src="resources/pokemons/${item.pokemon.MonsterID}.webp" class="pokemon-mini-icon" alt="${item.pokemon.Pokemon}" onerror="this.src='resources/pokemons/default-poke.webp'">
+                        ${item.pokemon.Pokemon}${levelRange}
+                    </div>
+                    <div class="pokemon-location-details">
+                        <span class="pokemon-location-map">${item.pokemon.Map}</span>
+                        <div class="pokemon-location-icons">${createLocationIconsHTML(item.pokemon)}</div>
+                    </div>
+                </li>`;
+            }).join('');
+            
+            // Re-add click event listeners to the newly created list items
+            list.querySelectorAll('li').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Don't add action for locations that are not on the map
+                    if (this.classList.contains('not-on-map')) {
+                        alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map');
+                        return;
+                    }
+        
+                    const pokemonName = this.dataset.pokemon;
+                    const locationName = this.dataset.location;
+                    const pokemonInfo = sortedList.find(p => 
+                        p.pokemon.Pokemon === pokemonName && p.pokemon.Map === locationName
+                    );
+        
+                    if (pokemonInfo && pokemonInfo.isOnMap && pokemonInfo.mapLoc) {
+                        // Center map on this location
+                        centerMapOnLocation(pokemonInfo.mapLoc);
+        
+                        // Clear previous icons and show only the icon of this Pokemon
+                        clearOnlyPokemonIcons();
+                        const pokemonIcon = createPokemonIcon(pokemonInfo.pokemon, pokemonInfo.mapLoc);
+        
+                        // Add animation to the icon
+                        setTimeout(() => {
+                            pokemonIcon.style.animation = 'pokemon-pulse 0.8s ease-in-out 2';
+                        }, 10);
+        
+                        // Show tooltip with Pokemon info
+                        const rect = this.getBoundingClientRect();
+                        displayPokemonTooltip(pokemonInfo.pokemon, rect.right, rect.top);
+                    }
+                });
+            });
+        });
+    });
+
     // Enable mouse wheel scrolling in the content
     const locationsContent = panel.querySelector('.pokemon-locations-content');
     locationsContent.addEventListener('wheel', function(e) {
@@ -1723,3 +2222,58 @@ function displayItemPokemonPanel(itemName, pokemonList) {
         return false;
     }, { passive: false });
 }
+
+// Dodanie stylów CSS dla nowych elementów
+document.addEventListener('DOMContentLoaded', function() {
+    // Dodajemy style dla przycisków sortowania
+    const style = document.createElement('style');
+    style.textContent = `
+        .pokemon-sort-options {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+        
+        .sort-button {
+            padding: 4px 8px;
+            border: 1px solid #ccc;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        
+        .sort-button:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .sort-button.active {
+            background-color: #4a90e2;
+            color: white;
+            border-color: #2a70c2;
+        }
+        
+        .sort-button.active.descending::after {
+            content: " ▼";
+            font-size: 10px;
+        }
+        
+        .sort-button.active:not(.descending)::after {
+            content: " ▲";
+            font-size: 10px;
+        }
+        
+        /* Styl dla informacji o poziomie */
+        .pokemon-location-name {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    `;
+    document.head.appendChild(style);
+});

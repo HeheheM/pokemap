@@ -1019,10 +1019,10 @@ function setupRegionFilter() {
         regionFilterSelect.remove(1);
     }
 
-    const hideAllOption = document.createElement('option');
-    hideAllOption.value = "hide_all";
-    hideAllOption.textContent = window.i18n.t("filter.hideAll");
-    regionFilterSelect.add(hideAllOption, 1);
+    // const hideAllOption = document.createElement('option');
+    // hideAllOption.value = "hide_all";
+    // hideAllOption.textContent = window.i18n.t("filter.hideAll");
+    // regionFilterSelect.add(hideAllOption, 1);
 
     uniqueRegions.forEach(region => {
         const option = document.createElement('option');
@@ -1081,9 +1081,9 @@ function displayBossIcons() {
     routeNumbers.forEach(number => number.remove());
     currentRouteNumbers = [];
 
-    if (currentRegionFilter === "hide_all") {
-        return;
-    }
+    // if (currentRegionFilter === "hide_all") {
+    //     return;
+    // }
 
     Object.entries(bosses).forEach(([bossName, bossData]) => {
         if (currentRegionFilter !== "all" && bossData.region !== currentRegionFilter) {
@@ -1126,12 +1126,12 @@ function displayBossIcons() {
         bossIcon.style.opacity = isAvailable ? "1.0" : "0.2";
 
         const bossImage = document.createElement('img');
-        bossImage.src = `resources/bosses/${bossName}.png`;
+        bossImage.src = `resources/bosses/${bossName}.webp`;
         bossImage.alt = bossName;
         bossImage.onerror = function() {
             this.onerror = null;
-            this.src = 'resources/bosses/default-boss.png';
-            if (this.src.includes('default-boss.png')) {
+            this.src = 'resources/bosses/default-boss.webp';
+            if (this.src.includes('default-boss.webp')) {
                 bossIcon.textContent = bossName.substring(0, 2);
                 bossIcon.style.display = 'flex';
                 bossIcon.style.alignItems = 'center';
@@ -1823,7 +1823,7 @@ function initRouteCreator() {
             <div class="boss-list-item">
                 <div class="boss-number">${currentRoute.length}</div>
                 <div class="boss-image">
-                    <img src="resources/bosses/${bossName}.png" alt="${bossName}" onerror="this.src='resources/bosses/default-boss.png'">
+                    <img src="resources/bosses/${bossName}.webp" alt="${bossName}" onerror="this.src='resources/bosses/default-boss.webp'">
                 </div>
                 <div class="boss-details">
                     <div class="boss-name">${bossName}</div>
@@ -1870,7 +1870,7 @@ function initRouteCreator() {
                 <div class="boss-list-item">
                     <div class="boss-number">${i + 1}</div>
                     <div class="boss-image">
-                        <img src="resources/bosses/${boss.name}.png" alt="${boss.name}" onerror="this.src='resources/bosses/default-boss.png'">
+                        <img src="resources/bosses/${boss.name}.webp" alt="${boss.name}" onerror="this.src='resources/bosses/default-boss.webp'">
                     </div>
                     <div class="boss-details">
                         <div class="boss-name">${boss.name}</div>
@@ -2117,7 +2117,7 @@ function emergencyDisplayRouteBosses() {
                 <div style="display: flex; align-items: flex-start; width: 100%; margin-bottom: 5px;">
                     <div style="background-color: red; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; flex-shrink: 0;">${index + 1}</div>
                     <div style="width: 40px; height: 40px; margin-right: 10px; flex-shrink: 0;">
-                        <img src="resources/bosses/${boss.name}.png" alt="${boss.name}" onerror="this.src='resources/bosses/default-boss.png'" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
+                        <img src="resources/bosses/${boss.name}.webp" alt="${boss.name}" onerror="this.src='resources/bosses/default-boss.webp'" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
                     </div>
                     <div style="flex-grow: 1; overflow: hidden; display: flex; flex-direction: column;">
                         <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${boss.name}</div>
@@ -2164,14 +2164,14 @@ function emergencyDisplayRouteBosses() {
         killedButton.style.justifyContent = 'center';
 
         const killedImage = document.createElement('img');
-        killedImage.src = 'resources/killed.png';
+        killedImage.src = 'resources/killed.webp';
         killedImage.alt = 'Killed';
         killedImage.style.width = '100%';
         killedImage.style.height = '100%';
         killedImage.style.objectFit = 'contain';
         killedImage.style.opacity = isAvailable ? 1.0 : 0.5;
         killedImage.onerror = function() {
-            this.src = 'killed.png';
+            this.src = 'killed.webp';
         };
         
         killedButton.appendChild(killedImage);

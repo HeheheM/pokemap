@@ -13,7 +13,8 @@
       "filter": {
         "regionFilter": "Filter Bosses by Region",
         "allRegions": "All Regions",
-        "hideAll": "Hide All"
+        "hideAll": "Hide All",
+        "selectRegion": "Select region"
       },
       "buttons": {
         "routes": "Routes",
@@ -61,7 +62,8 @@
         "basicRequirements": "Basic Requirements",
         "pokeTeam": "PokeTeam",
         "available": "Available",
-        "availableIn": "Available in"
+        "availableIn": "Available in",
+        "toggle": "Bosses"
       },
       "weeklyKills": {
         "title": "Weekly Boss Kills",
@@ -73,7 +75,7 @@
         "saved": "Map position has been saved as default for the current profile."
       },
       "errors": {
-        "loadingMap": "Failed to load map image. Make sure the map.png file is in the same folder.",
+        "loadingMap": "Failed to load map image. Make sure the map.webp file is in the same folder.",
         "savingProfiles": "Error saving profiles. Local storage may be full."
       },
       "pokeTeam": {
@@ -194,7 +196,11 @@
         "pokemonWithItem": "Pokemons with this item:",
         "noPokemonWithItem": "No Pokemon found with this item",
         "noPokemonWithItemAndRepel": "No Pokemons found with this item and with repel",
-        "noResults": "No results found"
+        "noResults": "No results found",
+        "sortAZ": "A-Z",
+        "sortLevel": "Level",
+        "sortItem": "With item",
+        "sortLocation": "A-Z Location"
       },
       "pokemon": {
         "location": "Location",
@@ -215,7 +221,12 @@
         "repelRequired": "Repel"
       },
       "pokestop": {
-        "title": "PokéStop"
+        "title": "PokéStop",
+        "prefix": "PokéStop",
+        "cooldown": "Cooldown",
+        "available": "Available",
+        "cooldownStarted": "48h cooldown started",
+        "availableIn": "Available in"
       }
     },
     "pl": {
@@ -232,7 +243,8 @@
       "filter": {
         "regionFilter": "Filtruj Bossy według Regionu",
         "allRegions": "Wszystkie Regiony",
-        "hideAll": "Ukryj Wszystkie"
+        "hideAll": "Ukryj Wszystkie",
+        "selectRegion": "Wybierz region"
       },
       "buttons": {
         "routes": "Trasy",
@@ -280,7 +292,8 @@
         "basicRequirements": "Podstawowe Wymagania",
         "pokeTeam": "PokeTeam",
         "available": "Dostępny",
-        "availableIn": "Dostępny za"
+        "availableIn": "Dostępny za",
+        "toggle": "Bossy"
       },
       "weeklyKills": {
         "title": "Tygodniowe Zabójstwa Bossów",
@@ -292,7 +305,7 @@
         "saved": "Pozycja mapy została zapisana jako domyślna dla bieżącego profilu."
       },
       "errors": {
-        "loadingMap": "Nie udało się załadować obrazu mapy. Upewnij się, że plik map.png znajduje się w tym samym folderze.",
+        "loadingMap": "Nie udało się załadować obrazu mapy. Upewnij się, że plik map.webp znajduje się w tym samym folderze.",
         "savingProfiles": "Błąd podczas zapisywania profili. Pamięć lokalna może być pełna."
       },
       "pokeTeam": {
@@ -413,7 +426,11 @@
         "pokemonWithItem": "Pokemony z tym przedmiotem:",
         "noPokemonWithItem": "Nie znaleziono Pokemonów z tym przedmiotem",
         "noPokemonWithItemAndRepel": "Nie znaleziono Pokemonów z tym przedmiotem i z repelem",
-        "noResults": "Nie znaleziono wyników"
+        "noResults": "Nie znaleziono wyników",
+        "sortAZ": "A-Z",
+        "sortLevel": "Poziom",
+        "sortItem": "z Przedmiotem",
+        "sortLocation": "A-Z Lokacja"
     },
       "pokemon": {
         "location": "Lokalizacja",
@@ -434,7 +451,12 @@
         "repelRequired": "Repel"
       },
       "pokestop": {
-        "title": "PokéStop"
+        "title": "PokéStop",
+        "prefix": "PokéStop",
+        "cooldown": "Czas odnowienia",
+        "available": "Dostępny",
+        "cooldownStarted": "Rozpoczęto 48h odnowienie",
+        "availableIn": "Dostępny za"
       }
     }
   }

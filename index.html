@@ -37,8 +37,8 @@
         <div class="filter-container">
             <h3 data-i18n="filter.regionFilter">Filter Bosses by Region</h3>
             <select id="region-filter" class="filter-select">
-                <option value="all" data-i18n="filter.allRegions">All Regions</option>
-                <!-- Opcje regionów będą dodane dynamicznie przez JavaScript -->
+                <option value="" disabled selected data-i18n="filter.selectRegion">Wybierz region</option>
+                <!-- The rest of the region options will be added dynamically by JavaScript -->
             </select>
         </div>
         
@@ -57,10 +57,14 @@
             <input type="checkbox" id="repel-filter-checkbox">
             <label for="repel-filter-checkbox" data-i18n="pokesearch.showOnlyRepel">Pokazuj tylko pokemony z repelem</label>
         </div>
-        <div class="pokestop-toggle-container">
+        <div class="toggle-buttons-container">
             <div id="pokestop-toggle-btn" class="pokestop-toggle-btn">
-                <img src="resources/pokestop.png" alt="PokéStop Toggle" title="Pokaż/Ukryj PokéStopy" />
+                <img src="resources/pokestop.webp" alt="PokéStop Toggle" title="Pokaż/Ukryj PokéStopy" />
                 <span data-i18n="pokestop.title">PokéStop</span>
+            </div>
+            <div id="boss-toggle-btn" class="boss-toggle-btn">
+                <img src="resources/boss.webp" alt="Boss Toggle" title="Pokaż/Ukryj Bossy" />
+                <span data-i18n="boss.toggle">Bossy</span>
             </div>
         </div>
         <!-- Reszta sidebara bez zmian -->
@@ -102,7 +106,7 @@
     
     <div id="map-container">
         <div id="map">
-            <img id="map-image" src="map.png" alt="Mapa Pokémon">
+            <img id="map-image" src="resources/map.webp" alt="Mapa Pokémon">
         </div>
         <div class="map-controls">
             <button class="control-btn" id="zoom-in" data-i18n="buttons.zoomIn">+</button>
@@ -118,5 +122,6 @@
     <script src="pokemon-search.js"></script>
     <script src="sidebar-toggle.js"></script>
     <script src="pokestops.js"></script>
+    <script src="boss-toggle.js"></script>
 </body>
 </html>
