@@ -3025,7 +3025,7 @@
     ],
     "MinLVL": 18,
     "MaxLVL": 23,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -3370,7 +3370,7 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -5335,7 +5335,7 @@
     ],
     "MinLVL": 64,
     "MaxLVL": 68,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -9400,7 +9400,7 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -9835,7 +9835,7 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -11575,7 +11575,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -14470,7 +14470,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 31,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15205,7 +15205,7 @@
     ],
     "MinLVL": 9,
     "MaxLVL": 13,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15310,7 +15310,7 @@
     ],
     "MinLVL": 12,
     "MaxLVL": 14,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15370,7 +15370,7 @@
     ],
     "MinLVL": 12,
     "MaxLVL": 14,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15490,7 +15490,7 @@
     ],
     "MinLVL": 12,
     "MaxLVL": 14,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15610,7 +15610,7 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 50,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15730,7 +15730,7 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 50,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15850,7 +15850,7 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 50,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -17530,7 +17530,7 @@
     ],
     "MinLVL": 26,
     "MaxLVL": 30,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -22450,7 +22450,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -25615,7 +25615,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": true,
     "Tier": "Rare"
   },
@@ -27925,7 +27925,7 @@
     ],
     "MinLVL": 26,
     "MaxLVL": 31,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -31765,7 +31765,7 @@
     ],
     "MinLVL": 30,
     "MaxLVL": 34,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -31900,7 +31900,7 @@
     ],
     "MinLVL": 30,
     "MaxLVL": 34,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -32367,6 +32367,21 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Magcargo",
+    "MonsterID": 219,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
@@ -32386,21 +32401,6 @@
   },
   {
     "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Magcargo",
-    "MonsterID": 219,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
     "Pokemon": "Slugma",
     "MonsterID": 218,
     "Daytime": [
@@ -32463,6 +32463,36 @@
     "Map": "Mt. Summer 3F 2 2",
     "Pokemon": "Slugma",
     "MonsterID": 218,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
     "Daytime": [
       1,
       1,
@@ -32518,36 +32548,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -33220,7 +33220,7 @@
     ],
     "MinLVL": 36,
     "MaxLVL": 40,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -34585,7 +34585,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -36760,7 +36760,7 @@
     ],
     "MinLVL": 40,
     "MaxLVL": 45,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -37480,7 +37480,7 @@
     ],
     "MinLVL": 40,
     "MaxLVL": 45,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -37720,7 +37720,7 @@
     ],
     "MinLVL": 40,
     "MaxLVL": 45,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -37870,7 +37870,7 @@
     ],
     "MinLVL": 40,
     "MaxLVL": 45,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -38245,7 +38245,7 @@
     ],
     "MinLVL": 30,
     "MaxLVL": 32,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Rare"
   },
@@ -40555,7 +40555,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 31,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -41770,7 +41770,7 @@
     ],
     "MinLVL": 5,
     "MaxLVL": 7,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Rare"
   },
@@ -45415,7 +45415,7 @@
     ],
     "MinLVL": 4,
     "MaxLVL": 7,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -47635,7 +47635,7 @@
     ],
     "MinLVL": 21,
     "MaxLVL": 25,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -47710,7 +47710,7 @@
     ],
     "MinLVL": 21,
     "MaxLVL": 25,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -49720,7 +49720,7 @@
     ],
     "MinLVL": 19,
     "MaxLVL": 21,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -51010,7 +51010,7 @@
     ],
     "MinLVL": 11,
     "MaxLVL": 15,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -51145,7 +51145,7 @@
     ],
     "MinLVL": 14,
     "MaxLVL": 18,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -51340,7 +51340,7 @@
     ],
     "MinLVL": 21,
     "MaxLVL": 23,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -53050,7 +53050,7 @@
     ],
     "MinLVL": 18,
     "MaxLVL": 22,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -54430,7 +54430,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -54850,7 +54850,7 @@
     ],
     "MinLVL": 20,
     "MaxLVL": 21,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -56275,7 +56275,7 @@
     ],
     "MinLVL": 20,
     "MaxLVL": 26,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -58150,7 +58150,7 @@
     ],
     "MinLVL": 26,
     "MaxLVL": 28,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -59920,7 +59920,7 @@
     ],
     "MinLVL": 26,
     "MaxLVL": 31,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -63445,7 +63445,7 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -67540,7 +67540,7 @@
     ],
     "MinLVL": 38,
     "MaxLVL": 42,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -69895,7 +69895,7 @@
     ],
     "MinLVL": 26,
     "MaxLVL": 30,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -70270,7 +70270,7 @@
     ],
     "MinLVL": 36,
     "MaxLVL": 40,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -70390,7 +70390,7 @@
     ],
     "MinLVL": 26,
     "MaxLVL": 30,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -71455,7 +71455,7 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -71710,7 +71710,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 31,
-    "Item": "Twisted Spoon",
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
