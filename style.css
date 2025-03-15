@@ -1204,7 +1204,7 @@ body {
     transform: translateY(-50%);
     width: 16px;
     height: 16px;
-    background-image: url('resources/map-marker.png');
+    background-image: url('resources/map-marker.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1224,7 +1224,7 @@ body {
     transform: translateY(-50%);
     width: 16px;
     height: 16px;
-    background-image: url('resources/pokeball-icon.png');
+    background-image: url('resources/pokeball-icon.webp');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

@@ -3,30 +3,33 @@ let currentPreviewImage = null;
 let currentImageIndex = 0;
 let isPreviewOpen = false; // Flag blocking multiple openings
 let previewClickCooldown = false; // Additional protection against multiple clicks
-let locationCurrentImageIndex = 0; // Aktualny indeks obrazu lokacji
-let locationImagesArray = []; // Tablica z obrazami dla aktualnej lokacji
-let locationCurrentPreviewImage = null; // Nazwa aktualnej lokacji
-let clickedPokestops = {}; // Dodajemy nową zmienną dla pokestopów z cooldownem
-const POKESTOP_COOLDOWN_HOURS = 48; // 48-godzinny cooldown dla pokestopów
-let activeTooltipPokestopName = null; // Zmienna do śledzenia aktywnego tooltipa
+let locationCurrentImageIndex = 0; // Current index of location image
+let locationImagesArray = []; // Array with images for current location
+let locationCurrentPreviewImage = null; // Current location name
+let clickedPokestops = {}; // Variable for pokestops with cooldown
+const POKESTOP_COOLDOWN_HOURS = 48; // 48-hour cooldown for pokestops
+let activeTooltipPokestopName = null; // Variable to track active tooltip
+let pokestopImageState = {
+    currentIndex: 0,
+    pokestopName: null,
+    imageCount: 0
+};
 
-
-// Globalne zmienne do obsługi przesuwania i zoomu - zmienione nazwy, aby uniknąć konfliktów
+// Global variables for drag and zoom - renamed to avoid conflicts
 let ps_isDragging = false;
 let ps_startX, ps_startY;
 let ps_translateX = 0, ps_translateY = 0;
 let ps_lastTranslateX = 0, ps_lastTranslateY = 0;
 let currentImageZoom = 1;
 
-
 function createPokestopTooltipElement() {
-    // Sprawdź czy element już istnieje
+    // Check if element already exists
     let pokestopTooltip = document.getElementById('pokestop-tooltip');
     if (pokestopTooltip) {
         return pokestopTooltip;
     }
     
-    // Stwórz nowy element tooltipa specjalnie dla pokestopów
+    // Create new tooltip element specifically for pokestops
     pokestopTooltip = document.createElement('div');
     pokestopTooltip.id = 'pokestop-tooltip';
     pokestopTooltip.className = 'pokestop-tooltip';
@@ -39,7 +42,7 @@ function createPokestopTooltipElement() {
     return pokestopTooltip;
 }
 
-// Funkcja sprawdzająca czy pokestop jest dostępny (nie jest na cooldownie)
+// Function checking if pokestop is available (not on cooldown)
 function isPokestopAvailable(pokestopName) {
     try {
         const savedData = localStorage.getItem('clickedPokestops');
@@ -56,7 +59,67 @@ function isPokestopAvailable(pokestopName) {
     }
 }
 
-// Funkcja oznaczająca pokestop jako kliknięty z cooldownem
+// Function to load and display a pokestop image
+function loadPokestopImage(pokestopName, imageIndex) {
+    // console.log(`Loading pokestop image: ${pokestopName}, index: ${imageIndex}`);
+    
+    // Save state
+    pokestopImageState.pokestopName = pokestopName;
+    pokestopImageState.currentIndex = imageIndex;
+    currentImageIndex = imageIndex; // Keep currentImageIndex in sync for compatibility
+    
+    const previewContainer = document.getElementById('pokestop-preview-container');
+    if (!previewContainer) {
+        console.error("Preview container not found!");
+        return;
+    }
+    
+    const imageContainer = previewContainer.querySelector('.pokestop-image-container');
+    if (!imageContainer) {
+        console.error("Image container not found!");
+        return;
+    }
+    
+    // Define path to image
+    const imagePath = imageIndex === 0 ? 
+        `resources/pokestops/${pokestopName}.webp` : 
+        `resources/pokestops/${pokestopName}_2.webp`;
+    
+    // console.log(`Image path: ${imagePath}`);
+    
+    // Reset zoom and position
+    ps_translateX = 0;
+    ps_translateY = 0;
+    
+    // Create new image element
+    const newImg = document.createElement('img');
+    newImg.src = imagePath;
+    newImg.alt = `PokéStop at ${pokestopName}`;
+    newImg.style.maxWidth = '100%';
+    newImg.style.maxHeight = 'calc(95vh - 60px)';
+    newImg.style.objectFit = 'contain';
+    newImg.style.borderRadius = '4px';
+    newImg.style.transform = `scale(${currentImageZoom})`;
+    newImg.style.transformOrigin = 'center';
+    newImg.style.transition = 'transform 0.2s ease';
+    newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
+    
+    // Replace existing image with new one with transition effect
+    const currentImg = imageContainer.querySelector('img');
+    if (currentImg) {
+        currentImg.style.opacity = '0';
+        setTimeout(() => {
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(newImg);
+            setupDragAndZoom(imageContainer);
+        }, 200);
+    } else {
+        imageContainer.appendChild(newImg);
+        setupDragAndZoom(imageContainer);
+    }
+}
+
+// Function marking pokestop as clicked with cooldown
 function markPokestopAsClicked(pokestopName) {
     if (!isPokestopAvailable(pokestopName)) {
         console.log(`Pokestop ${pokestopName} is already on cooldown.`);
@@ -95,7 +158,7 @@ function markPokestopAsClicked(pokestopName) {
     return true;
 }
 
-// Funkcja formatująca czas pozostały do końca cooldownu
+// Function formatting time remaining to end of cooldown
 function formatPokestopTimeRemaining(milliseconds) {
     if (milliseconds <= 0) return window.i18n.t("pokestop.available");
     
@@ -107,7 +170,7 @@ function formatPokestopTimeRemaining(milliseconds) {
     return `${days}:${hours}:${minutes}:${seconds}`;
 }
 
-// Funkcja aktualizująca stan pokestopów (przezroczystość) na podstawie cooldownów
+// Function updating pokestop states (opacity) based on cooldowns
 function updatePokestopTimers() {
     let clickedPokestopsData = {};
     try {
@@ -120,7 +183,7 @@ function updatePokestopTimers() {
         return;
     }
 
-    // Aktualizuj wszystkie ikony pokestopów
+    // Update all pokestop icons
     pokestopIcons.forEach(icon => {
         const pokestopName = icon.dataset.mapName;
         
@@ -130,10 +193,10 @@ function updatePokestopTimers() {
             const timeRemaining = availableAt - now;
             
             if (timeRemaining <= 0) {
-                // Pokestop już dostępny
+                // Pokestop is now available
                 icon.style.opacity = '1.0';
                 
-                // Usuń z listy cooldownów
+                // Remove from cooldown list
                 delete clickedPokestopsData[pokestopName];
                 try {
                     localStorage.setItem('clickedPokestops', JSON.stringify(clickedPokestopsData));
@@ -141,17 +204,17 @@ function updatePokestopTimers() {
                     console.error("Error saving to localStorage:", error);
                 }
             } else {
-                // Pokestop nadal na cooldownie
+                // Pokestop still on cooldown
                 icon.style.opacity = '0.5';
             }
         } else {
-            // Pokestop nie jest na cooldownie
+            // Pokestop not on cooldown
             icon.style.opacity = '1.0';
         }
     });
 }
 
-// Funkcja do aktualizacji tooltipa pokestopa - będzie wywoływana regularnie
+// Function to update pokestop tooltip - will be called regularly
 function updateActiveTooltip() {
     if (activeTooltipPokestopName === null) return;
     
@@ -161,9 +224,9 @@ function updateActiveTooltip() {
         return;
     }
     
-    // Sprawdź, czy pokestop jest na cooldownie
+    // Check if pokestop is on cooldown
     if (!isPokestopAvailable(activeTooltipPokestopName)) {
-        // Pobierz pozostały czas cooldownu
+        // Get remaining cooldown time
         const savedData = localStorage.getItem('clickedPokestops');
         if (savedData) {
             const clickedPokestops = JSON.parse(savedData);
@@ -172,7 +235,7 @@ function updateActiveTooltip() {
                 const now = Date.now();
                 const timeRemaining = availableAt - now;
                 
-                // Aktualizuj tylko część tooltipa z cooldownem
+                // Update only the cooldown part of tooltip
                 const cooldownElement = tooltip.querySelector('.tooltip-cooldown');
                 if (cooldownElement) {
                     cooldownElement.textContent = formatPokestopTimeRemaining(timeRemaining);
@@ -182,38 +245,37 @@ function updateActiveTooltip() {
     }
 }
 
-
-// Funkcja do tworzenia spójnego tooltipa dla pokestopów
+// Function to create consistent tooltip for pokestops
 function createPokestopTooltip(pokestopName, x, y, isRightClick = false) {
     const tooltip = createPokestopTooltipElement();
     
-    // Ustaw nazwę pokestopa jako aktywny tooltip jeśli to nie kliknięcie prawym przyciskiem
+    // Set pokestop name as active tooltip if not right click
     if (!isRightClick) {
         activeTooltipPokestopName = pokestopName;
     }
     
-    // Sprawdź, czy pokestop jest na cooldownie
+    // Check if pokestop is on cooldown
     let isOnCooldown = !isPokestopAvailable(pokestopName);
     
-    // Jeśli to kliknięcie prawym i pokestop jest dostępny, od razu go oznacz jako kliknięty
+    // If right click and pokestop is available, mark it as clicked immediately
     let cooldownJustStarted = false;
     if (isRightClick && !isOnCooldown) {
-        // Natychmiast oznacz pokestop jako będący na cooldownie
+        // Immediately mark pokestop as on cooldown
         if (markPokestopAsClicked(pokestopName)) {
-            isOnCooldown = true; // Teraz jest na cooldownie
-            cooldownJustStarted = true; // Zapamiętaj, że cooldown właśnie się rozpoczął
-            // Natychmiastowa aktualizacja ikon
+            isOnCooldown = true; // Now it's on cooldown
+            cooldownJustStarted = true; // Remember that cooldown just started
+            // Immediate update of icons
             updatePokestopTimers();
         }
     }
     
-    // Wybierz odpowiednią klasę dla tooltipa
+    // Choose appropriate class for tooltip
     const tooltipClass = isOnCooldown ? 'pokestop-tooltip-cooldown' : 'pokestop-tooltip-available';
     
-    // Zawsze tworzymy tooltip w tym samym stylu
+    // Always create tooltip in same style
     tooltip.className = `pokestop-tooltip ${tooltipClass}`;
     
-    // Ustaw pozycję tooltipa
+    // Set tooltip position
     tooltip.style.left = `${x + 15}px`;
     tooltip.style.top = `${y}px`;
     tooltip.style.display = 'block';
@@ -223,11 +285,11 @@ function createPokestopTooltip(pokestopName, x, y, isRightClick = false) {
     
     if (isOnCooldown) {
         if (cooldownJustStarted) {
-            // Jeśli cooldown właśnie się rozpoczął, pokaż pełny czas cooldownu
+            // If cooldown just started, show full cooldown time
             cooldownRemainingTime = formatPokestopTimeRemaining(POKESTOP_COOLDOWN_HOURS * 60 * 60 * 1000);
             showCooldown = true;
         } else {
-            // Pokestop jest już na cooldownie - pobierz pozostały czas
+            // Pokestop is already on cooldown - get remaining time
             const savedData = localStorage.getItem('clickedPokestops');
             if (savedData) {
                 const clickedPokestops = JSON.parse(savedData);
@@ -242,10 +304,10 @@ function createPokestopTooltip(pokestopName, x, y, isRightClick = false) {
         }
     }
     
-    // Przygotuj HTML tooltipa
+    // Prepare tooltip HTML
     let tooltipHTML = `<div class="tooltip-header">${window.i18n.t("pokestop.prefix")}: ${pokestopName}</div>`;
     
-    // Dodaj informację o cooldownie tylko jeśli jest na cooldownie
+    // Add cooldown info only if on cooldown
     if (showCooldown) {
         tooltipHTML += `
             <div class="tooltip-info">
@@ -257,14 +319,14 @@ function createPokestopTooltip(pokestopName, x, y, isRightClick = false) {
     tooltip.innerHTML = tooltipHTML;
 }
 
-// Inicjalizacja timera do aktualizacji statusu pokestopów
+// Initialize timer to update pokestop status
 function initPokestopTimers() {
     updatePokestopTimers();
     setInterval(updatePokestopTimers, 1000);
-    initTooltipUpdater(); // Inicjalizuj aktualizator tooltipa
+    initTooltipUpdater(); // Initialize tooltip updater
 }
 
-// Dodaj interval do aktualizacji aktywnego tooltipa co 1 sekundę
+// Add interval to update active tooltip every 1 second
 function initTooltipUpdater() {
     setInterval(updateActiveTooltip, 1000);
 }
@@ -345,7 +407,7 @@ function createImagePreviewContainer() {
 }
 
 function setupDragAndZoom(imageContainer) {
-    // Usuwamy istniejące nasłuchiwacze zdarzeń, żeby uniknąć duplikatów
+    // Remove existing event listeners to avoid duplicates
     imageContainer.removeEventListener('mousedown', ps_handleMouseDown);
     imageContainer.removeEventListener('wheel', ps_handleImageWheel);
     imageContainer.removeEventListener('touchstart', ps_handleTouchStart);
@@ -355,13 +417,13 @@ function setupDragAndZoom(imageContainer) {
     document.removeEventListener('mousemove', ps_handleMouseMove);
     document.removeEventListener('mouseup', ps_handleMouseUp);
 
-    // Resetujemy zmienne
+    // Reset variables
     ps_isDragging = false;
     currentImageZoom = 1;
     ps_translateX = 0;
     ps_translateY = 0;
 
-    // Dodaj style, które będą zapobiegać zaznaczaniu tekstu podczas przeciągania
+    // Add styles that will prevent text selection during dragging
     const style = document.getElementById('ps_drag_style') || document.createElement('style');
     style.id = 'ps_drag_style';
     style.textContent = `
@@ -380,18 +442,18 @@ function setupDragAndZoom(imageContainer) {
         document.head.appendChild(style);
     }
 
-    // Dodajemy nasłuchiwacze zdarzeń dla obrazu
+    // Add event listeners for image
     imageContainer.addEventListener('mousedown', ps_handleMouseDown);
     imageContainer.addEventListener('wheel', ps_handleImageWheel);
     imageContainer.addEventListener('touchstart', ps_handleTouchStart, { passive: false });
     imageContainer.addEventListener('touchmove', ps_handleTouchMove, { passive: false });
     imageContainer.addEventListener('touchend', ps_handleTouchEnd);
     
-    // Dodajemy nasłuchiwacze na poziomie dokumentu, aby obsłużyć ruchy poza kontenerem
+    // Add event listeners at document level to handle movements outside container
     document.addEventListener('mousemove', ps_handleMouseMove);
     document.addEventListener('mouseup', ps_handleMouseUp);
     
-    // Aktualizuj style obrazu
+    // Update image styles
     const img = imageContainer.querySelector('img');
     if (img) {
         img.style.cursor = 'grab';
@@ -400,26 +462,26 @@ function setupDragAndZoom(imageContainer) {
 }
 
 function ps_handleMouseDown(e) {
-    // Obsługuj tylko lewy przycisk myszy (0)
+    // Handle only left mouse button (0)
     if (e.button !== 0) return;
     
     e.preventDefault();
     
-    // Ustaw flagę przeciągania
+    // Set dragging flag
     ps_isDragging = true;
     
-    // Zapamiętaj początkowe współrzędne kursora
+    // Remember initial cursor coordinates
     ps_startX = e.clientX;
     ps_startY = e.clientY;
     
-    // Zapamiętaj początkowe przesunięcie obrazu
+    // Remember initial image offset
     ps_lastTranslateX = ps_translateX;
     ps_lastTranslateY = ps_translateY;
     
-    // Zmień kursor na wskazujący chwytanie
+    // Change cursor to indicate grabbing
     this.style.cursor = 'grabbing';
     
-    // Dodaj klasę, która zapobiega zaznaczaniu tekstu podczas przeciągania
+    // Add class that prevents text selection during dragging
     document.body.classList.add('ps-dragging');
 }
 
@@ -428,41 +490,41 @@ function ps_handleMouseMove(e) {
     
     e.preventDefault();
     
-    // Oblicz przesunięcie kursora od początku przeciągania
+    // Calculate cursor offset from start of dragging
     const dx = e.clientX - ps_startX;
     const dy = e.clientY - ps_startY;
     
-    // Oblicz nowe przesunięcie obrazu
+    // Calculate new image offset
     ps_translateX = ps_lastTranslateX + dx;
     ps_translateY = ps_lastTranslateY + dy;
     
-    // Pobierz kontener i obraz
+    // Get container and image
     const imageContainer = document.querySelector('.pokestop-image-container');
     const img = imageContainer?.querySelector('img');
     
-    // Zastosuj nowe przesunięcie z ograniczeniami
+    // Apply new offset with boundaries
     if (img && imageContainer) {
         ps_applyTransformWithBoundaries(img, imageContainer);
     }
 }
 
 function ps_handleMouseUp(e) {
-    // Sprawdź czy przeciąganie jest aktywne
+    // Check if dragging is active
     if (!ps_isDragging) return;
     
-    // Resetuj flagę przeciągania
+    // Reset dragging flag
     ps_isDragging = false;
     
-    // Ustaw odpowiedni kursor po zakończeniu przeciągania
+    // Set appropriate cursor after dragging ends
     const imageContainer = document.querySelector('.pokestop-image-container');
     if (imageContainer) {
         imageContainer.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
     }
     
-    // Usuń klasę blokującą zaznaczanie tekstu
+    // Remove class blocking text selection
     document.body.classList.remove('ps-dragging');
     
-    // Dodaj inercję dla płynniejszego efektu zatrzymania
+    // Add inertia for smoother stop effect
     const img = imageContainer?.querySelector('img');
     if (img) {
         img.style.transition = 'transform 0.1s ease-out';
@@ -495,7 +557,7 @@ function ps_handleTouchStart(e) {
         this._lastPinchDistance = distance;
         this._lastZoom = currentImageZoom;
         
-        // Zapisz punkt środkowy między palcami
+        // Save midpoint between fingers
         this._pinchMidX = (touch1.clientX + touch2.clientX) / 2;
         this._pinchMidY = (touch1.clientY + touch2.clientY) / 2;
     }
@@ -525,11 +587,11 @@ function ps_handleTouchMove(e) {
             touch2.clientY - touch1.clientY
         );
         
-        // Oblicz współczynnik zmiany odległości
+        // Calculate distance change ratio
         const pinchRatio = currentDistance / this._lastPinchDistance;
         const newZoom = this._lastZoom * pinchRatio;
         
-        // Ogranicz przybliżenie
+        // Limit zoom
         const minZoom = 1;
         const maxZoom = 4.0;
         
@@ -540,14 +602,14 @@ function ps_handleTouchMove(e) {
             
             const img = this.querySelector('img');
             if (img) {
-                // Oblicz pozycję pincha na obrazie w skali 1:1
+                // Calculate pinch position on image at 1:1 scale
                 const imageX = (pinchMidX - ps_translateX) / currentImageZoom;
                 const imageY = (pinchMidY - ps_translateY) / currentImageZoom;
                 
-                // Zastosuj nowy zoom
+                // Apply new zoom
                 currentImageZoom = newZoom;
                 
-                // Dostosuj przesunięcie, aby punkt wskazany przez pinch pozostał na tym samym miejscu
+                // Adjust offset so the point under pinch stays in the same place
                 ps_translateX = pinchMidX - imageX * currentImageZoom;
                 ps_translateY = pinchMidY - imageY * currentImageZoom;
                 
@@ -568,39 +630,39 @@ function ps_handleTouchEnd(e) {
 function ps_applyTransformWithBoundaries(img, container) {
     if (!img) return;
     
-    // Pobierz wymiary kontenera i obrazka
+    // Get container and image dimensions
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
     const imgWidth = img.naturalWidth * currentImageZoom;
     const imgHeight = img.naturalHeight * currentImageZoom;
     
-    // Sprawdzamy, czy obrazek jest większy niż kontener
+    // Check if image is wider than container
     if (imgWidth > containerWidth) {
-        // Gdy obrazek jest szerszy niż kontener, musimy kontrolować przesunięcie w poziomie
-        // ps_translateX nie może być większe niż 0 (zapobiega pokazywaniu pustej przestrzeni po lewej)
-        // ps_translateX nie może być mniejsze niż containerWidth - imgWidth (zapobiega pokazywaniu pustej przestrzeni po prawej)
+        // When image is wider than container, we need to control horizontal offset
+        // ps_translateX can't be greater than 0 (prevents showing empty space on left)
+        // ps_translateX can't be less than containerWidth - imgWidth (prevents showing empty space on right)
         ps_translateX = Math.min(0, Math.max(containerWidth - imgWidth, ps_translateX));
     } else {
-        // Gdy obrazek jest węższy niż kontener, centrujemy go
+        // When image is narrower than container, center it
         ps_translateX = (containerWidth - imgWidth) / 2;
     }
     
-    // To samo dla wysokości
+    // Same for height
     if (imgHeight > containerHeight) {
-        // Gdy obrazek jest wyższy niż kontener, musimy kontrolować przesunięcie w pionie
-        // ps_translateY nie może być większe niż 0 (zapobiega pokazywaniu pustej przestrzeni na górze)
-        // ps_translateY nie może być mniejsze niż containerHeight - imgHeight (zapobiega pokazywaniu pustej przestrzeni na dole)
+        // When image is taller than container, we need to control vertical offset
+        // ps_translateY can't be greater than 0 (prevents showing empty space on top)
+        // ps_translateY can't be less than containerHeight - imgHeight (prevents showing empty space on bottom)
         ps_translateY = Math.min(0, Math.max(containerHeight - imgHeight, ps_translateY));
     } else {
-        // Gdy obrazek jest niższy niż kontener, centrujemy go
+        // When image is shorter than container, center it
         ps_translateY = (containerHeight - imgHeight) / 2;
     }
     
-    // Zastosuj transformację - punktem odniesienia jest lewy górny róg (0,0)
+    // Apply transformation - reference point is top left corner (0,0)
     img.style.transformOrigin = '0 0';
     img.style.transform = `translate3d(${ps_translateX}px, ${ps_translateY}px, 0) scale(${currentImageZoom})`;
     
-    // Ustaw odpowiedni kursor w zależności od stanu
+    // Set appropriate cursor based on state
     if (ps_isDragging) {
         img.style.cursor = 'grabbing';
     } else if (currentImageZoom > 1) {
@@ -619,41 +681,41 @@ function ps_handleImageWheel(e) {
 
     if (!img) return;
 
-    // Pobierz pozycję kursora względem kontenera
+    // Get cursor position relative to container
     const rect = imageContainer.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
     
-    // Kluczowa zmiana: Oblicz pozycję kursora względem obrazka w jego aktualnej transformacji
-    // Musimy uwzględnić aktualny offset i scale obrazka
+    // Key change: Calculate cursor position relative to image in its current transformation
+    // We need to account for current offset and scale of image
     const mouseImgX = (mouseX - ps_translateX) / currentImageZoom;
     const mouseImgY = (mouseY - ps_translateY) / currentImageZoom;
     
-    // Określ kierunek zoomu
+    // Determine zoom direction
     const zoomFactor = e.deltaY < 0 ? 1.15 : 0.85;
     
-    // Zapisz poprzedni zoom dla animacji
+    // Save previous zoom for animation
     const previousZoom = currentImageZoom;
     
-    // Aktualizuj poziom przybliżenia
+    // Update zoom level
     currentImageZoom *= zoomFactor;
 
-    // Ogranicz przybliżenie
+    // Limit zoom
     const minZoom = 1;
-    const maxZoom = 5; // Zwiększamy maksymalny zoom
+    const maxZoom = 5; // Increase maximum zoom
     
     if (currentImageZoom < minZoom) currentImageZoom = minZoom;
     if (currentImageZoom > maxZoom) currentImageZoom = maxZoom;
 
-    // Kluczowa zmiana w obliczeniu nowej pozycji:
-    // Obliczmy nową pozycję tak, aby punkt pod kursorem pozostał na miejscu
+    // Key change in new position calculation:
+    // Calculate new position so the point under cursor stays in place
     ps_translateX = mouseX - mouseImgX * currentImageZoom;
     ps_translateY = mouseY - mouseImgY * currentImageZoom;
     
-    // Zastosuj transformację z ograniczeniami i powiadomieniem o zmianie
+    // Apply transformation with boundaries and notify of change
     ps_applyTransformWithBoundaries(img, imageContainer);
     
-    // Dodaj efekt płynnego zoomu
+    // Add smooth zoom effect
     if (previousZoom !== currentImageZoom) {
         img.style.transition = 'transform 0.1s ease-out';
         setTimeout(() => {
@@ -668,62 +730,80 @@ function resetPreviewZoom() {
 
     if (!img) return;
 
-    // Dodaj animację dla płynnego resetu
+    // Add animation for smooth reset
     img.style.transition = 'transform 0.3s ease-out';
     
-    // Resetuj zoom i przesunięcie
+    // Reset zoom and offset
     currentImageZoom = 1;
     ps_translateX = 0;
     ps_translateY = 0;
     
-    // Zastosuj transformację z ograniczeniami
+    // Apply transformation with boundaries
     ps_applyTransformWithBoundaries(img, imageContainer);
     
-    // Usuń przejście po zakończeniu animacji
+    // Remove transition after animation completes
     setTimeout(() => {
         img.style.transition = '';
     }, 300);
 }
 
-// Function to go to the previous image
-function goToPreviousImage() {
-    if (locationCurrentPreviewImage && locationImagesArray.length > 1) {
-        // For location images
-        // Decrease index or go to the end if at the beginning
-        locationCurrentImageIndex = (locationCurrentImageIndex - 1 + locationImagesArray.length) % locationImagesArray.length;
-        changeLocationImage();
-    } else if (currentPreviewImage) {
-        // For pokestop images (only for Cerulean City currently)
-        currentImageIndex = currentImageIndex === 0 ? 1 : 0;
-        togglePreviewImage();
-    }
-}
-
-// Function to go to the next image
+// Unified navigation functions that work for both pokestops and locations
 function goToNextImage() {
-    if (locationCurrentPreviewImage && locationImagesArray.length > 1) {
-        // For location images
-        // Increase index or go back to the beginning if at the end
+    // For PokéStops
+    if (pokestopImageState.pokestopName) {
+        pokestopNextImage();
+    }
+    // For Locations
+    else if (locationCurrentPreviewImage && locationImagesArray.length > 1) {
         locationCurrentImageIndex = (locationCurrentImageIndex + 1) % locationImagesArray.length;
         changeLocationImage();
-    } else if (currentPreviewImage) {
-        // For pokestop images (only for Cerulean City currently)
-        currentImageIndex = currentImageIndex === 0 ? 1 : 0;
-        togglePreviewImage();
     }
 }
 
-// Modified version of toggleLocationImage to handle both directions
+function goToPreviousImage() {
+    // For PokéStops
+    if (pokestopImageState.pokestopName) {
+        pokestopPrevImage();
+    }
+    // For Locations
+    else if (locationCurrentPreviewImage && locationImagesArray.length > 1) {
+        locationCurrentImageIndex = (locationCurrentImageIndex - 1 + locationImagesArray.length) % locationImagesArray.length;
+        changeLocationImage();
+    }
+}
+
+// Functions for PokéStop image navigation
+function pokestopNextImage() {
+    // console.log("Going to next image");
+    
+    if (pokestopImageState.pokestopName) {
+        // For pokestop images
+        const newIndex = pokestopImageState.currentIndex === 0 ? 1 : 0;
+        loadPokestopImage(pokestopImageState.pokestopName, newIndex);
+    }
+}
+
+function pokestopPrevImage() {
+    // console.log("Going to previous image");
+    
+    if (pokestopImageState.pokestopName) {
+        // For pokestop images
+        const newIndex = pokestopImageState.currentIndex === 0 ? 1 : 0;
+        loadPokestopImage(pokestopImageState.pokestopName, newIndex);
+    }
+}
+
+// Function to change location image
 function changeLocationImage() {
     if (!locationCurrentPreviewImage || locationImagesArray.length <= 1) return;
 
     const previewContainer = document.getElementById('pokestop-preview-container');
     const imageContainer = previewContainer.querySelector('.pokestop-image-container');
 
-    // Tworzymy ścieżkę do następnego obrazu
+    // Create path to next image
     const imagePath = `resources/maps/${locationCurrentPreviewImage}/${locationImagesArray[locationCurrentImageIndex]}`;
 
-    // Resetujemy pozycję przewijania dla nowego obrazu
+    // Reset scroll position for new image
     ps_translateX = 0;
     ps_translateY = 0;
 
@@ -735,15 +815,15 @@ function changeLocationImage() {
     newImg.style.objectFit = 'contain';
     newImg.style.borderRadius = '4px';
 
-    // Stosujemy aktualny poziom zoomu do nowego obrazu
+    // Apply current zoom level to new image
     newImg.style.transform = `scale(${currentImageZoom})`;
     newImg.style.transformOrigin = 'center';
     newImg.style.transition = 'transform 0.2s ease';
 
-    // Ustawiamy kursor w zależności od poziomu zoomu
+    // Set cursor based on zoom level
     newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
 
-    // Zastępujemy aktualny obraz nowym
+    // Replace current image with new one
     const currentImg = imageContainer.querySelector('img');
     if (currentImg) {
         currentImg.style.opacity = '0';
@@ -751,7 +831,7 @@ function changeLocationImage() {
             imageContainer.innerHTML = '';
             imageContainer.appendChild(newImg);
             
-            // Ponownie konfigurujemy obsługę przeciągania i zoomowania
+            // Reconfigure drag and zoom handling
             setupDragAndZoom(imageContainer);
         }, 200);
     } else {
@@ -759,9 +839,9 @@ function changeLocationImage() {
         setupDragAndZoom(imageContainer);
     }
     
-    // Obsługa błędu ładowania obrazu
+    // Handle image loading error
     newImg.onerror = function() {
-        console.error(`Error loading location image: ${newImg.src}`);
+        // console.error(`Error loading location image: ${newImg.src}`);
         newImg.src = 'resources/default-map.webp';
     };
 }
@@ -769,15 +849,16 @@ function changeLocationImage() {
 function handleClickOutside(event) {
     const previewContainer = document.getElementById('pokestop-preview-container');
     
-    // Jeśli podgląd nie jest otwarty lub kontener nie istnieje, nic nie rób
+    // If preview is not open or container doesn't exist, do nothing
     if (!isPreviewOpen || !previewContainer) return;
     
-    // Sprawdź, czy kliknięcie było poza kontenerem podglądu
+    // Check if click was outside the preview container
     if (!previewContainer.contains(event.target)) {
         hideImagePreview();
     }
 }
 
+// Main function to show PokéStop image preview
 function showImagePreview(mapName) {
     try {
         // Check if preview window is already open
@@ -799,33 +880,33 @@ function showImagePreview(mapName) {
         const nextButton = previewContainer.querySelector('.pokestop-preview-next');
         const backButton = previewContainer.querySelector('.pokestop-preview-back');
 
-        // Reset any previous zoom and scrolling
+        // Reset variables
         currentImageZoom = 1;
         ps_translateX = 0;
         ps_translateY = 0;
         ps_isDragging = false;
         imageContainer.innerHTML = '';
 
+        // Initialize new state
+        pokestopImageState.currentIndex = 0;
+        pokestopImageState.pokestopName = mapName;
+        pokestopImageState.imageCount = 1;
+
+        // Keep compatibility with existing code
         currentImageIndex = 0;
         currentPreviewImage = mapName;
+        
+        // Reset location variables to ensure proper navigation
+        locationCurrentPreviewImage = null;
+        locationImagesArray = [];
 
-        // Dodaj style do kontenera
+        // Add styles to container
         imageContainer.style.display = 'flex';
         imageContainer.style.justifyContent = 'center';
         imageContainer.style.alignItems = 'center';
         imageContainer.style.position = 'relative';
 
-        const img = document.createElement('img');
-        img.src = `resources/pokestops/${mapName}.webp`;
-        img.alt = `PokéStop at ${mapName}`;
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = 'calc(95vh - 60px)';
-        img.style.objectFit = 'contain';
-        img.style.borderRadius = '4px';
-        img.style.transformOrigin = '0 0';
-        img.style.cursor = 'grab';
-
-        // Dodaj loader podczas ładowania
+        // Add loader
         const loader = document.createElement('div');
         loader.className = 'image-loader';
         loader.innerHTML = 'Loading...';
@@ -837,8 +918,19 @@ function showImagePreview(mapName) {
         loader.style.fontSize = '18px';
         imageContainer.appendChild(loader);
 
+        // Create and load first image
+        const img = document.createElement('img');
+        img.src = `resources/pokestops/${mapName}.webp`;
+        img.alt = `PokéStop at ${mapName}`;
+        img.style.maxWidth = '100%';
+        img.style.maxHeight = 'calc(95vh - 60px)';
+        img.style.objectFit = 'contain';
+        img.style.borderRadius = '4px';
+        img.style.transformOrigin = '0 0';
+        img.style.cursor = 'grab';
+
         img.onload = function() {
-            // Usuń loader
+            // Remove loader
             if (loader.parentNode) {
                 loader.parentNode.removeChild(loader);
             }
@@ -849,26 +941,24 @@ function showImagePreview(mapName) {
             setTimeout(() => {
                 previewContainer.style.opacity = '1';
                 previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
-                
-                // Konfiguruj obsługę przeciągania i zoomowania
                 setupDragAndZoom(imageContainer);
-                
-                // Dodaj nasłuchiwacz do wykrywania kliknięć na zewnątrz
                 document.addEventListener('mousedown', handleClickOutside);
             }, 10);
 
-            // Check if this location has a second image (only for Cerulean City)
+            // Check if this location has a second image (for Cerulean City)
             if (mapName === "Cerulean City") {
                 const secondImg = new Image();
                 secondImg.onload = function() {
+                    // We have a second image
+                    pokestopImageState.imageCount = 2;
+                    
+                    // Show navigation buttons
                     nextButton.style.display = 'flex';
                     backButton.style.display = 'flex';
-                    
-                    // Update navigation functions
-                    nextButton.onclick = goToNextImage;
-                    backButton.onclick = goToPreviousImage;
                 };
                 secondImg.onerror = function() {
+                    // No second image
+                    pokestopImageState.imageCount = 1;
                     nextButton.style.display = 'none';
                     backButton.style.display = 'none';
                 };
@@ -881,7 +971,7 @@ function showImagePreview(mapName) {
         };
 
         img.onerror = function() {
-            console.error(`Error loading PokéStop image: ${img.src}`);
+            // console.error(`Error loading PokéStop image: ${img.src}`);
             if (loader.parentNode) {
                 loader.parentNode.removeChild(loader);
             }
@@ -893,18 +983,19 @@ function showImagePreview(mapName) {
     }
 }
 
+// Function to show location images
 function showLocationImages(location) {
     try {
-        // Sprawdzamy czy okno podglądu jest już otwarte
+        // Check if preview window is already open
         if (isPreviewOpen || previewClickCooldown) {
-            return; // Zapobiegamy wielokrotnemu otwarciu
+            return; // Prevent multiple openings
         }
 
-        // Ustawiamy flagi blokujące
+        // Set blocking flags
         isPreviewOpen = true;
         previewClickCooldown = true;
 
-        // Dodajemy timeout, aby zresetować dodatkową blokadę po 500ms
+        // Add timeout to reset additional block after 500ms
         setTimeout(() => {
             previewClickCooldown = false;
         }, 500);
@@ -914,27 +1005,31 @@ function showLocationImages(location) {
         const nextButton = previewContainer.querySelector('.pokestop-preview-next');
         const backButton = previewContainer.querySelector('.pokestop-preview-back');
 
-        // Resetujemy wszystkie zmienne
+        // Reset all variables
         currentImageZoom = 1;
         ps_translateX = 0;
         ps_translateY = 0;
         ps_isDragging = false;
         imageContainer.innerHTML = '';
+        
+        // Reset pokestop variables to ensure proper navigation
+        pokestopImageState.pokestopName = null;
+        currentPreviewImage = null;
 
-        // Dodaj style do kontenera
+        // Add styles to container
         imageContainer.style.display = 'flex';
         imageContainer.style.justifyContent = 'center';
         imageContainer.style.alignItems = 'center';
         imageContainer.style.position = 'relative';
 
-        // Resetujemy indeks obrazu
+        // Reset image index
         locationCurrentImageIndex = 0;
         
-        // Zapisujemy nazwę lokacji i obrazy
+        // Save location name and images
         locationCurrentPreviewImage = location.tooltip;
         locationImagesArray = location.images || [];
 
-        // Dodaj loader podczas ładowania
+        // Add loader during loading
         const loader = document.createElement('div');
         loader.className = 'image-loader';
         loader.innerHTML = 'Loading...';
@@ -946,7 +1041,7 @@ function showLocationImages(location) {
         loader.style.fontSize = '18px';
         imageContainer.appendChild(loader);
 
-        // Jeśli nie ma obrazów, wyświetlamy komunikat
+        // If no images, show message
         if (!locationImagesArray || locationImagesArray.length === 0) {
             const noImagesMsg = document.createElement('div');
             noImagesMsg.style.padding = '20px';
@@ -954,7 +1049,7 @@ function showLocationImages(location) {
             noImagesMsg.style.textAlign = 'center';
             noImagesMsg.textContent = `No images available for ${location.tooltip}`;
             
-            // Usuń loader
+            // Remove loader
             if (loader.parentNode) {
                 loader.parentNode.removeChild(loader);
             }
@@ -966,14 +1061,14 @@ function showLocationImages(location) {
                 previewContainer.style.opacity = '1';
                 previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
                 
-                // Dodaj nasłuchiwacz do wykrywania kliknięć na zewnątrz
+                // Add listener to detect clicks outside
                 document.addEventListener('mousedown', handleClickOutside);
             }, 10);
             
             return;
         }
 
-        // Budujemy ścieżkę do obrazu
+        // Build path to image
         const imagePath = `resources/maps/${location.tooltip}/${locationImagesArray[0]}`;
         
         const img = document.createElement('img');
@@ -987,7 +1082,7 @@ function showLocationImages(location) {
         img.style.cursor = 'grab';
 
         img.onload = function() {
-            // Usuń loader
+            // Remove loader
             if (loader.parentNode) {
                 loader.parentNode.removeChild(loader);
             }
@@ -999,21 +1094,17 @@ function showLocationImages(location) {
                 previewContainer.style.opacity = '1';
                 previewContainer.style.transform = 'translate(-50%, -50%) scale(1)';
                 
-                // Konfiguruj obsługę przeciągania i zoomowania
+                // Configure drag and zoom handling
                 setupDragAndZoom(imageContainer);
                 
-                // Dodaj nasłuchiwacz do wykrywania kliknięć na zewnątrz
+                // Add listener to detect clicks outside
                 document.addEventListener('mousedown', handleClickOutside);
             }, 10);
 
-            // Sprawdzamy, czy lokacja ma więcej niż jeden obraz
+            // Check if location has more than one image
             if (locationImagesArray.length > 1) {
                 nextButton.style.display = 'flex';
                 backButton.style.display = 'flex';
-                
-                // Update navigation functions
-                nextButton.onclick = goToNextImage;
-                backButton.onclick = goToPreviousImage;
             } else {
                 nextButton.style.display = 'none';
                 backButton.style.display = 'none';
@@ -1023,16 +1114,16 @@ function showLocationImages(location) {
         img.onerror = function() {
             console.error(`Error loading location image: ${img.src}`);
             
-            // Usuń loader
+            // Remove loader
             if (loader.parentNode) {
                 loader.parentNode.removeChild(loader);
             }
             
-            // Próbujemy załadować domyślny obraz dla lokacji
+            // Try to load default image for location
             img.src = `resources/maps/${location.tooltip}.webp`;
             
             img.onerror = function() {
-                // Jeśli drugi raz wystąpił błąd, pokazujemy komunikat
+                // If error occurred second time, show message
                 hideImagePreview();
                 alert(`Error loading image for ${location.tooltip}`);
             };
@@ -1046,7 +1137,7 @@ function hideImagePreview() {
     const previewContainer = document.getElementById('pokestop-preview-container');
     if (!previewContainer) return;
 
-    // Usuń nasłuchiwacz kliknięć poza kontenerem
+    // Remove listener for clicks outside container
     document.removeEventListener('mousedown', handleClickOutside);
 
     // Remove the event listeners
@@ -1076,54 +1167,6 @@ function hideImagePreview() {
     }, 300);
 }
 
-function togglePreviewImage() {
-    if (!currentPreviewImage) return;
-
-    const previewContainer = document.getElementById('pokestop-preview-container');
-    const imageContainer = previewContainer.querySelector('.pokestop-image-container');
-
-    currentImageIndex = currentImageIndex === 0 ? 1 : 0;
-
-    const imagePath = currentImageIndex === 0 ? 
-        `resources/pokestops/${currentPreviewImage}.webp` : 
-        `resources/pokestops/${currentPreviewImage}_2.webp`;
-
-    // Reset scroll position for the new image
-    ps_translateX = 0;
-    ps_translateY = 0;
-
-    const newImg = document.createElement('img');
-    newImg.src = imagePath;
-    newImg.alt = `PokéStop at ${currentPreviewImage}`;
-    newImg.style.maxWidth = '100%';
-    newImg.style.maxHeight = 'calc(95vh - 60px)';
-    newImg.style.objectFit = 'contain';
-    newImg.style.borderRadius = '4px';
-
-    // Apply current zoom level to the new image
-    newImg.style.transform = `scale(${currentImageZoom})`;
-    newImg.style.transformOrigin = 'center';
-    newImg.style.transition = 'transform 0.2s ease';
-
-    // Set cursor based on zoom level
-    newImg.style.cursor = currentImageZoom > 1 ? 'grab' : 'default';
-
-    const currentImg = imageContainer.querySelector('img');
-    if (currentImg) {
-        currentImg.style.opacity = '0';
-        setTimeout(() => {
-            imageContainer.innerHTML = '';
-            imageContainer.appendChild(newImg);
-            
-            // Ponownie konfigurujemy obsługę przeciągania i zoomowania
-            setupDragAndZoom(imageContainer);
-        }, 200);
-    } else {
-        imageContainer.appendChild(newImg);
-        setupDragAndZoom(imageContainer);
-    }
-}
-
 function createPokestopIcon(mapName, mapPos) {
     const map = document.getElementById('map');
     if (!map) return null;
@@ -1137,7 +1180,7 @@ function createPokestopIcon(mapName, mapPos) {
     icon.dataset.mapName = mapName;
     icon.dataset.id = `pokestop-${mapName.replace(/\s+/g, '-').toLowerCase()}`;
 
-    // Sprawdź, czy pokestop jest na cooldownie i ustaw odpowiednią przezroczystość
+    // Check if pokestop is on cooldown and set appropriate opacity
     const isAvailable = isPokestopAvailable(mapName);
     icon.style.opacity = isAvailable ? '1.0' : '0.5';
 
@@ -1145,13 +1188,13 @@ function createPokestopIcon(mapName, mapPos) {
     img.src = 'resources/pokestop.webp';
     img.alt = `PokéStop at ${mapName}`;
 
-    // Obsługa zdarzenia mouseover z osobnym tooltipem dla pokestopów
+    // Handle mouseover event with separate tooltip for pokestops
     icon.addEventListener('mouseover', function(e) {
         createPokestopTooltip(mapName, e.clientX, e.clientY);
     });
 
     icon.addEventListener('mousemove', function(e) {
-        // Aktualizuj pozycję tooltipa, gdy myszka się porusza nad ikoną
+        // Update tooltip position as mouse moves over icon
         const tooltip = document.getElementById('pokestop-tooltip');
         if (tooltip && tooltip.style.display === 'block') {
             tooltip.style.left = `${e.clientX + 15}px`;
@@ -1163,7 +1206,7 @@ function createPokestopIcon(mapName, mapPos) {
         const tooltip = document.getElementById('pokestop-tooltip');
         if (tooltip) {
             tooltip.style.display = 'none';
-            activeTooltipPokestopName = null; // Resetuj aktywny tooltip
+            activeTooltipPokestopName = null; // Reset active tooltip
         }
     });
 
@@ -1172,12 +1215,12 @@ function createPokestopIcon(mapName, mapPos) {
         showImagePreview(mapName);
     });
 
-    // Obsługa prawego przycisku myszy z natychmiastowym cooldownem
+    // Handle right mouse button with immediate cooldown
     icon.addEventListener('contextmenu', function(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        // Natychmiastowe wywołanie tooltipa z oznaczeniem prawego przycisku
+        // Immediate tooltip call with right click marking
         createPokestopTooltip(mapName, e.clientX, e.clientY, true);
     });
 
@@ -1288,7 +1331,7 @@ function hookIntoMapRefresh() {
 
 // Function to toggle the visibility of PokéStop icons
 function togglePokestopIcons() {
-    console.log("togglePokestopIcons function called");
+    // console.log("togglePokestopIcons function called");
     console.log("Number of PokéStop icons:", pokestopIcons.length);
 
     // Check if icons are currently visible or hidden
@@ -1299,7 +1342,7 @@ function togglePokestopIcons() {
 
     // Toggle visibility - set all to the opposite state
     const newDisplayValue = areIconsVisible ? 'none' : 'block';
-    console.log("Setting display to:", newDisplayValue);
+    // console.log("Setting display to:", newDisplayValue);
 
     pokestopIcons.forEach(icon => {
         icon.style.display = newDisplayValue;
@@ -1341,7 +1384,7 @@ function initPokestopToggle() {
 
         // Add new listener
         newBtn.addEventListener('click', function(e) {
-            console.log("PokéStop button clicked");
+            // console.log("PokéStop button clicked");
             e.preventDefault();
             e.stopPropagation();
             togglePokestopIcons();
@@ -1359,18 +1402,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Wait a moment to make sure all elements are ready
     setTimeout(initPokestopToggle, 1000);
     
-    // Po załadowaniu DOM, sprawdzamy czy trzeba zaktualizować obsługę kliknięcia obszarów na mapie
+    // After DOM loads, check if we need to update the click handling for map areas
     setTimeout(function() {
         const areaPolygons = document.querySelectorAll('.area-polygon');
         
         areaPolygons.forEach(polygon => {
-            // Usuwamy stare zdarzenie kliknięcia, jeśli istnieje
+            // Remove old click listener if exists
             const oldClickListener = polygon._clickListener;
             if (oldClickListener) {
                 polygon.removeEventListener('click', oldClickListener);
             }
             
-            // Dodajemy nowe zdarzenie kliknięcia
+            // Add new click listener
             const newClickListener = function(e) {
                 e.stopPropagation();
                 const locationName = this.dataset.name;
@@ -1386,7 +1429,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         console.log("Updated click handlers for area polygons");
-    }, 2000); // Dajemy trochę czasu na załadowanie mapy i obszarów
+    }, 2000); // Give some time for map and areas to load
 });
 
 window.addEventListener('load', function() {
@@ -1439,7 +1482,7 @@ window.addEventListener('load', function() {
         console.log("Initializing PokéStop icons");
         displayAllPokestopIcons();
         hookIntoMapRefresh();
-        initPokestopTimers(); // Inicjalizuj timery pokestopów
+        initPokestopTimers(); // Initialize pokestop timers
         
         // Check and initialize button again (in case DOMContentLoaded didn't work)
         initPokestopToggle();

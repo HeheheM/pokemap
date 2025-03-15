@@ -1,5 +1,5 @@
 function toggleBossIcons() {
-    console.log("toggleBossIcons function called");
+    // console.log("toggleBossIcons function called");
     
     // Sprawdź, czy ikony są obecnie widoczne lub ukryte
     const areIconsVisible = currentRegionFilter !== "hide_all";
@@ -50,7 +50,7 @@ function initBossToggle() {
         
         // Dodaj nasłuchiwacz zdarzenia kliknięcia
         newBtn.addEventListener('click', function(e) {
-            console.log("Boss toggle button clicked");
+            // console.log("Boss toggle button clicked");
             e.preventDefault();
             e.stopPropagation();
             toggleBossIcons();
