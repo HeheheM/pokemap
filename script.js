@@ -14,6 +14,10 @@ let filteredLocations = [];
 let bosses = {};
 let bossIcons = [];
 let currentRouteNumbers = [];
+let isRouteCreatorActive = false;
+let emergencyDisplayInProgress = false;
+let emergencyDisplayTimer = null;
+let routeSelectHandlerAttached = false;
 
 const WEEKLY_BOSS_LIMIT = 20;
 const RESET_DAY = 1;
@@ -742,20 +746,22 @@ function renderAreaPolygon(location) {
     svg.style.top = `${minY}px`;
     svg.style.width = `${maxX - minX}px`;
     svg.style.height = `${maxY - minY}px`;
+    svg.style.pointerEvents = 'none';
 
     svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
+    
     const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
     const points = location.polygon_points.map(p => `${p[0]},${p[1]}`).join(' ');
     polygon.setAttribute("points", points);
-    svg.appendChild(polygon);
-    svg.dataset.name = location.tooltip;
-    svg.addEventListener('mousemove', showTooltip);
-    svg.addEventListener('mouseleave', hideTooltip);
     
-    // Zmiana - teraz po kliknięciu w lokację pokaże obrazy zamiast centrowania mapy
-    svg.addEventListener('click', function(e) {
+    polygon.style.pointerEvents = 'auto';
+    
+    polygon.dataset.name = location.tooltip;
+    polygon.addEventListener('mousemove', showTooltip);
+    polygon.addEventListener('mouseleave', hideTooltip);
+    
+    polygon.addEventListener('click', function(e) {
         e.stopPropagation();
-        // Wywołujemy nową funkcję showLocationImages zamiast centerMapOnLocation
         if (typeof showLocationImages === 'function') {
             showLocationImages(location);
         } else {
@@ -763,6 +769,7 @@ function renderAreaPolygon(location) {
         }
     });
     
+    svg.appendChild(polygon);
     map.appendChild(svg);
 }
 function saveRouteToJson() {
@@ -979,8 +986,6 @@ function centerMapOnLocation(location) {
         return;
     }
     
-    // Jeśli przekazano argument fromClick=true, to nie centrujemy widoku
-    // Ten argument będzie używany tylko w przypadku wyszukiwania lokacji lub innych funkcji programowych
     if (arguments.length > 1 && arguments[1] === true) {
         const containerWidth = mapContainer.clientWidth;
         const containerHeight = mapContainer.clientHeight;
@@ -990,7 +995,6 @@ function centerMapOnLocation(location) {
         
         updateMapTransform();
     } else {
-        // W przypadku kliknięcia w lokację, wywołujemy funkcję pokazującą obrazy
         if (typeof showLocationImages === 'function') {
             showLocationImages(location);
         } else {
@@ -1019,10 +1023,6 @@ function setupRegionFilter() {
         regionFilterSelect.remove(1);
     }
 
-    // const hideAllOption = document.createElement('option');
-    // hideAllOption.value = "hide_all";
-    // hideAllOption.textContent = window.i18n.t("filter.hideAll");
-    // regionFilterSelect.add(hideAllOption, 1);
 
     uniqueRegions.forEach(region => {
         const option = document.createElement('option');
@@ -1080,10 +1080,6 @@ function displayBossIcons() {
     const routeNumbers = document.querySelectorAll('.route-number');
     routeNumbers.forEach(number => number.remove());
     currentRouteNumbers = [];
-
-    // if (currentRegionFilter === "hide_all") {
-    //     return;
-    // }
 
     Object.entries(bosses).forEach(([bossName, bossData]) => {
         if (currentRegionFilter !== "all" && bossData.region !== currentRegionFilter) {
@@ -1144,15 +1140,18 @@ function displayBossIcons() {
         bossIcon.appendChild(bossImage);
         bossIcon.dataset.bossName = bossName;
         
-        // Kliknięcie myszą
         bossIcon.addEventListener('click', function(e) {
             e.stopPropagation();
-            showBossTooltip(bossName, e.clientX, e.clientY);
+            
+            if (isRouteCreatorActive) {
+                selectLocationForRoute(bossName, "boss", [posX, posY]);
+            } else {
+                showBossTooltip(bossName, e.clientX, e.clientY);
+            }
         });
 
-        // Obsługa zdarzeń dotykowych
         bossIcon.addEventListener('touchstart', function(e) {
-            e.preventDefault(); // Zapobiega standardowym zachowaniom
+            e.preventDefault();
             const touch = e.touches[0];
             tooltip.textContent = bossName;
             tooltip.style.left = `${touch.clientX + 15}px`;
@@ -1166,11 +1165,15 @@ function displayBossIcons() {
             
             if (e.changedTouches.length > 0) {
                 const touch = e.changedTouches[0];
-                showBossTooltip(bossName, touch.clientX, touch.clientY);
+                
+                if (isRouteCreatorActive) {
+                    selectLocationForRoute(bossName, "boss", [posX, posY]);
+                } else {
+                    showBossTooltip(bossName, touch.clientX, touch.clientY);
+                }
             }
         });
 
-        // Standardowa obsługa myszy dla desktopów
         bossIcon.addEventListener('mouseover', function(e) {
             tooltip.textContent = bossName;
             tooltip.style.left = `${e.clientX + 15}px`;
@@ -1225,25 +1228,21 @@ function showBossTooltip(bossName, x, y) {
     tooltipContent += '</div>';
     bossTooltip.innerHTML = tooltipContent;
     
-    // Dostosuj pozycjonowanie dla urządzeń mobilnych
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
-    const isMobile = window.innerWidth <= 768; // Sprawdzenie czy to urządzenie mobilne
+    const isMobile = window.innerWidth <= 768;
     
     let tooltipWidth = 400;
     let tooltipHeight = 300;
     
-    // Na urządzeniach mobilnych, zmieniamy rozmiar tooltipa
     if (isMobile) {
         tooltipWidth = Math.min(300, viewportWidth * 0.85);
-        // Ustawiamy stałą pozycję dla urządzeń mobilnych - centrum ekranu
         bossTooltip.style.width = `${tooltipWidth}px`;
         bossTooltip.style.maxWidth = `${tooltipWidth}px`;
         bossTooltip.style.left = `50%`;
         bossTooltip.style.top = `50%`;
         bossTooltip.style.transform = 'translate(-50%, -50%)';
     } else {
-        // Na desktopie używamy dotychczasowej logiki
         let tooltipLeft = x + 15;
         let tooltipTop = y + 15;
         
@@ -1262,10 +1261,8 @@ function showBossTooltip(bossName, x, y) {
     
     bossTooltip.style.display = 'block';
 
-    // Dodajemy zdarzenie do przycisku zamykania
     const closeButton = bossTooltip.querySelector('.close-tooltip');
     if (closeButton) {
-        // Zwiększamy obszar dotyku dla przycisku zamykania na urządzeniach mobilnych
         if (isMobile) {
             closeButton.style.padding = '10px';
             closeButton.style.fontSize = '24px';
@@ -1277,7 +1274,6 @@ function showBossTooltip(bossName, x, y) {
         });
     }
 
-    // Dodaj obsługę dotykowego zamykania tooltipa
     const handleOutsideClick = function(e) {
         if (!bossTooltip.contains(e.target) && e.target.className !== 'boss-icon' && !e.target.closest('.boss-icon')) {
             bossTooltip.style.display = 'none';
@@ -1314,7 +1310,6 @@ if (loadJsonBtn) {
 }
 
 map.addEventListener('mousedown', function(e) {
-    // Handle both left (0) and right (2) mouse buttons
     if (e.button !== 0 && e.button !== 2) return;
 
     e.preventDefault();
@@ -1341,8 +1336,6 @@ document.addEventListener('mousemove', function(e) {
 });
 
 document.addEventListener('mouseup', function(e) {
-    // Check if dragging was active and if left (0) or right (2) button was released
-    // e.button === -1 handles cases when there's no mouse (e.g., on touch devices)
     if (isDragging && (e.button === 0 || e.button === 2 || e.button === -1)) {
         isDragging = false;
         map.style.cursor = 'grab';
@@ -1376,7 +1369,7 @@ map.addEventListener('contextmenu', function(e) {
 });
 map.addEventListener('touchstart', function(e) {
     if (e.touches.length === 1) {
-        e.preventDefault(); // Prevent scrolling
+        e.preventDefault();
         
         isDragging = true;
         startX = e.touches[0].clientX;
@@ -1391,7 +1384,7 @@ map.addEventListener('touchstart', function(e) {
 map.addEventListener('touchmove', function(e) {
     if (!isDragging || e.touches.length !== 1) return;
     
-    e.preventDefault(); // Prevent scrolling
+    e.preventDefault();
     
     const dx = e.touches[0].clientX - startX;
     const dy = e.touches[0].clientY - startY;
@@ -1409,7 +1402,6 @@ map.addEventListener('touchend', function(e) {
     }
 });
 
-// Add touch zoom support to the mapContainer
 mapContainer.addEventListener('touchstart', function(e) {
     if (e.touches.length === 2) {
         e.preventDefault();
@@ -1417,11 +1409,9 @@ mapContainer.addEventListener('touchstart', function(e) {
         const touch2 = e.touches[1];
         const dist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
         
-        // Store the initial distance and scale
         this.lastPinchDistance = dist;
         this.lastPinchScale = scale;
         
-        // Store the midpoint of the two touches
         this.pinchMidX = (touch1.clientX + touch2.clientX) / 2;
         this.pinchMidY = (touch1.clientY + touch2.clientY) / 2;
     }
@@ -1435,11 +1425,9 @@ mapContainer.addEventListener('touchmove', function(e) {
         const touch2 = e.touches[1];
         const currentDist = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
         
-        // Calculate scale change
         const pinchRatio = currentDist / this.lastPinchDistance;
         const newScale = this.lastPinchScale * pinchRatio;
         
-        // Limit the scale
         const MIN_SCALE = 0.5;
         const MAX_SCALE = 5.0;
         
@@ -1448,14 +1436,11 @@ mapContainer.addEventListener('touchmove', function(e) {
             const pinchMidX = this.pinchMidX - rect.left;
             const pinchMidY = this.pinchMidY - rect.top;
             
-            // Calculate the map coordinate under the pinch midpoint
             const imageX = (pinchMidX - offsetX) / scale;
             const imageY = (pinchMidY - offsetY) / scale;
             
-            // Set the new scale
             scale = newScale;
             
-            // Adjust offset to keep the pinch midpoint at the same place
             offsetX = pinchMidX - imageX * scale;
             offsetY = pinchMidY - imageY * scale;
             
@@ -1465,12 +1450,10 @@ mapContainer.addEventListener('touchmove', function(e) {
 }, { passive: false });
 
 mapContainer.addEventListener('touchend', function(e) {
-    // Reset pinch tracking
     this.lastPinchDistance = null;
     this.lastPinchScale = null;
 });
 
-// Add specific style for touch devices to improve usability
 const touchStyle = document.createElement('style');
 touchStyle.textContent = `
     @media (pointer: coarse) {
@@ -1496,6 +1479,9 @@ let currentRoute = [];
 let defaultSidebarContent = null;
 
 function initRouteCreator() {
+    if (window.routeCreatorInitialized) return;
+    window.routeCreatorInitialized = true;
+    
     const routeCreatorBtn = document.getElementById('route-creator-btn');
     const returnToMainBtn = document.getElementById('return-to-main-btn');
     const routeCreatorSidebar = document.getElementById('route-creator-sidebar');
@@ -1511,7 +1497,6 @@ function initRouteCreator() {
     const sidebarChildren = document.querySelectorAll('.sidebar > *:not(#route-creator-sidebar)');
     defaultSidebarContent = Array.from(sidebarChildren);
 
-    // Dodaj obsługę drag and drop dla kontenera bossów
     setupDragAndDrop();
 
     routeCreatorBtn.addEventListener('click', function() {
@@ -1519,6 +1504,7 @@ function initRouteCreator() {
         routeCreatorSidebar.style.display = 'block';
         loadSavedRoutes();
         updateWeeklyKillsDisplay();
+        isRouteCreatorActive = false;
     });
 
     returnToMainBtn.addEventListener('click', function() {
@@ -1526,6 +1512,7 @@ function initRouteCreator() {
         routeCreatorSidebar.style.display = 'none';
         clearRouteNumbers();
         displayBossIcons();
+        isRouteCreatorActive = false;
         const emergencyBossContainer = document.getElementById('emergency-boss-container');
         if (emergencyBossContainer) {
             emergencyBossContainer.style.display = 'block';
@@ -1568,38 +1555,28 @@ function initRouteCreator() {
         }
     }
     
-    // Nowa implementacja drag and drop
     function setupDragAndDrop() {
-        // Wykorzystujemy delegację zdarzeń dla lepszej wydajności
         selectedBossesContainer.addEventListener('dragstart', handleDragStart);
         selectedBossesContainer.addEventListener('dragend', handleDragEnd);
         
-        // Obsługa dla całego kontenera
         selectedBossesContainer.addEventListener('dragover', handleDragOver);
         selectedBossesContainer.addEventListener('drop', handleDrop);
     }
     
-    // Zmienne do śledzenia operacji drag and drop
     let draggedElement = null;
     let draggedIndex = -1;
     
-    // Obsługujemy rozpoczęcie przeciągania
     function handleDragStart(e) {
-        // Upewniamy się, że zdarzenie pochodzi od elementu .selected-boss
         const bossElement = e.target.closest('.selected-boss');
         if (!bossElement) return;
         
-        // Zapamiętujemy element i jego indeks
         draggedElement = bossElement;
         draggedIndex = parseInt(bossElement.dataset.index);
         
-        // Dodajemy klasę dla wizualnego feedbacku
         bossElement.classList.add('dragging');
         
-        // Ustawiamy dane dla operacji przeciągania
         e.dataTransfer.setData('text/plain', draggedIndex);
         
-        // Tworzymy niestandardowy obraz przeciągania
         const ghostElement = bossElement.cloneNode(true);
         ghostElement.style.width = bossElement.offsetWidth + 'px';
         ghostElement.style.height = bossElement.offsetHeight + 'px';
@@ -1609,52 +1586,41 @@ function initRouteCreator() {
         document.body.appendChild(ghostElement);
         e.dataTransfer.setDragImage(ghostElement, 20, 20);
         
-        // Usuwamy ghostElement po krótkiej chwili
         setTimeout(() => {
             document.body.removeChild(ghostElement);
         }, 0);
     }
     
-    // Obsługujemy zakończenie przeciągania
     function handleDragEnd(e) {
-        // Upewniamy się, że zdarzenie pochodzi od elementu .selected-boss
         const bossElement = e.target.closest('.selected-boss');
         if (!bossElement) return;
         
-        // Usuwamy klasę dla wizualnego feedbacku
         bossElement.classList.remove('dragging');
         
-        // Resetujemy wszystkie style i klasy z operacji drag
         document.querySelectorAll('.selected-boss').forEach(el => {
             el.classList.remove('drag-over');
         });
         
-        // Resetujemy zmienne
         draggedElement = null;
         draggedIndex = -1;
     }
     
-    // Obsługujemy przeciąganie nad potencjalnym miejscem upuszczenia
     function handleDragOver(e) {
-        e.preventDefault(); // Konieczne, aby umożliwić upuszczanie
+        e.preventDefault();
         
-        // Znajdujemy najbliższy element .selected-boss, który nie jest przeciągany
         const targetElement = findDropTarget(e.clientY);
         
-        // Usuwamy klasę drag-over ze wszystkich elementów
         document.querySelectorAll('.selected-boss').forEach(el => {
             if (el !== targetElement) {
                 el.classList.remove('drag-over');
             }
         });
         
-        // Dodajemy klasę drag-over do docelowego elementu
         if (targetElement && targetElement !== draggedElement) {
             targetElement.classList.add('drag-over');
         }
     }
     
-    // Znajdujemy najbliższy element docelowy na podstawie pozycji kursora
     function findDropTarget(clientY) {
         const possibleTargets = Array.from(
             document.querySelectorAll('.selected-boss:not(.dragging)')
@@ -1662,21 +1628,17 @@ function initRouteCreator() {
         
         if (possibleTargets.length === 0) return null;
         
-        // Znajdujemy element, nad którym znajduje się kursor
         return possibleTargets.find(element => {
             const box = element.getBoundingClientRect();
             return clientY >= box.top && clientY <= box.bottom;
         });
     }
     
-    // Obsługujemy upuszczenie elementu
     function handleDrop(e) {
         e.preventDefault();
         
-        // Znajdujemy docelowy element na podstawie pozycji kursora
         const targetElement = findDropTarget(e.clientY);
         
-        // Jeśli nie ma docelowego elementu lub to ten sam element, kończymy
         if (!targetElement || targetElement === draggedElement) {
             document.querySelectorAll('.selected-boss').forEach(el => {
                 el.classList.remove('drag-over');
@@ -1684,52 +1646,56 @@ function initRouteCreator() {
             return;
         }
         
-        // Pobieramy indeks docelowego elementu
         const targetIndex = parseInt(targetElement.dataset.index);
         
-        // Usuwamy przeciągany element z jego obecnej pozycji
         const bossToMove = currentRoute.splice(draggedIndex, 1)[0];
         
-        // Określamy nową pozycję - przed lub po docelowym elemencie
         let newIndex = targetIndex;
         
-        // Jeśli przeciągamy element z wyższej pozycji (mniejszy indeks)
-        // na niższą (większy indeks), musimy uwzględnić przesunięcie
         if (draggedIndex < targetIndex) {
             newIndex = targetIndex;
         }
         
-        // Wstawiamy element na nową pozycję
         currentRoute.splice(newIndex, 0, bossToMove);
         
-        // Odświeżamy listę bossów
         refreshBossList();
         
-        // Usuwamy klasę drag-over ze wszystkich elementów
         document.querySelectorAll('.selected-boss').forEach(el => {
             el.classList.remove('drag-over');
         });
     }
 
-    routeSelect.addEventListener('change', function() {
-        const routeIndex = this.value;
-        console.log(window.i18n.t("log.routeSelected", [routeIndex]));
+    if (routeSelect) {
+        const newSelect = routeSelect.cloneNode(true);
+        routeSelect.parentNode.replaceChild(newSelect, routeSelect);
         
-        if (routeIndex !== '') {
-            if (routes[routeIndex]) {
-                currentRoute = routes[routeIndex].bosses;
-                console.log(window.i18n.t("log.currentRouteSet"), currentRoute);
-                emergencyDisplayRouteBosses();
-                routeCreatorContainer.style.display = 'none';
-                const emergencyBossContainer = document.getElementById('emergency-boss-container');
-                if (emergencyBossContainer) {
-                    emergencyBossContainer.style.display = 'block';
+        const freshRouteSelect = document.getElementById('route-select');
+        
+        freshRouteSelect.addEventListener('change', function() {
+            const routeIndex = this.value;
+            console.log(window.i18n.t("log.routeSelected", [routeIndex]));
+            
+            if (routeIndex !== '') {
+                if (routes[routeIndex]) {
+                    currentRoute = routes[routeIndex].bosses;
+                    console.log(window.i18n.t("log.currentRouteSet"), currentRoute);
+                    
+                    emergencyDisplayRouteBosses();
+                    
+                    routeCreatorContainer.style.display = 'none';
+                    isRouteCreatorActive = false;
+                    console.log("Wybrano istniejącą trasę, dezaktywuję tryb tworzenia");
+                    
+                    const emergencyBossContainer = document.getElementById('emergency-boss-container');
+                    if (emergencyBossContainer) {
+                        emergencyBossContainer.style.display = 'block';
+                    }
+                } else {
+                    console.error(window.i18n.t("log.selectedRouteIndexDoesNotExist", [routeIndex]));
                 }
-            } else {
-                console.error(window.i18n.t("log.selectedRouteIndexDoesNotExist", [routeIndex]));
             }
-        }
-    });
+        });
+    }
 
     newRouteBtn.addEventListener('click', function() {
         routeCreatorContainer.style.display = 'block';
@@ -1738,6 +1704,7 @@ function initRouteCreator() {
         routeSelect.value = '';
         selectedBossesContainer.innerHTML = '';
         bossSearch.focus();
+        isRouteCreatorActive = true;
         const emergencyBossContainer = document.getElementById('emergency-boss-container');
         if (emergencyBossContainer) {
             emergencyBossContainer.style.display = 'none';
@@ -1800,111 +1767,9 @@ function initRouteCreator() {
     }
 
     function selectBoss(bossName) {
-        const bossData = bosses[bossName];
-        const position = bossData.map_pos || getLocationPosition(bossData.location);
-        
-        if (!position) {
-            alert(window.i18n.t("log.cannotFindPositionForBoss", [bossName]));
-            return;
-        }
-        
-        const boss = {
-            name: bossName,
-            position: position
-        };
-        
-        currentRoute.push(boss);
-        const bossLocation = bossData.location || window.i18n.t("search.unknownLocation");
-        const bossElement = document.createElement('div');
-        bossElement.className = 'selected-boss';
-        bossElement.draggable = true;
-        bossElement.dataset.index = currentRoute.length - 1;
-        bossElement.innerHTML = `
-            <div class="boss-list-item">
-                <div class="boss-number">${currentRoute.length}</div>
-                <div class="boss-image">
-                    <img src="resources/bosses/${bossName}.webp" alt="${bossName}" onerror="this.src='resources/bosses/default-boss.webp'">
-                </div>
-                <div class="boss-details">
-                    <div class="boss-name">${bossName}</div>
-                    <div class="boss-location">${bossLocation}</div>
-                </div>
-            </div>
-            <button class="remove-boss-btn" data-index="${currentRoute.length - 1}">×</button>
-        `;
-        
-        selectedBossesContainer.appendChild(bossElement);
-
-        bossElement.querySelector('.remove-boss-btn').addEventListener('click', function(e) {
-            e.stopPropagation();
-            const index = parseInt(this.dataset.index);
-            removeBoss(index);
-        });
-
-        bossElement.addEventListener('click', function(e) {
-            if (e.target.classList.contains('remove-boss-btn')) {
-                return;
-            }
-            e.stopPropagation();
-            centerMapOnBoss(bossName);
-        });
-
-        bossSearch.value = '';
-
-        addRouteNumberToBoss(bossName, currentRoute.length);
+        selectLocationForRoute(bossName, "boss");
     }
-
-    function refreshBossList() {
-        selectedBossesContainer.innerHTML = '';
-        clearRouteNumbers();
-
-        currentRoute.forEach((boss, i) => {
-            const bossData = bosses[boss.name] || {};
-            const bossLocation = bossData.location || window.i18n.t("search.unknownLocation");
-            
-            const bossElement = document.createElement('div');
-            bossElement.className = 'selected-boss';
-            bossElement.draggable = true;
-            bossElement.dataset.index = i;
-            bossElement.innerHTML = `
-                <div class="boss-list-item">
-                    <div class="boss-number">${i + 1}</div>
-                    <div class="boss-image">
-                        <img src="resources/bosses/${boss.name}.webp" alt="${boss.name}" onerror="this.src='resources/bosses/default-boss.webp'">
-                    </div>
-                    <div class="boss-details">
-                        <div class="boss-name">${boss.name}</div>
-                        <div class="boss-location">${bossLocation}</div>
-                    </div>
-                </div>
-                <button class="remove-boss-btn" data-index="${i}">×</button>
-            `;
-            
-            selectedBossesContainer.appendChild(bossElement);
-        
-            bossElement.querySelector('.remove-boss-btn').addEventListener('click', function(e) {
-                e.stopPropagation();
-                const index = parseInt(this.dataset.index);
-                removeBoss(index);
-            });
-
-            bossElement.addEventListener('click', function(e) {
-                if (e.target.classList.contains('remove-boss-btn')) {
-                    return;
-                }
-                e.stopPropagation();
-                centerMapOnBoss(boss.name);
-            });
-
-            addRouteNumberToBoss(boss.name, i + 1);
-        });
-    }
-
-    function removeBoss(index) {
-        currentRoute.splice(index, 1);
-        refreshBossList();
-    }
-
+    
     function getLocationPosition(locationName) {
         if (!locationName) return null;
         
@@ -1915,36 +1780,51 @@ function initRouteCreator() {
         
         return location ? location.map_pos : null;
     }
-
+    
     saveRouteBtn.addEventListener('click', function() {
         if (currentRoute.length < 2) {
             alert(window.i18n.t("route.minBosses"));
             return;
         }
         
+        if (this.dataset.saving === "true") {
+            console.log("Już trwa zapisywanie trasy, ignoruję kliknięcie");
+            return;
+        }
+        
+        this.dataset.saving = "true";
+        
         const routeName = prompt(window.i18n.t("route.enterName"), window.i18n.t("route.routeNumber", [routes.length + 1]));
-        if (!routeName) return;
+        if (!routeName) {
+            this.dataset.saving = "false";
+            return;
+        }
         
         routes.push({
             name: routeName,
             bosses: currentRoute
         });
-
+    
         localStorage.setItem('bossRoutes', JSON.stringify(routes));
         console.log(window.i18n.t("log.routesSavedToLocalStorage"), JSON.stringify(routes));
-
+    
         routeCreatorContainer.style.display = 'none';
-
+        isRouteCreatorActive = false;
+    
         const emergencyBossContainer = document.getElementById('emergency-boss-container');
         if (emergencyBossContainer) {
             emergencyBossContainer.style.display = 'block';
         }
-
+    
         loadSavedRoutes();
-
+    
         routeSelect.value = routes.length - 1;
         const event = new Event('change');
         routeSelect.dispatchEvent(event);
+        
+        setTimeout(() => {
+            this.dataset.saving = "false";
+        }, 500);
     });
 
     document.addEventListener('click', function(e) {
@@ -1952,6 +1832,8 @@ function initRouteCreator() {
             bossSearchResults.style.display = 'none';
         }
     });
+    
+    window.selectBossForRoute = selectBoss;
 }
 
 function createPokeTeamBadges(pokeTeam) {
@@ -2003,216 +1885,596 @@ function createPokeTeamBadges(pokeTeam) {
     return badgesHTML;
 }
 function emergencyDisplayRouteBosses() {
-    console.log(window.i18n.t("log.emergencyDisplayBosses"));
-
-    const savedRoutes = localStorage.getItem('bossRoutes');
-    if (!savedRoutes) {
-        console.error(window.i18n.t("log.noSavedRoutesInLocalStorage"));
-        return;
-    }
-
-    const routes = JSON.parse(savedRoutes);
-    console.log(window.i18n.t("log.foundRoutes"), routes);
-
-    const routeSelect = document.getElementById('route-select');
-    const selectedRouteIndex = routeSelect.value;
-    console.log(window.i18n.t("log.selectedRouteIndex"), selectedRouteIndex);
-    
-    if (selectedRouteIndex === '' || !routes[selectedRouteIndex]) {
-        console.error(window.i18n.t("log.routeNotSelectedOrDoesNotExist"));
-        return;
+    if (emergencyDisplayTimer) {
+        clearTimeout(emergencyDisplayTimer);
     }
     
-    const selectedRoute = routes[selectedRouteIndex];
-    console.log(window.i18n.t("log.selectedRoute"), selectedRoute);
+    emergencyDisplayTimer = setTimeout(() => {
+        if (emergencyDisplayInProgress) {
+            console.log("Emergency display already in progress, skipping");
+            return;
+        }
+        
+        emergencyDisplayInProgress = true;
+        
+        console.log(window.i18n.t("log.emergencyDisplayBosses"));
 
-    let container = document.getElementById('emergency-boss-container');
+        const savedRoutes = localStorage.getItem('bossRoutes');
+        if (!savedRoutes) {
+            console.error(window.i18n.t("log.noSavedRoutesInLocalStorage"));
+            emergencyDisplayInProgress = false;
+            emergencyDisplayTimer = null;
+            return;
+        }
 
-    if (!container) {
-        console.log(window.i18n.t("log.creatingEmergencyBossContainer"));
+        const routes = JSON.parse(savedRoutes);
+        console.log(window.i18n.t("log.foundRoutes"), routes);
 
-        container = document.createElement('div');
-        container.id = 'emergency-boss-container';
-        container.style.backgroundColor = '#444';
-        container.style.padding = '15px 15px 15px 5px';
-        container.style.margin = '20px 0 20px -10px';
-        container.style.borderRadius = '5px';
-        container.style.maxHeight = 'calc(100vh - 250px)';
-        container.style.overflowY = 'auto';
-        container.style.color = 'white';
-        container.style.display = 'block';
+        const routeSelect = document.getElementById('route-select');
+        const selectedRouteIndex = routeSelect.value;
+        console.log(window.i18n.t("log.selectedRouteIndex"), selectedRouteIndex);
+        
+        if (selectedRouteIndex === '' || !routes[selectedRouteIndex]) {
+            console.error(window.i18n.t("log.routeNotSelectedOrDoesNotExist"));
+            emergencyDisplayInProgress = false;
+            emergencyDisplayTimer = null;
+            return;
+        }
+        
+        const selectedRoute = routes[selectedRouteIndex];
+        console.log(window.i18n.t("log.selectedRoute"), selectedRoute);
+
+        let container = document.getElementById('emergency-boss-container');
+
+        if (!container) {
+            console.log(window.i18n.t("log.creatingEmergencyBossContainer"));
+
+            container = document.createElement('div');
+            container.id = 'emergency-boss-container';
+            container.style.backgroundColor = '#444';
+            container.style.padding = '15px 15px 15px 5px';
+            container.style.margin = '20px 0 20px -10px';
+            container.style.borderRadius = '5px';
+            container.style.maxHeight = 'calc(100vh - 250px)';
+            container.style.overflowY = 'auto';
+            container.style.color = 'white';
+            container.style.display = 'block';
+            container.style.position = 'relative';
+            container.style.zIndex = '100';
+
+            const routeCreatorSidebar = document.getElementById('route-creator-sidebar');
+            const routeSelector = routeCreatorSidebar.querySelector('.route-selector');
+
+            if (routeSelector && routeSelector.nextSibling) {
+                routeCreatorSidebar.insertBefore(container, routeSelector.nextSibling);
+            } else {
+                routeCreatorSidebar.appendChild(container);
+            }
+        }
+
+        container.innerHTML = '';
+        const header = document.createElement('div');
+        header.style.textAlign = 'center';
+        header.style.fontWeight = 'bold';
+        header.style.fontSize = '16px';
+        header.style.marginBottom = '15px';
+        header.style.paddingBottom = '10px';
+        header.style.borderBottom = '1px solid #555';
+        header.textContent = selectedRoute.name || window.i18n.t("route.unnamedRoute");
+        container.appendChild(header);
+
+        if (!selectedRoute.bosses || selectedRoute.bosses.length === 0) {
+            const emptyInfo = document.createElement('div');
+            emptyInfo.style.textAlign = 'center';
+            emptyInfo.style.padding = '20px';
+            emptyInfo.style.color = '#aaa';
+            emptyInfo.textContent = window.i18n.t("route.noRoutes");
+            container.appendChild(emptyInfo);
+            
+            emergencyDisplayInProgress = false;
+            emergencyDisplayTimer = null;
+            return;
+        }
+
+        const existingNumbers = document.querySelectorAll('.route-number');
+        existingNumbers.forEach(number => number.remove());
+
         container.style.position = 'relative';
-        container.style.zIndex = '100';
 
-        const routeCreatorSidebar = document.getElementById('route-creator-sidebar');
-        const routeSelector = routeCreatorSidebar.querySelector('.route-selector');
+        const weeklyData = getWeeklyKillData();
+        const weeklyLimitReached = weeklyData.killCount >= WEEKLY_BOSS_LIMIT;
 
-        if (routeSelector && routeSelector.nextSibling) {
-            routeCreatorSidebar.insertBefore(container, routeSelector.nextSibling);
-        } else {
-            routeCreatorSidebar.appendChild(container);
-        }
-    }
+        selectedRoute.bosses.forEach((location, index) => {
+            const locationType = location.type || "boss";
 
-    container.innerHTML = '';
-    const header = document.createElement('div');
-    header.style.textAlign = 'center';
-    header.style.fontWeight = 'bold';
-    header.style.fontSize = '16px';
-    header.style.marginBottom = '15px';
-    header.style.paddingBottom = '10px';
-    header.style.borderBottom = '1px solid #555';
-    header.textContent = selectedRoute.name || window.i18n.t("route.unnamedRoute");
-    container.appendChild(header);
+            const rowContainer = document.createElement('div');
+            rowContainer.style.position = 'relative';
+            rowContainer.style.marginBottom = '10px';
+            rowContainer.style.width = '100%';
 
-    if (!selectedRoute.bosses || selectedRoute.bosses.length === 0) {
-        const emptyInfo = document.createElement('div');
-        emptyInfo.style.textAlign = 'center';
-        emptyInfo.style.padding = '20px';
-        emptyInfo.style.color = '#aaa';
-        emptyInfo.textContent = window.i18n.t("route.noRoutes");
-        container.appendChild(emptyInfo);
-        return;
-    }
+            if (locationType === "boss") {
+                const bossData = bosses[location.name] || {};
+                const isAvailable = isBossAvailable(location.name);
+                const timerText = isAvailable ? window.i18n.t("boss.available") : window.i18n.t("log.loading");
+                const timerColor = isAvailable ? "#4CAF50" : "#FF5722";
 
-    const existingNumbers = document.querySelectorAll('.route-number');
-    existingNumbers.forEach(number => number.remove());
-
-    container.style.position = 'relative';
-
-    const weeklyData = getWeeklyKillData();
-    const weeklyLimitReached = weeklyData.killCount >= WEEKLY_BOSS_LIMIT;
-
-    selectedRoute.bosses.forEach((boss, index) => {
-        console.log(window.i18n.t("log.addingBoss", [index + 1, boss.name]));
-
-        const bossData = bosses[boss.name] || {};
-        console.log(window.i18n.t("log.bossDataFor", [boss.name]), bossData);
-        console.log(window.i18n.t("log.pokeTeamFor", [boss.name]), bossData.PokeTeam);
-
-        const isAvailable = isBossAvailable(boss.name);
-        const timerText = isAvailable ? window.i18n.t("boss.available") : window.i18n.t("log.loading");
-        const timerColor = isAvailable ? "#4CAF50" : "#FF5722";
-
-        const rowContainer = document.createElement('div');
-        rowContainer.style.position = 'relative';
-        rowContainer.style.marginBottom = '10px';
-        rowContainer.style.width = '100%';
-
-        const bossElement = document.createElement('div');
-        bossElement.style.backgroundColor = '#555';
-        bossElement.style.padding = '10px';
-        bossElement.style.borderRadius = '5px';
-        bossElement.style.cursor = 'pointer';
-        bossElement.style.width = 'calc(100% - 30px)';
-
-        let poketeamHTML = '';
-        if (bossData && bossData.PokeTeam) {
-            poketeamHTML = createPokeTeamBadges(bossData.PokeTeam);
-        }
-
-        bossElement.innerHTML = `
-            <div style="display: flex; flex-direction: column; width: 100%;">
-                <!-- Top row with number, image, name and timer -->
-                <div style="display: flex; align-items: flex-start; width: 100%; margin-bottom: 5px;">
-                    <div style="background-color: red; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; flex-shrink: 0;">${index + 1}</div>
-                    <div style="width: 40px; height: 40px; margin-right: 10px; flex-shrink: 0;">
-                        <img src="resources/bosses/${boss.name}.webp" alt="${boss.name}" onerror="this.src='resources/bosses/default-boss.webp'" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
-                    </div>
-                    <div style="flex-grow: 1; overflow: hidden; display: flex; flex-direction: column;">
-                        <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${boss.name}</div>
-                        <div class="boss-timer" data-boss-name="${boss.name}" style="font-size: 12px; color: ${timerColor}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${window.i18n.t("boss.availableIn")}: ${timerText}</div>
-                    </div>
-                </div>
-                
-                <!-- Bottom row with badges, aligned with the left edge -->
-                ${poketeamHTML ? `
-                <div style="display: flex; width: 100%; padding-left: 0;">
-                    ${poketeamHTML}
-                </div>
-                ` : ''}
-            </div>
-        `;
-
-        bossElement.addEventListener('mouseover', function() {
-            bossElement.style.backgroundColor = '#666';
-        });
-        
-        bossElement.addEventListener('mouseleave', function() {
-            bossElement.style.backgroundColor = '#555';
-        });
-
-        bossElement.addEventListener('click', function(e) {
-            e.stopPropagation();
-            centerMapOnBoss(boss.name);
-        });
-
-        rowContainer.appendChild(bossElement);
-
-        const killedButton = document.createElement('div');
-        killedButton.className = 'killed-button';
-        killedButton.dataset.bossName = boss.name;
-        killedButton.style.position = 'absolute';
-        killedButton.style.right = '-18px';
-        killedButton.style.top = '40px';
-        killedButton.style.transform = 'translateY(-50%)';
-        killedButton.style.cursor = 'pointer';
-        killedButton.style.width = '30px';
-        killedButton.style.height = '30px';
-        killedButton.style.display = 'flex';
-        killedButton.style.alignItems = 'center';
-        killedButton.style.justifyContent = 'center';
-
-        const killedImage = document.createElement('img');
-        killedImage.src = 'resources/killed.webp';
-        killedImage.alt = 'Killed';
-        killedImage.style.width = '100%';
-        killedImage.style.height = '100%';
-        killedImage.style.objectFit = 'contain';
-        killedImage.style.opacity = isAvailable ? 1.0 : 0.5;
-        killedImage.onerror = function() {
-            this.src = 'killed.webp';
-        };
-        
-        killedButton.appendChild(killedImage);
-
-        if (weeklyLimitReached && isAvailable) {
-            killedImage.style.opacity = '0.5';
-            killedButton.style.pointerEvents = 'none';
-            killedButton.style.cursor = 'not-allowed';
-        }
-
-        killedButton.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (isBossAvailable(boss.name)) {
-                const weeklyData = getWeeklyKillData();
-                if (weeklyData.killCount >= WEEKLY_BOSS_LIMIT) {
-                    alert(window.i18n.t("weeklyKills.limit", [WEEKLY_BOSS_LIMIT, formatNextResetTime()]));
-                    return;
+                let poketeamHTML = '';
+                if (bossData && bossData.PokeTeam) {
+                    poketeamHTML = createPokeTeamBadges(bossData.PokeTeam);
                 }
 
-                this.querySelector('img').style.opacity = '0.5';
-                this.style.pointerEvents = 'none';
-                this.style.cursor = 'not-allowed';
+                const bossElement = document.createElement('div');
+                bossElement.style.backgroundColor = '#555';
+                bossElement.style.padding = '10px';
+                bossElement.style.borderRadius = '5px';
+                bossElement.style.cursor = 'pointer';
+                bossElement.style.width = 'calc(100% - 30px)';
 
-                markBossAsKilled(boss.name);
+                bossElement.innerHTML = `
+                    <div style="display: flex; flex-direction: column; width: 100%;">
+                        <!-- Top row with number, image, name and timer -->
+                        <div style="display: flex; align-items: flex-start; width: 100%; margin-bottom: 5px;">
+                            <div style="background-color: red; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; flex-shrink: 0;">${index + 1}</div>
+                            <div style="width: 40px; height: 40px; margin-right: 10px; flex-shrink: 0;">
+                                <img src="resources/bosses/${location.name}.webp" alt="${location.name}" onerror="this.src='resources/bosses/default-boss.webp'" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
+                            </div>
+                            <div style="flex-grow: 1; overflow: hidden; display: flex; flex-direction: column;">
+                                <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${location.name}</div>
+                                <div class="boss-timer" data-boss-name="${location.name}" style="font-size: 12px; color: ${timerColor}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${window.i18n.t("boss.availableIn")}: ${timerText}</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom row with badges, aligned with the left edge -->
+                        ${poketeamHTML ? `
+                        <div style="display: flex; width: 100%; padding-left: 0;">
+                            ${poketeamHTML}
+                        </div>
+                        ` : ''}
+                    </div>
+                `;
 
-                updateWeeklyKillsDisplay();
-            } else {
-                console.log(window.i18n.t("log.bossOnCooldown", [boss.name]));
+                bossElement.addEventListener('mouseover', function() {
+                    bossElement.style.backgroundColor = '#666';
+                });
+                
+                bossElement.addEventListener('mouseleave', function() {
+                    bossElement.style.backgroundColor = '#555';
+                });
+
+                bossElement.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    centerMapOnBoss(location.name);
+                });
+
+                rowContainer.appendChild(bossElement);
+
+                const killedButton = document.createElement('div');
+                killedButton.className = 'killed-button';
+                killedButton.dataset.bossName = location.name;
+                killedButton.style.position = 'absolute';
+                killedButton.style.right = '-18px';
+                killedButton.style.top = '40px';
+                killedButton.style.transform = 'translateY(-50%)';
+                killedButton.style.cursor = 'pointer';
+                killedButton.style.width = '30px';
+                killedButton.style.height = '30px';
+                killedButton.style.display = 'flex';
+                killedButton.style.alignItems = 'center';
+                killedButton.style.justifyContent = 'center';
+
+                const killedImage = document.createElement('img');
+                killedImage.src = 'resources/killed.webp';
+                killedImage.alt = 'Killed';
+                killedImage.style.width = '100%';
+                killedImage.style.height = '100%';
+                killedImage.style.objectFit = 'contain';
+                killedImage.style.opacity = isAvailable ? 1.0 : 0.5;
+                killedImage.onerror = function() {
+                    this.src = 'killed.webp';
+                };
+                
+                killedButton.appendChild(killedImage);
+
+                if (weeklyLimitReached && isAvailable) {
+                    killedImage.style.opacity = '0.5';
+                    killedButton.style.pointerEvents = 'none';
+                    killedButton.style.cursor = 'not-allowed';
+                }
+
+                killedButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (isBossAvailable(location.name)) {
+                        const weeklyData = getWeeklyKillData();
+                        if (weeklyData.killCount >= WEEKLY_BOSS_LIMIT) {
+                            alert(window.i18n.t("weeklyKills.limit", [WEEKLY_BOSS_LIMIT, formatNextResetTime()]));
+                            return;
+                        }
+
+                        this.querySelector('img').style.opacity = '0.5';
+                        this.style.pointerEvents = 'none';
+                        this.style.cursor = 'not-allowed';
+
+                        markBossAsKilled(location.name);
+
+                        updateWeeklyKillsDisplay();
+                    } else {
+                        console.log(window.i18n.t("log.bossOnCooldown", [location.name]));
+                    }
+                });
+
+                rowContainer.appendChild(killedButton);
+            } 
+            else if (locationType === "pokestop") {
+                const isAvailable = typeof isPokestopAvailable === 'function' ? 
+                    isPokestopAvailable(location.name) : true;
+                    
+                let timerText = isAvailable ? 
+                    (window.i18n.t("pokestop.available") || "Available") : "";
+                
+                if (!isAvailable) {
+                    try {
+                        const savedData = localStorage.getItem('clickedPokestops');
+                        if (savedData) {
+                            const clickedPokestops = JSON.parse(savedData);
+                            if (clickedPokestops[location.name]) {
+                                const availableAt = clickedPokestops[location.name].availableAt;
+                                const now = Date.now();
+                                const timeRemaining = availableAt - now;
+                                if (timeRemaining > 0) {
+                                    timerText = window.i18n.t("pokestop.cooldown") + ": " + 
+                                        (typeof formatPokestopTimeRemaining === 'function' ? 
+                                            formatPokestopTimeRemaining(timeRemaining) : 
+                                            new Date(availableAt).toLocaleString());
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        console.error("Error getting pokestop cooldown timer", e);
+                        timerText = window.i18n.t("pokestop.cooldown") || "On Cooldown";
+                    }
+                }
+                
+                const timerColor = isAvailable ? "#4CAF50" : "#FF5722";
+
+                const pokestopElement = document.createElement('div');
+                pokestopElement.style.backgroundColor = '#555';
+                pokestopElement.style.padding = '10px';
+                pokestopElement.style.borderRadius = '5px';
+                pokestopElement.style.cursor = 'pointer';
+                pokestopElement.style.width = 'calc(100% - 30px)';
+
+                pokestopElement.innerHTML = `
+                    <div style="display: flex; flex-direction: column; width: 100%;">
+                        <div style="display: flex; align-items: flex-start; width: 100%; margin-bottom: 5px;">
+                            <div style="background-color: red; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; flex-shrink: 0;">${index + 1}</div>
+                            <div style="width: 40px; height: 40px; margin-right: 10px; flex-shrink: 0;">
+                                <img src="resources/pokestop.webp" alt="${location.name}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
+                            </div>
+                            <div style="flex-grow: 1; overflow: hidden; display: flex; flex-direction: column;">
+                                <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${location.name}</div>
+                                <div style="font-size: 12px; color: #ccc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${window.i18n.t("pokestop.title") || "PokéStop"}</div>
+                                <div class="pokestop-timer" data-pokestop-name="${location.name}" style="font-size: 12px; color: ${timerColor}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${timerText}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                pokestopElement.addEventListener('mouseover', function() {
+                    pokestopElement.style.backgroundColor = '#666';
+                });
+                
+                pokestopElement.addEventListener('mouseleave', function() {
+                    pokestopElement.style.backgroundColor = '#555';
+                });
+
+                pokestopElement.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const containerWidth = mapContainer.clientWidth;
+                    const containerHeight = mapContainer.clientHeight;
+                    scale = 2.5;
+                    offsetX = (containerWidth / 2) - (location.position[0] * scale);
+                    offsetY = (containerHeight / 2) - (location.position[1] * scale);
+                    updateMapTransform();
+                });
+
+                rowContainer.appendChild(pokestopElement);
+
+                const cooldownButton = document.createElement('div');
+                cooldownButton.className = 'killed-button';
+                cooldownButton.dataset.pokestopName = location.name;
+                cooldownButton.style.position = 'absolute';
+                cooldownButton.style.right = '-18px';
+                cooldownButton.style.top = '40px';
+                cooldownButton.style.transform = 'translateY(-50%)';
+                cooldownButton.style.cursor = 'pointer';
+                cooldownButton.style.width = '30px';
+                cooldownButton.style.height = '30px';
+                cooldownButton.style.display = 'flex';
+                cooldownButton.style.alignItems = 'center';
+                cooldownButton.style.justifyContent = 'center';
+
+                const cooldownImage = document.createElement('img');
+                cooldownImage.src = 'resources/killed.webp';
+                cooldownImage.alt = 'Cooldown';
+                cooldownImage.style.width = '100%';
+                cooldownImage.style.height = '100%';
+                cooldownImage.style.objectFit = 'contain';
+                cooldownImage.style.opacity = isAvailable ? 1.0 : 0.5;
+                
+                cooldownButton.appendChild(cooldownImage);
+
+                cooldownButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (typeof isPokestopAvailable === 'function' && isPokestopAvailable(location.name)) {
+                        this.querySelector('img').style.opacity = '0.5';
+                        this.style.pointerEvents = 'none';
+                        this.style.cursor = 'not-allowed';
+                        
+                        if (typeof markPokestopAsClicked === 'function') {
+                            markPokestopAsClicked(location.name);
+                        }
+                        
+                        const timerElement = pokestopElement.querySelector('.pokestop-timer');
+                        if (timerElement) {
+                            const cooldownText = window.i18n.t("pokestop.cooldown") + ": " + 
+                                (typeof formatPokestopTimeRemaining === 'function' ? 
+                                    formatPokestopTimeRemaining(POKESTOP_COOLDOWN_HOURS * 60 * 60 * 1000) : 
+                                    "48:00:00:00");
+                                    
+                            timerElement.textContent = cooldownText;
+                            timerElement.style.color = "#FF5722";
+                        }
+                    }
+                });
+
+                rowContainer.appendChild(cooldownButton);
             }
+            else if (locationType === "excavation") {
+                const isAvailable = typeof ex_isExcavitionAvailable === 'function' ? 
+                    ex_isExcavitionAvailable(location.name) : true;
+                    
+                let timerText = isAvailable ? 
+                    (window.i18n.t("excavition.cooldown") || "Available") : "";
+                
+                if (!isAvailable) {
+                    try {
+                        const savedData = localStorage.getItem('clickedExcavitions');
+                        if (savedData) {
+                            const clickedExcavitions = JSON.parse(savedData);
+                            if (clickedExcavitions[location.name]) {
+                                const availableAt = clickedExcavitions[location.name].availableAt;
+                                const now = Date.now();
+                                const timeRemaining = availableAt - now;
+                                if (timeRemaining > 0) {
+                                    timerText = window.i18n.t("excavition.cooldown") + ": " + 
+                                        (typeof ex_formatTimeRemaining === 'function' ? 
+                                            ex_formatTimeRemaining(timeRemaining) : 
+                                            new Date(availableAt).toLocaleString());
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        console.error("Error getting excavation cooldown timer", e);
+                        timerText = window.i18n.t("excavition.cooldown") || "On Cooldown";
+                    }
+                }
+                
+                const timerColor = isAvailable ? "#4CAF50" : "#FF5722";
+
+                const excavationElement = document.createElement('div');
+                excavationElement.style.backgroundColor = '#555';
+                excavationElement.style.padding = '10px';
+                excavationElement.style.borderRadius = '5px';
+                excavationElement.style.cursor = 'pointer';
+                excavationElement.style.width = 'calc(100% - 30px)';
+
+                excavationElement.innerHTML = `
+                    <div style="display: flex; flex-direction: column; width: 100%;">
+                        <div style="display: flex; align-items: flex-start; width: 100%; margin-bottom: 5px;">
+                            <div style="background-color: red; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-weight: bold; flex-shrink: 0;">${index + 1}</div>
+                            <div style="width: 40px; height: 40px; margin-right: 10px; flex-shrink: 0;">
+                                <img src="resources/excavition/Excavition.webp" alt="${location.name}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 5px;">
+                            </div>
+                            <div style="flex-grow: 1; overflow: hidden; display: flex; flex-direction: column;">
+                                <div style="font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${location.name}</div>
+                                <div style="font-size: 12px; color: #ccc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${window.i18n.t("excavition.title") || "Excavation Site"}</div>
+                                <div class="excavation-timer" data-excavation-name="${location.name}" style="font-size: 12px; color: ${timerColor}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${timerText}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                excavationElement.addEventListener('mouseover', function() {
+                    excavationElement.style.backgroundColor = '#666';
+                });
+                
+                excavationElement.addEventListener('mouseleave', function() {
+                    excavationElement.style.backgroundColor = '#555';
+                });
+
+                excavationElement.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const containerWidth = mapContainer.clientWidth;
+                    const containerHeight = mapContainer.clientHeight;
+                    scale = 2.5;
+                    offsetX = (containerWidth / 2) - (location.position[0] * scale);
+                    offsetY = (containerHeight / 2) - (location.position[1] * scale);
+                    updateMapTransform();
+                });
+
+                rowContainer.appendChild(excavationElement);
+
+                const cooldownButton = document.createElement('div');
+                cooldownButton.className = 'killed-button';
+                cooldownButton.dataset.excavationName = location.name;
+                cooldownButton.style.position = 'absolute';
+                cooldownButton.style.right = '-18px';
+                cooldownButton.style.top = '40px';
+                cooldownButton.style.transform = 'translateY(-50%)';
+                cooldownButton.style.cursor = 'pointer';
+                cooldownButton.style.width = '30px';
+                cooldownButton.style.height = '30px';
+                cooldownButton.style.display = 'flex';
+                cooldownButton.style.alignItems = 'center';
+                cooldownButton.style.justifyContent = 'center';
+
+                const cooldownImage = document.createElement('img');
+                cooldownImage.src = 'resources/killed.webp';
+                cooldownImage.alt = 'Cooldown';
+                cooldownImage.style.width = '100%';
+                cooldownImage.style.height = '100%';
+                cooldownImage.style.objectFit = 'contain';
+                cooldownImage.style.opacity = isAvailable ? 1.0 : 0.5;
+                
+                cooldownButton.appendChild(cooldownImage);
+
+                cooldownButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (typeof ex_isExcavitionAvailable === 'function' && ex_isExcavitionAvailable(location.name)) {
+                        this.querySelector('img').style.opacity = '0.5';
+                        this.style.pointerEvents = 'none';
+                        this.style.cursor = 'not-allowed';
+                        
+                        if (typeof ex_markExcavitionAsClicked === 'function') {
+                            ex_markExcavitionAsClicked(location.name);
+                        }
+                        
+                        const timerElement = excavationElement.querySelector('.excavation-timer');
+                        if (timerElement) {
+                            const now = new Date();
+                            const nextReset = new Date();
+                            nextReset.setDate(now.getHours() < 1 ? now.getDate() : now.getDate() + 1);
+                            nextReset.setHours(1, 0, 0, 0);
+                            const timeRemaining = nextReset.getTime() - now.getTime();
+                            
+                            const cooldownText = window.i18n.t("excavition.cooldown") + ": " + 
+                                (typeof ex_formatTimeRemaining === 'function' ? 
+                                    ex_formatTimeRemaining(timeRemaining) : 
+                                    `${Math.floor(timeRemaining / (1000 * 60 * 60))}:${Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60))}`);
+                                    
+                            timerElement.textContent = cooldownText;
+                            timerElement.style.color = "#FF5722";
+                        }
+                    }
+                });
+
+                rowContainer.appendChild(cooldownButton);
+            }
+
+            container.appendChild(rowContainer);
+
+            addRouteNumberToLocation(location.name, location.position, index + 1);
         });
+        
+        console.log(window.i18n.t("log.displayedBosses", [selectedRoute.bosses.length]));
 
-        rowContainer.appendChild(killedButton);
+        const updateLocationTimers = function() {
+            const pokestopTimers = document.querySelectorAll('.pokestop-timer');
+            if (pokestopTimers.length > 0) {
+                try {
+                    const savedData = localStorage.getItem('clickedPokestops');
+                    if (savedData) {
+                        const clickedPokestops = JSON.parse(savedData);
+                        pokestopTimers.forEach(timer => {
+                            const pokestopName = timer.dataset.pokestopName;
+                            if (pokestopName && clickedPokestops[pokestopName]) {
+                                const availableAt = clickedPokestops[pokestopName].availableAt;
+                                const now = Date.now();
+                                const timeRemaining = availableAt - now;
+                                
+                                if (timeRemaining <= 0) {
+                                    timer.textContent = window.i18n.t("pokestop.available") || "Available";
+                                    timer.style.color = "#4CAF50";
+                                    
+                                    const cooldownButton = timer.closest('.pokestop-timer')?.closest('div')?.closest('div')?.closest('div')?.nextElementSibling;
+                                    if (cooldownButton && cooldownButton.dataset.pokestopName === pokestopName) {
+                                        cooldownButton.querySelector('img').style.opacity = "1.0";
+                                        cooldownButton.style.pointerEvents = "auto";
+                                        cooldownButton.style.cursor = "pointer";
+                                    }
+                                    
+                                    delete clickedPokestops[pokestopName];
+                                    localStorage.setItem('clickedPokestops', JSON.stringify(clickedPokestops));
+                                } else {
+                                    const cooldownText = window.i18n.t("pokestop.cooldown") + ": " + 
+                                        (typeof formatPokestopTimeRemaining === 'function' ? 
+                                            formatPokestopTimeRemaining(timeRemaining) : 
+                                            new Date(availableAt).toLocaleString());
+                                            
+                                    timer.textContent = cooldownText;
+                                    timer.style.color = "#FF5722";
+                                }
+                            }
+                        });
+                    }
+                } catch (e) {
+                    console.error("Error updating pokestop timers", e);
+                }
+            }
+            
+            const excavationTimers = document.querySelectorAll('.excavation-timer');
+            if (excavationTimers.length > 0) {
+                try {
+                    const savedData = localStorage.getItem('clickedExcavitions');
+                    if (savedData) {
+                        const clickedExcavitions = JSON.parse(savedData);
+                        excavationTimers.forEach(timer => {
+                            const excavationName = timer.dataset.excavationName;
+                            if (excavationName && clickedExcavitions[excavationName]) {
+                                const availableAt = clickedExcavitions[excavationName].availableAt;
+                                const now = Date.now();
+                                const timeRemaining = availableAt - now;
+                                
+                                if (timeRemaining <= 0) {
+                                    timer.textContent = window.i18n.t("excavition.cooldown") || "Available";
+                                    timer.style.color = "#4CAF50";
+                                    
+                                    const cooldownButton = timer.closest('.excavation-timer')?.closest('div')?.closest('div')?.closest('div')?.nextElementSibling;
+                                    if (cooldownButton && cooldownButton.dataset.excavationName === excavationName) {
+                                        cooldownButton.querySelector('img').style.opacity = "1.0";
+                                        cooldownButton.style.pointerEvents = "auto";
+                                        cooldownButton.style.cursor = "pointer";
+                                    }
+                                    
+                                    delete clickedExcavitions[excavationName];
+                                    localStorage.setItem('clickedExcavitions', JSON.stringify(clickedExcavitions));
+                                } else {
+                                    const cooldownText = window.i18n.t("excavition.cooldown") + ": " + 
+                                        (typeof ex_formatTimeRemaining === 'function' ? 
+                                            ex_formatTimeRemaining(timeRemaining) : 
+                                            new Date(availableAt).toLocaleString());
+                                            
+                                    timer.textContent = cooldownText;
+                                    timer.style.color = "#FF5722";
+                                }
+                            }
+                        });
+                    }
+                } catch (e) {
+                    console.error("Error updating excavation timers", e);
+                }
+            }
+        };
+        
+        updateLocationTimers();
+        const timerId = setInterval(updateLocationTimers, 1000);
+        
+        container.dataset.timerId = timerId;
+        
+        if (container.dataset.oldTimerId) {
+            clearInterval(parseInt(container.dataset.oldTimerId));
+            container.dataset.oldTimerId = null;
+        }
+        
+        container.dataset.oldTimerId = timerId;
 
-        container.appendChild(rowContainer);
-
-        addNumberAboveBoss(boss.name, index + 1);
-    });
-    
-    console.log(window.i18n.t("log.displayedBosses", [selectedRoute.bosses.length]));
-
-    updateBossTimers();
+        updateBossTimers();
+        
+        emergencyDisplayInProgress = false;
+        emergencyDisplayTimer = null;
+    }, 50);
 }
 
 function addNumberAboveBoss(bossName, number) {
@@ -2313,18 +2575,25 @@ function addNumberAboveBoss(bossName, number) {
 document.addEventListener('DOMContentLoaded', function() {
     const routeSelect = document.getElementById('route-select');
     if (routeSelect) {
-        routeSelect.addEventListener('change', emergencyDisplayRouteBosses);
-
+        const newClone = routeSelect.cloneNode(true);
+        routeSelect.parentNode.replaceChild(newClone, routeSelect);
+        
+        const freshRouteSelect = document.getElementById('route-select');
+        freshRouteSelect.addEventListener('change', function() {
+            console.log(window.i18n.t("log.routeSelectValueChanged"), this.value);
+            emergencyDisplayRouteBosses();
+        });
+        
         const observer = new MutationObserver(function(mutations) {
             mutations.forEach(function(mutation) {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'value') {
-                    console.log(window.i18n.t("log.routeSelectValueChanged"), routeSelect.value);
+                    console.log(window.i18n.t("log.routeSelectValueChanged"), freshRouteSelect.value);
                     emergencyDisplayRouteBosses();
                 }
             });
         });
         
-        observer.observe(routeSelect, { attributes: true });
+        observer.observe(freshRouteSelect, { attributes: true });
     }
 
     const routeCreatorBtn = document.getElementById('route-creator-btn');
@@ -2346,7 +2615,6 @@ async function init() {
         bosses = await loadBossesData();
         setupRegionFilter();
         displayBossIcons();
-        // setupSearchFunctionality();
         refreshMarkers();
         initBossTimers();
         initWeeklyKillTracker();
@@ -2360,10 +2628,18 @@ window.addEventListener('load', function() {
         console.error(window.i18n.t("log.errorDuringInitialization"), error);
     }).finally(() => {
         setTimeout(initRouteCreator, 500);
+        setTimeout(setupRouteCreatorClickHandler, 1000);
     });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+    const routeCreatorBtn = document.getElementById('route-creator-btn');
+    if (routeCreatorBtn) {
+        routeCreatorBtn.addEventListener('click', function() {
+            setTimeout(emergencyDisplayRouteBosses, 500);
+        });
+    }
+    
     document.body.addEventListener('click', function(e) {
         const bossElement = e.target.closest('#emergency-boss-container > div');
         if (bossElement && bossElement !== document.getElementById('emergency-boss-container').firstElementChild) {
@@ -2375,8 +2651,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
-    // console.log(window.i18n.t("log.additionalClickEventsRegistered"));
 });
 
 let lastMouseX = 0;
@@ -2403,3 +2677,321 @@ window.getpos = function() {
     console.log(window.i18n.t("log.currentPosition", [positionText]));
     return { x, y };
 };
+function selectLocationForRoute(locationName, locationType, position) {
+    if (!isRouteCreatorActive) return;
+    
+    if (currentRoute.some(item => item.name === locationName)) {
+        return;
+    }
+    
+    if (!position) {
+        if (locationType === "boss") {
+            const bossData = bosses[locationName];
+            position = bossData.map_pos || getLocationPosition(bossData.location);
+        } else {
+            position = getLocationPosition(locationName);
+        }
+    }
+    
+    if (!position) {
+        alert(window.i18n.t("log.cannotFindPositionForLocation", [locationName]) || 
+             `Cannot find position for ${locationName}`);
+        return;
+    }
+    
+    const location = {
+        name: locationName,
+        position: position,
+        type: locationType
+    };
+    
+    currentRoute.push(location);
+    
+    let locationIcon = 'resources/bosses/default-boss.webp';
+    let locationLocation = '';
+    
+    if (locationType === "boss") {
+        const bossData = bosses[locationName] || {};
+        locationLocation = bossData.location || window.i18n.t("search.unknownLocation") || "Unknown Location";
+        locationIcon = `resources/bosses/${locationName}.webp`;
+    } else if (locationType === "pokestop") {
+        locationIcon = 'resources/pokestop.webp';
+        locationLocation = window.i18n.t("pokestop.title") || "PokéStop";
+    } else if (locationType === "excavation") {
+        locationIcon = 'resources/excavition/Excavition.webp';
+        locationLocation = window.i18n.t("excavition.title") || "Excavation Site";
+    }
+    
+    const bossElement = document.createElement('div');
+    bossElement.className = 'selected-boss';
+    bossElement.draggable = true;
+    bossElement.dataset.index = currentRoute.length - 1;
+    bossElement.dataset.locationType = locationType;
+    bossElement.innerHTML = `
+        <div class="boss-list-item">
+            <div class="boss-number">${currentRoute.length}</div>
+            <div class="boss-image">
+                <img src="${locationIcon}" alt="${locationName}" onerror="this.src='resources/bosses/default-boss.webp'">
+            </div>
+            <div class="boss-details">
+                <div class="boss-name">${locationName}</div>
+                <div class="boss-location">${locationLocation}</div>
+            </div>
+        </div>
+        <button class="remove-boss-btn" data-index="${currentRoute.length - 1}">×</button>
+    `;
+    
+    const selectedBossesContainer = document.getElementById('selected-bosses-container');
+    selectedBossesContainer.appendChild(bossElement);
+
+    bossElement.querySelector('.remove-boss-btn').addEventListener('click', function(e) {
+        e.stopPropagation();
+        const index = parseInt(this.dataset.index);
+        removeBoss(index);
+    });
+
+    bossElement.addEventListener('click', function(e) {
+        if (e.target.classList.contains('remove-boss-btn')) {
+            return;
+        }
+        e.stopPropagation();
+        
+        if (locationType === "boss") {
+            centerMapOnBoss(locationName);
+        } else {
+            const containerWidth = mapContainer.clientWidth;
+            const containerHeight = mapContainer.clientHeight;
+
+            scale = 2.5;
+
+            offsetX = (containerWidth / 2) - (position[0] * scale);
+            offsetY = (containerHeight / 2) - (position[1] * scale);
+            
+            updateMapTransform();
+        }
+    });
+
+    const bossSearch = document.getElementById('boss-search');
+    if (bossSearch) bossSearch.value = '';
+
+    addRouteNumberToLocation(locationName, position, currentRoute.length);
+}
+
+function addRouteNumberToLocation(locationName, position, number) {
+    if (!position) {
+        console.warn(`Cannot add route number - no position for ${locationName}`);
+        return;
+    }
+    
+    if (!Array.isArray(position) || position.length < 2) {
+        console.warn(`Invalid position for ${locationName}:`, position);
+        return;
+    }
+    
+    const numberElement = document.createElement('div');
+    numberElement.className = 'route-number';
+    numberElement.textContent = number;
+    numberElement.style.position = 'absolute';
+    numberElement.style.left = `${position[0]}px`;
+    numberElement.style.top = `${position[1] - 30}px`;
+    numberElement.style.backgroundColor = 'red';
+    numberElement.style.color = 'white';
+    numberElement.style.borderRadius = '50%';
+    numberElement.style.width = '24px';
+    numberElement.style.height = '24px';
+    numberElement.style.display = 'flex';
+    numberElement.style.alignItems = 'center';
+    numberElement.style.justifyContent = 'center';
+    numberElement.style.fontWeight = 'bold';
+    numberElement.style.fontSize = '14px';
+    numberElement.style.zIndex = '30';
+    numberElement.style.transform = 'translate(-50%, -50%)';
+    numberElement.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.5)';
+    
+    const map = document.getElementById('map');
+    if (map) {
+        map.appendChild(numberElement);
+        currentRouteNumbers.push(numberElement);
+    }
+}
+
+
+window.selectLocationForRoute = selectLocationForRoute;
+function setupRouteCreatorClickHandler() {
+    if (window.routeSetupComplete) return;
+    window.routeSetupComplete = true;
+    
+    window.isRouteCreatorActive = false;
+    
+    const newRouteBtn = document.getElementById('new-route-btn');
+    const returnToMainBtn = document.getElementById('return-to-main-btn');
+    const routeSelect = document.getElementById('route-select');
+    const saveRouteBtn = document.getElementById('save-route-btn');
+    
+    if (newRouteBtn) {
+        const originalClickHandler = newRouteBtn.onclick;
+        newRouteBtn.onclick = function(e) {
+            if (originalClickHandler) originalClickHandler.call(this, e);
+            console.log("Aktywuję tryb tworzenia trasy");
+            window.isRouteCreatorActive = true;
+        };
+    }
+    
+    if (returnToMainBtn) {
+        const originalClickHandler = returnToMainBtn.onclick;
+        returnToMainBtn.onclick = function(e) {
+            if (originalClickHandler) originalClickHandler.call(this, e);
+            console.log("Dezaktywuję tryb tworzenia trasy");
+            window.isRouteCreatorActive = false;
+        };
+    }
+    
+    
+    if (saveRouteBtn) {
+        const originalClickHandler = saveRouteBtn.onclick;
+        saveRouteBtn.onclick = function(e) {
+            if (originalClickHandler) originalClickHandler.call(this, e);
+            console.log("Zapisano trasę, dezaktywuję tryb tworzenia");
+            window.isRouteCreatorActive = false;
+        };
+    }
+    
+    document.addEventListener('click', function(e) {
+        if (!window.isRouteCreatorActive) return;
+        
+        const pokestopIcon = e.target.closest('.pokestop-icon');
+        if (pokestopIcon) {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            const mapName = pokestopIcon.dataset.mapName;
+            if (!mapName) return;
+            
+            const x = parseFloat(pokestopIcon.style.left);
+            const y = parseFloat(pokestopIcon.style.top);
+            
+            console.log(`Dodaję pokestop ${mapName} do trasy`);
+            window.selectLocationForRoute(mapName, "pokestop", [x, y]);
+            return;
+        }
+        
+        const excavationIcon = e.target.closest('.excavition-icon');
+        if (excavationIcon) {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            const mapName = excavationIcon.dataset.mapName;
+            if (!mapName) return;
+            
+            const x = parseFloat(excavationIcon.style.left);
+            const y = parseFloat(excavationIcon.style.top);
+            
+            console.log(`Dodaję excavation ${mapName} do trasy`);
+            window.selectLocationForRoute(mapName, "excavation", [x, y]);
+            return;
+        }
+    }, true);
+}
+
+
+window.addEventListener('load', function() {
+    init().catch(error => {
+        console.error(window.i18n.t("log.errorDuringInitialization"), error);
+    }).finally(() => {
+        setTimeout(initRouteCreator, 500);
+        setTimeout(setupRouteCreatorClickHandler, 1000);
+    });
+});
+function removeBoss(index) {
+    if (index < 0 || index >= currentRoute.length) {
+        console.error(window.i18n.t("log.invalidRouteItemIndex", [index]) || 
+                      `Invalid route item index: ${index}`);
+        return;
+    }
+    
+    console.log(window.i18n.t("log.removingRouteItem", [index, currentRoute[index].name]) || 
+                `Removing route item #${index}: ${currentRoute[index].name}`);
+    
+    currentRoute.splice(index, 1);
+    
+    refreshBossList();
+}
+function refreshBossList() {
+    const selectedBossesContainer = document.getElementById('selected-bosses-container');
+    selectedBossesContainer.innerHTML = '';
+    
+    currentRouteNumbers.forEach(number => number.remove());
+    currentRouteNumbers = [];
+
+    currentRoute.forEach((location, i) => {
+        const locationType = location.type || "boss";
+        
+        let locationIcon = 'resources/bosses/default-boss.webp';
+        let locationLocation = '';
+        
+        if (locationType === "boss") {
+            const bossData = bosses[location.name] || {};
+            locationLocation = bossData.location || window.i18n.t("search.unknownLocation") || "Unknown Location";
+            locationIcon = `resources/bosses/${location.name}.webp`;
+        } else if (locationType === "pokestop") {
+            locationIcon = 'resources/pokestop.webp';
+            locationLocation = window.i18n.t("pokestop.title") || "PokéStop";
+        } else if (locationType === "excavation") {
+            locationIcon = 'resources/excavition/Excavition.webp';
+            locationLocation = window.i18n.t("excavition.title") || "Excavation Site";
+        }
+        
+        const bossElement = document.createElement('div');
+        bossElement.className = 'selected-boss';
+        bossElement.draggable = true;
+        bossElement.dataset.index = i;
+        bossElement.dataset.locationType = locationType;
+        bossElement.innerHTML = `
+            <div class="boss-list-item">
+                <div class="boss-number">${i + 1}</div>
+                <div class="boss-image">
+                    <img src="${locationIcon}" alt="${location.name}" onerror="this.src='resources/bosses/default-boss.webp'">
+                </div>
+                <div class="boss-details">
+                    <div class="boss-name">${location.name}</div>
+                    <div class="boss-location">${locationLocation}</div>
+                </div>
+            </div>
+            <button class="remove-boss-btn" data-index="${i}">×</button>
+        `;
+        
+        selectedBossesContainer.appendChild(bossElement);
+    
+        bossElement.querySelector('.remove-boss-btn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const index = parseInt(this.dataset.index);
+            removeBoss(index);
+        });
+
+        bossElement.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-boss-btn')) {
+                return;
+            }
+            e.stopPropagation();
+            
+            const location = currentRoute[i];
+            const locationType = location.type || "boss";
+            
+            if (locationType === "boss") {
+                centerMapOnBoss(location.name);
+            } else {
+                const containerWidth = mapContainer.clientWidth;
+                const containerHeight = mapContainer.clientHeight;
+
+                scale = 2.5;
+
+                offsetX = (containerWidth / 2) - (location.position[0] * scale);
+                offsetY = (containerHeight / 2) - (location.position[1] * scale);
+                
+                updateMapTransform();
+            }
+        });
+
+        addRouteNumberToLocation(location.name, location.position, i + 1);
+    });
+}

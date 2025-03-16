@@ -41,6 +41,9 @@ function initBossToggle() {
                 bossLabel.setAttribute('data-i18n', 'boss.toggle');
                 bossLabel.textContent = window.i18n.t('boss.toggle') || 'Bossy';
             }
+            
+            // Dodaj tooltip do przycisku
+            newBtn.setAttribute('title', window.i18n.t('boss.toggle_title') || 'Pokaż/Ukryj Bossy');
         }
         
         // Ustaw początkowy stan przycisku
