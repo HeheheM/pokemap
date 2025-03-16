@@ -231,7 +231,8 @@ function createNewProfile(profileName) {
             lastWeeklyReset: null,
             killedBosses: {},
             bossRoutes: [],
-            clickedPokestops: {}, // Dodajemy pustą właściwość dla pokestopów
+            clickedPokestops: {}, // Dla pokestopów
+            clickedExcavitions: {}, // Dodajemy dla wykopalisk
 
             mapSettings: {
                 defaultScale: DEFAULT_SCALE,
@@ -364,7 +365,8 @@ function saveCurrentProfileData() {
         lastWeeklyReset: null,
         killedBosses: {},
         bossRoutes: [],
-        clickedPokestops: {}, // Dodajemy nową właściwość dla pokestopów
+        clickedPokestops: {},
+        clickedExcavitions: {},
         mapSettings: mapSettings || {
             defaultScale: DEFAULT_SCALE,
             defaultOffsetX: 0,
@@ -431,7 +433,15 @@ function saveCurrentProfileData() {
                 data.clickedPokestops = {};
             }
         }
-
+        const clickedExcavitions = localStorage.getItem('clickedExcavitions');
+        if (clickedExcavitions) {
+            try {
+                data.clickedExcavitions = JSON.parse(clickedExcavitions);
+            } catch (e) {
+                console.warn("Error parsing clickedExcavitions:", e);
+                data.clickedExcavitions = {};
+            }
+        }
         // Aktualizuj dane profilu
         profiles[currentProfile].data = data;
         
@@ -477,7 +487,8 @@ function loadProfileData(profileId) {
         localStorage.removeItem('lastWeeklyReset');
         localStorage.removeItem('killedBosses');
         localStorage.removeItem('bossRoutes');
-        localStorage.removeItem('clickedPokestops'); // Dodajemy czyszczenie danych pokestopów
+        localStorage.removeItem('clickedPokestops');
+        localStorage.removeItem('clickedExcavitions');
 
         // Załaduj dane z profilu do localStorage
         if (profileData.weeklyKillData) {
@@ -500,7 +511,9 @@ function loadProfileData(profileId) {
         if (profileData.clickedPokestops) {
             localStorage.setItem('clickedPokestops', JSON.stringify(profileData.clickedPokestops));
         }
-        
+        if (profileData.clickedExcavitions) {
+            localStorage.setItem('clickedExcavitions', JSON.stringify(profileData.clickedExcavitions));
+        }
         // Resetuj stan tras
         resetRouteState();
 
@@ -755,6 +768,11 @@ function migrateExistingProfiles() {
             profile.data.clickedPokestops = {};
             needsSave = true;
         }
+        if (!profile.data.clickedExcavitions) {
+            console.log(`Adding clickedExcavitions property to profile: ${profile.name}`);
+            profile.data.clickedExcavitions = {};
+            needsSave = true;
+        }
     });
     
     if (needsSave) {
@@ -772,7 +790,7 @@ function setupLocalStorageChangeListener() {
         originalSetItem.apply(this, arguments);
         
         // Sprawdź, czy zmodyfikowane dane są związane z profilem
-        const profileKeys = ['killedBosses', 'bossRoutes', 'weeklyKillData', 'lastWeeklyReset', 'clickedPokestops']; // Dodajemy clickedPokestops
+        const profileKeys = ['killedBosses', 'bossRoutes', 'weeklyKillData', 'lastWeeklyReset', 'clickedPokestops', 'clickedExcavitions'];
         if (profileKeys.includes(key) && currentProfile) {
             // Zaplanuj zapisanie profilu za chwilę (aby zbiorczo zapisać wiele zmian)
             setTimeout(() => {

@@ -63,7 +63,8 @@
         "pokeTeam": "PokeTeam",
         "available": "Available",
         "availableIn": "Available in",
-        "toggle": "Bosses"
+        "toggle": "Bosses",
+        "toggle_title": "Show/Hide Bosses"
       },
       "weeklyKills": {
         "title": "Weekly Boss Kills",
@@ -226,7 +227,14 @@
         "cooldown": "Cooldown",
         "available": "Available",
         "cooldownStarted": "48h cooldown started",
-        "availableIn": "Available in"
+        "availableIn": "Available in",
+        "toggle_title": "Show/Hide Pokestops"
+      },
+      "excavition": {
+        "title": "Excavition",
+        "prefix": "Excavition",
+        "toggle_title": "Show/Hide Excavition",
+        "cooldown": "Reset in"
       }
     },
     "pl": {
@@ -293,7 +301,8 @@
         "pokeTeam": "PokeTeam",
         "available": "Dostępny",
         "availableIn": "Dostępny za",
-        "toggle": "Bossy"
+        "toggle": "Bossy",
+        "toggle_title": "Pokaż/Ukryj Bossy"
       },
       "weeklyKills": {
         "title": "Tygodniowe Zabójstwa Bossów",
@@ -456,7 +465,14 @@
         "cooldown": "Czas odnowienia",
         "available": "Dostępny",
         "cooldownStarted": "Rozpoczęto 48h odnowienie",
-        "availableIn": "Dostępny za"
+        "availableIn": "Dostępny za",
+        "toggle_title": "Pokaż/Ukryj PokéStopy"
+      },
+      "excavition": {
+        "title": "Wykopaliska",
+        "prefix": "Wykopalisko",
+        "toggle_title": "Pokaż/Ukryj Wykopaliska",
+        "cooldown": "Reset za"
       }
     }
   }
