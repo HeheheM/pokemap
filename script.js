@@ -218,7 +218,7 @@ function getNextResetTime() {
     return nextReset;
 }
 
-function resetWeeklyCounter() {
+function resetWeeklyCounter(updateDisplay = true) {
     console.log(window.i18n.t("log.weeklyCounterReset"));
     
     const resetData = {
@@ -228,6 +228,10 @@ function resetWeeklyCounter() {
     };
 
     localStorage.setItem('weeklyKillData', JSON.stringify(resetData));
+    
+    // Fix: Update lastWeeklyReset in localStorage
+    const now = new Date();
+    localStorage.setItem('lastWeeklyReset', JSON.stringify(now));
 
     const killedButtons = document.querySelectorAll('.killed-button');
     killedButtons.forEach(button => {
@@ -240,7 +244,11 @@ function resetWeeklyCounter() {
     });
     
     console.log(window.i18n.t("log.weeklyKillCounterResetToZero"));
-    updateWeeklyKillsDisplay();
+    
+    // Only update display if flag is true
+    if (updateDisplay) {
+        updateWeeklyKillsDisplay();
+    }
     
     return true;
 }
@@ -252,8 +260,7 @@ function formatNextResetTime() {
     const timeRemaining = nextReset - now;
 
     if (shouldResetWeeklyCounter()) {
-
-        resetWeeklyCounter();
+        resetWeeklyCounter(false); // Pass false to prevent recursive updates
         return window.i18n.t("weeklyKills.resettingNow");
     }
     
