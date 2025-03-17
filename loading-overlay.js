@@ -95,7 +95,7 @@ console.log = function() {
   const message = arguments[0];
   if (typeof message === 'string' && 
      (message.includes("Pokemon search initialization completed successfully") || 
-      message === "pokemon-search.js:79 Pokemon search initialization completed successfully.")) {
+      message === "pokemon-search.js:74 Pokemon search initialization completed successfully.")) {
     removeLoadingOverlay();
   }
 };
