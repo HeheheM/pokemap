@@ -4,7 +4,7 @@ let languageChangeListeners = [];
 
 async function initializeI18n() {
     try {
-        const response = await fetch('language.json');
+        const response = await fetch('data/language.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

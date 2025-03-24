@@ -49,7 +49,7 @@ const resetBtn = document.getElementById('reset');
 
 async function loadLocationsData() {
     try {
-        let response = await fetch('locations.json');
+        let response = await fetch('data/locations.json');
         
         if (!response.ok) {
             console.log(window.i18n.t("log.notFoundLocationsJson"));
@@ -71,7 +71,7 @@ async function loadLocationsData() {
 
 async function loadBossesData() {
     try {
-        const response = await fetch('bosses.json');
+        const response = await fetch('data/bosses.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -779,6 +779,7 @@ function renderAreaPolygon(location) {
     svg.appendChild(polygon);
     map.appendChild(svg);
 }
+
 function saveRouteToJson() {
     const routeSelect = document.getElementById('route-select');
     const selectedRouteIndex = routeSelect.value;
@@ -790,14 +791,16 @@ function saveRouteToJson() {
     
     const selectedRoute = routes[selectedRouteIndex];
 
-    const routeBosses = selectedRoute.bosses.map(boss => ({
-        name: boss.name,
-        position: boss.position
+    // Include the 'type' property when mapping route items
+    const routeItems = selectedRoute.bosses.map(item => ({
+        name: item.name,
+        position: item.position,
+        type: item.type || "boss" // Preserve the type of the location
     }));
     
     const routeData = {
         name: selectedRoute.name,
-        bosses: routeBosses
+        bosses: routeItems
     };
 
     const jsonString = JSON.stringify(routeData, null, 2);
@@ -927,7 +930,7 @@ function saveToJson() {
     
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'locations.json';
+    a.download = 'data/locations.json';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
