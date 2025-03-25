@@ -9,7 +9,8 @@ let sortDirections = {
     'az': true, // true = A-Z, false = Z-A
     'level': true, // true = najniższy-najwyższy, false = najwyższy-najniższy
     'item': true, // true = bez itema-z itemem, false = z itemem-bez itema
-    'location': true // true = A-Z, false = Z-A
+    'location': true, // true = A-Z, false = Z-A
+    'tier': true
 };
 
 async function initPokemonSearch() {
@@ -42,14 +43,14 @@ async function initPokemonSearch() {
 
             window.i18n.onLanguageChange((newLang) => {
                 console.log("Language changed to: " + newLang + ", updating Pokemon panel...");
-
+            
                 if (currentPokemonName) {
                     const locationsPanel = document.querySelector('.pokemon-locations-panel');
                     if (locationsPanel) {
                         refreshPokemonPanel(currentPokemonName);
                     }
                 }
-
+            
                 const locationPanel = document.querySelector('.location-pokemon-panel');
                 if (locationPanel) {
                     const locationName = locationPanel.querySelector('.pokemon-locations-header h3').textContent.trim();
@@ -60,7 +61,7 @@ async function initPokemonSearch() {
                         }
                     }
                 }
-
+            
                 const itemPanel = document.querySelector('.item-pokemon-panel');
                 if (itemPanel) {
                     const itemName = itemPanel.querySelector('.pokemon-locations-header h3').textContent.trim();
@@ -68,6 +69,7 @@ async function initPokemonSearch() {
                         displayPokemonsByItem(itemName);
                     }
                 }
+                updateSortButtonsText();
             });
         }
 
@@ -104,9 +106,18 @@ function createDaytimeIconsHTML(daytimeArray) {
     return html;
 }
 
-function createTierIconHTML(tier) {
+function createTierIconHTML(tier, pokemonLocation) {
     if (!tier) return '';
-    return `<img src="resources/${tier.toLowerCase()}.webp" class="pokemon-location-icon" title="${tier}" alt="${tier}" onerror="this.style.display='none'">`;
+
+    let tierDisplayText = tier;
+
+    // Dodaj informacje o liczbie pokemonów w tierze jeśli dostępne
+    const tierInfo = getTierDistribution(pokemonLocation);
+    if (tierInfo) {
+      tierDisplayText = `${tier} (${tierInfo.tierCount}/${tierInfo.totalCount})`;
+    }
+
+    return `<img src="resources/${tier.toLowerCase()}.webp" class="pokemon-location-icon" title="${tierDisplayText}" alt="${tier}" onerror="this.style.display='none'">`;
 }
 
 function createItemIconHTML(item) {
@@ -138,23 +149,63 @@ function createRepelIconHTML(requiresRepel) {
 }
 
 function createLocationIconsHTML(pokemonLocation) {
-    let iconsHTML = '';
+  let iconsHTML = '';
 
-    iconsHTML += createTierIconHTML(pokemonLocation.Tier);
+  // Dodanie ikony tiera (pozostaje bez zmian)
+  iconsHTML += createTierIconHTML(pokemonLocation.Tier, pokemonLocation);
 
-    iconsHTML += createSourceIconHTML(pokemonLocation.Source);
+  // Dodanie źródła (land/surf)
+  iconsHTML += createSourceIconHTML(pokemonLocation.Source);
+  
+  // Dodanie nowego elementu z informacją o tierze tekstowo
+  const tierInfo = getTierDistribution(pokemonLocation);
+  if (tierInfo && pokemonLocation.Tier) {
+    const tierClass = `tier-${pokemonLocation.Tier.toLowerCase()}`;
+    iconsHTML += `<span class="pokemon-tier-info ${tierClass}" title="${window.i18n ? window.i18n.t('pokemon.tierDistribution', {count: tierInfo.tierCount, total: tierInfo.totalCount, tier: pokemonLocation.Tier}) || `${pokemonLocation.Tier} Pokemon: ${tierInfo.tierCount}/${tierInfo.totalCount}` : `${pokemonLocation.Tier} Pokemon: ${tierInfo.tierCount}/${tierInfo.totalCount}`}">${tierInfo.tierCount}/${tierInfo.totalCount}</span>`;
+  }
 
-    iconsHTML += createFishingIconHTML(pokemonLocation.FishingOnly, pokemonLocation.RequiredRod);
+  iconsHTML += createFishingIconHTML(pokemonLocation.FishingOnly, pokemonLocation.RequiredRod);
 
-    iconsHTML += createRepelIconHTML(pokemonLocation.RequiresRepel);
+  iconsHTML += createRepelIconHTML(pokemonLocation.RequiresRepel);
 
-    iconsHTML += createItemIconHTML(pokemonLocation.Item);
+  iconsHTML += createItemIconHTML(pokemonLocation.Item);
 
-    iconsHTML += createMembershipIconHTML(pokemonLocation.MemberOnly);
+  iconsHTML += createMembershipIconHTML(pokemonLocation.MemberOnly);
 
-    iconsHTML += createDaytimeIconsHTML(pokemonLocation.Daytime);
+  iconsHTML += createDaytimeIconsHTML(pokemonLocation.Daytime);
 
-    return iconsHTML;
+  return iconsHTML;
+}
+
+// Funkcja do obliczania liczby pokemonów w danym tierze dla konkretnego pokemona
+function getTierDistribution(pokemonData) {
+    if (!pokemonData.Map || !pokemonData.Tier || !pokemonData.Source) {
+      return null;
+    }
+    
+    const sameLocationAndSource = allPokemonData.filter(
+      entry => entry.Map === pokemonData.Map && 
+               entry.Source === pokemonData.Source
+    );
+    
+    const totalPokemon = sameLocationAndSource.length;
+    const sameTier = sameLocationAndSource.filter(entry => entry.Tier === pokemonData.Tier);
+    const sameTierCount = sameTier.length;
+    
+    return {
+      tierCount: sameTierCount,
+      totalCount: totalPokemon,
+      percentage: Math.round((sameTierCount / totalPokemon) * 100)
+    };
+}
+  
+// Funkcja do formatowania wyświetlania tierów
+function formatTierDisplay(pokemonData) {
+  const tierInfo = getTierDistribution(pokemonData);
+  if (!tierInfo) return '';
+  
+  const tierName = pokemonData.Tier;
+  return `${tierName} (${tierInfo.tierCount}/${tierInfo.totalCount})`;
 }
 
 function sortLocationsByDefault(locationsArray, ascending) {
@@ -206,6 +257,25 @@ function sortLocationsByItem(locationsArray, ascending) {
     });
 }
 
+function sortLocationsByTierCount(locationsArray, ascending) {
+    locationsArray.sort((a, b) => {
+        if (a.isOnMap && !b.isOnMap) return -1;
+        if (!a.isOnMap && b.isOnMap) return 1;
+        
+        const tierInfoA = getTierDistribution(a.location);
+        const tierInfoB = getTierDistribution(b.location);
+        
+        const tierCountA = tierInfoA ? tierInfoA.tierCount : 0;
+        const tierCountB = tierInfoB ? tierInfoB.tierCount : 0;
+        
+        if (tierCountA !== tierCountB) {
+            return ascending ? (tierCountA - tierCountB) : (tierCountB - tierCountA);
+        }
+        
+        return a.location.Map.localeCompare(b.location.Map);
+    });
+}
+
 function refreshPokemonPanel(pokemonName) {
     currentPokemonName = pokemonName;
 
@@ -251,63 +321,142 @@ function refreshPokemonPanel(pokemonName) {
 
     sortLocationsByDefault(locationsWithAvailability, true);
 
-    sortDirections = {
-        'az': true,
-        'level': true,
-        'item': true,
-        'location': true
-    };
+    // Aktualizacja lub inicjalizacja sortDirections
+    if (!sortDirections) {
+        sortDirections = {
+            'az': true,
+            'level': true,
+            'item': true,
+            'location': true,
+            'tier': true
+        };
+    } else {
+        // Upewnij się, że sortDirections ma wszystkie potrzebne klucze
+        sortDirections.tier = sortDirections.tier !== undefined ? sortDirections.tier : true;
+    }
 
-    locationsPanel.innerHTML = `
-        <div class="pokemon-locations-header">
-            <h3>
-                <img src="${pokemonImageSrc}" alt="${pokemonName}" onerror="this.src='resources/pokemons/default-poke.webp'">
-                ${pokemonName}
-            </h3>
-            <span class="close-locations-panel">&times;</span>
-        </div>
-        <div class="pokemon-locations-content">
-            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.locationsTitle") : "This Pokemon can be found in these locations:"}</p>
-            <div class="pokemon-sort-options">
-                <button class="sort-button sort-az active" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
-                <button class="sort-button sort-level" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
-                <button class="sort-button sort-item" data-sort="item">${window.i18n ? window.i18n.t("pokesearch.sortItem") : "Has Item"}</button>
-            </div>
-            <ul class="pokemon-locations-list" id="pokemon-locations-list">
-                ${locationsWithAvailability.map(item => {
-                    const levelRange = item.location.MinLVL && item.location.MaxLVL ? 
-                        ` (${item.location.MinLVL}-${item.location.MaxLVL})` : '';
-                    return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}"
-                        data-min-level="${item.location.MinLVL || 0}" data-max-level="${item.location.MaxLVL || 0}" data-has-item="${item.location.Item ? '1' : '0'}">
-                        <div class="pokemon-location-name">${item.location.Map}${levelRange}</div>
-                        <div class="pokemon-location-icons">${createLocationIconsHTML(item.location)}</div>
-                    </li>`;
-                }).join('')}
-            </ul>
+    // Aktualizuj UI panelu
+    refreshPokemonPanelUI(locationsPanel, locationsWithAvailability);
+
+    clearOnlyPokemonIcons();
+    displayAllPokemonIcons(pokemonName, locations);
+}
+
+function updateSortButtonsText() {
+    // Aktualizacja tekstu na przyciskach sortowania
+    const sortAzButtons = document.querySelectorAll('.sort-button.sort-az');
+    const sortLevelButtons = document.querySelectorAll('.sort-button.sort-level');
+    const sortItemButtons = document.querySelectorAll('.sort-button.sort-item');
+    const sortLocationButtons = document.querySelectorAll('.sort-button.sort-location');
+    const sortTierButtons = document.querySelectorAll('.sort-button.sort-tier');
+    
+    if (window.i18n) {
+        sortAzButtons.forEach(btn => {
+            btn.textContent = window.i18n.t('pokesearch.sortAZ');
+        });
+        
+        sortLevelButtons.forEach(btn => {
+            btn.textContent = window.i18n.t('pokesearch.sortLevel');
+        });
+        
+        sortItemButtons.forEach(btn => {
+            btn.textContent = window.i18n.t('pokesearch.sortItem');
+        });
+        
+        sortLocationButtons.forEach(btn => {
+            btn.textContent = window.i18n.t('pokesearch.sortLocation');
+        });
+        
+        sortTierButtons.forEach(btn => {
+            btn.textContent = window.i18n.t('pokesearch.sortTier');
+        });
+    }
+}
+
+function refreshPokemonPanelUI(locationsPanel, locationsWithAvailability) {
+    // Sprawdź, czy panel istnieje
+    if (!locationsPanel) return;
+    
+    // Znajdź nagłówek panelu i pozostaw go bez zmian
+    const headerHTML = locationsPanel.querySelector('.pokemon-locations-header').outerHTML;
+    
+    // Pobierz aktywny przycisk sortowania i jego stan (rosnąco/malejąco)
+    let activeSort = 'az';
+    let isSortDescending = false;
+    
+    const activeButton = locationsPanel.querySelector('.sort-button.active');
+    if (activeButton) {
+        activeSort = activeButton.dataset.sort;
+        isSortDescending = activeButton.classList.contains('descending');
+    }
+    
+    // Zbuduj HTML dla przycisków sortowania
+    const sortButtonsHTML = `
+        <div class="pokemon-sort-options">
+            <button class="sort-button sort-az ${activeSort === 'az' ? 'active' : ''} ${activeSort === 'az' && isSortDescending ? 'descending' : ''}" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
+            <button class="sort-button sort-level ${activeSort === 'level' ? 'active' : ''} ${activeSort === 'level' && isSortDescending ? 'descending' : ''}" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
+            <button class="sort-button sort-item ${activeSort === 'item' ? 'active' : ''} ${activeSort === 'item' && isSortDescending ? 'descending' : ''}" data-sort="item">${window.i18n ? window.i18n.t("pokesearch.sortItem") : "Has Item"}</button>
+            <button class="sort-button sort-tier ${activeSort === 'tier' ? 'active' : ''} ${activeSort === 'tier' && isSortDescending ? 'descending' : ''}" data-sort="tier">${window.i18n ? window.i18n.t("pokesearch.sortTier") : "Tier Count"}</button>
         </div>
     `;
+    
+    // Buduj HTML dla listy lokalizacji
+    const locationsListHTML = `
+        <ul class="pokemon-locations-list" id="pokemon-locations-list">
+            ${locationsWithAvailability.map(item => {
+                const levelRange = item.location.MinLVL && item.location.MaxLVL ? 
+                    ` (${item.location.MinLVL}-${item.location.MaxLVL})` : '';
+                return `<li data-location="${item.location.Map}" class="${item.isOnMap ? '' : 'not-on-map'}" title="${item.isOnMap ? window.i18n ? window.i18n.t("pokesearch.clickToCenter") : 'Click to center map' : window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : 'Location not on map'}"
+                    data-min-level="${item.location.MinLVL || 0}" data-max-level="${item.location.MaxLVL || 0}" data-has-item="${item.location.Item ? '1' : '0'}">
+                    <div class="pokemon-location-name">${item.location.Map}${levelRange}</div>
+                    <div class="pokemon-location-icons">${createLocationIconsHTML(item.location)}</div>
+                </li>`;
+            }).join('')}
+        </ul>
+    `;
+    
+    // Zaktualizuj zawartość panelu
+    locationsPanel.innerHTML = `
+        ${headerHTML}
+        <div class="pokemon-locations-content">
+            <p class="pokemon-locations-title">${window.i18n ? window.i18n.t("pokesearch.locationsTitle") : "This Pokemon can be found in these locations:"}</p>
+            ${sortButtonsHTML}
+            ${locationsListHTML}
+        </div>
+    `;
+    
+    // Podłącz zdarzenia do przycisków i elementów listy
+    attachPokemonPanelEvents(locationsPanel, locationsWithAvailability);
+}
 
-    locationsPanel.querySelector('.close-locations-panel').addEventListener('click', function() {
-        locationsPanel.remove();
-        currentPokemonName = null; // Clear current Pokemon when panel is closed
-        clearOnlyPokemonIcons();
-    });
-
-    locationsPanel.querySelectorAll('.pokemon-locations-list li').forEach(item => {
+function attachPokemonPanelEvents(panel, locationsWithAvailability) {
+    // Podłącz zdarzenie zamykania
+    const closeButton = panel.querySelector('.close-locations-panel');
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            panel.remove();
+            currentPokemonName = null;
+            clearOnlyPokemonIcons();
+        });
+    }
+    
+    // Podłącz zdarzenia do elementów listy
+    panel.querySelectorAll('.pokemon-locations-list li').forEach(item => {
         item.addEventListener('click', function() {
             const locationName = this.dataset.location;
             const locationInfo = locationsWithAvailability.find(l => l.location.Map === locationName);
 
             if (locationInfo && locationInfo.isOnMap) {
-                centerMapOnLocation(locationInfo.mapLoc);
+                centerMapOnLocation(locationInfo.mapLoc, true);
                 highlightPokemonLocation(locationInfo.location, locationInfo.mapLoc);
             } else {
                 alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
             }
         });
     });
-
-    const sortButtons = locationsPanel.querySelectorAll('.sort-button');
+    
+    // Podłącz zdarzenia do przycisków sortowania
+    const sortButtons = panel.querySelectorAll('.sort-button');
     sortButtons.forEach(button => {
         button.addEventListener('click', function() {
             const sortType = this.dataset.sort;
@@ -328,15 +477,19 @@ function refreshPokemonPanel(pokemonName) {
                 sortDirections[sortType] = true;
             }
             
+            // Zastosuj odpowiednie sortowanie
             if (sortType === 'az') {
                 sortLocationsByDefault(locationsWithAvailability, sortDirections.az);
             } else if (sortType === 'level') {
                 sortLocationsByLevel(locationsWithAvailability, sortDirections.level);
             } else if (sortType === 'item') {
                 sortLocationsByItem(locationsWithAvailability, sortDirections.item);
+            } else if (sortType === 'tier') {
+                sortLocationsByTierCount(locationsWithAvailability, sortDirections.tier);
             }
             
-            const list = locationsPanel.querySelector('#pokemon-locations-list');
+            // Zaktualizuj listę po sortowaniu
+            const list = panel.querySelector('#pokemon-locations-list');
             
             list.innerHTML = locationsWithAvailability.map(item => {
                 const levelRange = item.location.MinLVL && item.location.MaxLVL ? 
@@ -348,13 +501,14 @@ function refreshPokemonPanel(pokemonName) {
                 </li>`;
             }).join('');
             
+            // Podłącz zdarzenia kliknięcia do nowo utworzonych elementów listy
             list.querySelectorAll('li').forEach(item => {
                 item.addEventListener('click', function() {
                     const locationName = this.dataset.location;
                     const locationInfo = locationsWithAvailability.find(l => l.location.Map === locationName);
         
                     if (locationInfo && locationInfo.isOnMap) {
-                        centerMapOnLocation(locationInfo.mapLoc);
+                        centerMapOnLocation(locationInfo.mapLoc, true);
                         highlightPokemonLocation(locationInfo.location, locationInfo.mapLoc);
                     } else {
                         alert(window.i18n ? window.i18n.t("pokesearch.locationNotOnMap") : "Location not on map");
@@ -363,22 +517,22 @@ function refreshPokemonPanel(pokemonName) {
             });
         });
     });
+    
+    // Obsługa scrolla
+    const locationsContent = panel.querySelector('.pokemon-locations-content');
+    if (locationsContent) {
+        locationsContent.addEventListener('wheel', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
 
-    clearOnlyPokemonIcons();
-    displayAllPokemonIcons(pokemonName, locations);
+            const delta = e.deltaY || e.detail || e.wheelDelta;
+            const scrollAmount = delta > 0 ? 40 : -40;
 
-    const locationsContent = locationsPanel.querySelector('.pokemon-locations-content');
-    locationsContent.addEventListener('wheel', function(e) {
-        e.stopPropagation();
-        e.preventDefault();
+            this.scrollTop += scrollAmount;
 
-        const delta = e.deltaY || e.detail || e.wheelDelta;
-        const scrollAmount = delta > 0 ? 40 : -40;
-
-        this.scrollTop += scrollAmount;
-
-        return false;
-    }, { passive: false });  // The passive: false is crucial for preventDefault to work
+            return false;
+        }, { passive: false });
+    }
 }
 
 async function loadPokemonData() {
@@ -900,7 +1054,8 @@ function displayPokemonLocations(pokemonName) {
         'az': true,
         'level': true,
         'item': true,
-        'location': true
+        'location': true,
+        'tier': true
     };
 
     locationsPanel.innerHTML = `
@@ -917,6 +1072,7 @@ function displayPokemonLocations(pokemonName) {
                 <button class="sort-button sort-az active" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
                 <button class="sort-button sort-level" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
                 <button class="sort-button sort-item" data-sort="item">${window.i18n ? window.i18n.t("pokesearch.sortItem") : "Has Item"}</button>
+                <button class="sort-button sort-tier" data-sort="tier">${window.i18n ? window.i18n.t("pokesearch.sortTier") : "Tier Count"}</button>
             </div>
             <ul class="pokemon-locations-list" id="pokemon-locations-list">
                 ${locationsWithAvailability.map(item => {
@@ -979,6 +1135,8 @@ function displayPokemonLocations(pokemonName) {
                 sortLocationsByLevel(locationsWithAvailability, sortDirections.level);
             } else if (sortType === 'item') {
                 sortLocationsByItem(locationsWithAvailability, sortDirections.item);
+            } else if (sortType === 'tier') {
+                sortLocationsByTierCount(locationsWithAvailability, sortDirections.tier);
             }
             
             const list = locationsPanel.querySelector('#pokemon-locations-list');
@@ -1236,6 +1394,12 @@ function displayPokemonTooltip(pokemonData, x, y) {
         daytimeText = dayParts.join(', ');
     }
 
+    const tierInfo = getTierDistribution(pokemonData);
+    let tierText = pokemonData.Tier || (window.i18n ? window.i18n.t('pokemon.unknown') : 'Unknown');
+    if (tierInfo) {
+        tierText = `${tierText} (${tierInfo.tierCount}/${tierInfo.totalCount})`;
+    }
+
     const content = `
         <div class="pokemon-tooltip-header">
             <h3>${pokemonData.Pokemon} (#${pokemonData.MonsterID})</h3>
@@ -1264,8 +1428,8 @@ function displayPokemonTooltip(pokemonData, x, y) {
                     <td>${pokemonData.MemberOnly ? window.i18n.t('pokemon.yes') : window.i18n.t('pokemon.no')}</td>
                 </tr>
                 <tr>
-                    <td><strong>${window.i18n.t('pokemon.rarityLevel')}:</strong></td>
-                    <td>${pokemonData.Tier || window.i18n.t('pokemon.unknown')}</td>
+                    <td><strong>${window.i18n ? window.i18n.t('pokemon.rarityLevel') : 'Rarity Level'}:</strong></td>
+                    <td>${tierText}</td>
                 </tr>
                 ${pokemonData.RequiresRepel ? `
                 <tr>
@@ -1472,7 +1636,8 @@ function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
         'az': true,
         'level': true,
         'item': true,
-        'location': true
+        'location': true,
+        'tier': true
     };
 
     panel.innerHTML = `
@@ -1486,6 +1651,7 @@ function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
                 <button class="sort-button sort-az active" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
                 <button class="sort-button sort-level" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
                 <button class="sort-button sort-item" data-sort="item">${window.i18n ? window.i18n.t("pokesearch.sortItem") : "Has Item"}</button>
+                <button class="sort-button sort-tier" data-sort="tier">${window.i18n ? window.i18n.t("pokesearch.sortTier") : "Tier Count"}</button>
             </div>
             <ul class="pokemon-locations-list" id="location-pokemon-list">
                 ${pokemonList.map(pokemon => {
@@ -1587,6 +1753,21 @@ function displayLocationPokemonPanel(locationName, pokemonList, mapLoc) {
                     }
                     
                     return a.Pokemon.localeCompare(b.Pokemon);
+                });
+            }
+            else if (sortType === 'tier') {
+                sortedList.sort((a, b) => {
+                    const tierInfoA = getTierDistribution(a.pokemon);
+                    const tierInfoB = getTierDistribution(b.pokemon);
+                    
+                    const tierCountA = tierInfoA ? tierInfoA.tierCount : 0;
+                    const tierCountB = tierInfoB ? tierInfoB.tierCount : 0;
+                    
+                    if (tierCountA !== tierCountB) {
+                        return ascending ? (tierCountA - tierCountB) : (tierCountB - tierCountA);
+                    }
+                    
+                    return a.pokemon.Pokemon.localeCompare(b.pokemon.Pokemon);
                 });
             }
             
@@ -1722,7 +1903,8 @@ function displayItemPokemonPanel(itemName, pokemonList) {
         'az': true,
         'level': true,
         'item': true,
-        'location': true
+        'location': true,
+        'tier': true
     };
 
     panel.innerHTML = `
@@ -1739,6 +1921,7 @@ function displayItemPokemonPanel(itemName, pokemonList) {
                 <button class="sort-button sort-az active" data-sort="az">${window.i18n ? window.i18n.t("pokesearch.sortAZ") : "A-Z"}</button>
                 <button class="sort-button sort-level" data-sort="level">${window.i18n ? window.i18n.t("pokesearch.sortLevel") : "Level"}</button>
                 <button class="sort-button sort-location" data-sort="location">${window.i18n ? window.i18n.t("pokesearch.sortLocation") : "Location"}</button>
+                <button class="sort-button sort-tier" data-sort="tier">${window.i18n ? window.i18n.t("pokesearch.sortTier") : "Tier Count"}</button>
             </div>
             <ul class="pokemon-locations-list" id="item-pokemon-list">
                 ${pokemonWithAvailability.map(item => {
@@ -1854,6 +2037,23 @@ function displayItemPokemonPanel(itemName, pokemonList) {
                     
                     const compareResult = a.pokemon.Map.localeCompare(b.pokemon.Map);
                     return ascending ? compareResult : -compareResult;
+                });
+            } else if (sortType === 'tier') {
+                sortedList.sort((a, b) => {
+                    if (a.isOnMap && !b.isOnMap) return -1;
+                    if (!a.isOnMap && b.isOnMap) return 1;
+                    
+                    const tierInfoA = getTierDistribution(a.pokemon);
+                    const tierInfoB = getTierDistribution(b.pokemon);
+                    
+                    const tierCountA = tierInfoA ? tierInfoA.tierCount : 0;
+                    const tierCountB = tierInfoB ? tierInfoB.tierCount : 0;
+                    
+                    if (tierCountA !== tierCountB) {
+                        return ascending ? (tierCountA - tierCountB) : (tierCountB - tierCountA);
+                    }
+                    
+                    return a.pokemon.Pokemon.localeCompare(b.pokemon.Pokemon);
                 });
             }
             

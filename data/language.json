@@ -201,7 +201,8 @@
         "sortAZ": "A-Z",
         "sortLevel": "Level",
         "sortItem": "With item",
-        "sortLocation": "A-Z Location"
+        "sortLocation": "A-Z Location",
+        "sortTier": "Tier Count"
       },
       "pokemon": {
         "location": "Location",
@@ -219,7 +220,10 @@
         "no": "No",
         "landSpawn": "Land",
         "waterSpawn": "Surf",
-        "repelRequired": "Repel"
+        "repelRequired": "Repel",
+        "tierDistribution": "{{count}} out of {{total}} Pokemon in this location are {{tier}}",
+        "tierCount": "Tier Count",
+        "tierRatio": "{{count}}/{{total}}"
       },
       "pokestop": {
         "title": "PokéStop",
@@ -438,8 +442,9 @@
         "noResults": "Nie znaleziono wyników",
         "sortAZ": "A-Z",
         "sortLevel": "Poziom",
-        "sortItem": "z Przedmiotem",
-        "sortLocation": "A-Z Lokacja"
+        "sortItem": "Z Przedmiotem",
+        "sortLocation": "A-Z Lokacja",
+        "sortTier": "Ilość Tierów"
     },
       "pokemon": {
         "location": "Lokalizacja",
@@ -457,7 +462,10 @@
         "no": "Nie",
         "landSpawn": "Land",
         "waterSpawn": "Surf",
-        "repelRequired": "Repel"
+        "repelRequired": "Repel",
+        "tierDistribution": "{{count}} z {{total}} Pokemonów w tej lokalizacji to {{tier}}",
+        "tierCount": "Liczba w Tierze",
+        "tierRatio": "{{count}}/{{total}}"
       },
       "pokestop": {
         "title": "PokéStop",

@@ -985,7 +985,7 @@ body {
     padding: 15px;
     overflow-y: auto;
     /* Restrict the height to show around 6 items */
-    max-height: 250px;
+    max-height: 500px;
     /* Hide scrollbar for different browsers */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
@@ -1240,6 +1240,32 @@ body {
     display: inline-block;
 }
 
+/* Style dla informacji o tierze */
+.pokemon-tier-info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin: 0 2px;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Style dla różnych tierów */
+.tier-common {
+    background-color: rgba(125, 125, 125, 0.7);
+}
+
+.tier-uncommon {
+    background-color: rgba(46, 204, 113, 0.7);
+}
+
+.tier-rare {
+    background-color: rgba(52, 152, 219, 0.7);
+}
 
 /* Animowane podkreślenie dla elementów listy w panelu lokalizacji */
 .location-pokemon-panel .pokemon-locations-list li {
