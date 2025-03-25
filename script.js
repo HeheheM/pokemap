@@ -2010,12 +2010,13 @@ function emergencyDisplayRouteBosses() {
             container.style.padding = '15px 15px 15px 5px';
             container.style.margin = '20px 0 20px -10px';
             container.style.borderRadius = '5px';
-            container.style.maxHeight = 'calc(100vh - 250px)';
+            container.style.maxHeight = 'calc(100vh - 360px)'; // Zwiększamy odjętą wartość
             container.style.overflowY = 'auto';
             container.style.color = 'white';
             container.style.display = 'block';
             container.style.position = 'relative';
             container.style.zIndex = '100';
+            container.style.paddingBottom = '15px'; // Dodajemy padding na dole
 
             const routeCreatorSidebar = document.getElementById('route-creator-sidebar');
             const routeSelector = routeCreatorSidebar.querySelector('.route-selector');
