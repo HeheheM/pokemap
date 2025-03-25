@@ -68,7 +68,6 @@
             </div>
             
             <div id="route-boss-list-container"></div>
-            
             <div id="route-creator-container" style="display: none;">
                 <div class="route-search-container">
                     <input type="text" id="boss-search" class="search-input" data-i18n-placeholder="search.bossPlaceholder" placeholder="Wyszukaj bossa...">
@@ -77,8 +76,21 @@
                 
                 <div id="selected-bosses-container">
                 </div>
-                
                 <button id="save-route-btn" class="control-btn primary" data-i18n="route.saveRoute">Zapisz trasę</button>
+            </div>
+            <div class="toggle-buttons-container route-toggle-container">
+                <div id="route-pokestop-toggle-btn" class="pokestop-toggle-btn">
+                    <img src="resources/pokestop.webp" alt="PokéStop Toggle" title="Pokaż/Ukryj PokéStopy" />
+                    <span data-i18n="pokestop.title">PokéStop</span>
+                </div>
+                <div id="route-boss-toggle-btn" class="boss-toggle-btn">
+                    <img src="resources/boss.webp" alt="Boss Toggle" title="Pokaż/Ukryj Bossy" />
+                    <span data-i18n="boss.toggle">Bossy</span>
+                </div>
+                <div id="route-excavition-toggle-btn" class="pokestop-toggle-btn">
+                    <img src="resources/excavition/Excavition.webp" alt="Excavition Toggle" title="Pokaż/Ukryj Wykopaliska" />
+                    <span data-i18n="excavition.title">Wykopaliska</span>
+                </div>
             </div>
         </div>
     </div>
@@ -103,5 +115,6 @@
     <script src="pokestops.js"></script>
     <script src="boss-toggle.js"></script>
     <script src="excavition.js"></script>
+    <script src="route-toggle-sync.js"></script>
 </body>
 </html>

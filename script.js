@@ -1507,6 +1507,12 @@ function initRouteCreator() {
     const sidebarChildren = document.querySelectorAll('.sidebar > *:not(#route-creator-sidebar)');
     defaultSidebarContent = Array.from(sidebarChildren);
 
+    window.isEditingNewRoute = false;
+    window.lastRouteState = {
+        isActive: false,
+        route: []
+    };
+
     setupDragAndDrop();
 
     routeCreatorBtn.addEventListener('click', function() {
@@ -1514,10 +1520,52 @@ function initRouteCreator() {
         routeCreatorSidebar.style.display = 'block';
         loadSavedRoutes();
         updateWeeklyKillsDisplay();
-        isRouteCreatorActive = false;
+        
+        // Sprawdźmy czy mamy niezapisaną trasę
+        if (window.lastRouteState.isActive) {
+            // Przywracamy stan edycji
+            currentRoute = [...window.lastRouteState.route]; // Tworzymy kopię tablicy
+            routeCreatorContainer.style.display = 'block';
+            isRouteCreatorActive = true;
+            routeSelect.value = '';
+            
+            // Odświeżamy UI
+            refreshBossList();
+            displayCurrentRouteNumbers();
+            
+            // Ukrywamy kontener awaryjny
+            const emergencyBossContainer = document.getElementById('emergency-boss-container');
+            if (emergencyBossContainer) {
+                emergencyBossContainer.style.display = 'none';
+            }
+            
+            console.log("Przywrócono niezapisaną trasę z " + currentRoute.length + " elementami.");
+        } else {
+            // Domyślne zachowanie - włączamy tryb edycji nowej trasy
+            routeCreatorContainer.style.display = 'block';
+            currentRoute = [];
+            selectedBossesContainer.innerHTML = '';
+            isRouteCreatorActive = true;
+            routeSelect.value = '';
+            
+            // Ukrywamy kontener awaryjny
+            const emergencyBossContainer = document.getElementById('emergency-boss-container');
+            if (emergencyBossContainer) {
+                emergencyBossContainer.style.display = 'none';
+            }
+            
+            window.isEditingNewRoute = true;
+        }
     });
 
     returnToMainBtn.addEventListener('click', function() {
+        // Zapisujemy stan trasy przed powrotem
+        if (currentRoute.length > 0 && isRouteCreatorActive) {
+            window.lastRouteState.isActive = true;
+            window.lastRouteState.route = [...currentRoute]; // Tworzymy kopię tablicy
+            console.log("Zapisano tymczasowo trasę z " + currentRoute.length + " elementami.");
+        }
+        
         defaultSidebarContent.forEach(el => el.style.display = '');
         routeCreatorSidebar.style.display = 'none';
         clearRouteNumbers();
@@ -1535,6 +1583,14 @@ function initRouteCreator() {
     function clearRouteNumbers() {
         currentRouteNumbers.forEach(number => number.remove());
         currentRouteNumbers = [];
+    }
+    
+    // Nowa funkcja do wyświetlania numerów trasy
+    function displayCurrentRouteNumbers() {
+        clearRouteNumbers();
+        currentRoute.forEach((location, index) => {
+            addRouteNumberToLocation(location.name, location.position, index + 1);
+        });
     }
 
     function addRouteNumberToBoss(bossName, number) {
@@ -1715,6 +1771,9 @@ function initRouteCreator() {
         selectedBossesContainer.innerHTML = '';
         bossSearch.focus();
         isRouteCreatorActive = true;
+        window.isEditingNewRoute = true;
+        window.lastRouteState.isActive = false;
+        
         const emergencyBossContainer = document.getElementById('emergency-boss-container');
         if (emergencyBossContainer) {
             emergencyBossContainer.style.display = 'none';
@@ -1831,6 +1890,12 @@ function initRouteCreator() {
         routeSelect.value = routes.length - 1;
         const event = new Event('change');
         routeSelect.dispatchEvent(event);
+        
+        // Resetujemy stan edycji trasy
+        currentRoute = [];
+        window.lastRouteState.isActive = false;
+        window.lastRouteState.route = [];
+        window.isEditingNewRoute = false;
         
         setTimeout(() => {
             this.dataset.saving = "false";
@@ -2687,6 +2752,7 @@ window.getpos = function() {
     console.log(window.i18n.t("log.currentPosition", [positionText]));
     return { x, y };
 };
+
 function selectLocationForRoute(locationName, locationType, position) {
     if (!isRouteCreatorActive) return;
     
@@ -2716,6 +2782,10 @@ function selectLocationForRoute(locationName, locationType, position) {
     };
     
     currentRoute.push(location);
+    
+    // Aktualizacja stanu tymczasowego zapisu
+    window.lastRouteState.isActive = true;
+    window.lastRouteState.route = deepCopyArray(currentRoute);
     
     let locationIcon = 'resources/bosses/default-boss.webp';
     let locationLocation = '';
@@ -2837,6 +2907,23 @@ function setupRouteCreatorClickHandler() {
     const returnToMainBtn = document.getElementById('return-to-main-btn');
     const routeSelect = document.getElementById('route-select');
     const saveRouteBtn = document.getElementById('save-route-btn');
+    const routeCreatorBtn = document.getElementById('route-creator-btn');
+    
+    if (routeCreatorBtn) {
+        const originalClickHandler = routeCreatorBtn.onclick;
+        routeCreatorBtn.onclick = function(e) {
+            if (originalClickHandler) originalClickHandler.call(this, e);
+            
+            // Sprawdź czy mamy niezapisaną trasę
+            if (window.lastRouteState && window.lastRouteState.isActive) {
+                console.log("Przywracam tryb tworzenia trasy");
+                window.isRouteCreatorActive = true;
+            } else {
+                console.log("Aktywuję nowy tryb tworzenia trasy");
+                window.isRouteCreatorActive = true;
+            }
+        };
+    }
     
     if (newRouteBtn) {
         const originalClickHandler = newRouteBtn.onclick;
@@ -2856,13 +2943,26 @@ function setupRouteCreatorClickHandler() {
         };
     }
     
-    
     if (saveRouteBtn) {
         const originalClickHandler = saveRouteBtn.onclick;
         saveRouteBtn.onclick = function(e) {
             if (originalClickHandler) originalClickHandler.call(this, e);
             console.log("Zapisano trasę, dezaktywuję tryb tworzenia");
             window.isRouteCreatorActive = false;
+            
+            // Resetuj stan tymczasowej trasy
+            if (window.lastRouteState) {
+                window.lastRouteState.isActive = false;
+                window.lastRouteState.route = [];
+            }
+        };
+    }
+    
+    // Upewniamy się, że obiekt lastRouteState istnieje
+    if (!window.lastRouteState) {
+        window.lastRouteState = {
+            isActive: false,
+            route: []
         };
     }
     
@@ -2903,7 +3003,6 @@ function setupRouteCreatorClickHandler() {
     }, true);
 }
 
-
 window.addEventListener('load', function() {
     init().catch(error => {
         console.error(window.i18n.t("log.errorDuringInitialization"), error);
@@ -2912,6 +3011,7 @@ window.addEventListener('load', function() {
         setTimeout(setupRouteCreatorClickHandler, 1000);
     });
 });
+
 function removeBoss(index) {
     if (index < 0 || index >= currentRoute.length) {
         console.error(window.i18n.t("log.invalidRouteItemIndex", [index]) || 
@@ -2924,8 +3024,18 @@ function removeBoss(index) {
     
     currentRoute.splice(index, 1);
     
+    // Aktualizacja stanu tymczasowego zapisu
+    if (currentRoute.length > 0) {
+        window.lastRouteState.isActive = true;
+        window.lastRouteState.route = deepCopyArray(currentRoute);
+    } else {
+        window.lastRouteState.isActive = false;
+        window.lastRouteState.route = [];
+    }
+    
     refreshBossList();
 }
+
 function refreshBossList() {
     const selectedBossesContainer = document.getElementById('selected-bosses-container');
     selectedBossesContainer.innerHTML = '';
@@ -3004,4 +3114,14 @@ function refreshBossList() {
 
         addRouteNumberToLocation(location.name, location.position, i + 1);
     });
+    
+    // Aktualizujemy też stan tymczasowego zapisu
+    if (isRouteCreatorActive && currentRoute.length > 0) {
+        window.lastRouteState.isActive = true;
+        window.lastRouteState.route = deepCopyArray(currentRoute);
+    }
+}
+
+function deepCopyArray(arr) {
+    return JSON.parse(JSON.stringify(arr));
 }
