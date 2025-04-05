@@ -221,8 +221,8 @@
       "region": "Kanto",
       "location": "Celadon City",
       "map_pos": [
-        100,
-        100
+        2748,
+        2006
       ],
       "cooldown": "12 days",
       "basic_requirements": {
@@ -386,8 +386,8 @@
       "region": "Johto",
       "location": "Route 41",
       "map_pos": [
-        100,
-        100
+        1712,
+        2051
       ],
       "cooldown": "12 days",
       "basic_requirements": {
@@ -446,8 +446,8 @@
       "region": "Johto",
       "location": "Ilex Forest",
       "map_pos": [
-        100,
-        100
+        1851,
+        2226
       ],
       "cooldown": "12 days",
       "basic_requirements": {
