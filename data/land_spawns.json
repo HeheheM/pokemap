@@ -2776,8 +2776,8 @@
   },
   {
     "Map": "Breezy Cave",
-    "Pokemon": "Baltoy",
-    "MonsterID": 343,
+    "Pokemon": "Cubone",
+    "MonsterID": 104,
     "Daytime": [
       1,
       1,
@@ -2785,54 +2785,9 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": "Light Clay",
+    "Item": "Thick Club",
     "MemberOnly": false,
     "Tier": "Uncommon"
-  },
-  {
-    "Map": "Breezy Cave",
-    "Pokemon": "Bronzor",
-    "MonsterID": 436,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Metal Coat",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Cave",
-    "Pokemon": "Chimchar",
-    "MonsterID": 390,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Cave",
-    "Pokemon": "Drilbur",
-    "MonsterID": 529,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
   },
   {
     "Map": "Breezy Cave",
@@ -2851,8 +2806,8 @@
   },
   {
     "Map": "Breezy Cave",
-    "Pokemon": "Lickitung",
-    "MonsterID": 108,
+    "Pokemon": "Kangaskhan",
+    "MonsterID": 115,
     "Daytime": [
       1,
       1,
@@ -2860,14 +2815,59 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": "Lagging Tail",
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Breezy Cave",
+    "Pokemon": "Mankey",
+    "MonsterID": 56,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Cave",
+    "Pokemon": "Quagsire",
+    "MonsterID": 195,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Cave",
+    "Pokemon": "Seviper",
+    "MonsterID": 336,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
     "Map": "Breezy Cave",
-    "Pokemon": "Loudred",
-    "MonsterID": 294,
+    "Pokemon": "Spinda",
+    "MonsterID": 327,
     "Daytime": [
       1,
       1,
@@ -2877,12 +2877,12 @@
     "MaxLVL": 21,
     "Item": "Chesto Berry",
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Breezy Cave",
-    "Pokemon": "Mankey",
-    "MonsterID": 56,
+    "Pokemon": "Zangoose",
+    "MonsterID": 335,
     "Daytime": [
       1,
       1,
@@ -2890,29 +2890,74 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Cave Hidden Mines",
-    "Pokemon": "Drilbur",
-    "MonsterID": 529,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": null,
+    "Item": "Quick Claw",
     "MemberOnly": false,
     "Tier": "Rare"
   },
   {
     "Map": "Breezy Cave Hidden Mines",
-    "Pokemon": "Golbat",
-    "MonsterID": 42,
+    "Pokemon": "Abra",
+    "MonsterID": 63,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 28,
+    "Item": "TwistedSpoon",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Breezy Cave Hidden Mines",
+    "Pokemon": "Bronzor",
+    "MonsterID": 436,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 28,
+    "Item": "Metal Coat",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Cave Hidden Mines",
+    "Pokemon": "Clefairy",
+    "MonsterID": 35,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 16,
+    "MaxLVL": 19,
+    "Item": "Moon Stone",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Cave Hidden Mines",
+    "Pokemon": "Gastly",
+    "MonsterID": 92,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 16,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Cave Hidden Mines",
+    "Pokemon": "Marill",
+    "MonsterID": 183,
     "Daytime": [
       1,
       1,
@@ -2922,12 +2967,12 @@
     "MaxLVL": 28,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Breezy Cave Hidden Mines",
-    "Pokemon": "Lickitung",
-    "MonsterID": 108,
+    "Pokemon": "Pikachu",
+    "MonsterID": 25,
     "Daytime": [
       1,
       1,
@@ -2935,54 +2980,24 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Lagging Tail",
+    "Item": "Light Ball",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
     "Map": "Breezy Cave Hidden Mines",
-    "Pokemon": "Machoke",
-    "MonsterID": 67,
+    "Pokemon": "Rotom",
+    "MonsterID": 479,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": "Payapa Berry",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Cave Hidden Mines",
-    "Pokemon": "Mankey",
-    "MonsterID": 56,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Cave Hidden Mines",
-    "Pokemon": "Rhyhorn",
-    "MonsterID": 111,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": "Protector",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
+    "MinLVL": 16,
+    "MaxLVL": 19,
+    "Item": "Lum Berry",
+    "MemberOnly": true,
+    "Tier": "Rare"
   },
   {
     "Map": "Breezy Cave Hidden Mines",
@@ -2993,26 +3008,11 @@
       1,
       1
     ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
+    "MinLVL": 16,
+    "MaxLVL": 19,
     "Item": "Enigma Berry",
     "MemberOnly": false,
     "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Cave Hidden Mines",
-    "Pokemon": "Seviper",
-    "MonsterID": 336,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": "Shed Shell",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
   },
   {
     "Map": "Breezy Falls",
@@ -3021,7 +3021,7 @@
     "Daytime": [
       1,
       1,
-      0
+      1
     ],
     "MinLVL": 18,
     "MaxLVL": 23,
@@ -3031,76 +3031,16 @@
   },
   {
     "Map": "Breezy Falls",
-    "Pokemon": "Bunnelby",
-    "MonsterID": 659,
-    "Daytime": [
-      1,
-      1,
-      0
-    ],
-    "MinLVL": 14,
-    "MaxLVL": 14,
-    "Item": "Sitrus Berry",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Falls",
-    "Pokemon": "Cottonee",
-    "MonsterID": 546,
-    "Daytime": [
-      1,
-      1,
-      0
-    ],
-    "MinLVL": 18,
-    "MaxLVL": 23,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Falls",
-    "Pokemon": "Diglett",
-    "MonsterID": 50,
-    "Daytime": [
-      1,
-      1,
-      0
-    ],
-    "MinLVL": 18,
-    "MaxLVL": 23,
-    "Item": "Soft Sand",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Falls",
-    "Pokemon": "Doduo",
-    "MonsterID": 84,
+    "Pokemon": "Clefairy",
+    "MonsterID": 35,
     "Daytime": [
       0,
-      0,
-      1
-    ],
-    "MinLVL": 18,
-    "MaxLVL": 23,
-    "Item": "Sharp Beak",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Falls",
-    "Pokemon": "Exeggcute",
-    "MonsterID": 102,
-    "Daytime": [
-      1,
       1,
       0
     ],
     "MinLVL": 18,
-    "MaxLVL": 23,
-    "Item": null,
+    "MaxLVL": 19,
+    "Item": "Moon Stone",
     "MemberOnly": false,
     "Tier": "Common"
   },
@@ -3113,11 +3053,26 @@
       0,
       1
     ],
-    "MinLVL": 11,
-    "MaxLVL": 11,
+    "MinLVL": 18,
+    "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Falls",
+    "Pokemon": "Lickitung",
+    "MonsterID": 108,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 18,
+    "MaxLVL": 23,
+    "Item": "Lagging Tail",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
   },
   {
     "Map": "Breezy Falls",
@@ -3125,7 +3080,7 @@
     "MonsterID": 81,
     "Daytime": [
       1,
-      1,
+      0,
       0
     ],
     "MinLVL": 18,
@@ -3136,15 +3091,30 @@
   },
   {
     "Map": "Breezy Falls",
-    "Pokemon": "Munchlax",
-    "MonsterID": 446,
+    "Pokemon": "Mankey",
+    "MonsterID": 56,
     "Daytime": [
-      0,
-      0,
+      1,
+      1,
       1
     ],
     "MinLVL": 18,
     "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Falls",
+    "Pokemon": "Munchlax",
+    "MonsterID": 446,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 18,
+    "MaxLVL": 19,
     "Item": "Leftovers",
     "MemberOnly": false,
     "Tier": "Rare"
@@ -3154,12 +3124,12 @@
     "Pokemon": "Pancham",
     "MonsterID": 674,
     "Daytime": [
-      0,
-      0,
+      1,
+      1,
       1
     ],
     "MinLVL": 18,
-    "MaxLVL": 23,
+    "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare"
@@ -3169,8 +3139,8 @@
     "Pokemon": "Ponyta",
     "MonsterID": 77,
     "Daytime": [
-      0,
-      0,
+      1,
+      1,
       1
     ],
     "MinLVL": 18,
@@ -3186,153 +3156,18 @@
     "Daytime": [
       1,
       1,
-      0
-    ],
-    "MinLVL": 18,
-    "MaxLVL": 23,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Falls",
-    "Pokemon": "Stunky",
-    "MonsterID": 434,
-    "Daytime": [
-      0,
-      0,
       1
     ],
     "MinLVL": 18,
     "MaxLVL": 23,
-    "Item": "Smoke Ball",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Breezy Falls",
-    "Pokemon": "Taillow",
-    "MonsterID": 276,
-    "Daytime": [
-      0,
-      0,
-      1
-    ],
-    "MinLVL": 18,
-    "MaxLVL": 23,
-    "Item": "Charti Berry",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Falls",
-    "Pokemon": "Venipede",
-    "MonsterID": 543,
-    "Daytime": [
-      1,
-      1,
-      0
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 23,
-    "Item": "Poison Barb",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Garden",
-    "Pokemon": "Clefairy",
-    "MonsterID": 35,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Moon Stone",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Garden",
-    "Pokemon": "Combee",
-    "MonsterID": 415,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Honey",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Breezy Garden",
-    "Pokemon": "Flaaffy",
-    "MonsterID": 180,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 19,
-    "Item": "Shuca Berry",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Garden",
-    "Pokemon": "Kricketot",
-    "MonsterID": 401,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Breezy Garden",
-    "Pokemon": "Larvesta",
-    "MonsterID": 636,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 19,
-    "Item": "Charti Berry",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Garden",
-    "Pokemon": "Pidgey",
-    "MonsterID": 16,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
   },
   {
     "Map": "Breezy Garden",
-    "Pokemon": "Snubbull",
-    "MonsterID": 209,
+    "Pokemon": "Ledyba",
+    "MonsterID": 165,
     "Daytime": [
       1,
       1,
@@ -3340,14 +3175,14 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": null,
+    "Item": "Aguav Berry",
     "MemberOnly": false,
     "Tier": "Common"
   },
   {
     "Map": "Breezy Garden",
-    "Pokemon": "Togepi",
-    "MonsterID": 175,
+    "Pokemon": "Minccino",
+    "MonsterID": 572,
     "Daytime": [
       1,
       1,
@@ -3356,6 +3191,96 @@
     "MinLVL": 17,
     "MaxLVL": 21,
     "Item": "Shiny Stone",
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Breezy Garden",
+    "Pokemon": "Pidgeotto",
+    "MonsterID": 17,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Garden",
+    "Pokemon": "Roselia",
+    "MonsterID": 315,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Breezy Garden",
+    "Pokemon": "Seedot",
+    "MonsterID": 273,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Power Herb",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Garden",
+    "Pokemon": "Seviper",
+    "MonsterID": 336,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Breezy Garden",
+    "Pokemon": "Spinda",
+    "MonsterID": 327,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Chesto Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Breezy Garden",
+    "Pokemon": "Torchic",
+    "MonsterID": 255,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 19,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Rare"
   },
@@ -3391,8 +3316,8 @@
   },
   {
     "Map": "Breezy Path",
-    "Pokemon": "Exeggcute",
-    "MonsterID": 102,
+    "Pokemon": "Bunnelby",
+    "MonsterID": 659,
     "Daytime": [
       1,
       1,
@@ -3400,14 +3325,14 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": null,
+    "Item": "Sitrus Berry",
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Rare"
   },
   {
     "Map": "Breezy Path",
-    "Pokemon": "Kangaskhan",
-    "MonsterID": 115,
+    "Pokemon": "Lotad",
+    "MonsterID": 270,
     "Daytime": [
       1,
       1,
@@ -3415,9 +3340,9 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": null,
+    "Item": "Mental Herb",
     "MemberOnly": false,
-    "Tier": "Rare"
+    "Tier": "Common"
   },
   {
     "Map": "Breezy Path",
@@ -3436,6 +3361,126 @@
   },
   {
     "Map": "Breezy Path",
+    "Pokemon": "Mudkip",
+    "MonsterID": 258,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 21,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Breezy Path",
+    "Pokemon": "Seedot",
+    "MonsterID": 273,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Power Herb",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Path",
+    "Pokemon": "Spinda",
+    "MonsterID": 327,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Chesto Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Breezy Town",
+    "Pokemon": "Emolga",
+    "MonsterID": 587,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Cheri Berry",
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Breezy Town",
+    "Pokemon": "Miltank",
+    "MonsterID": 241,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Moomoo Milk",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Breezy Town",
+    "Pokemon": "Pidgeotto",
+    "MonsterID": 17,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Town",
+    "Pokemon": "Pidgey",
+    "MonsterID": 16,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Town",
+    "Pokemon": "Pikachu",
+    "MonsterID": 25,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Light Ball",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Breezy Town",
     "Pokemon": "Seviper",
     "MonsterID": 336,
     "Daytime": [
@@ -3445,119 +3490,14 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": "Shed Shell",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Breezy Path",
-    "Pokemon": "Weedle",
-    "MonsterID": 13,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Kelpsy Berry",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Path",
-    "Pokemon": "Zangoose",
-    "MonsterID": 335,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 21,
-    "MaxLVL": 21,
-    "Item": "Quick Claw",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Town",
-    "Pokemon": "Bunnelby",
-    "MonsterID": 659,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 11,
-    "MaxLVL": 14,
-    "Item": "Sitrus Berry",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Town",
-    "Pokemon": "Illumise",
-    "MonsterID": 314,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Wiki Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Breezy Town",
-    "Pokemon": "Linoone",
-    "MonsterID": 264,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Sitrus Berry",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Breezy Town",
-    "Pokemon": "Shuckle",
-    "MonsterID": 213,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Oran Berry",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Town",
-    "Pokemon": "Snubbull",
-    "MonsterID": 209,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Breezy Town",
-    "Pokemon": "Turtwig",
-    "MonsterID": 387,
+    "Pokemon": "Togepi",
+    "MonsterID": 175,
     "Daytime": [
       1,
       1,
@@ -3565,24 +3505,9 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": null,
+    "Item": "Shiny Stone",
     "MemberOnly": false,
     "Tier": "Rare"
-  },
-  {
-    "Map": "Breezy Town",
-    "Pokemon": "Volbeat",
-    "MonsterID": 313,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Figy Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
   },
   {
     "Map": "Breezy Town",
@@ -15631,48 +15556,63 @@
   },
   {
     "Map": "Guild Island Cave",
-    "Pokemon": "Happiny",
-    "MonsterID": 440,
+    "Pokemon": "Mankey",
+    "MonsterID": 56,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 10,
-    "MaxLVL": 15,
-    "Item": "Oval Stone",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Guild Island Cave",
-    "Pokemon": "Hippopotas",
-    "MonsterID": 449,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 10,
-    "MaxLVL": 15,
-    "Item": "Smooth Rock",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Guild Island Cave",
-    "Pokemon": "Nidoran M",
-    "MonsterID": 32,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 42,
-    "MaxLVL": 50,
+    "MinLVL": 25,
+    "MaxLVL": 28,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
+  },
+  {
+    "Map": "Guild Island Cave",
+    "Pokemon": "Marill",
+    "MonsterID": 183,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 32,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Guild Island Cave",
+    "Pokemon": "Mawile",
+    "MonsterID": 303,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 27,
+    "Item": "Iron Ball",
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Guild Island Cave",
+    "Pokemon": "Meditite",
+    "MonsterID": 307,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 27,
+    "Item": "Expert Belt",
+    "MemberOnly": false,
+    "Tier": "Rare"
   },
   {
     "Map": "Guild Island Cave",
@@ -15685,29 +15625,14 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 27,
-    "Item": "Never-Melt Ice",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
   },
   {
     "Map": "Guild Island Cave",
-    "Pokemon": "Shroomish",
-    "MonsterID": 285,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 42,
-    "MaxLVL": 50,
-    "Item": "Kebia Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Guild Island Cave",
-    "Pokemon": "Wooper",
-    "MonsterID": 194,
+    "Pokemon": "Tangrowth",
+    "MonsterID": 465,
     "Daytime": [
       1,
       1,
@@ -15717,7 +15642,7 @@
     "MaxLVL": 50,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Guild Island Cave Depths",
@@ -15736,8 +15661,8 @@
   },
   {
     "Map": "Guild Island Cave Depths",
-    "Pokemon": "Clefable",
-    "MonsterID": 36,
+    "Pokemon": "Buneary",
+    "MonsterID": 427,
     "Daytime": [
       1,
       1,
@@ -15745,7 +15670,7 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 50,
-    "Item": "Moon Stone",
+    "Item": "Chople Berry",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15766,8 +15691,23 @@
   },
   {
     "Map": "Guild Island Cave Depths",
-    "Pokemon": "Heracross",
-    "MonsterID": 214,
+    "Pokemon": "Happiny",
+    "MonsterID": 440,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": "Oval Stone",
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Guild Island Cave Depths",
+    "Pokemon": "Klefki",
+    "MonsterID": 707,
     "Daytime": [
       1,
       1,
@@ -15781,38 +15721,23 @@
   },
   {
     "Map": "Guild Island Cave Depths",
-    "Pokemon": "Mankey",
-    "MonsterID": 56,
+    "Pokemon": "Marill",
+    "MonsterID": 183,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
+    "MinLVL": 30,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Guild Island Cave Depths",
-    "Pokemon": "Primeape",
-    "MonsterID": 57,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Guild Island Cave Depths",
-    "Pokemon": "Shroomish",
-    "MonsterID": 285,
+    "Pokemon": "Pidgeotto",
+    "MonsterID": 17,
     "Daytime": [
       1,
       1,
@@ -15820,24 +15745,24 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 50,
-    "Item": "Kebia Berry",
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
+    "Tier": "Common"
   },
   {
     "Map": "Guild Island Cave Depths",
-    "Pokemon": "Shuckle",
-    "MonsterID": 213,
+    "Pokemon": "Wooper",
+    "MonsterID": 194,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
-    "Item": "Oran Berry",
+    "MinLVL": 42,
+    "MaxLVL": 50,
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare"
+    "Tier": "Common"
   },
   {
     "Map": "Guild Island Falls",
@@ -15856,8 +15781,8 @@
   },
   {
     "Map": "Guild Island Falls",
-    "Pokemon": "Clefable",
-    "MonsterID": 36,
+    "Pokemon": "Buneary",
+    "MonsterID": 427,
     "Daytime": [
       1,
       1,
@@ -15865,7 +15790,7 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 50,
-    "Item": "Moon Stone",
+    "Item": "Chople Berry",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -15886,18 +15811,48 @@
   },
   {
     "Map": "Guild Island Falls",
-    "Pokemon": "Nidoran M",
-    "MonsterID": 32,
+    "Pokemon": "Mankey",
+    "MonsterID": 56,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 50,
+    "MinLVL": 28,
+    "MaxLVL": 28,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
+  },
+  {
+    "Map": "Guild Island Falls",
+    "Pokemon": "Marill",
+    "MonsterID": 183,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 32,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Guild Island Falls",
+    "Pokemon": "Mimikyu",
+    "MonsterID": 778,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
   },
   {
     "Map": "Guild Island Falls",
@@ -15916,23 +15871,23 @@
   },
   {
     "Map": "Guild Island Falls",
-    "Pokemon": "Slowpoke",
-    "MonsterID": 79,
+    "Pokemon": "Swinub",
+    "MonsterID": 220,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 50,
-    "Item": "Lagging Tail",
+    "MinLVL": 35,
+    "MaxLVL": 39,
+    "Item": "Aspear Berry",
     "MemberOnly": false,
     "Tier": "Common"
   },
   {
-    "Map": "Guild Island Falls",
-    "Pokemon": "Sneasel",
-    "MonsterID": 215,
+    "Map": "Guild Island Forest",
+    "Pokemon": "Buneary",
+    "MonsterID": 427,
     "Daytime": [
       1,
       1,
@@ -15940,21 +15895,21 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 50,
-    "Item": "Razor Claw",
+    "Item": "Chople Berry",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
-    "Map": "Guild Island Falls",
-    "Pokemon": "Vulpix-Alolan",
-    "MonsterID": 3062,
+    "Map": "Guild Island Forest",
+    "Pokemon": "Chimchar",
+    "MonsterID": 390,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 50,
+    "MinLVL": 30,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare"
@@ -15976,33 +15931,18 @@
   },
   {
     "Map": "Guild Island Forest",
-    "Pokemon": "Clefairy",
-    "MonsterID": 35,
+    "Pokemon": "Larvesta",
+    "MonsterID": 636,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 50,
-    "Item": "Moon Stone",
+    "MinLVL": 30,
+    "MaxLVL": 32,
+    "Item": "Charti Berry",
     "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Guild Island Forest",
-    "Pokemon": "Mankey",
-    "MonsterID": 56,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 26,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Rare"
   },
   {
     "Map": "Guild Island Forest",
@@ -16021,8 +15961,8 @@
   },
   {
     "Map": "Guild Island Forest",
-    "Pokemon": "Nidoran M",
-    "MonsterID": 32,
+    "Pokemon": "Pidgeotto",
+    "MonsterID": 17,
     "Daytime": [
       1,
       1,
@@ -16036,23 +15976,8 @@
   },
   {
     "Map": "Guild Island Forest",
-    "Pokemon": "Ralts",
-    "MonsterID": 280,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 30,
-    "MaxLVL": 32,
-    "Item": "Dawn Stone",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Guild Island Forest",
-    "Pokemon": "Shroomish",
-    "MonsterID": 285,
+    "Pokemon": "Pidgey",
+    "MonsterID": 16,
     "Daytime": [
       1,
       1,
@@ -16060,24 +15985,24 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 50,
-    "Item": "Kebia Berry",
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
+    "Tier": "Common"
   },
   {
     "Map": "Guild Island Forest",
-    "Pokemon": "Snivy",
-    "MonsterID": 495,
+    "Pokemon": "Teddiursa",
+    "MonsterID": 216,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 30,
-    "MaxLVL": 32,
-    "Item": null,
+    "MinLVL": 38,
+    "MaxLVL": 40,
+    "Item": "Sitrus Berry",
     "MemberOnly": false,
-    "Tier": "Rare"
+    "Tier": "Common"
   },
   {
     "Map": "Haunted Cave",
@@ -61561,18 +61486,48 @@
   },
   {
     "Map": "Suzuka Cave 1F",
-    "Pokemon": "Carbink",
-    "MonsterID": 703,
+    "Pokemon": "Baltoy",
+    "MonsterID": 343,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
+    "MinLVL": 23,
+    "MaxLVL": 24,
+    "Item": "Light Clay",
     "MemberOnly": false,
-    "Tier": "Rare"
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Cave 1F",
+    "Pokemon": "Bronzor",
+    "MonsterID": 436,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 24,
+    "Item": "Metal Coat",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Cave 1F",
+    "Pokemon": "Buneary",
+    "MonsterID": 427,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 18,
+    "MaxLVL": 22,
+    "Item": "Chople Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
   },
   {
     "Map": "Suzuka Cave 1F",
@@ -61583,16 +61538,121 @@
       1,
       1
     ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
+    "MinLVL": 19,
+    "MaxLVL": 19,
     "Item": "Moon Stone",
     "MemberOnly": false,
     "Tier": "Common"
   },
   {
     "Map": "Suzuka Cave 1F",
-    "Pokemon": "Crobat",
-    "MonsterID": 169,
+    "Pokemon": "Inkay",
+    "MonsterID": 686,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 24,
+    "Item": "TwistedSpoon",
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Cave 1F",
+    "Pokemon": "Mankey",
+    "MonsterID": 56,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 24,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Cave 1F",
+    "Pokemon": "Mimikyu",
+    "MonsterID": 778,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 24,
+    "Item": null,
+    "MemberOnly": true,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Cave 1F",
+    "Pokemon": "Numel",
+    "MonsterID": 322,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 24,
+    "Item": "Rawst Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Cave 1F",
+    "Pokemon": "Turtwig",
+    "MonsterID": 387,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 24,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Cave B1F",
+    "Pokemon": "Klefki",
+    "MonsterID": 707,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Cave B1F",
+    "Pokemon": "Loudred",
+    "MonsterID": 294,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Chesto Berry",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Cave B1F",
+    "Pokemon": "Mankey",
+    "MonsterID": 56,
     "Daytime": [
       1,
       1,
@@ -61605,9 +61665,9 @@
     "Tier": "Common"
   },
   {
-    "Map": "Suzuka Cave 1F",
-    "Pokemon": "Duskull",
-    "MonsterID": 355,
+    "Map": "Suzuka Cave B1F",
+    "Pokemon": "Marill",
+    "MonsterID": 183,
     "Daytime": [
       1,
       1,
@@ -61615,14 +61675,14 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": "Kasib Berry",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
-    "Map": "Suzuka Cave 1F",
-    "Pokemon": "Ekans",
-    "MonsterID": 23,
+    "Map": "Suzuka Cave B1F",
+    "Pokemon": "Primeape",
+    "MonsterID": 57,
     "Daytime": [
       1,
       1,
@@ -61635,9 +61695,9 @@
     "Tier": "Common"
   },
   {
-    "Map": "Suzuka Cave 1F",
-    "Pokemon": "Marowak",
-    "MonsterID": 105,
+    "Map": "Suzuka Cave B1F",
+    "Pokemon": "Rhyhorn",
+    "MonsterID": 111,
     "Daytime": [
       1,
       1,
@@ -61645,12 +61705,12 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": "Thick Club",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
-    "Map": "Suzuka Cave 1F",
+    "Map": "Suzuka Cave B1F",
     "Pokemon": "Sableye",
     "MonsterID": 302,
     "Daytime": [
@@ -61661,81 +61721,6 @@
     "MinLVL": 17,
     "MaxLVL": 21,
     "Item": "Enigma Berry",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Suzuka Cave 1F",
-    "Pokemon": "Wooper",
-    "MonsterID": 194,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Cave B1F",
-    "Pokemon": "Gastly",
-    "MonsterID": 92,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 8,
-    "MaxLVL": 11,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Cave B1F",
-    "Pokemon": "Grimer",
-    "MonsterID": 88,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Black Sludge",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Cave B1F",
-    "Pokemon": "Misdreavus",
-    "MonsterID": 200,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Spell Tag",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Cave B1F",
-    "Pokemon": "Rotom",
-    "MonsterID": 479,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Lum Berry",
     "MemberOnly": false,
     "Tier": "Rare"
   },
@@ -61755,64 +61740,79 @@
     "Tier": "Uncommon"
   },
   {
-    "Map": "Suzuka Cave B1F",
-    "Pokemon": "Tangela",
-    "MonsterID": 114,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Cave B1F",
-    "Pokemon": "Yamask",
-    "MonsterID": 562,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Spell Tag",
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
     "Map": "Suzuka Cave B2F",
-    "Pokemon": "Clefairy",
-    "MonsterID": 35,
+    "Pokemon": "Abra",
+    "MonsterID": 63,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Moon Stone",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Cave B2F",
-    "Pokemon": "Lickitung",
-    "MonsterID": 108,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Lagging Tail",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "TwistedSpoon",
     "MemberOnly": false,
     "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Cave B2F",
+    "Pokemon": "Bronzor",
+    "MonsterID": 436,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Metal Coat",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Cave B2F",
+    "Pokemon": "Makuhita",
+    "MonsterID": 296,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Black Belt",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Cave B2F",
+    "Pokemon": "Marill",
+    "MonsterID": 183,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Cave B2F",
+    "Pokemon": "Mawile",
+    "MonsterID": 303,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Iron Ball",
+    "MemberOnly": false,
+    "Tier": "Rare"
   },
   {
     "Map": "Suzuka Cave B2F",
@@ -61823,136 +61823,46 @@
       1,
       1
     ],
-    "MinLVL": 19,
-    "MaxLVL": 21,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
-    "MemberOnly": false,
+    "MemberOnly": true,
     "Tier": "Rare"
   },
   {
     "Map": "Suzuka Cave B2F",
-    "Pokemon": "Primeape",
-    "MonsterID": 57,
+    "Pokemon": "Quagsire",
+    "MonsterID": 195,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
   },
   {
     "Map": "Suzuka Cave B2F",
-    "Pokemon": "Sneasel",
-    "MonsterID": 215,
+    "Pokemon": "Seviper",
+    "MonsterID": 336,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Razor Claw",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Cave B2F",
-    "Pokemon": "Snubbull",
-    "MonsterID": 209,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Cave B2F",
-    "Pokemon": "Timburr",
-    "MonsterID": 532,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Suzuka Cave B2F",
-    "Pokemon": "Zubat",
-    "MonsterID": 41,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Clearing",
-    "Pokemon": "Happiny",
-    "MonsterID": 440,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Suzuka Clearing",
-    "Pokemon": "Klefki",
-    "MonsterID": 707,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Suzuka Clearing",
-    "Pokemon": "Spinda",
-    "MonsterID": 327,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Chesto Berry",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
     "Map": "Suzuka Clearing",
-    "Pokemon": "Tangela",
-    "MonsterID": 114,
+    "Pokemon": "Ariados",
+    "MonsterID": 168,
     "Daytime": [
       1,
       1,
@@ -61963,6 +61873,96 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Clearing",
+    "Pokemon": "Buneary",
+    "MonsterID": 427,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Clearing",
+    "Pokemon": "Exeggcute",
+    "MonsterID": 102,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Clearing",
+    "Pokemon": "Larvesta",
+    "MonsterID": 636,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Charti Berry",
+    "MemberOnly": true,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Clearing",
+    "Pokemon": "Petilil",
+    "MonsterID": 548,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Clearing",
+    "Pokemon": "Pidgey",
+    "MonsterID": 16,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Clearing",
+    "Pokemon": "Seviper",
+    "MonsterID": 336,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
   },
   {
     "Map": "Suzuka Clearing",
@@ -61980,54 +61980,9 @@
     "Tier": "Uncommon"
   },
   {
-    "Map": "Suzuka Clearing",
-    "Pokemon": "Venomoth",
-    "MonsterID": 49,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Silver Powder",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Clearing",
-    "Pokemon": "Venonat",
-    "MonsterID": 48,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Clearing",
-    "Pokemon": "Wooper",
-    "MonsterID": 194,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
     "Map": "Suzuka Path",
-    "Pokemon": "Budew",
-    "MonsterID": 406,
+    "Pokemon": "Buneary",
+    "MonsterID": 427,
     "Daytime": [
       1,
       1,
@@ -62035,14 +61990,14 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": "Poison Barb",
+    "Item": "Chople Berry",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
     "Map": "Suzuka Path",
-    "Pokemon": "Heracross",
-    "MonsterID": 214,
+    "Pokemon": "Chimchar",
+    "MonsterID": 390,
     "Daytime": [
       1,
       1,
@@ -62056,8 +62011,8 @@
   },
   {
     "Map": "Suzuka Path",
-    "Pokemon": "Mawile",
-    "MonsterID": 303,
+    "Pokemon": "Hypno",
+    "MonsterID": 97,
     "Daytime": [
       1,
       1,
@@ -62065,24 +62020,9 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": "Iron Ball",
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Suzuka Path",
-    "Pokemon": "Pansage",
-    "MonsterID": 511,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Occa Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
+    "Tier": "Common"
   },
   {
     "Map": "Suzuka Path",
@@ -62101,23 +62041,8 @@
   },
   {
     "Map": "Suzuka Path",
-    "Pokemon": "Pikachu",
-    "MonsterID": 25,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Light Ball",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Path",
-    "Pokemon": "Snubbull",
-    "MonsterID": 209,
+    "Pokemon": "Seedot",
+    "MonsterID": 273,
     "Daytime": [
       1,
       1,
@@ -62131,8 +62056,173 @@
   },
   {
     "Map": "Suzuka Path",
-    "Pokemon": "Teddiursa",
-    "MonsterID": 216,
+    "Pokemon": "Spinda",
+    "MonsterID": 327,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Chesto Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Path",
+    "Pokemon": "Treecko",
+    "MonsterID": 252,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Path",
+    "Pokemon": "Xatu",
+    "MonsterID": 178,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Towers",
+    "Pokemon": "Clefable",
+    "MonsterID": 36,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Moon Stone",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Towers",
+    "Pokemon": "Electrike",
+    "MonsterID": 309,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Towers",
+    "Pokemon": "Happiny",
+    "MonsterID": 440,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Oval Stone",
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Towers",
+    "Pokemon": "Larvesta",
+    "MonsterID": 636,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Charti Berry",
+    "MemberOnly": true,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Suzuka Towers",
+    "Pokemon": "Lickitung",
+    "MonsterID": 108,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Lagging Tail",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Towers",
+    "Pokemon": "Pidgeotto",
+    "MonsterID": 17,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Towers",
+    "Pokemon": "Venonat",
+    "MonsterID": 48,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Towers",
+    "Pokemon": "Wooper",
+    "MonsterID": 194,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Trail",
+    "Pokemon": "Bunnelby",
+    "MonsterID": 659,
     "Daytime": [
       1,
       1,
@@ -62142,10 +62232,25 @@
     "MaxLVL": 21,
     "Item": "Sitrus Berry",
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Rare"
   },
   {
-    "Map": "Suzuka Towers",
+    "Map": "Suzuka Trail",
+    "Pokemon": "Chingling",
+    "MonsterID": 433,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Trail",
     "Pokemon": "Mankey",
     "MonsterID": 56,
     "Daytime": [
@@ -62160,9 +62265,9 @@
     "Tier": "Common"
   },
   {
-    "Map": "Suzuka Towers",
-    "Pokemon": "Marill",
-    "MonsterID": 183,
+    "Map": "Suzuka Trail",
+    "Pokemon": "Meditite",
+    "MonsterID": 307,
     "Daytime": [
       1,
       1,
@@ -62170,219 +62275,69 @@
     ],
     "MinLVL": 17,
     "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Towers",
-    "Pokemon": "Pancham",
-    "MonsterID": 674,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Suzuka Towers",
-    "Pokemon": "Rufflet",
-    "MonsterID": 627,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Suzuka Towers",
-    "Pokemon": "Scatterbug",
-    "MonsterID": 664,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Towers",
-    "Pokemon": "Starly",
-    "MonsterID": 396,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 10,
-    "MaxLVL": 14,
-    "Item": "Yache Berry",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Towers",
-    "Pokemon": "Vivillon",
-    "MonsterID": 666,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Silver Powder",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Towers",
-    "Pokemon": "Yanma",
-    "MonsterID": 193,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Wide Lens",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Trail",
-    "Pokemon": "Bellsprout",
-    "MonsterID": 69,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 12,
-    "MaxLVL": 12,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Trail",
-    "Pokemon": "Electrike",
-    "MonsterID": 309,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 12,
-    "MaxLVL": 12,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Trail",
-    "Pokemon": "Exeggcute",
-    "MonsterID": 102,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 12,
-    "MaxLVL": 12,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Trail",
-    "Pokemon": "Glameow",
-    "MonsterID": 431,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 12,
-    "MaxLVL": 12,
-    "Item": "Cheri Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Trail",
-    "Pokemon": "Koffing",
-    "MonsterID": 109,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 12,
-    "MaxLVL": 12,
-    "Item": "Smoke Ball",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Suzuka Trail",
-    "Pokemon": "Larvesta",
-    "MonsterID": 636,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 12,
-    "MaxLVL": 12,
-    "Item": "Charti Berry",
+    "Item": "Expert Belt",
     "MemberOnly": false,
     "Tier": "Rare"
   },
   {
     "Map": "Suzuka Trail",
-    "Pokemon": "Pikachu",
-    "MonsterID": 25,
+    "Pokemon": "Miltank",
+    "MonsterID": 241,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 12,
-    "MaxLVL": 12,
-    "Item": "Light Ball",
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Moomoo Milk",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
     "Map": "Suzuka Trail",
-    "Pokemon": "Stunky",
-    "MonsterID": 434,
+    "Pokemon": "Seedot",
+    "MonsterID": 273,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 12,
-    "MaxLVL": 12,
-    "Item": "Smoke Ball",
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Power Herb",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Suzuka Trail",
+    "Pokemon": "Spinda",
+    "MonsterID": 327,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Trail",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Chesto Berry",
+    "MemberOnly": false,
+    "Tier": "Common"
   },
   {
     "Map": "Sweetsland",
