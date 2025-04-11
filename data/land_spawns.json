@@ -19396,6 +19396,51 @@
   },
   {
     "Map": "Jagged Pass",
+    "Pokemon": "Arbok",
+    "MonsterID": 24,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Jagged Pass",
+    "Pokemon": "Bibarel",
+    "MonsterID": 400,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Jagged Pass",
+    "Pokemon": "Bidoof",
+    "MonsterID": 399,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Jagged Pass",
     "Pokemon": "Castform",
     "MonsterID": 351,
     "Daytime": [
@@ -19419,15 +19464,15 @@
       1
     ],
     "MinLVL": 23,
-    "MaxLVL": 26,
+    "MaxLVL": 27,
     "Item": "Rawst Berry",
     "MemberOnly": true,
     "Tier": "Rare"
   },
   {
     "Map": "Jagged Pass",
-    "Pokemon": "Mankey",
-    "MonsterID": 56,
+    "Pokemon": "Fearow",
+    "MonsterID": 22,
     "Daytime": [
       1,
       1,
@@ -19438,81 +19483,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
-  },
-  {
-    "Map": "Jagged Pass",
-    "Pokemon": "Numel",
-    "MonsterID": 322,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": "Rawst Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Jagged Pass",
-    "Pokemon": "Ponyta",
-    "MonsterID": 77,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Jagged Pass",
-    "Pokemon": "Primeape",
-    "MonsterID": 57,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": "Black Belt",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Jagged Pass",
-    "Pokemon": "Slugma",
-    "MonsterID": 218,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Jagged Pass",
-    "Pokemon": "Spinda",
-    "MonsterID": 327,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": "Chesto Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
   },
   {
     "Map": "Jagged Pass",
@@ -19526,6 +19496,21 @@
     "MinLVL": 23,
     "MaxLVL": 27,
     "Item": "Tanga Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Jagged Pass",
+    "Pokemon": "Torkoal",
+    "MonsterID": 324,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": "Heat Rock",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -24364,9 +24349,9 @@
     "Pokemon": "Zubat",
     "MonsterID": 41,
     "Daytime": [
-      1,
       0,
-      0
+      0,
+      1
     ],
     "MinLVL": 65,
     "MaxLVL": 70,
@@ -24379,9 +24364,9 @@
     "Pokemon": "Zubat",
     "MonsterID": 41,
     "Daytime": [
+      1,
       0,
-      0,
-      1
+      0
     ],
     "MinLVL": 65,
     "MaxLVL": 70,
@@ -32292,21 +32277,6 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Magcargo",
-    "MonsterID": 219,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
     "Tier": "Common"
   },
   {
@@ -32326,8 +32296,8 @@
   },
   {
     "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Slugma",
-    "MonsterID": 218,
+    "Pokemon": "Magcargo",
+    "MonsterID": 219,
     "Daytime": [
       1,
       1,
@@ -32337,7 +32307,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -32388,6 +32358,36 @@
     "Map": "Mt. Summer 3F 2 2",
     "Pokemon": "Slugma",
     "MonsterID": 218,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Slugma",
+    "MonsterID": 218,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
     "Daytime": [
       1,
       1,
@@ -32443,21 +32443,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -59419,20 +59404,20 @@
     "Pokemon": "Altaria",
     "MonsterID": 334,
     "Daytime": [
-      0,
+      1,
       1,
       0
     ],
-    "MinLVL": 48,
-    "MaxLVL": 51,
+    "MinLVL": 34,
+    "MaxLVL": 37,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare"
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Ariados",
-    "MonsterID": 168,
+    "Pokemon": "Bidoof",
+    "MonsterID": 399,
     "Daytime": [
       1,
       1,
@@ -59441,28 +59426,73 @@
     "MinLVL": 48,
     "MaxLVL": 51,
     "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Sky Pillar 5F",
+    "Pokemon": "Cacturne",
+    "MonsterID": 332,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 48,
+    "MaxLVL": 51,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Sky Pillar 5F",
+    "Pokemon": "Chimecho",
+    "MonsterID": 358,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 38,
+    "MaxLVL": 41,
+    "Item": "Colbur Berry",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Dusclops",
-    "MonsterID": 356,
+    "Pokemon": "Claydol",
+    "MonsterID": 344,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 48,
-    "MaxLVL": 51,
-    "Item": "Reaper Cloth",
+    "MinLVL": 28,
+    "MaxLVL": 32,
+    "Item": "Light Clay",
     "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Sky Pillar 5F",
+    "Pokemon": "Druddigon",
+    "MonsterID": 621,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 39,
+    "MaxLVL": 41,
+    "Item": "Dragon Fang",
+    "MemberOnly": true,
     "Tier": "Rare"
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Golbat",
-    "MonsterID": 42,
+    "Pokemon": "Fearow",
+    "MonsterID": 22,
     "Daytime": [
       1,
       1,
@@ -59476,8 +59506,8 @@
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Spinarak",
-    "MonsterID": 167,
+    "Pokemon": "Onix",
+    "MonsterID": 95,
     "Daytime": [
       1,
       1,
@@ -59485,21 +59515,21 @@
     ],
     "MinLVL": 48,
     "MaxLVL": 51,
-    "Item": null,
+    "Item": "Ganlon Berry",
     "MemberOnly": false,
     "Tier": "Common"
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Zubat",
-    "MonsterID": 41,
+    "Pokemon": "Stantler",
+    "MonsterID": 234,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 48,
-    "MaxLVL": 51,
+    "MinLVL": 38,
+    "MaxLVL": 42,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"

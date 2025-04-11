@@ -14275,8 +14275,98 @@
   },
   {
     "Map": "Lilycove City",
-    "Pokemon": "Pelipper",
-    "MonsterID": "279",
+    "Pokemon": "Bidoof",
+    "MonsterID": "399",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lilycove City",
+    "Pokemon": "Carvanha",
+    "MonsterID": "318",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 35,
+    "Item": "Deep Sea Tooth",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lilycove City",
+    "Pokemon": "Fearow",
+    "MonsterID": "22",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 35,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lilycove City",
+    "Pokemon": "Goldeen",
+    "MonsterID": "118",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 35,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lilycove City",
+    "Pokemon": "Pidgeotto",
+    "MonsterID": "17",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 35,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lilycove City",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
@@ -14293,72 +14383,18 @@
   },
   {
     "Map": "Lilycove City",
-    "Pokemon": "Shellder",
-    "MonsterID": "90",
-    "Daytime": [
-      1,
-      1,
-      0
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 35,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
-  },
-  {
-    "Map": "Lilycove City",
     "Pokemon": "Staryu",
     "MonsterID": "120",
     "Daytime": [
       1,
-      0,
+      1,
       1
     ],
     "MinLVL": 36,
     "MaxLVL": 42,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
-  },
-  {
-    "Map": "Lilycove City",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 35,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lilycove City",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 35,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -14377,24 +14413,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
-  },
-  {
-    "Map": "Lilycove City",
-    "Pokemon": "Wingull",
-    "MonsterID": "278",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 35,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
