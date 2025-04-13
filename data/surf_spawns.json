@@ -14275,24 +14275,6 @@
   },
   {
     "Map": "Lilycove City",
-    "Pokemon": "Bidoof",
-    "MonsterID": "399",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Lilycove City",
     "Pokemon": "Carvanha",
     "MonsterID": "318",
     "Daytime": [
@@ -14311,44 +14293,8 @@
   },
   {
     "Map": "Lilycove City",
-    "Pokemon": "Fearow",
-    "MonsterID": "22",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 35,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Lilycove City",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 35,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Lilycove City",
-    "Pokemon": "Pidgeotto",
-    "MonsterID": "17",
+    "Pokemon": "Pelipper",
+    "MonsterID": "279",
     "Daytime": [
       1,
       1,
@@ -14401,6 +14347,42 @@
   },
   {
     "Map": "Lilycove City",
+    "Pokemon": "Tentacool",
+    "MonsterID": "72",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 35,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lilycove City",
+    "Pokemon": "Tentacruel",
+    "MonsterID": "73",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 35,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lilycove City",
     "Pokemon": "Wailmer",
     "MonsterID": "320",
     "Daytime": [
@@ -14413,6 +14395,24 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lilycove City",
+    "Pokemon": "Wingull",
+    "MonsterID": "278",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 35,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""

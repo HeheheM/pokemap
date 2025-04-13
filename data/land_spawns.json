@@ -19396,51 +19396,6 @@
   },
   {
     "Map": "Jagged Pass",
-    "Pokemon": "Arbok",
-    "MonsterID": 24,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": "Poison Barb",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Jagged Pass",
-    "Pokemon": "Bibarel",
-    "MonsterID": 400,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Jagged Pass",
-    "Pokemon": "Bidoof",
-    "MonsterID": 399,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Jagged Pass",
     "Pokemon": "Castform",
     "MonsterID": 351,
     "Daytime": [
@@ -19450,7 +19405,7 @@
     ],
     "MinLVL": 23,
     "MaxLVL": 27,
-    "Item": "Mystic Water",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Rare"
   },
@@ -19464,15 +19419,15 @@
       1
     ],
     "MinLVL": 23,
-    "MaxLVL": 27,
+    "MaxLVL": 26,
     "Item": "Rawst Berry",
     "MemberOnly": true,
     "Tier": "Rare"
   },
   {
     "Map": "Jagged Pass",
-    "Pokemon": "Fearow",
-    "MonsterID": 22,
+    "Pokemon": "Mankey",
+    "MonsterID": 56,
     "Daytime": [
       1,
       1,
@@ -19486,6 +19441,81 @@
   },
   {
     "Map": "Jagged Pass",
+    "Pokemon": "Numel",
+    "MonsterID": 322,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": "Rawst Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Jagged Pass",
+    "Pokemon": "Ponyta",
+    "MonsterID": 77,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Jagged Pass",
+    "Pokemon": "Primeape",
+    "MonsterID": 57,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": "Black Belt",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Jagged Pass",
+    "Pokemon": "Slugma",
+    "MonsterID": 218,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Jagged Pass",
+    "Pokemon": "Spinda",
+    "MonsterID": 327,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 23,
+    "MaxLVL": 27,
+    "Item": "Chesto Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Jagged Pass",
     "Pokemon": "Spoink",
     "MonsterID": 325,
     "Daytime": [
@@ -19496,21 +19526,6 @@
     "MinLVL": 23,
     "MaxLVL": 27,
     "Item": "Tanga Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Jagged Pass",
-    "Pokemon": "Torkoal",
-    "MonsterID": 324,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 23,
-    "MaxLVL": 27,
-    "Item": "Heat Rock",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -59406,7 +59421,7 @@
     "Daytime": [
       1,
       1,
-      0
+      1
     ],
     "MinLVL": 34,
     "MaxLVL": 37,
@@ -59416,8 +59431,8 @@
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Bidoof",
-    "MonsterID": 399,
+    "Pokemon": "Ariados",
+    "MonsterID": 168,
     "Daytime": [
       1,
       1,
@@ -59431,8 +59446,8 @@
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Cacturne",
-    "MonsterID": 332,
+    "Pokemon": "Banette",
+    "MonsterID": 354,
     "Daytime": [
       1,
       1,
@@ -59440,22 +59455,7 @@
     ],
     "MinLVL": 48,
     "MaxLVL": 51,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Sky Pillar 5F",
-    "Pokemon": "Chimecho",
-    "MonsterID": 358,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 38,
-    "MaxLVL": 41,
-    "Item": "Colbur Berry",
+    "Item": "Spell Tag",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -59483,16 +59483,16 @@
       1,
       1
     ],
-    "MinLVL": 39,
-    "MaxLVL": 41,
+    "MinLVL": 48,
+    "MaxLVL": 49,
     "Item": "Dragon Fang",
     "MemberOnly": true,
     "Tier": "Rare"
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Fearow",
-    "MonsterID": 22,
+    "Pokemon": "Golbat",
+    "MonsterID": 42,
     "Daytime": [
       1,
       1,
@@ -59506,8 +59506,8 @@
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Onix",
-    "MonsterID": 95,
+    "Pokemon": "Loudred",
+    "MonsterID": 294,
     "Daytime": [
       1,
       1,
@@ -59515,21 +59515,21 @@
     ],
     "MinLVL": 48,
     "MaxLVL": 51,
-    "Item": "Ganlon Berry",
+    "Item": "Chesto Berry",
     "MemberOnly": false,
     "Tier": "Common"
   },
   {
     "Map": "Sky Pillar 5F",
-    "Pokemon": "Stantler",
-    "MonsterID": 234,
+    "Pokemon": "Zubat",
+    "MonsterID": 41,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 38,
-    "MaxLVL": 42,
+    "MinLVL": 48,
+    "MaxLVL": 51,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
@@ -61696,21 +61696,6 @@
   },
   {
     "Map": "Suzuka Cave B1F",
-    "Pokemon": "Marill",
-    "MonsterID": 183,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Suzuka Cave B1F",
     "Pokemon": "Primeape",
     "MonsterID": 57,
     "Daytime": [
@@ -61766,6 +61751,21 @@
     "MinLVL": 17,
     "MaxLVL": 21,
     "Item": "Spell Tag",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Suzuka Cave B1F",
+    "Pokemon": "Tangrowth",
+    "MonsterID": 465,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
@@ -62221,8 +62221,8 @@
   },
   {
     "Map": "Suzuka Towers",
-    "Pokemon": "Venonat",
-    "MonsterID": 48,
+    "Pokemon": "Tangela",
+    "MonsterID": 114,
     "Daytime": [
       1,
       1,
