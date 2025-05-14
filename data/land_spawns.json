@@ -24364,9 +24364,9 @@
     "Pokemon": "Zubat",
     "MonsterID": 41,
     "Daytime": [
+      1,
       0,
-      0,
-      1
+      0
     ],
     "MinLVL": 65,
     "MaxLVL": 70,
@@ -24379,9 +24379,9 @@
     "Pokemon": "Zubat",
     "MonsterID": 41,
     "Daytime": [
-      1,
       0,
-      0
+      0,
+      1
     ],
     "MinLVL": 65,
     "MaxLVL": 70,
@@ -32412,67 +32412,67 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
     "Tier": "Uncommon"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
