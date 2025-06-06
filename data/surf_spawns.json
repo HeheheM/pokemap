@@ -2899,15 +2899,15 @@
   },
   {
     "Map": "Burring Strait Under water",
-    "Pokemon": "Dhelmise",
-    "MonsterID": "781",
+    "Pokemon": "Cubchoo",
+    "MonsterID": "613",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -2917,15 +2917,15 @@
   },
   {
     "Map": "Burring Strait Under water",
-    "Pokemon": "Golduck",
-    "MonsterID": "55",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -2942,8 +2942,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -2953,18 +2953,36 @@
   },
   {
     "Map": "Burring Strait Under water",
-    "Pokemon": "Mudkip",
-    "MonsterID": "258",
+    "Pokemon": "Oshawott",
+    "MonsterID": "501",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Under water",
+    "Pokemon": "Psyduck",
+    "MonsterID": "54",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -2978,8 +2996,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -2996,8 +3014,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -3007,18 +3025,162 @@
   },
   {
     "Map": "Burring Strait Under water",
-    "Pokemon": "Vaporeon",
-    "MonsterID": "134",
+    "Pokemon": "Wailord",
+    "MonsterID": "321",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Underwater",
+    "Pokemon": "Cubchoo",
+    "MonsterID": "613",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Underwater",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Underwater",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Underwater",
+    "Pokemon": "Oshawott",
+    "MonsterID": "501",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Underwater",
+    "Pokemon": "Psyduck",
+    "MonsterID": "54",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Underwater",
+    "Pokemon": "Tentacool",
+    "MonsterID": "72",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Underwater",
+    "Pokemon": "Tentacruel",
+    "MonsterID": "73",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Burring Strait Underwater",
+    "Pokemon": "Wailord",
+    "MonsterID": "321",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -5347,33 +5509,15 @@
   },
   {
     "Map": "Crystal Cavern",
-    "Pokemon": "Clauncher",
-    "MonsterID": "692",
+    "Pokemon": "Cryogonal",
+    "MonsterID": "615",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": true,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Crystal Cavern",
-    "Pokemon": "Clawitzer",
-    "MonsterID": "693",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 19,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -5390,8 +5534,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 19,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -5401,54 +5545,36 @@
   },
   {
     "Map": "Crystal Cavern",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Ducklett",
+    "MonsterID": "580",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Crystal Cavern",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Crystal Cavern",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 19,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Crystal Cavern",
+    "Pokemon": "Psyduck",
+    "MonsterID": "54",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -5462,11 +5588,47 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 19,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Crystal Cavern",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Crystal Cavern",
+    "Pokemon": "Wailmer",
+    "MonsterID": "320",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -8551,8 +8713,8 @@
   },
   {
     "Map": "Fire Island",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Corphish",
+    "MonsterID": "341",
     "Daytime": [
       1,
       1,
@@ -8560,12 +8722,30 @@
     ],
     "MinLVL": 15,
     "MaxLVL": 19,
-    "Item": null,
+    "Item": "Mystic Water",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Rare",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Fire Island",
+    "Pokemon": "Finneon",
+    "MonsterID": "456",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Rindo Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Fire Island",
@@ -8576,86 +8756,86 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": "Dragon Scale",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Fire Island",
+    "Pokemon": "Krabby",
+    "MonsterID": "98",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Fire Island",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Fire Island",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Panpour",
+    "MonsterID": "515",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Fire Island",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Fire Island",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Rindo Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Fire Island",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Remoraid",
+    "MonsterID": "223",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Starf Berry",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Fire Island",
@@ -8666,86 +8846,104 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Fire Island",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Fire Island Seaway",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Corsola",
+    "MonsterID": "222",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Fire Island Seaway",
-    "Pokemon": "Horsea",
-    "MonsterID": "116",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "Dragon Scale",
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Fire Island Seaway",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Ducklett",
+    "MonsterID": "580",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Fire Island Seaway",
+    "Pokemon": "Frillish",
+    "MonsterID": "592",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Fire Island Seaway",
+    "Pokemon": "Lotad",
+    "MonsterID": "270",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Mental Herb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Fire Island Seaway",
+    "Pokemon": "Mantyke",
+    "MonsterID": "458",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Fire Island Seaway",
@@ -8756,85 +8954,31 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": "King's Rock",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Fire Island Seaway",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
+    "Pokemon": "Slowpoke",
+    "MonsterID": "79",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Fire Island Seaway",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Lagging Tail",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Fire Island Seaway",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Fire Island Seaway",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
@@ -11395,8 +11539,8 @@
   },
   {
     "Map": "Ice Island",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Bergmite",
+    "MonsterID": "712",
     "Daytime": [
       1,
       1,
@@ -11406,15 +11550,15 @@
     "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Ice Island",
-    "Pokemon": "Horsea",
-    "MonsterID": "116",
+    "Pokemon": "Corsola",
+    "MonsterID": "222",
     "Daytime": [
       1,
       1,
@@ -11422,17 +11566,53 @@
     ],
     "MinLVL": 15,
     "MaxLVL": 19,
-    "Item": "Dragon Scale",
+    "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Good Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Ice Island",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Dewgong",
+    "MonsterID": "87",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 25,
+    "Item": "Aspear Berry",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Ice Island",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Ice Island",
+    "Pokemon": "Qwilfish",
+    "MonsterID": "211",
     "Daytime": [
       1,
       1,
@@ -11440,17 +11620,35 @@
     ],
     "MinLVL": 15,
     "MaxLVL": 19,
-    "Item": null,
+    "Item": "Poison Barb",
     "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Ice Island",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Seel",
+    "MonsterID": "86",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 25,
+    "Item": "Aspear Berry",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Ice Island",
+    "Pokemon": "Slowking",
+    "MonsterID": "199",
     "Daytime": [
       1,
       1,
@@ -11460,15 +11658,15 @@
     "MaxLVL": 19,
     "Item": "King's Rock",
     "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
-    "Map": "Ice Island",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
+    "Map": "Ice Island Frozen",
+    "Pokemon": "Bergmite",
+    "MonsterID": "712",
     "Daytime": [
       1,
       1,
@@ -11477,88 +11675,70 @@
     "MinLVL": 15,
     "MaxLVL": 19,
     "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Ice Island Frozen",
+    "Pokemon": "Corsola",
+    "MonsterID": "222",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Ice Island Frozen",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Dewgong",
+    "MonsterID": "87",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 20,
+    "MaxLVL": 25,
+    "Item": "Aspear Berry",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Ice Island Frozen",
-    "Pokemon": "Horsea",
-    "MonsterID": "116",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Ice Island Frozen",
+    "Pokemon": "Qwilfish",
+    "MonsterID": "211",
     "Daytime": [
       1,
       1,
@@ -11566,35 +11746,35 @@
     ],
     "MinLVL": 15,
     "MaxLVL": 19,
-    "Item": "Dragon Scale",
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Good Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Ice Island Frozen",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Seel",
+    "MonsterID": "86",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 20,
+    "MaxLVL": 25,
+    "Item": "Aspear Berry",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Ice Island Frozen",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Slowking",
+    "MonsterID": "199",
     "Daytime": [
       1,
       1,
@@ -11604,370 +11784,298 @@
     "MaxLVL": 19,
     "Item": "King's Rock",
     "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Frozen",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Frozen",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Frozen",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Frozen",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Ice Island Seaway",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Buizel",
+    "MonsterID": "418",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Seaway",
-    "Pokemon": "Horsea",
-    "MonsterID": "116",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "Dragon Scale",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Wacan Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Ice Island Seaway",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Dewgong",
+    "MonsterID": "87",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Aspear Berry",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Ice Island Seaway",
+    "Pokemon": "Kingler",
+    "MonsterID": "99",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Ice Island Seaway",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Lapras",
+    "MonsterID": "131",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Ice Island Seaway",
+    "Pokemon": "Politoed",
+    "MonsterID": "186",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Damp Rock",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Ice Island Seaway",
+    "Pokemon": "Seel",
+    "MonsterID": "86",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Aspear Berry",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Ice Island Seaway",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Ice Island Seaway",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Seaway",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Seaway",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Seaway Frozen",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Seaway Frozen",
-    "Pokemon": "Horsea",
-    "MonsterID": "116",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Ice Island Seaway Frozen",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Buizel",
+    "MonsterID": "418",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Wacan Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Ice Island Seaway Frozen",
+    "Pokemon": "Dewgong",
+    "MonsterID": "87",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Aspear Berry",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Ice Island Seaway Frozen",
+    "Pokemon": "Kingler",
+    "MonsterID": "99",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Ice Island Seaway Frozen",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Lapras",
+    "MonsterID": "131",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Ice Island Seaway Frozen",
+    "Pokemon": "Politoed",
+    "MonsterID": "186",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Damp Rock",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Ice Island Seaway Frozen",
+    "Pokemon": "Seel",
+    "MonsterID": "86",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Aspear Berry",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Ice Island Seaway Frozen",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Ice Island Seaway Frozen",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Seaway Frozen",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Ice Island Seaway Frozen",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Icefall Back Cave",
@@ -13843,26 +13951,26 @@
   },
   {
     "Map": "Lightning Island",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Chinchou",
+    "MonsterID": "170",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Lightning Island",
-    "Pokemon": "Horsea",
-    "MonsterID": "116",
+    "Pokemon": "Corsola",
+    "MonsterID": "222",
     "Daytime": [
       1,
       1,
@@ -13870,408 +13978,354 @@
     ],
     "MinLVL": 15,
     "MaxLVL": 19,
-    "Item": "Dragon Scale",
+    "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Lightning Island",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Lanturn",
+    "MonsterID": "171",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Lightning Island",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Mantine",
+    "MonsterID": "226",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 28,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Lightning Island",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 28,
     "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island Frozen",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island Frozen",
-    "Pokemon": "Horsea",
-    "MonsterID": "116",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Lightning Island",
+    "Pokemon": "Slowpoke",
+    "MonsterID": "79",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": "Lagging Tail",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Lightning Island",
+    "Pokemon": "Tynamo",
+    "MonsterID": "602",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Lightning Island Frozen",
+    "Pokemon": "Chinchou",
+    "MonsterID": "170",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": "Apicot Berry",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Lightning Island Frozen",
+    "Pokemon": "Corsola",
+    "MonsterID": "222",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": "Hard Stone",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Lightning Island Frozen",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Lanturn",
+    "MonsterID": "171",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Lightning Island Frozen",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Mantine",
+    "MonsterID": "226",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island Frozen",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 28,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Lightning Island Frozen",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 28,
     "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island Frozen",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island Frozen",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island Seaway",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Lightning Island Seaway",
-    "Pokemon": "Horsea",
-    "MonsterID": "116",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Lightning Island Frozen",
+    "Pokemon": "Slowpoke",
+    "MonsterID": "79",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": "Lagging Tail",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Lightning Island Frozen",
+    "Pokemon": "Tynamo",
+    "MonsterID": "602",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Lightning Island Seaway",
+    "Pokemon": "Barboach",
+    "MonsterID": "339",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Lightning Island Seaway",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Chinchou",
+    "MonsterID": "170",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Lightning Island Seaway",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Lanturn",
+    "MonsterID": "171",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Lightning Island Seaway",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Lightning Island Seaway",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Octillery",
+    "MonsterID": "224",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Starf Berry",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Lightning Island Seaway",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
+    "Pokemon": "Quagsire",
+    "MonsterID": "195",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Lightning Island Seaway",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
+    "Pokemon": "Shellos",
+    "MonsterID": "422",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Rowap Berry",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Rare",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
   },
   {
     "Map": "Lilycove City",
@@ -16039,6 +16093,60 @@
   },
   {
     "Map": "Mountain Area Dungeon",
+    "Pokemon": "Dewgong",
+    "MonsterID": "87",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Mountain Area Dungeon",
+    "Pokemon": "Frillish",
+    "MonsterID": "592",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Mountain Area Dungeon",
+    "Pokemon": "Jellicent",
+    "MonsterID": "593",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": true,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Mountain Area Dungeon",
     "Pokemon": "Magikarp",
     "MonsterID": "129",
     "Daytime": [
@@ -16046,11 +16154,47 @@
       1,
       1
     ],
-    "MinLVL": 9,
-    "MaxLVL": 15,
+    "MinLVL": 19,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Mountain Area Dungeon",
+    "Pokemon": "Mantyke",
+    "MonsterID": "458",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Mountain Area Dungeon",
+    "Pokemon": "Panpour",
+    "MonsterID": "515",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -16064,8 +16208,8 @@
       1,
       1
     ],
-    "MinLVL": 9,
-    "MaxLVL": 15,
+    "MinLVL": 19,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -16082,47 +16226,11 @@
       1,
       1
     ],
-    "MinLVL": 9,
-    "MaxLVL": 15,
+    "MinLVL": 19,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Mountain Area Dungeon",
-    "Pokemon": "Spheal",
-    "MonsterID": "363",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 9,
-    "MaxLVL": 15,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Mountain Area Dungeon",
-    "Pokemon": "Swablu",
-    "MonsterID": "333",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 16,
-    "MaxLVL": 22,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -34705,21 +34813,57 @@
   },
   {
     "Map": "Seaway Vein",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Barboach",
+    "MonsterID": "339",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Seaway Vein",
+    "Pokemon": "Carvanha",
+    "MonsterID": "318",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Deep Sea Tooth",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Seaway Vein",
+    "Pokemon": "Feebas",
+    "MonsterID": "349",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Prism Scale",
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
   },
   {
     "Map": "Seaway Vein",
@@ -34730,68 +34874,50 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": "Dragon Scale",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Seaway Vein",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Seaway Vein",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Seaway Vein",
@@ -34802,13 +34928,13 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
@@ -34820,37 +34946,55 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Seaway Vein Extension",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Azumarill",
+    "MonsterID": "184",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Seaway Vein Extension",
+    "Pokemon": "Buizel",
+    "MonsterID": "418",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Wacan Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Seaway Vein Extension",
+    "Pokemon": "Clauncher",
+    "MonsterID": "692",
     "Daytime": [
       1,
       1,
@@ -34860,9 +35004,45 @@
     "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Seaway Vein Extension",
+    "Pokemon": "Dewgong",
+    "MonsterID": "87",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Aspear Berry",
+    "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Seaway Vein Extension",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
@@ -34874,140 +35054,104 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": "Dragon Scale",
     "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Good Rod"
-  },
-  {
-    "Map": "Seaway Vein Extension",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Seaway Vein Extension",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Qwilfish",
+    "MonsterID": "211",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein Extension",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Seaway Vein Extension",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Seadra",
+    "MonsterID": "117",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein Extension",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein Extension",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Seaway Vein Frozen",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Barboach",
+    "MonsterID": "339",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Seaway Vein Frozen",
+    "Pokemon": "Carvanha",
+    "MonsterID": "318",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Deep Sea Tooth",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Seaway Vein Frozen",
+    "Pokemon": "Feebas",
+    "MonsterID": "349",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Prism Scale",
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
   },
   {
     "Map": "Seaway Vein Frozen",
@@ -35018,68 +35162,50 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": "Dragon Scale",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Seaway Vein Frozen",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Good Rod"
   },
   {
     "Map": "Seaway Vein Frozen",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein Frozen",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein Frozen",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 25,
+    "MaxLVL": 29,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Seaway Vein Frozen",
@@ -35090,13 +35216,13 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
@@ -35108,31 +35234,13 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 29,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Seaway Vein Frozen",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
@@ -35353,15 +35461,15 @@
   },
   {
     "Map": "Shamouti Island",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -35378,14 +35486,14 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": "Dragon Scale",
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Common",
     "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": "Old Rod"
   },
   {
     "Map": "Shamouti Island",
@@ -35396,8 +35504,8 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -35407,69 +35515,105 @@
   },
   {
     "Map": "Shamouti Island",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Pokemon": "Mantine",
+    "MonsterID": "226",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Shamouti Island",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 43,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
     "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Shamouti Island",
+    "Pokemon": "Remoraid",
+    "MonsterID": "223",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": "Starf Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Shamouti Island",
+    "Pokemon": "Seadra",
+    "MonsterID": "117",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": "Dragon Scale",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
     "RequiredRod": "Old Rod"
   },
   {
     "Map": "Shamouti Island",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Shamouti Island",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
+    "Pokemon": "Totodile",
+    "MonsterID": "158",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 34,
+    "MaxLVL": 36,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Shamouti Island frozen",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -35478,43 +35622,7 @@
     "RequiredRod": "Old Rod"
   },
   {
-    "Map": "Shamouti Island",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Shamouti Island Frozen",
-    "Pokemon": "Goldeen",
-    "MonsterID": "118",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Shamouti Island Frozen",
+    "Map": "Shamouti Island frozen",
     "Pokemon": "Horsea",
     "MonsterID": "116",
     "Daytime": [
@@ -35522,17 +35630,17 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": "Dragon Scale",
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Common",
     "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": "Old Rod"
   },
   {
-    "Map": "Shamouti Island Frozen",
+    "Map": "Shamouti Island frozen",
     "Pokemon": "Magikarp",
     "MonsterID": "129",
     "Daytime": [
@@ -35540,8 +35648,8 @@
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -35550,53 +35658,53 @@
     "RequiredRod": "Old Rod"
   },
   {
-    "Map": "Shamouti Island Frozen",
-    "Pokemon": "Poliwag",
-    "MonsterID": "60",
+    "Map": "Shamouti Island frozen",
+    "Pokemon": "Mantine",
+    "MonsterID": "226",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Shamouti Island Frozen",
-    "Pokemon": "Seaking",
-    "MonsterID": "119",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 43,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": "Good Rod"
   },
   {
-    "Map": "Shamouti Island Frozen",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Map": "Shamouti Island frozen",
+    "Pokemon": "Remoraid",
+    "MonsterID": "223",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": "Starf Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Shamouti Island frozen",
+    "Pokemon": "Seadra",
+    "MonsterID": "117",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,
@@ -35604,40 +35712,40 @@
     "RequiredRod": "Old Rod"
   },
   {
-    "Map": "Shamouti Island Frozen",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
+    "Map": "Shamouti Island frozen",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": "Good Rod"
   },
   {
-    "Map": "Shamouti Island Frozen",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
+    "Map": "Shamouti Island frozen",
+    "Pokemon": "Totodile",
+    "MonsterID": "158",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
+    "MinLVL": 34,
+    "MaxLVL": 36,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Rare",
     "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": "Super Rod"
   },
   {
     "Map": "Shamouti Seaway",
@@ -40472,50 +40580,68 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 0,
+    "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": ""
+    "RequiredRod": "Super Rod"
   },
   {
     "Map": "Wastelands",
-    "Pokemon": "Carvanha",
-    "MonsterID": "318",
+    "Pokemon": "Corsola",
+    "MonsterID": "222",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
+    "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": ""
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Wastelands",
-    "Pokemon": "Finneon",
-    "MonsterID": "456",
+    "Pokemon": "Ducklett",
+    "MonsterID": "580",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
+    "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": ""
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Wastelands",
+    "Pokemon": "Horsea",
+    "MonsterID": "116",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": "Dragon Scale",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
   },
   {
     "Map": "Wastelands",
@@ -40526,14 +40652,14 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": "Rindo Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
+    "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": ""
+    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Wastelands",
@@ -40544,32 +40670,50 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 0,
+    "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": ""
+    "RequiredRod": "Old Rod"
   },
   {
     "Map": "Wastelands",
-    "Pokemon": "Seel",
-    "MonsterID": "86",
+    "Pokemon": "Slowpoke",
+    "MonsterID": "79",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": "Lagging Tail",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 0,
+    "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": ""
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Wastelands",
+    "Pokemon": "Tympole",
+    "MonsterID": "535",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
   },
   {
     "Map": "Water Labyrinth",
