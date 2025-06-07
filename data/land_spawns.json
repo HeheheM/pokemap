@@ -23554,9 +23554,9 @@
     "Pokemon": "Blitzle",
     "MonsterID": 522,
     "Daytime": [
+      0,
       1,
-      1,
-      1
+      0
     ],
     "MinLVL": 22,
     "MaxLVL": 27,
@@ -23581,12 +23581,27 @@
   },
   {
     "Map": "Matsuki Courtyard",
+    "Pokemon": "Dedenne",
+    "MonsterID": 702,
+    "Daytime": [
+      1,
+      0,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Matsuki Courtyard",
     "Pokemon": "Flabebe",
     "MonsterID": 669,
     "Daytime": [
       1,
       1,
-      1
+      0
     ],
     "MinLVL": 22,
     "MaxLVL": 27,
@@ -57480,6 +57495,21 @@
     "Tier": "Common"
   },
   {
+    "Map": "Shamouti Island",
+    "Pokemon": "Wynaut",
+    "MonsterID": 360,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
     "Map": "Shamouti Island frozen",
     "Pokemon": "Kecleon",
     "MonsterID": 352,
@@ -57598,6 +57628,21 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
+  },
+  {
+    "Map": "Shamouti Island frozen",
+    "Pokemon": "Wynaut",
+    "MonsterID": 360,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
   },
   {
     "Map": "Shoal Cave",

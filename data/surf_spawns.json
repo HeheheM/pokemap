@@ -40709,7 +40709,7 @@
     "MinLVL": 22,
     "MaxLVL": 27,
     "Item": null,
-    "MemberOnly": false,
+    "MemberOnly": true,
     "Tier": "Rare",
     "Fishing": 1,
     "FishingOnly": 0,
