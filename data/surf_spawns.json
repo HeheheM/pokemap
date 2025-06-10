@@ -2755,51 +2755,15 @@
   },
   {
     "Map": "Buring Strait Underwater",
-    "Pokemon": "Finneon",
-    "MonsterID": "456",
+    "Pokemon": "Cubchoo",
+    "MonsterID": "613",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Buring Strait Underwater",
-    "Pokemon": "Frillish",
-    "MonsterID": "592",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Buring Strait Underwater",
-    "Pokemon": "Jellicent",
-    "MonsterID": "593",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -2816,8 +2780,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -2827,15 +2791,33 @@
   },
   {
     "Map": "Buring Strait Underwater",
-    "Pokemon": "Relicanth",
-    "MonsterID": "369",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Buring Strait Underwater",
+    "Pokemon": "Oshawott",
+    "MonsterID": "501",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -2845,18 +2827,18 @@
   },
   {
     "Map": "Buring Strait Underwater",
-    "Pokemon": "Shellder",
-    "MonsterID": "90",
+    "Pokemon": "Psyduck",
+    "MonsterID": "54",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -2870,8 +2852,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -2888,8 +2870,26 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 27,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Buring Strait Underwater",
+    "Pokemon": "Wailord",
+    "MonsterID": "321",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 27,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
