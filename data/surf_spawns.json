@@ -20240,6 +20240,24 @@
       1,
       1
     ],
+    "MinLVL": 31,
+    "MaxLVL": 70,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 1,
+    "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Resort Area",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
     "MinLVL": 71,
     "MaxLVL": 100,
     "Item": null,
@@ -20266,24 +20284,6 @@
     "Fishing": 1,
     "FishingOnly": 1,
     "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Resort Area",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 31,
-    "MaxLVL": 70,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Good Rod"
   },
   {
     "Map": "Resort Gorgeous",
