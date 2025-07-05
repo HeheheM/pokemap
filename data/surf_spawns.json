@@ -24211,6 +24211,24 @@
   },
   {
     "Map": "Route 126 Underwater",
+    "Pokemon": "Alomomola",
+    "MonsterID": "594",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 37,
+    "MaxLVL": 41,
+    "Item": null,
+    "MemberOnly": true,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Route 126 Underwater",
     "Pokemon": "Chinchou",
     "MonsterID": "170",
     "Daytime": [
@@ -24218,14 +24236,14 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 29,
-    "Item": "Deep Sea Scale",
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Good Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Route 126 Underwater",
@@ -24241,14 +24259,14 @@
     "Item": "Deep Sea Tooth",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Good Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Route 126 Underwater",
-    "Pokemon": "Krabby",
-    "MonsterID": "98",
+    "Pokemon": "Horsea",
+    "MonsterID": "116",
     "Daytime": [
       1,
       1,
@@ -24256,12 +24274,12 @@
     ],
     "MinLVL": 30,
     "MaxLVL": 34,
-    "Item": null,
+    "Item": "Dragon Scale",
     "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Route 126 Underwater",
@@ -24276,10 +24294,10 @@
     "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Good Rod"
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Route 126 Underwater",
@@ -24290,14 +24308,14 @@
       1,
       1
     ],
-    "MinLVL": 30,
-    "MaxLVL": 34,
+    "MinLVL": 20,
+    "MaxLVL": 24,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Good Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Route 126 Underwater",
@@ -24313,9 +24331,27 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Route 126 Underwater",
+    "Pokemon": "Wailmer",
+    "MonsterID": "320",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Route 127",
@@ -26270,14 +26306,14 @@
       1,
       1
     ],
-    "MinLVL": 37,
-    "MaxLVL": 41,
+    "MinLVL": 30,
+    "MaxLVL": 34,
     "Item": null,
     "MemberOnly": true,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Route 134",
@@ -26293,9 +26329,9 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Route 134",
@@ -26306,14 +26342,14 @@
       1,
       1
     ],
-    "MinLVL": 26,
-    "MaxLVL": 36,
+    "MinLVL": 30,
+    "MaxLVL": 34,
     "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Route 134",
@@ -26324,14 +26360,14 @@
       1,
       1
     ],
-    "MinLVL": 22,
+    "MinLVL": 30,
     "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Route 134",
@@ -26346,10 +26382,10 @@
     "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
+    "Tier": "Common",
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Route 134",
@@ -26361,13 +26397,13 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 35,
+    "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 1,
+    "Tier": "Uncommon",
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Route 134",
@@ -26378,14 +26414,14 @@
       1,
       1
     ],
-    "MinLVL": 24,
-    "MaxLVL": 36,
+    "MinLVL": 30,
+    "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Route 134",
@@ -26397,13 +26433,13 @@
       1
     ],
     "MinLVL": 5,
-    "MaxLVL": 35,
+    "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Route 135",
