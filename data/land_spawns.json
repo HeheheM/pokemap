@@ -11506,6 +11506,21 @@
   },
   {
     "Map": "Eumi Island Burned Tower",
+    "Pokemon": "Blacephalon",
+    "MonsterID": 806,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Eumi Island Burned Tower",
     "Pokemon": "Fennekin",
     "MonsterID": 653,
     "Daytime": [
