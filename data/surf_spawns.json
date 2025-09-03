@@ -12781,6 +12781,24 @@
   },
   {
     "Map": "Kalijodo Lake",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 32,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Kalijodo Lake",
     "Pokemon": "Panpour",
     "MonsterID": "515",
     "Daytime": [
@@ -12788,8 +12806,8 @@
       1,
       1
     ],
-    "MinLVL": 26,
-    "MaxLVL": 26,
+    "MinLVL": 30,
+    "MaxLVL": 34,
     "Item": "Rindo Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -12811,24 +12829,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Kalijodo Lake",
-    "Pokemon": "Remoraid",
-    "MonsterID": "223",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 30,
-    "MaxLVL": 34,
-    "Item": "Starf Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
