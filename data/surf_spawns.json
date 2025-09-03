@@ -63,7 +63,7 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -116,8 +116,8 @@
       1,
       1
     ],
-    "MinLVL": 26,
-    "MaxLVL": 26,
+    "MinLVL": 30,
+    "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -135,7 +135,7 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -163,8 +163,8 @@
   },
   {
     "Map": "Alto Mare",
-    "Pokemon": "Piplup",
-    "MonsterID": "393",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
@@ -174,25 +174,25 @@
     "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Alto Mare",
-    "Pokemon": "Seadra",
-    "MonsterID": "117",
+    "Pokemon": "Staryu",
+    "MonsterID": "120",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
-    "Item": "Dragon Scale",
+    "MaxLVL": 32,
+    "Item": "Water Stone",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -225,7 +225,7 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -278,8 +278,8 @@
       1,
       1
     ],
-    "MinLVL": 26,
-    "MaxLVL": 26,
+    "MinLVL": 30,
+    "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -297,7 +297,7 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -325,8 +325,8 @@
   },
   {
     "Map": "Alto Mare Chained",
-    "Pokemon": "Piplup",
-    "MonsterID": "393",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
@@ -336,25 +336,25 @@
     "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Alto Mare Chained",
-    "Pokemon": "Seadra",
-    "MonsterID": "117",
+    "Pokemon": "Staryu",
+    "MonsterID": "120",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
-    "Item": "Dragon Scale",
+    "MaxLVL": 32,
+    "Item": "Water Stone",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -415,18 +415,18 @@
   },
   {
     "Map": "Alto Mare National Park",
-    "Pokemon": "Azumarill",
-    "MonsterID": "184",
+    "Pokemon": "Clauncher",
+    "MonsterID": "692",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -487,24 +487,6 @@
   },
   {
     "Map": "Alto Mare National Park",
-    "Pokemon": "Mantyke",
-    "MonsterID": "458",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Alto Mare National Park",
     "Pokemon": "Marill",
     "MonsterID": "183",
     "Daytime": [
@@ -513,7 +495,7 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -541,8 +523,26 @@
   },
   {
     "Map": "Alto Mare National Park",
-    "Pokemon": "Squirtle",
-    "MonsterID": "7",
+    "Pokemon": "Staryu",
+    "MonsterID": "120",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 30,
+    "Item": "Water Stone",
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Wingull",
+    "MonsterID": "278",
     "Daytime": [
       1,
       1,
@@ -552,25 +552,7 @@
     "MaxLVL": 34,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Alto Mare National Park",
-    "Pokemon": "Staryu",
-    "MonsterID": "120",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 30,
-    "MaxLVL": 34,
-    "Item": "Water Stone",
-    "MemberOnly": false,
-    "Tier": "Rare",
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -586,7 +568,7 @@
     ],
     "MinLVL": 30,
     "MaxLVL": 34,
-    "Item": "Starf Berry",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -631,24 +613,6 @@
   },
   {
     "Map": "Alto Mare Secret Garden",
-    "Pokemon": "Lotad",
-    "MonsterID": "270",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 30,
-    "MaxLVL": 34,
-    "Item": "Mental Herb",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Alto Mare Secret Garden",
     "Pokemon": "Magikarp",
     "MonsterID": "129",
     "Daytime": [
@@ -675,7 +639,7 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -685,8 +649,8 @@
   },
   {
     "Map": "Alto Mare Secret Garden",
-    "Pokemon": "Poliwhirl",
-    "MonsterID": "61",
+    "Pokemon": "Slowpoke",
+    "MonsterID": "79",
     "Daytime": [
       1,
       1,
@@ -694,7 +658,7 @@
     ],
     "MinLVL": 30,
     "MaxLVL": 34,
-    "Item": "King's Rock",
+    "Item": "Lagging Tail",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -10369,6 +10333,24 @@
   },
   {
     "Map": "Guild Island",
+    "Pokemon": "Froakie",
+    "MonsterID": "656",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 42,
+    "MaxLVL": 47,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Guild Island",
     "Pokemon": "Gyarados",
     "MonsterID": "130",
     "Daytime": [
@@ -10387,8 +10369,8 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Haunter",
+    "MonsterID": "93",
     "Daytime": [
       1,
       1,
@@ -10396,7 +10378,7 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 47,
-    "Item": null,
+    "Item": "Spell Tag",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -10441,8 +10423,8 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Mudkip",
-    "MonsterID": "258",
+    "Pokemon": "Seadra",
+    "MonsterID": "117",
     "Daytime": [
       1,
       1,
@@ -10450,25 +10432,7 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 47,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Guild Island",
-    "Pokemon": "Quagsire",
-    "MonsterID": "195",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 42,
-    "MaxLVL": 47,
-    "Item": null,
+    "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -10495,8 +10459,8 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Tympole",
-    "MonsterID": "535",
+    "Pokemon": "Staryu",
+    "MonsterID": "120",
     "Daytime": [
       1,
       1,
@@ -10504,7 +10468,7 @@
     ],
     "MinLVL": 42,
     "MaxLVL": 47,
-    "Item": null,
+    "Item": "Water Stone",
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -10513,8 +10477,8 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
+    "Pokemon": "Wingull",
+    "MonsterID": "278",
     "Daytime": [
       1,
       1,
@@ -12655,24 +12619,6 @@
   },
   {
     "Map": "Kalijodo Cave B2F",
-    "Pokemon": "Lapras",
-    "MonsterID": "131",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 22,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Kalijodo Cave B2F",
     "Pokemon": "Magikarp",
     "MonsterID": "129",
     "Daytime": [
@@ -12699,7 +12645,7 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 34,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -12745,8 +12691,8 @@
   },
   {
     "Map": "Kalijodo Cave B2F",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
+    "Pokemon": "Seadra",
+    "MonsterID": "117",
     "Daytime": [
       1,
       1,
@@ -12754,7 +12700,7 @@
     ],
     "MinLVL": 30,
     "MaxLVL": 34,
-    "Item": "Lagging Tail",
+    "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -12780,17 +12726,17 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Kalijodo Lake",
-    "Pokemon": "Froakie",
-    "MonsterID": "656",
+    "Map": "Kalijodo Cave B2F",
+    "Pokemon": "Vanillite",
+    "MonsterID": "582",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 30,
-    "MaxLVL": 34,
-    "Item": null,
+    "MinLVL": 22,
+    "MaxLVL": 26,
+    "Item": "Never-Melt Ice",
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -12817,8 +12763,8 @@
   },
   {
     "Map": "Kalijodo Lake",
-    "Pokemon": "Krabby",
-    "MonsterID": "98",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
     "Daytime": [
       1,
       1,
@@ -12835,26 +12781,8 @@
   },
   {
     "Map": "Kalijodo Lake",
-    "Pokemon": "Lotad",
-    "MonsterID": "270",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 30,
-    "MaxLVL": 34,
-    "Item": "Mental Herb",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Kalijodo Lake",
-    "Pokemon": "Qwilfish",
-    "MonsterID": "211",
+    "Pokemon": "Panpour",
+    "MonsterID": "515",
     "Daytime": [
       1,
       1,
@@ -12862,9 +12790,27 @@
     ],
     "MinLVL": 26,
     "MaxLVL": 26,
-    "Item": "Poison Barb",
+    "Item": "Rindo Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Kalijodo Lake",
+    "Pokemon": "Piplup",
+    "MonsterID": "393",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -12879,7 +12825,7 @@
       1
     ],
     "MinLVL": 30,
-    "MaxLVL": 33,
+    "MaxLVL": 34,
     "Item": "Starf Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -12907,8 +12853,8 @@
   },
   {
     "Map": "Kalijodo Lake",
-    "Pokemon": "Staryu",
-    "MonsterID": "120",
+    "Pokemon": "Squirtle",
+    "MonsterID": "7",
     "Daytime": [
       1,
       1,
@@ -12916,7 +12862,7 @@
     ],
     "MinLVL": 30,
     "MaxLVL": 34,
-    "Item": "Water Stone",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -39925,24 +39871,6 @@
   },
   {
     "Map": "Vulcan Cave B2F",
-    "Pokemon": "Alomomola",
-    "MonsterID": "594",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
-  },
-  {
-    "Map": "Vulcan Cave B2F",
     "Pokemon": "Horsea",
     "MonsterID": "116",
     "Daytime": [
@@ -39955,9 +39883,9 @@
     "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Vulcan Cave B2F",
@@ -39968,14 +39896,14 @@
       1,
       1
     ],
-    "MinLVL": 22,
-    "MaxLVL": 26,
+    "MinLVL": 30,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Vulcan Cave B2F",
@@ -39986,50 +39914,32 @@
       1,
       1
     ],
-    "MinLVL": 32,
-    "MaxLVL": 36,
+    "MinLVL": 30,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Vulcan Cave B2F",
+    "Pokemon": "Octillery",
+    "MonsterID": "224",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 36,
+    "MaxLVL": 40,
     "Item": "Starf Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
-  },
-  {
-    "Map": "Vulcan Cave B2F",
-    "Pokemon": "Pelipper",
-    "MonsterID": "279",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Vulcan Cave B2F",
-    "Pokemon": "Qwilfish",
-    "MonsterID": "211",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
-    "Item": "Poison Barb",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Vulcan Cave B2F",
@@ -40045,9 +39955,45 @@
     "Item": "Starf Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Vulcan Cave B2F",
+    "Pokemon": "Slowbro",
+    "MonsterID": "80",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 36,
+    "MaxLVL": 40,
+    "Item": "King's Rock",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Vulcan Cave B2F",
+    "Pokemon": "Squirtle",
+    "MonsterID": "7",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Vulcan Cave B2F",
@@ -40063,42 +40009,42 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Vulcan Cove",
-    "Pokemon": "Azurill",
-    "MonsterID": "298",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 34,
-    "MaxLVL": 38,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Vulcan Cove",
-    "Pokemon": "Finneon",
-    "MonsterID": "456",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 34,
-    "MaxLVL": 38,
-    "Item": "Rindo Berry",
+    "MinLVL": 36,
+    "MaxLVL": 40,
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Vulcan Cove",
+    "Pokemon": "Krabby",
+    "MonsterID": "98",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 36,
+    "MaxLVL": 40,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -40112,8 +40058,8 @@
       1,
       1
     ],
-    "MinLVL": 22,
-    "MaxLVL": 26,
+    "MinLVL": 36,
+    "MaxLVL": 40,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -40130,8 +40076,8 @@
       1,
       1
     ],
-    "MinLVL": 32,
-    "MaxLVL": 36,
+    "MinLVL": 30,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -40141,15 +40087,15 @@
   },
   {
     "Map": "Vulcan Cove",
-    "Pokemon": "Mudkip",
-    "MonsterID": "258",
+    "Pokemon": "Oshawott",
+    "MonsterID": "501",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 31,
-    "MaxLVL": 35,
+    "MinLVL": 30,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -40159,36 +40105,36 @@
   },
   {
     "Map": "Vulcan Cove",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
+    "Pokemon": "Panpour",
+    "MonsterID": "515",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 34,
-    "MaxLVL": 38,
-    "Item": "Lagging Tail",
+    "MinLVL": 36,
+    "MaxLVL": 40,
+    "Item": "Rindo Berry",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Vulcan Cove",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Totodile",
+    "MonsterID": "158",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 34,
-    "MaxLVL": 38,
-    "Item": "Poison Barb",
+    "MinLVL": 30,
+    "MaxLVL": 32,
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -40202,8 +40148,8 @@
       1,
       1
     ],
-    "MinLVL": 34,
-    "MaxLVL": 38,
+    "MinLVL": 36,
+    "MaxLVL": 40,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -40213,18 +40159,36 @@
   },
   {
     "Map": "Vulcan Island Shore",
-    "Pokemon": "Clamperl",
-    "MonsterID": "366",
+    "Pokemon": "Ducklett",
+    "MonsterID": "580",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
-    "Item": "Pearl",
+    "MinLVL": 29,
+    "MaxLVL": 32,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Vulcan Island Shore",
+    "Pokemon": "Froakie",
+    "MonsterID": "656",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 29,
+    "MaxLVL": 32,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -40238,8 +40202,8 @@
       1,
       1
     ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
+    "MinLVL": 29,
+    "MaxLVL": 32,
     "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
@@ -40256,8 +40220,8 @@
       1,
       1
     ],
-    "MinLVL": 32,
-    "MaxLVL": 36,
+    "MinLVL": 29,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -40274,10 +40238,10 @@
       1,
       1
     ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
+    "MinLVL": 29,
+    "MaxLVL": 32,
     "Item": null,
-    "MemberOnly": false,
+    "MemberOnly": true,
     "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
@@ -40292,29 +40256,11 @@
       1,
       1
     ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
+    "MinLVL": 29,
+    "MaxLVL": 32,
     "Item": "Starf Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Vulcan Island Shore",
-    "Pokemon": "Squirtle",
-    "MonsterID": "7",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -40328,8 +40274,8 @@
       1,
       1
     ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
+    "MinLVL": 29,
+    "MaxLVL": 32,
     "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
@@ -40346,8 +40292,8 @@
       1,
       1
     ],
-    "MinLVL": 36,
-    "MaxLVL": 40,
+    "MinLVL": 29,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
