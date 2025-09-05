@@ -450,6 +450,141 @@
     "Tier": "Common"
   },
   {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Chespin",
+    "MonsterID": 650,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Farfetchd",
+    "MonsterID": 83,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": "Stick",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Furret",
+    "MonsterID": 162,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": "Sitrus Berry",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Pikachu",
+    "MonsterID": 25,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": "Light Ball",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Roselia",
+    "MonsterID": 315,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Scyther",
+    "MonsterID": 123,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": "Metal Coat",
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Sentret",
+    "MonsterID": 161,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Shroomish",
+    "MonsterID": 285,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": "Kebia Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Alto Mare National Park",
+    "Pokemon": "Venonat",
+    "MonsterID": 48,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 30,
+    "MaxLVL": 34,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
     "Map": "Alto Mare Secret Garden",
     "Pokemon": "Abra",
     "MonsterID": 63,
@@ -31857,40 +31992,40 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Magcargo",
+    "MonsterID": 219,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Magcargo",
+    "MonsterID": 219,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Magcargo",
-    "MonsterID": 219,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Magcargo",
-    "MonsterID": 219,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
     "Pokemon": "Slugma",
     "MonsterID": 218,
     "Daytime": [
@@ -31953,51 +32088,6 @@
     "Map": "Mt. Summer 3F 2 2",
     "Pokemon": "Slugma",
     "MonsterID": 218,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
     "Daytime": [
       1,
       1,
@@ -32023,6 +32113,51 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
