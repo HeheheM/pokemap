@@ -32007,7 +32007,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
+    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -32022,7 +32022,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -69676,21 +69676,6 @@
   },
   {
     "Map": "Vulcan Fair",
-    "Pokemon": "Espurr",
-    "MonsterID": 677,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 26,
-    "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare"
-  },
-  {
-    "Map": "Vulcan Fair",
     "Pokemon": "Furret",
     "MonsterID": 162,
     "Daytime": [
@@ -69721,8 +69706,8 @@
   },
   {
     "Map": "Vulcan Fair",
-    "Pokemon": "Torkoal",
-    "MonsterID": 324,
+    "Pokemon": "Meowth-Alolan",
+    "MonsterID": 3066,
     "Daytime": [
       1,
       1,
@@ -69730,7 +69715,22 @@
     ],
     "MinLVL": 26,
     "MaxLVL": 30,
-    "Item": "Heat Rock",
+    "Item": null,
+    "MemberOnly": true,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Vulcan Fair",
+    "Pokemon": "Shroomish",
+    "MonsterID": 285,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 30,
+    "Item": "Kebia Berry",
     "MemberOnly": false,
     "Tier": "Uncommon"
   },
