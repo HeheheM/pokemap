@@ -1027,15 +1027,15 @@
   },
   {
     "Map": "Angel Hill",
-    "Pokemon": "Chimecho",
-    "MonsterID": "358",
+    "Pokemon": "Chingling",
+    "MonsterID": "433",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 18,
+    "MinLVL": 24,
+    "MaxLVL": 30,
     "Item": "Colbur Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -1045,33 +1045,15 @@
   },
   {
     "Map": "Angel Hill",
-    "Pokemon": "Froakie",
-    "MonsterID": "656",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Angel Hill",
-    "Pokemon": "Gastly",
-    "MonsterID": "92",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 10,
-    "MaxLVL": 11,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -1081,16 +1063,16 @@
   },
   {
     "Map": "Angel Hill",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Haunter",
+    "MonsterID": "93",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": null,
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": "Spell Tag",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -1106,7 +1088,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
@@ -1117,18 +1099,18 @@
   },
   {
     "Map": "Angel Hill",
-    "Pokemon": "Sealeo",
-    "MonsterID": "364",
+    "Pokemon": "Piplup",
+    "MonsterID": "393",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 15,
+    "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -1142,7 +1124,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": "Lagging Tail",
     "MemberOnly": false,
@@ -1160,7 +1142,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
@@ -1178,8 +1160,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 15,
+    "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -3505,6 +3487,150 @@
     "Item": "Black Sludge",
     "MemberOnly": false,
     "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cemetery Island",
+    "Pokemon": "Gastly",
+    "MonsterID": "92",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cemetery Island",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cemetery Island",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cemetery Island",
+    "Pokemon": "Slowbro",
+    "MonsterID": "80",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "King's Rock",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cemetery Island",
+    "Pokemon": "Slowpoke",
+    "MonsterID": "79",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Lagging Tail",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cemetery Island",
+    "Pokemon": "Solosis",
+    "MonsterID": "577",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": "Persim Berry",
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cemetery Island",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cemetery Island",
+    "Pokemon": "Squirtle",
+    "MonsterID": "7",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -8281,24 +8407,6 @@
   },
   {
     "Map": "Festival Town",
-    "Pokemon": "Azurill",
-    "MonsterID": "298",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Festival Town",
     "Pokemon": "Chinchou",
     "MonsterID": "170",
     "Daytime": [
@@ -8306,7 +8414,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": "Apicot Berry",
     "MemberOnly": false,
@@ -8317,34 +8425,16 @@
   },
   {
     "Map": "Festival Town",
-    "Pokemon": "Duskull",
-    "MonsterID": "355",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
-    "Item": "Kasib Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Festival Town",
-    "Pokemon": "Haunter",
-    "MonsterID": "93",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 10,
-    "MaxLVL": 11,
-    "Item": "Spell Tag",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -8360,7 +8450,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
@@ -8371,18 +8461,54 @@
   },
   {
     "Map": "Festival Town",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
-    "Item": "Lagging Tail",
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Festival Town",
+    "Pokemon": "Mudkip",
+    "MonsterID": "258",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Festival Town",
+    "Pokemon": "Slowking",
+    "MonsterID": "199",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 30,
+    "Item": "King's Rock",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -8396,7 +8522,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
@@ -8407,16 +8533,16 @@
   },
   {
     "Map": "Festival Town",
-    "Pokemon": "Vaporeon",
-    "MonsterID": "134",
+    "Pokemon": "Totodile",
+    "MonsterID": "158",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
-    "Item": "Water Stone",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -10027,6 +10153,42 @@
   },
   {
     "Map": "Ghoul Swamp",
+    "Pokemon": "Croagunk",
+    "MonsterID": "453",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": "Black Sludge",
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Ghoul Swamp",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Ghoul Swamp",
     "Pokemon": "Haunter",
     "MonsterID": "93",
     "Daytime": [
@@ -10034,8 +10196,8 @@
       1,
       1
     ],
-    "MinLVL": 7,
-    "MaxLVL": 11,
+    "MinLVL": 19,
+    "MaxLVL": 19,
     "Item": "Spell Tag",
     "MemberOnly": false,
     "Tier": "Common",
@@ -10052,8 +10214,8 @@
       1,
       1
     ],
-    "MinLVL": 21,
-    "MaxLVL": 25,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -10063,18 +10225,36 @@
   },
   {
     "Map": "Ghoul Swamp",
-    "Pokemon": "Slowbro",
-    "MonsterID": "80",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 7,
-    "MaxLVL": 11,
-    "Item": "King's Rock",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Ghoul Swamp",
+    "Pokemon": "Oshawott",
+    "MonsterID": "501",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -10088,47 +10268,11 @@
       1,
       1
     ],
-    "MinLVL": 21,
-    "MaxLVL": 25,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": "King's Rock",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Ghoul Swamp",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 22,
-    "Item": "Lagging Tail",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Ghoul Swamp",
-    "Pokemon": "Solosis",
-    "MonsterID": "577",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 16,
-    "MaxLVL": 20,
-    "Item": "Persim Berry",
-    "MemberOnly": true,
-    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -10142,29 +10286,11 @@
       1,
       1
     ],
-    "MinLVL": 21,
-    "MaxLVL": 25,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Ghoul Swamp",
-    "Pokemon": "Squirtle",
-    "MonsterID": "7",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 16,
-    "MaxLVL": 20,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -10340,8 +10466,8 @@
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 47,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -10358,8 +10484,8 @@
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 47,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -10369,36 +10495,18 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Haunter",
-    "MonsterID": "93",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 47,
-    "Item": "Spell Tag",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Guild Island",
-    "Pokemon": "Mantyke",
-    "MonsterID": "458",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 42,
-    "MaxLVL": 43,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -10412,8 +10520,8 @@
       1,
       1
     ],
-    "MinLVL": 30,
-    "MaxLVL": 32,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -10423,34 +10531,16 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Seadra",
-    "MonsterID": "117",
+    "Pokemon": "Slowking",
+    "MonsterID": "199",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 47,
-    "Item": "Dragon Scale",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Guild Island",
-    "Pokemon": "Shellder",
-    "MonsterID": "90",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 42,
-    "MaxLVL": 47,
-    "Item": null,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "King's Rock",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -10459,16 +10549,16 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Staryu",
-    "MonsterID": "120",
+    "Pokemon": "Squirtle",
+    "MonsterID": "7",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 47,
-    "Item": "Water Stone",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -10477,16 +10567,178 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Wingull",
-    "MonsterID": "278",
+    "Pokemon": "Tentacool",
+    "MonsterID": "72",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 42,
-    "MaxLVL": 47,
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Guild Island",
+    "Pokemon": "Tentacruel",
+    "MonsterID": "73",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Gastly",
+    "MonsterID": "92",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
     "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Noibat",
+    "MonsterID": "714",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Piplup",
+    "MonsterID": "393",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Slowking",
+    "MonsterID": "199",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "King's Rock",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Tentacool",
+    "MonsterID": "72",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Tentacruel",
+    "MonsterID": "73",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -14239,50 +14491,14 @@
   },
   {
     "Map": "Lost Seacoast",
-    "Pokemon": "Chinchou",
-    "MonsterID": "170",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Apicot Berry",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Lost Seacoast",
-    "Pokemon": "Gastly",
-    "MonsterID": "92",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 7,
-    "MaxLVL": 11,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Lost Seacoast",
-    "Pokemon": "Gyarados",
-    "MonsterID": "130",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 30,
     "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
@@ -14311,15 +14527,15 @@
   },
   {
     "Map": "Lost Seacoast",
-    "Pokemon": "Noibat",
-    "MonsterID": "714",
+    "Pokemon": "Mudkip",
+    "MonsterID": "258",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 20,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -14329,8 +14545,8 @@
   },
   {
     "Map": "Lost Seacoast",
-    "Pokemon": "Slowking",
-    "MonsterID": "199",
+    "Pokemon": "Slowbro",
+    "MonsterID": "80",
     "Daytime": [
       1,
       1,
@@ -14340,7 +14556,7 @@
     "MaxLVL": 30,
     "Item": "King's Rock",
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -14365,8 +14581,8 @@
   },
   {
     "Map": "Lost Seacoast",
-    "Pokemon": "Squirtle",
-    "MonsterID": "7",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
     "Daytime": [
       1,
       1,
@@ -14376,7 +14592,43 @@
     "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lost Seacoast",
+    "Pokemon": "Vaporeon",
+    "MonsterID": "134",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Water Stone",
+    "MemberOnly": false,
     "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Lost Seacoast",
+    "Pokemon": "Vivillon",
+    "MonsterID": "666",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Silver Powder",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -17198,8 +17450,8 @@
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 24,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -17216,8 +17468,8 @@
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 24,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -17227,16 +17479,52 @@
   },
   {
     "Map": "Murky Town",
-    "Pokemon": "Gastly",
-    "MonsterID": "92",
+    "Pokemon": "Chinchou",
+    "MonsterID": "170",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 11,
-    "MaxLVL": 11,
-    "Item": "Spell Tag",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Apicot Berry",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Murky Town",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Murky Town",
+    "Pokemon": "Lanturn",
+    "MonsterID": "171",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -17252,8 +17540,8 @@
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 24,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -17270,8 +17558,8 @@
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 24,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -17288,8 +17576,8 @@
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 24,
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -17299,36 +17587,18 @@
   },
   {
     "Map": "Murky Town",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Vivillon",
+    "MonsterID": "666",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 24,
-    "Item": "Poison Barb",
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Silver Powder",
     "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Murky Town",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 11,
-    "MaxLVL": 11,
-    "Item": "Poison Barb",
-    "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -17857,70 +18127,34 @@
   },
   {
     "Map": "Necropolis",
-    "Pokemon": "Chimecho",
-    "MonsterID": "358",
+    "Pokemon": "Froakie",
+    "MonsterID": "656",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 15,
-    "MaxLVL": 18,
-    "Item": "Colbur Berry",
+    "MinLVL": 24,
+    "MaxLVL": 30,
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Necropolis",
-    "Pokemon": "Chinchou",
-    "MonsterID": "170",
+    "Pokemon": "Lanturn",
+    "MonsterID": "171",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": "Apicot Berry",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Necropolis",
-    "Pokemon": "Gyarados",
-    "MonsterID": "130",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 30,
-    "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Necropolis",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 11,
-    "MaxLVL": 11,
-    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -17936,7 +18170,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
@@ -17947,17 +18181,17 @@
   },
   {
     "Map": "Necropolis",
-    "Pokemon": "Mudkip",
-    "MonsterID": "258",
+    "Pokemon": "Piplup",
+    "MonsterID": "393",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 24,
+    "MinLVL": 24,
+    "MaxLVL": 30,
     "Item": null,
-    "MemberOnly": true,
+    "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
@@ -17965,16 +18199,34 @@
   },
   {
     "Map": "Necropolis",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
-    "Item": "Lagging Tail",
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Necropolis",
+    "Pokemon": "Tentacool",
+    "MonsterID": "72",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -17983,18 +18235,36 @@
   },
   {
     "Map": "Necropolis",
-    "Pokemon": "Totodile",
-    "MonsterID": "158",
+    "Pokemon": "Tentacruel",
+    "MonsterID": "73",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 24,
-    "Item": null,
+    "MinLVL": 24,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
     "MemberOnly": false,
-    "Tier": "Rare",
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Necropolis",
+    "Pokemon": "Vivillon",
+    "MonsterID": "666",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 30,
+    "Item": "Silver Powder",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -20142,25 +20412,7 @@
     "RequiredRod": "Super Rod"
   },
   {
-    "Map": "Road of Night",
-    "Pokemon": "Chimecho",
-    "MonsterID": "358",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 18,
-    "MaxLVL": 18,
-    "Item": "Colbur Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Road of Night",
+    "Map": "Road Of Night",
     "Pokemon": "Gastly",
     "MonsterID": "92",
     "Daytime": [
@@ -20168,8 +20420,8 @@
       1,
       1
     ],
-    "MinLVL": 7,
-    "MaxLVL": 11,
+    "MinLVL": 15,
+    "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -20178,17 +20430,17 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Road of Night",
-    "Pokemon": "Gyarados",
-    "MonsterID": "130",
+    "Map": "Road Of Night",
+    "Pokemon": "Haunter",
+    "MonsterID": "93",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 30,
-    "MaxLVL": 30,
-    "Item": "King's Rock",
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": "Spell Tag",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -20196,25 +20448,7 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Road of Night",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Road of Night",
+    "Map": "Road Of Night",
     "Pokemon": "Marill",
     "MonsterID": "183",
     "Daytime": [
@@ -20232,16 +20466,16 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Road of Night",
-    "Pokemon": "Mudkip",
-    "MonsterID": "258",
+    "Map": "Road Of Night",
+    "Pokemon": "Oshawott",
+    "MonsterID": "501",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 15,
+    "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -20250,9 +20484,27 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Road of Night",
-    "Pokemon": "Oshawott",
-    "MonsterID": "501",
+    "Map": "Road Of Night",
+    "Pokemon": "Piplup",
+    "MonsterID": "393",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 15,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Road Of Night",
+    "Pokemon": "Slowking",
+    "MonsterID": "199",
     "Daytime": [
       1,
       1,
@@ -20260,15 +20512,15 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": true,
-    "Tier": "Rare",
+    "Item": "King's Rock",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
-    "Map": "Road of Night",
+    "Map": "Road Of Night",
     "Pokemon": "Tentacool",
     "MonsterID": "72",
     "Daytime": [
@@ -20281,6 +20533,24 @@
     "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Road Of Night",
+    "Pokemon": "Vivillon",
+    "MonsterID": "666",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Silver Powder",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -38546,8 +38816,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 15,
+    "MaxLVL": 19,
     "Item": "Mystic Water",
     "MemberOnly": false,
     "Tier": "Rare",
@@ -38557,33 +38827,33 @@
   },
   {
     "Map": "Unholy Sands",
-    "Pokemon": "Haunter",
-    "MonsterID": "93",
+    "Pokemon": "Chingling",
+    "MonsterID": "433",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 10,
-    "MaxLVL": 11,
-    "Item": "Spell Tag",
+    "MinLVL": 24,
+    "MaxLVL": 30,
+    "Item": "Colbur Berry",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Unholy Sands",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Gastly",
+    "MonsterID": "92",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 15,
+    "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -38593,18 +38863,36 @@
   },
   {
     "Map": "Unholy Sands",
-    "Pokemon": "Slowbro",
-    "MonsterID": "80",
+    "Pokemon": "Koffing",
+    "MonsterID": "109",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "King's Rock",
+    "MinLVL": 24,
+    "MaxLVL": 27,
+    "Item": "Smoke Ball",
     "MemberOnly": false,
     "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Unholy Sands",
+    "Pokemon": "Lunatone",
+    "MonsterID": "337",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 30,
+    "Item": "Moon Stone",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -38618,45 +38906,9 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 24,
     "MaxLVL": 30,
     "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Unholy Sands",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Lagging Tail",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Unholy Sands",
-    "Pokemon": "Spheal",
-    "MonsterID": "363",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -38672,11 +38924,29 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 15,
+    "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Unholy Sands",
+    "Pokemon": "Tentacool",
+    "MonsterID": "72",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -38690,11 +38960,29 @@
       1,
       1
     ],
-    "MinLVL": 30,
+    "MinLVL": 25,
     "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Unholy Sands West",
+    "Pokemon": "Lunatone",
+    "MonsterID": "337",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Moon Stone",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -38737,24 +39025,6 @@
   },
   {
     "Map": "Unholy Sands West",
-    "Pokemon": "Oshawott",
-    "MonsterID": "501",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": true,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Unholy Sands West",
     "Pokemon": "Slowbro",
     "MonsterID": "80",
     "Daytime": [
@@ -38791,8 +39061,8 @@
   },
   {
     "Map": "Unholy Sands West",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
     "Daytime": [
       1,
       1,
@@ -38800,9 +39070,9 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": "Lagging Tail",
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -38819,6 +39089,24 @@
     "MinLVL": 25,
     "MaxLVL": 30,
     "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Unholy Sands West",
+    "Pokemon": "Vibrava",
+    "MonsterID": "329",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 23,
+    "Item": "Yache Berry",
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
