@@ -2104,23 +2104,8 @@
     "Pokemon": "Wooper-Paldea",
     "MonsterID": 3249,
     "Daytime": [
-      0,
       1,
-      0
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": true,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Bittersweet Cave 1F",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
       1,
-      0,
       1
     ],
     "MinLVL": 25,
@@ -16564,23 +16549,8 @@
     "Pokemon": "Wooper-Paldea",
     "MonsterID": 3249,
     "Daytime": [
-      0,
       1,
-      0
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": true,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Haunted Cave",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
       1,
-      0,
       1
     ],
     "MinLVL": 25,
@@ -16790,28 +16760,13 @@
     "MonsterID": 3249,
     "Daytime": [
       1,
-      0,
+      1,
       1
     ],
     "MinLVL": 25,
     "MaxLVL": 28,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Haunted Cave Depths 2",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
-      0,
-      1,
-      0
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": true,
     "Tier": "Uncommon"
   },
   {
@@ -17059,23 +17014,8 @@
     "Pokemon": "Wooper-Paldea",
     "MonsterID": 3249,
     "Daytime": [
-      0,
       1,
-      0
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 25,
-    "Item": null,
-    "MemberOnly": true,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Haunted House 2F",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
       1,
-      0,
       1
     ],
     "MinLVL": 24,
@@ -33102,21 +33042,6 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Magcargo",
-    "MonsterID": 219,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
@@ -33136,8 +33061,8 @@
   },
   {
     "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Slugma",
-    "MonsterID": 218,
+    "Pokemon": "Magcargo",
+    "MonsterID": 219,
     "Daytime": [
       1,
       1,
@@ -33211,8 +33136,8 @@
   },
   {
     "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
+    "Pokemon": "Slugma",
+    "MonsterID": 218,
     "Daytime": [
       1,
       1,
@@ -33283,6 +33208,21 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -34175,28 +34115,13 @@
     "MonsterID": 3249,
     "Daytime": [
       1,
-      0,
+      1,
       1
     ],
     "MinLVL": 20,
     "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Murky Path",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
-      0,
-      1,
-      0
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 25,
-    "Item": null,
-    "MemberOnly": true,
     "Tier": "Uncommon"
   },
   {
@@ -68615,28 +68540,13 @@
     "MonsterID": 3249,
     "Daytime": [
       1,
-      0,
+      1,
       1
     ],
     "MinLVL": 15,
     "MaxLVL": 19,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Unison Mountain South Summit",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
-      0,
-      1,
-      0
-    ],
-    "MinLVL": 15,
-    "MaxLVL": 19,
-    "Item": null,
-    "MemberOnly": true,
     "Tier": "Uncommon"
   },
   {
