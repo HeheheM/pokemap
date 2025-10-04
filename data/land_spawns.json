@@ -16564,21 +16564,6 @@
     "Pokemon": "Wooper-Paldea",
     "MonsterID": 3249,
     "Daytime": [
-      0,
-      1,
-      0
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": true,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Haunted Cave",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
       1,
       0,
       1
@@ -16587,6 +16572,21 @@
     "MaxLVL": 28,
     "Item": null,
     "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Haunted Cave",
+    "Pokemon": "Wooper-Paldea",
+    "MonsterID": 3249,
+    "Daytime": [
+      0,
+      1,
+      0
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": null,
+    "MemberOnly": true,
     "Tier": "Uncommon"
   },
   {
@@ -33072,7 +33072,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -33087,7 +33087,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
+    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -34174,21 +34174,6 @@
     "Pokemon": "Wooper-Paldea",
     "MonsterID": 3249,
     "Daytime": [
-      1,
-      0,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 25,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Murky Path",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
       0,
       1,
       0
@@ -34197,6 +34182,21 @@
     "MaxLVL": 25,
     "Item": null,
     "MemberOnly": true,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Murky Path",
+    "Pokemon": "Wooper-Paldea",
+    "MonsterID": 3249,
+    "Daytime": [
+      1,
+      0,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
