@@ -16789,21 +16789,6 @@
     "Pokemon": "Wooper-Paldea",
     "MonsterID": 3249,
     "Daytime": [
-      1,
-      0,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Haunted Cave Depths 2",
-    "Pokemon": "Wooper-Paldea",
-    "MonsterID": 3249,
-    "Daytime": [
       0,
       1,
       0
@@ -16812,6 +16797,21 @@
     "MaxLVL": 28,
     "Item": null,
     "MemberOnly": true,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Haunted Cave Depths 2",
+    "Pokemon": "Wooper-Paldea",
+    "MonsterID": 3249,
+    "Daytime": [
+      1,
+      0,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 28,
+    "Item": null,
+    "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
@@ -33087,6 +33087,36 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Magcargo",
+    "MonsterID": 219,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Magcargo",
+    "MonsterID": 219,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
     "Tier": "Uncommon"
   },
   {
@@ -33106,36 +33136,6 @@
   },
   {
     "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Magcargo",
-    "MonsterID": 219,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Magcargo",
-    "MonsterID": 219,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
     "Pokemon": "Slugma",
     "MonsterID": 218,
     "Daytime": [
@@ -33198,6 +33198,51 @@
     "Map": "Mt. Summer 3F 2 2",
     "Pokemon": "Slugma",
     "MonsterID": 218,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
     "Daytime": [
       1,
       1,
@@ -33238,51 +33283,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
