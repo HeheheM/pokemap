@@ -5167,34 +5167,16 @@
   },
   {
     "Map": "Crumpit Valley",
-    "Pokemon": "Azurill",
-    "MonsterID": "298",
+    "Pokemon": "Cloyster",
+    "MonsterID": "91",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Crumpit Valley",
-    "Pokemon": "Clamperl",
-    "MonsterID": "366",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Pearl",
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Never-Melt Ice",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -5203,15 +5185,33 @@
   },
   {
     "Map": "Crumpit Valley",
-    "Pokemon": "Psyduck",
-    "MonsterID": "54",
+    "Pokemon": "Floatzel",
+    "MonsterID": "419",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Wacan Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Crumpit Valley",
+    "Pokemon": "Golbat",
+    "MonsterID": "42",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -5221,51 +5221,15 @@
   },
   {
     "Map": "Crumpit Valley",
-    "Pokemon": "Slowking",
-    "MonsterID": "199",
+    "Pokemon": "Luvdisc",
+    "MonsterID": "370",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Crumpit Valley",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Lagging Tail",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Crumpit Valley",
-    "Pokemon": "Spheal",
-    "MonsterID": "363",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -5275,34 +5239,52 @@
   },
   {
     "Map": "Crumpit Valley",
-    "Pokemon": "Swablu",
-    "MonsterID": "333",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 22,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Crumpit Valley",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Poison Barb",
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Crumpit Valley",
+    "Pokemon": "Wingull",
+    "MonsterID": "278",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -5310,16 +5292,16 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Cryofrost Path",
-    "Pokemon": "Golduck",
-    "MonsterID": "55",
+    "Map": "Crumpit Valley",
+    "Pokemon": "Zubat",
+    "MonsterID": "41",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -5329,18 +5311,54 @@
   },
   {
     "Map": "Cryofrost Path",
-    "Pokemon": "Qwilfish",
-    "MonsterID": "211",
+    "Pokemon": "Azumarill",
+    "MonsterID": "184",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 26,
     "MaxLVL": 31,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cryofrost Path",
+    "Pokemon": "Froakie",
+    "MonsterID": "656",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Cryofrost Path",
+    "Pokemon": "Lotad",
+    "MonsterID": "270",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": "Mental Herb",
+    "MemberOnly": false,
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -5354,9 +5372,9 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 26,
     "MaxLVL": 31,
-    "Item": "Aspear Berry",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -5365,18 +5383,18 @@
   },
   {
     "Map": "Cryofrost Path",
-    "Pokemon": "Squirtle",
-    "MonsterID": "7",
+    "Pokemon": "Slowking",
+    "MonsterID": "199",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 26,
     "MaxLVL": 31,
-    "Item": null,
+    "Item": "King's Rock",
     "MemberOnly": false,
-    "Tier": "Rare",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -5390,7 +5408,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 26,
     "MaxLVL": 31,
     "Item": "Water Stone",
     "MemberOnly": false,
@@ -5408,7 +5426,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 26,
     "MaxLVL": 31,
     "Item": "Poison Barb",
     "MemberOnly": false,
@@ -5426,25 +5444,7 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Cryofrost Path",
-    "Pokemon": "Wailord",
-    "MonsterID": "321",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
+    "MinLVL": 26,
     "MaxLVL": 31,
     "Item": null,
     "MemberOnly": false,
@@ -7911,10 +7911,46 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": "Wacan Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Frozen Cave",
+    "Pokemon": "Cubchoo",
+    "MonsterID": "613",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Aspear Berry",
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Frozen Cave",
+    "Pokemon": "Dratini",
+    "MonsterID": "147",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Dragon Scale",
+    "MemberOnly": false,
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -7929,7 +7965,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -7939,36 +7975,54 @@
   },
   {
     "Map": "Evergreen Island Frozen Cave",
-    "Pokemon": "Lapras",
-    "MonsterID": "131",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 26,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare",
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Evergreen Island Frozen Cave",
-    "Pokemon": "Seel",
-    "MonsterID": "86",
+    "Pokemon": "Misdreavus",
+    "MonsterID": "200",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Aspear Berry",
+    "MaxLVL": 30,
+    "Item": "Spell Tag",
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Frozen Cave",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -7983,7 +8037,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -7993,34 +8047,16 @@
   },
   {
     "Map": "Evergreen Island Frozen Cave",
-    "Pokemon": "Squirtle",
-    "MonsterID": "7",
+    "Pokemon": "Zubat",
+    "MonsterID": "41",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Evergreen Island Frozen Cave",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -8028,53 +8064,17 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Evergreen Island Frozen Cave",
-    "Pokemon": "Wailmer",
-    "MonsterID": "320",
+    "Map": "Evergreen Island Frozen Path",
+    "Pokemon": "Azurill",
+    "MonsterID": "298",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Evergreen Island Frozen Path",
-    "Pokemon": "Buizel",
-    "MonsterID": "418",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Wacan Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Evergreen Island Frozen Path",
-    "Pokemon": "Corphish",
-    "MonsterID": "341",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Mystic Water",
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -8083,16 +8083,16 @@
   },
   {
     "Map": "Evergreen Island Frozen Path",
-    "Pokemon": "Golbat",
-    "MonsterID": "42",
+    "Pokemon": "Lotad",
+    "MonsterID": "270",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
+    "MaxLVL": 30,
+    "Item": "Mental Herb",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -8109,7 +8109,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -8144,99 +8144,9 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Evergreen Island Frozen Path",
-    "Pokemon": "Psyduck",
-    "MonsterID": "54",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Evergreen Island Frozen Path",
-    "Pokemon": "Remoraid",
-    "MonsterID": "223",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Starf Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Evergreen Island Valley",
-    "Pokemon": "Buizel",
-    "MonsterID": "418",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Wacan Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Evergreen Island Valley",
-    "Pokemon": "Corsola",
-    "MonsterID": "222",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Hard Stone",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Evergreen Island Valley",
-    "Pokemon": "Dratini",
-    "MonsterID": "147",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
     "MinLVL": 20,
-    "MaxLVL": 22,
-    "Item": "Dragon Scale",
+    "MaxLVL": 23,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -8244,9 +8154,9 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Evergreen Island Valley",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Map": "Evergreen Island Frozen Path",
+    "Pokemon": "Panpour",
+    "MonsterID": "515",
     "Daytime": [
       1,
       1,
@@ -8254,9 +8164,99 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 31,
+    "Item": "Rindo Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Frozen Path",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Frozen Path",
+    "Pokemon": "Zubat",
+    "MonsterID": "41",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Valley",
+    "Pokemon": "Froslass",
+    "MonsterID": "478",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Valley",
+    "Pokemon": "Lotad",
+    "MonsterID": "270",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Mental Herb",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Valley",
+    "Pokemon": "Mantyke",
+    "MonsterID": "458",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -8271,7 +8271,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -8281,14 +8281,86 @@
   },
   {
     "Map": "Evergreen Island Valley",
-    "Pokemon": "Psyduck",
-    "MonsterID": "54",
+    "Pokemon": "Noibat",
+    "MonsterID": "714",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Valley",
+    "Pokemon": "Slowbro",
+    "MonsterID": "80",
     "Daytime": [
       1,
       1,
       1
     ],
     "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "King's Rock",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Valley",
+    "Pokemon": "Squirtle",
+    "MonsterID": "7",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Valley",
+    "Pokemon": "Tentacool",
+    "MonsterID": "72",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Village",
+    "Pokemon": "Golbat",
+    "MonsterID": "42",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
     "MaxLVL": 31,
     "Item": null,
     "MemberOnly": false,
@@ -8298,7 +8370,97 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Evergreen Island Valley",
+    "Map": "Evergreen Island Village",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Village",
+    "Pokemon": "Qwilfish",
+    "MonsterID": "211",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Village",
+    "Pokemon": "Rookidee",
+    "MonsterID": "821",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
+    "MemberOnly": true,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Village",
+    "Pokemon": "Seaking",
+    "MonsterID": "119",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Village",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Evergreen Island Village",
     "Pokemon": "Swablu",
     "MonsterID": "333",
     "Daytime": [
@@ -8306,9 +8468,9 @@
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 22,
-    "Item": "Persim Berry",
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -8316,15 +8478,15 @@
     "RequiredRod": ""
   },
   {
-    "Map": "Evergreen Island Valley",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
+    "Map": "Evergreen Island Village",
+    "Pokemon": "Zubat",
+    "MonsterID": "41",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
+    "MinLVL": 26,
     "MaxLVL": 31,
     "Item": null,
     "MemberOnly": false,
@@ -9595,24 +9757,6 @@
   },
   {
     "Map": "Frozen Cave B2F",
-    "Pokemon": "Buizel",
-    "MonsterID": "418",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Wacan Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Frozen Cave B2F",
     "Pokemon": "Lapras",
     "MonsterID": "131",
     "Daytime": [
@@ -9620,8 +9764,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 26,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -9631,15 +9775,15 @@
   },
   {
     "Map": "Frozen Cave B2F",
-    "Pokemon": "Psyduck",
-    "MonsterID": "54",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -9649,34 +9793,16 @@
   },
   {
     "Map": "Frozen Cave B2F",
-    "Pokemon": "Seadra",
-    "MonsterID": "117",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Dragon Scale",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Frozen Cave B2F",
-    "Pokemon": "Slowking",
-    "MonsterID": "199",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "King's Rock",
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -9685,16 +9811,16 @@
   },
   {
     "Map": "Frozen Cave B2F",
-    "Pokemon": "Spheal",
-    "MonsterID": "363",
+    "Pokemon": "Qwilfish",
+    "MonsterID": "211",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": null,
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -9710,8 +9836,26 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Frozen Cave B2F",
+    "Pokemon": "Tentacruel",
+    "MonsterID": "73",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
@@ -9728,11 +9872,29 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": "Water Stone",
     "MemberOnly": false,
     "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Frozen Cave B2F",
+    "Pokemon": "Wailmer",
+    "MonsterID": "320",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -10459,8 +10621,8 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Froakie",
-    "MonsterID": "656",
+    "Pokemon": "Cloyster",
+    "MonsterID": "91",
     "Daytime": [
       1,
       1,
@@ -10468,7 +10630,25 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": null,
+    "Item": "Never-Melt Ice",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Guild Island",
+    "Pokemon": "Corphish",
+    "MonsterID": "341",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Mystic Water",
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -10513,8 +10693,8 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Marill",
-    "MonsterID": "183",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
     "Daytime": [
       1,
       1,
@@ -10543,24 +10723,6 @@
     "Item": "King's Rock",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Guild Island",
-    "Pokemon": "Squirtle",
-    "MonsterID": "7",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -16561,24 +16723,6 @@
   },
   {
     "Map": "Mt. Crumpit",
-    "Pokemon": "Corphish",
-    "MonsterID": "341",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Mystic Water",
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Mt. Crumpit",
     "Pokemon": "Floatzel",
     "MonsterID": "419",
     "Daytime": [
@@ -16586,8 +16730,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": "Wacan Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -16597,33 +16741,15 @@
   },
   {
     "Map": "Mt. Crumpit",
-    "Pokemon": "Luvdisc",
-    "MonsterID": "370",
+    "Pokemon": "Goldeen",
+    "MonsterID": "118",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Rindo Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Mt. Crumpit",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -16633,35 +16759,17 @@
   },
   {
     "Map": "Mt. Crumpit",
-    "Pokemon": "Marill",
-    "MonsterID": "183",
+    "Pokemon": "Mudkip",
+    "MonsterID": "258",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "Wacan Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Mt. Crumpit",
-    "Pokemon": "Oshawott",
-    "MonsterID": "501",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 19,
+    "MaxLVL": 19,
     "Item": null,
-    "MemberOnly": true,
+    "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
@@ -16676,8 +16784,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -16687,16 +16795,70 @@
   },
   {
     "Map": "Mt. Crumpit",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Qwilfish",
+    "MonsterID": "211",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
+    "MinLVL": 22,
+    "MaxLVL": 25,
     "Item": "Poison Barb",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Mt. Crumpit",
+    "Pokemon": "Swablu",
+    "MonsterID": "333",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 19,
+    "MaxLVL": 19,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Mt. Crumpit",
+    "Pokemon": "Wailmer",
+    "MonsterID": "320",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Mt. Crumpit",
+    "Pokemon": "Zubat",
+    "MonsterID": "41",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -18128,7 +18290,7 @@
   {
     "Map": "Necropolis",
     "Pokemon": "Froakie",
-    "MonsterID": "3105",
+    "MonsterID": "656",
     "Daytime": [
       1,
       1,
@@ -20204,6 +20366,24 @@
       1,
       1
     ],
+    "MinLVL": 1,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 1,
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Resort Area",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
     "MinLVL": 31,
     "MaxLVL": 70,
     "Item": null,
@@ -20230,24 +20410,6 @@
     "Fishing": 1,
     "FishingOnly": 1,
     "RequiredRod": "Super Rod"
-  },
-  {
-    "Map": "Resort Area",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 1,
-    "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
   },
   {
     "Map": "Resort Gorgeous",
@@ -37225,24 +37387,6 @@
   },
   {
     "Map": "Snowfall Valley",
-    "Pokemon": "Beartic",
-    "MonsterID": "614",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Aspear Berry",
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Snowfall Valley",
     "Pokemon": "Buizel",
     "MonsterID": "418",
     "Daytime": [
@@ -37250,8 +37394,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 26,
+    "MaxLVL": 31,
     "Item": "Wacan Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -37261,16 +37405,52 @@
   },
   {
     "Map": "Snowfall Valley",
-    "Pokemon": "Floatzel",
-    "MonsterID": "419",
+    "Pokemon": "Corphish",
+    "MonsterID": "341",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Wacan Berry",
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": "Mystic Water",
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Snowfall Valley",
+    "Pokemon": "Gyarados",
+    "MonsterID": "130",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Snowfall Valley",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -37279,15 +37459,15 @@
   },
   {
     "Map": "Snowfall Valley",
-    "Pokemon": "Golduck",
-    "MonsterID": "55",
+    "Pokemon": "Psyduck",
+    "MonsterID": "54",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 26,
+    "MaxLVL": 31,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -37297,33 +37477,33 @@
   },
   {
     "Map": "Snowfall Valley",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Spheal",
+    "MonsterID": "363",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 26,
+    "MaxLVL": 31,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Snowfall Valley",
-    "Pokemon": "Mudkip",
-    "MonsterID": "258",
+    "Pokemon": "Swablu",
+    "MonsterID": "333",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 26,
+    "MaxLVL": 31,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -37333,34 +37513,16 @@
   },
   {
     "Map": "Snowfall Valley",
-    "Pokemon": "Panpour",
-    "MonsterID": "515",
+    "Pokemon": "Zubat",
+    "MonsterID": "41",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Rindo Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Snowfall Valley",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Poison Barb",
+    "MinLVL": 26,
+    "MaxLVL": 31,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -41607,7 +41769,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -41625,7 +41787,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -41643,7 +41805,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -41661,7 +41823,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -41679,7 +41841,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -41697,28 +41859,10 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": "Rindo Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Whoville",
-    "Pokemon": "Poliwhirl",
-    "MonsterID": "61",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 31,
-    "Item": "King's Rock",
-    "MemberOnly": false,
-    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -41733,7 +41877,7 @@
       1
     ],
     "MinLVL": 25,
-    "MaxLVL": 31,
+    "MaxLVL": 30,
     "Item": "Poison Barb",
     "MemberOnly": false,
     "Tier": "Common",
