@@ -7751,7 +7751,7 @@
     "MinLVL": 25,
     "MaxLVL": 30,
     "Item": null,
-    "MemberOnly": true,
+    "MemberOnly": false,
     "Tier": "Rare"
   },
   {
@@ -73346,7 +73346,7 @@
     "MinLVL": 22,
     "MaxLVL": 25,
     "Item": null,
-    "MemberOnly": true,
+    "MemberOnly": false,
     "Tier": "Rare"
   },
   {
