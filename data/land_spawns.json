@@ -15131,7 +15131,7 @@
     "MinLVL": 23,
     "MaxLVL": 27,
     "Item": null,
-    "MemberOnly": false,
+    "MemberOnly": true,
     "Tier": "Rare"
   },
   {
@@ -15251,7 +15251,7 @@
     "MinLVL": 22,
     "MaxLVL": 25,
     "Item": null,
-    "MemberOnly": false,
+    "MemberOnly": true,
     "Tier": "Rare"
   },
   {
