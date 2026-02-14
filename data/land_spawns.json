@@ -12465,6 +12465,21 @@
     "Tier": "Common"
   },
   {
+    "Map": "Eumi Island Theme Park 3",
+    "Pokemon": "Toxel",
+    "MonsterID": 848,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
     "Map": "Eumi Island Town",
     "Pokemon": "Eevee",
     "MonsterID": 133,
