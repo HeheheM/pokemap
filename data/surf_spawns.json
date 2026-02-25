@@ -1183,9 +1183,45 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Aphrodia Island",
+    "Pokemon": "Arrokuda",
+    "MonsterID": "846",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 28,
+    "Item": null,
+    "MemberOnly": true,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Aphrodia Island",
+    "Pokemon": "Bidoof",
+    "MonsterID": "399",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 28,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Aphrodia Island",
@@ -1201,14 +1237,14 @@
     "Item": "Wacan Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Aphrodia Island",
-    "Pokemon": "Finneon",
-    "MonsterID": "456",
+    "Pokemon": "Corsola",
+    "MonsterID": "222",
     "Daytime": [
       1,
       1,
@@ -1216,12 +1252,12 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Rindo Berry",
+    "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Aphrodia Island",
@@ -1237,45 +1273,27 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Aphrodia Island",
-    "Pokemon": "Lapras",
-    "MonsterID": "131",
+    "Pokemon": "Mudkip",
+    "MonsterID": "258",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 24,
-    "MaxLVL": 26,
+    "MinLVL": 20,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
-  },
-  {
-    "Map": "Aphrodia Island",
-    "Pokemon": "Luvdisc",
-    "MonsterID": "370",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Aphrodia Island",
@@ -1291,14 +1309,14 @@
     "Item": "King's Rock",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Aphrodia Island",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
+    "Pokemon": "Slowking",
+    "MonsterID": "199",
     "Daytime": [
       1,
       1,
@@ -1306,12 +1324,12 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Lagging Tail",
+    "Item": "King's Rock",
     "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
+    "Tier": "Uncommon",
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Battle Tower",
@@ -10621,44 +10639,8 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Cloyster",
-    "MonsterID": "91",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Never-Melt Ice",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Guild Island",
-    "Pokemon": "Corphish",
-    "MonsterID": "341",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Mystic Water",
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Guild Island",
-    "Pokemon": "Gyarados",
-    "MonsterID": "130",
+    "Pokemon": "Alomomola",
+    "MonsterID": "594",
     "Daytime": [
       1,
       1,
@@ -10667,6 +10649,42 @@
     "MinLVL": 25,
     "MaxLVL": 30,
     "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Guild Island",
+    "Pokemon": "Frillish",
+    "MonsterID": "592",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Guild Island",
+    "Pokemon": "Horsea",
+    "MonsterID": "116",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -10711,6 +10729,24 @@
   },
   {
     "Map": "Guild Island",
+    "Pokemon": "Slowbro",
+    "MonsterID": "80",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 25,
+    "MaxLVL": 30,
+    "Item": "King's Rock",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Guild Island",
     "Pokemon": "Slowking",
     "MonsterID": "199",
     "Daytime": [
@@ -10729,8 +10765,8 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Tentacool",
-    "MonsterID": "72",
+    "Pokemon": "Slowpoke",
+    "MonsterID": "79",
     "Daytime": [
       1,
       1,
@@ -10738,25 +10774,7 @@
     ],
     "MinLVL": 25,
     "MaxLVL": 30,
-    "Item": "Poison Barb",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Guild Island",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Poison Barb",
+    "Item": "Lagging Tail",
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -14989,9 +15007,9 @@
     "Item": "Wacan Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Medusas Cloud",
@@ -15007,9 +15025,9 @@
     "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Medusas Cloud",
@@ -15025,27 +15043,9 @@
     "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
-  },
-  {
-    "Map": "Medusas Cloud",
-    "Pokemon": "Feebas",
-    "MonsterID": "349",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": "Prism Scale",
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Medusas Cloud",
@@ -15061,9 +15061,27 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Medusas Cloud",
+    "Pokemon": "Lapras",
+    "MonsterID": "131",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 28,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Medusas Cloud",
@@ -15079,9 +15097,9 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Medusas Cloud",
@@ -15097,9 +15115,9 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Medusas Cloud",
@@ -15115,9 +15133,9 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Memorial Pillar",
@@ -18433,24 +18451,6 @@
   },
   {
     "Map": "Nido Isle",
-    "Pokemon": "Bibarel",
-    "MonsterID": "400",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Nido Isle",
     "Pokemon": "Buizel",
     "MonsterID": "418",
     "Daytime": [
@@ -18463,9 +18463,9 @@
     "Item": "Wacan Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Nido Isle",
@@ -18481,14 +18481,14 @@
     "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Nido Isle",
-    "Pokemon": "Dratini",
-    "MonsterID": "147",
+    "Pokemon": "Feebas",
+    "MonsterID": "349",
     "Daytime": [
       1,
       1,
@@ -18496,17 +18496,17 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Dragon Scale",
+    "Item": "Prism Scale",
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Nido Isle",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
+    "Pokemon": "Goldeen",
+    "MonsterID": "118",
     "Daytime": [
       1,
       1,
@@ -18517,27 +18517,45 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Nido Isle",
-    "Pokemon": "Mudkip",
-    "MonsterID": "258",
+    "Pokemon": "Lotad",
+    "MonsterID": "270",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 19,
-    "MaxLVL": 23,
+    "MinLVL": 24,
+    "MaxLVL": 28,
+    "Item": "Mental Herb",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Nido Isle",
+    "Pokemon": "Piplup",
+    "MonsterID": "393",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 28,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Nido Isle",
@@ -18553,14 +18571,14 @@
     "Item": "Starf Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Nido Isle",
-    "Pokemon": "Seel",
-    "MonsterID": "86",
+    "Pokemon": "Slowpoke",
+    "MonsterID": "79",
     "Daytime": [
       1,
       1,
@@ -18568,12 +18586,12 @@
     ],
     "MinLVL": 24,
     "MaxLVL": 28,
-    "Item": "Aspear Berry",
+    "Item": "Lagging Tail",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Olivine City",
@@ -20366,24 +20384,6 @@
       1,
       1
     ],
-    "MinLVL": 71,
-    "MaxLVL": 100,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Super Rod"
-  },
-  {
-    "Map": "Resort Area",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
     "MinLVL": 1,
     "MaxLVL": 30,
     "Item": null,
@@ -20410,6 +20410,24 @@
     "Fishing": 1,
     "FishingOnly": 1,
     "RequiredRod": "Good Rod"
+  },
+  {
+    "Map": "Resort Area",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 71,
+    "MaxLVL": 100,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 1,
+    "RequiredRod": "Super Rod"
   },
   {
     "Map": "Resort Gorgeous",
@@ -34543,24 +34561,6 @@
   },
   {
     "Map": "Sanctuary of Energy",
-    "Pokemon": "Buizel",
-    "MonsterID": "418",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 24,
-    "MaxLVL": 28,
-    "Item": "Wacan Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
-  },
-  {
-    "Map": "Sanctuary of Energy",
     "Pokemon": "Chinchou",
     "MonsterID": "170",
     "Daytime": [
@@ -34573,9 +34573,9 @@
     "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Sanctuary of Energy",
@@ -34591,9 +34591,27 @@
     "Item": "Hard Stone",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Sanctuary of Energy",
+    "Pokemon": "Finneon",
+    "MonsterID": "456",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 24,
+    "MaxLVL": 28,
+    "Item": "Rindo Berry",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
   },
   {
     "Map": "Sanctuary of Energy",
@@ -34609,9 +34627,9 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Sanctuary of Energy",
@@ -34627,9 +34645,9 @@
     "Item": "Aspear Berry",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Sanctuary of Energy",
@@ -34645,9 +34663,9 @@
     "Item": "King's Rock",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Sanctuary of Energy",
@@ -34663,9 +34681,9 @@
     "Item": "Lagging Tail",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Sanctuary of Energy",
@@ -34681,9 +34699,9 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
-    "Fishing": 1,
+    "Fishing": 0,
     "FishingOnly": 0,
-    "RequiredRod": "Super Rod"
+    "RequiredRod": ""
   },
   {
     "Map": "Sea Mauville",
