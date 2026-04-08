@@ -19988,8 +19988,8 @@
       1,
       1
     ],
-    "MinLVL": 24,
-    "MaxLVL": 26,
+    "MinLVL": 40,
+    "MaxLVL": 45,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -20006,8 +20006,8 @@
       1,
       1
     ],
-    "MinLVL": 34,
-    "MaxLVL": 36,
+    "MinLVL": 28,
+    "MaxLVL": 32,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -20044,7 +20044,7 @@
     ],
     "MinLVL": 40,
     "MaxLVL": 45,
-    "Item": "Shell Bell",
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -20088,6 +20088,150 @@
     "RequiredRod": ""
   },
   {
+    "Map": "Pinkan Island Forest",
+    "Pokemon": "Azurill",
+    "MonsterID": "298",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 28,
+    "MaxLVL": 32,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Pinkan Island Forest",
+    "Pokemon": "Krabby",
+    "MonsterID": "98",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Pinkan Island Forest",
+    "Pokemon": "Lapras",
+    "MonsterID": "131",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 28,
+    "MaxLVL": 32,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Pinkan Island Forest",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 28,
+    "MaxLVL": 32,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Pinkan Island Forest",
+    "Pokemon": "Politoed",
+    "MonsterID": "186",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": "Damp Rock",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Pinkan Island Forest",
+    "Pokemon": "Psyduck",
+    "MonsterID": "54",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Pinkan Island Forest",
+    "Pokemon": "Seel",
+    "MonsterID": "86",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 28,
+    "MaxLVL": 32,
+    "Item": "Aspear Berry",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Pinkan Island Forest",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
     "Map": "Pinkan Island Meadow",
     "Pokemon": "Barboach",
     "MonsterID": "339",
@@ -20119,6 +20263,24 @@
     "Item": "Rindo Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Pinkan Island Meadow",
+    "Pokemon": "Kingler",
+    "MonsterID": "99",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -20168,8 +20330,8 @@
       1,
       1
     ],
-    "MinLVL": 40,
-    "MaxLVL": 45,
+    "MinLVL": 34,
+    "MaxLVL": 36,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -20197,24 +20359,6 @@
   },
   {
     "Map": "Pinkan Island Meadow",
-    "Pokemon": "Seel",
-    "MonsterID": "86",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 34,
-    "MaxLVL": 36,
-    "Item": "Aspear Berry",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Pinkan Island Meadow",
     "Pokemon": "Totodile",
     "MonsterID": "158",
     "Daytime": [
@@ -20222,8 +20366,8 @@
       1,
       1
     ],
-    "MinLVL": 38,
-    "MaxLVL": 40,
+    "MinLVL": 34,
+    "MaxLVL": 36,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
