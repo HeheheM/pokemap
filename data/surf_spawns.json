@@ -31231,29 +31231,11 @@
   },
   {
     "Map": "Route 27",
-    "Pokemon": "Buizel",
-    "MonsterID": "418",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 44,
-    "MaxLVL": 48,
-    "Item": "Wacan Berry",
-    "MemberOnly": true,
-    "Tier": "Uncommon",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
-  },
-  {
-    "Map": "Route 27",
     "Pokemon": "Chinchou",
     "MonsterID": "170",
     "Daytime": [
-      1,
-      1,
+      0,
+      0,
       1
     ],
     "MinLVL": 38,
@@ -31267,21 +31249,39 @@
   },
   {
     "Map": "Route 27",
-    "Pokemon": "Luvdisc",
-    "MonsterID": "370",
+    "Pokemon": "Horsea",
+    "MonsterID": "116",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 33,
-    "MaxLVL": 33,
-    "Item": null,
+    "MinLVL": 45,
+    "MaxLVL": 47,
+    "Item": "Dragon Scale",
     "MemberOnly": false,
-    "Tier": "Uncommon",
+    "Tier": "Common",
     "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Route 27",
+    "Pokemon": "Krabby",
+    "MonsterID": "98",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 45,
+    "MaxLVL": 47,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Old Rod"
   },
   {
     "Map": "Route 27",
@@ -31292,8 +31292,8 @@
       1,
       1
     ],
-    "MinLVL": 44,
-    "MaxLVL": 48,
+    "MinLVL": 45,
+    "MaxLVL": 47,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -31310,14 +31310,50 @@
       1,
       1
     ],
-    "MinLVL": 44,
-    "MaxLVL": 48,
+    "MinLVL": 45,
+    "MaxLVL": 47,
     "Item": "Starf Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 1,
     "FishingOnly": 0,
-    "RequiredRod": "Good Rod"
+    "RequiredRod": "Old Rod"
+  },
+  {
+    "Map": "Route 27",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 45,
+    "MaxLVL": 47,
+    "Item": "Shell Bell",
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Route 27",
+    "Pokemon": "Shellos",
+    "MonsterID": "422",
+    "Daytime": [
+      1,
+      0,
+      1
+    ],
+    "MinLVL": 43,
+    "MaxLVL": 44,
+    "Item": null,
+    "MemberOnly": true,
+    "Tier": "Rare",
+    "Fishing": 1,
+    "FishingOnly": 0,
+    "RequiredRod": "Super Rod"
   },
   {
     "Map": "Route 27",
@@ -31326,29 +31362,11 @@
     "Daytime": [
       1,
       1,
-      1
+      0
     ],
-    "MinLVL": 44,
-    "MaxLVL": 48,
-    "Item": "Poison Barb",
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 0,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Route 27",
-    "Pokemon": "Tentacruel",
-    "MonsterID": "73",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 44,
-    "MaxLVL": 48,
-    "Item": "Poison Barb",
+    "MinLVL": 45,
+    "MaxLVL": 47,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 1,

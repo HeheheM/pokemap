@@ -33402,7 +33402,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
+    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -33417,7 +33417,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -33483,6 +33483,51 @@
     "Map": "Mt. Summer 3F 2 2",
     "Pokemon": "Slugma",
     "MonsterID": 218,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 26,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Mt. Summer 3F 2 2",
+    "Pokemon": "Whismur",
+    "MonsterID": 293,
     "Daytime": [
       1,
       1,
@@ -33523,51 +33568,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Mt. Summer 3F 2 2",
-    "Pokemon": "Whismur",
-    "MonsterID": 293,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 20,
-    "MaxLVL": 26,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -42631,8 +42631,8 @@
   },
   {
     "Map": "Route 10",
-    "Pokemon": "Dodrio",
-    "MonsterID": 85,
+    "Pokemon": "Dedenne",
+    "MonsterID": 702,
     "Daytime": [
       1,
       1,
@@ -42640,17 +42640,32 @@
     ],
     "MinLVL": 22,
     "MaxLVL": 25,
-    "Item": "Sharp Beak",
-    "MemberOnly": false,
-    "Tier": "Common"
+    "Item": null,
+    "MemberOnly": true,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Route 10",
+    "Pokemon": "Elekid",
+    "MonsterID": 239,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Electirizer",
+    "MemberOnly": true,
+    "Tier": "Rare"
   },
   {
     "Map": "Route 10",
     "Pokemon": "Fearow",
     "MonsterID": 22,
     "Daytime": [
-      1,
-      1,
+      0,
+      0,
       1
     ],
     "MinLVL": 22,
@@ -42661,12 +42676,57 @@
   },
   {
     "Map": "Route 10",
-    "Pokemon": "Nidoran F",
-    "MonsterID": 29,
+    "Pokemon": "Machoke",
+    "MonsterID": 67,
     "Daytime": [
       1,
       1,
       1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Payapa Berry",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 10",
+    "Pokemon": "Magnemite",
+    "MonsterID": 81,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Metal Coat",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 10",
+    "Pokemon": "Marowak",
+    "MonsterID": 105,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Thick Club",
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Route 10",
+    "Pokemon": "Nidoran F",
+    "MonsterID": 29,
+    "Daytime": [
+      0,
+      1,
+      0
     ],
     "MinLVL": 22,
     "MaxLVL": 25,
@@ -42680,8 +42740,23 @@
     "MonsterID": 32,
     "Daytime": [
       1,
-      1,
+      0,
       1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 10",
+    "Pokemon": "Quagsire",
+    "MonsterID": 195,
+    "Daytime": [
+      1,
+      1,
+      0
     ],
     "MinLVL": 22,
     "MaxLVL": 25,
@@ -42696,7 +42771,7 @@
     "Daytime": [
       1,
       1,
-      1
+      0
     ],
     "MinLVL": 22,
     "MaxLVL": 25,
@@ -42711,11 +42786,56 @@
     "Daytime": [
       1,
       1,
-      1
+      0
     ],
     "MinLVL": 22,
     "MaxLVL": 25,
     "Item": "Sharp Beak",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 10",
+    "Pokemon": "Venomoth",
+    "MonsterID": 49,
+    "Daytime": [
+      0,
+      0,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Silver Powder",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 10",
+    "Pokemon": "Voltorb",
+    "MonsterID": 100,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": "Magnet",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 10",
+    "Pokemon": "Zubat",
+    "MonsterID": 41,
+    "Daytime": [
+      0,
+      0,
+      1
+    ],
+    "MinLVL": 22,
+    "MaxLVL": 25,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common"
   },
@@ -50896,18 +51016,18 @@
   },
   {
     "Map": "Route 26",
-    "Pokemon": "Braviary",
-    "MonsterID": 628,
+    "Pokemon": "Dodrio",
+    "MonsterID": 85,
     "Daytime": [
       1,
       1,
-      1
+      0
     ],
-    "MinLVL": 41,
+    "MinLVL": 42,
     "MaxLVL": 42,
-    "Item": null,
+    "Item": "Sharp Beak",
     "MemberOnly": false,
-    "Tier": "Rare"
+    "Tier": "Common"
   },
   {
     "Map": "Route 26",
@@ -50916,7 +51036,7 @@
     "Daytime": [
       1,
       1,
-      1
+      0
     ],
     "MinLVL": 39,
     "MaxLVL": 39,
@@ -50926,26 +51046,11 @@
   },
   {
     "Map": "Route 26",
-    "Pokemon": "Fearow",
-    "MonsterID": 22,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 41,
-    "MaxLVL": 45,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Route 26",
     "Pokemon": "Quagsire",
     "MonsterID": 195,
     "Daytime": [
       1,
-      1,
+      0,
       1
     ],
     "MinLVL": 45,
@@ -50959,15 +51064,30 @@
     "Pokemon": "Rapidash",
     "MonsterID": 78,
     "Daytime": [
+      0,
       1,
-      1,
-      1
+      0
     ],
     "MinLVL": 41,
     "MaxLVL": 42,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon"
+  },
+  {
+    "Map": "Route 26",
+    "Pokemon": "Raticate",
+    "MonsterID": 20,
+    "Daytime": [
+      0,
+      0,
+      1
+    ],
+    "MinLVL": 38,
+    "MaxLVL": 38,
+    "Item": "Sitrus Berry",
+    "MemberOnly": false,
+    "Tier": "Common"
   },
   {
     "Map": "Route 26",
@@ -50986,18 +51106,48 @@
   },
   {
     "Map": "Route 26",
-    "Pokemon": "Vulpix",
-    "MonsterID": 37,
+    "Pokemon": "Wooper",
+    "MonsterID": 194,
+    "Daytime": [
+      0,
+      0,
+      1
+    ],
+    "MinLVL": 45,
+    "MaxLVL": 48,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 27",
+    "Pokemon": "Arbok",
+    "MonsterID": 24,
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 41,
-    "MaxLVL": 42,
-    "Item": "Rawst Berry",
+    "MinLVL": 45,
+    "MaxLVL": 48,
+    "Item": "Poison Barb",
     "MemberOnly": false,
-    "Tier": "Uncommon"
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 27",
+    "Pokemon": "Dodrio",
+    "MonsterID": 85,
+    "Daytime": [
+      1,
+      1,
+      0
+    ],
+    "MinLVL": 42,
+    "MaxLVL": 42,
+    "Item": "Sharp Beak",
+    "MemberOnly": false,
+    "Tier": "Common"
   },
   {
     "Map": "Route 27",
@@ -51006,7 +51156,7 @@
     "Daytime": [
       1,
       1,
-      1
+      0
     ],
     "MinLVL": 39,
     "MaxLVL": 39,
@@ -51016,16 +51166,46 @@
   },
   {
     "Map": "Route 27",
-    "Pokemon": "Fearow",
-    "MonsterID": 22,
+    "Pokemon": "Quagsire",
+    "MonsterID": 195,
     "Daytime": [
       1,
+      0,
+      1
+    ],
+    "MinLVL": 45,
+    "MaxLVL": 48,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Route 27",
+    "Pokemon": "Rapidash",
+    "MonsterID": 78,
+    "Daytime": [
+      0,
       1,
+      0
+    ],
+    "MinLVL": 41,
+    "MaxLVL": 42,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon"
+  },
+  {
+    "Map": "Route 27",
+    "Pokemon": "Raticate",
+    "MonsterID": 20,
+    "Daytime": [
+      0,
+      0,
       1
     ],
     "MinLVL": 38,
     "MaxLVL": 38,
-    "Item": null,
+    "Item": "Sitrus Berry",
     "MemberOnly": false,
     "Tier": "Common"
   },
@@ -51038,39 +51218,9 @@
       1,
       1
     ],
-    "MinLVL": 41,
-    "MaxLVL": 42,
-    "Item": "Soft Sand",
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Route 27",
-    "Pokemon": "Unfezant",
-    "MonsterID": 521,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 41,
-    "MaxLVL": 42,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon"
-  },
-  {
-    "Map": "Route 27",
-    "Pokemon": "Wigglytuff",
-    "MonsterID": 40,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 44,
+    "MinLVL": 45,
     "MaxLVL": 48,
-    "Item": "Oran Berry",
+    "Item": "Soft Sand",
     "MemberOnly": false,
     "Tier": "Common"
   },
@@ -51079,11 +51229,11 @@
     "Pokemon": "Wooper",
     "MonsterID": 194,
     "Daytime": [
-      1,
-      1,
+      0,
+      0,
       1
     ],
-    "MinLVL": 44,
+    "MinLVL": 45,
     "MaxLVL": 48,
     "Item": null,
     "MemberOnly": false,
