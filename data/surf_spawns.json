@@ -2143,8 +2143,8 @@
   },
   {
     "Map": "Breezy Falls",
-    "Pokemon": "Barboach",
-    "MonsterID": "339",
+    "Pokemon": "Azurill",
+    "MonsterID": "298",
     "Daytime": [
       1,
       1,
@@ -2153,6 +2153,24 @@
     "MinLVL": 18,
     "MaxLVL": 23,
     "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Breezy Falls",
+    "Pokemon": "Buizel",
+    "MonsterID": "418",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 18,
+    "MaxLVL": 23,
+    "Item": "Wacan Berry",
     "MemberOnly": false,
     "Tier": "Uncommon",
     "Fishing": 0,
@@ -2173,24 +2191,6 @@
     "Item": "Apicot Berry",
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Breezy Falls",
-    "Pokemon": "Corphish",
-    "MonsterID": "341",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 18,
-    "MaxLVL": 23,
-    "Item": "Mystic Water",
-    "MemberOnly": false,
-    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -2233,24 +2233,6 @@
   },
   {
     "Map": "Breezy Falls",
-    "Pokemon": "Marill",
-    "MonsterID": "183",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 18,
-    "MaxLVL": 23,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Breezy Falls",
     "Pokemon": "Mudkip",
     "MonsterID": "258",
     "Daytime": [
@@ -2261,6 +2243,24 @@
     "MinLVL": 18,
     "MaxLVL": 23,
     "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Breezy Falls",
+    "Pokemon": "Shellder",
+    "MonsterID": "90",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 18,
+    "MaxLVL": 23,
+    "Item": "Shell Bell",
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -2281,24 +2281,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Breezy Garden",
-    "Pokemon": "Azurill",
-    "MonsterID": "298",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -2359,6 +2341,24 @@
   },
   {
     "Map": "Breezy Garden",
+    "Pokemon": "Mantine",
+    "MonsterID": "226",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Breezy Garden",
     "Pokemon": "Marill",
     "MonsterID": "183",
     "Daytime": [
@@ -2377,6 +2377,24 @@
   },
   {
     "Map": "Breezy Garden",
+    "Pokemon": "Piplup",
+    "MonsterID": "393",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Breezy Garden",
     "Pokemon": "Poliwag",
     "MonsterID": "60",
     "Daytime": [
@@ -2389,24 +2407,6 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Breezy Garden",
-    "Pokemon": "Remoraid",
-    "MonsterID": "223",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Starf Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -2647,6 +2647,24 @@
   },
   {
     "Map": "Breezy Path",
+    "Pokemon": "Quagsire",
+    "MonsterID": "195",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Breezy Path",
     "Pokemon": "Shellos",
     "MonsterID": "422",
     "Daytime": [
@@ -2677,24 +2695,6 @@
     "Item": "King's Rock",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Breezy Path",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": "Lagging Tail",
-    "MemberOnly": false,
-    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -10639,33 +10639,33 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Alomomola",
-    "MonsterID": "594",
+    "Pokemon": "Azumarill",
+    "MonsterID": "184",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 20,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Rare",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Frillish",
-    "MonsterID": "592",
+    "Pokemon": "Azurill",
+    "MonsterID": "298",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 20,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Rare",
@@ -10682,8 +10682,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 20,
+    "MaxLVL": 23,
     "Item": "Dragon Scale",
     "MemberOnly": false,
     "Tier": "Common",
@@ -10700,8 +10700,8 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 20,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
@@ -10711,15 +10711,15 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Shellder",
-    "MonsterID": "90",
+    "Pokemon": "Mantine",
+    "MonsterID": "226",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 20,
+    "MaxLVL": 23,
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
@@ -10729,16 +10729,34 @@
   },
   {
     "Map": "Guild Island",
-    "Pokemon": "Slowbro",
-    "MonsterID": "80",
+    "Pokemon": "Mudkip",
+    "MonsterID": "258",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "King's Rock",
+    "MinLVL": 20,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Guild Island",
+    "Pokemon": "Quagsire",
+    "MonsterID": "195",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 20,
+    "MaxLVL": 23,
+    "Item": null,
     "MemberOnly": false,
     "Tier": "Common",
     "Fishing": 0,
@@ -10754,29 +10772,11 @@
       1,
       1
     ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
+    "MinLVL": 20,
+    "MaxLVL": 23,
     "Item": "King's Rock",
     "MemberOnly": false,
     "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Guild Island",
-    "Pokemon": "Slowpoke",
-    "MonsterID": "79",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 25,
-    "MaxLVL": 30,
-    "Item": "Lagging Tail",
-    "MemberOnly": false,
-    "Tier": "Common",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -20528,24 +20528,6 @@
       1,
       1
     ],
-    "MinLVL": 1,
-    "MaxLVL": 30,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common",
-    "Fishing": 1,
-    "FishingOnly": 1,
-    "RequiredRod": "Old Rod"
-  },
-  {
-    "Map": "Resort Area",
-    "Pokemon": "Magikarp",
-    "MonsterID": "129",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
     "MinLVL": 31,
     "MaxLVL": 70,
     "Item": null,
@@ -20572,6 +20554,24 @@
     "Fishing": 1,
     "FishingOnly": 1,
     "RequiredRod": "Super Rod"
+  },
+  {
+    "Map": "Resort Area",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 1,
+    "MaxLVL": 30,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 1,
+    "FishingOnly": 1,
+    "RequiredRod": "Old Rod"
   },
   {
     "Map": "Resort Gorgeous",
@@ -37855,8 +37855,8 @@
   },
   {
     "Map": "Suzuka Cave 1F",
-    "Pokemon": "Bronzor",
-    "MonsterID": "436",
+    "Pokemon": "Azumarill",
+    "MonsterID": "184",
     "Daytime": [
       1,
       1,
@@ -37864,25 +37864,25 @@
     ],
     "MinLVL": 21,
     "MaxLVL": 25,
-    "Item": "Metal Coat",
+    "Item": null,
     "MemberOnly": false,
-    "Tier": "Common",
+    "Tier": "Uncommon",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
   },
   {
     "Map": "Suzuka Cave 1F",
-    "Pokemon": "Feebas",
-    "MonsterID": "349",
+    "Pokemon": "Gligar",
+    "MonsterID": "207",
     "Daytime": [
       1,
       1,
       1
     ],
-    "MinLVL": 21,
-    "MaxLVL": 25,
-    "Item": "Prism Scale",
+    "MinLVL": 17,
+    "MaxLVL": 23,
+    "Item": "Razor Fang",
     "MemberOnly": false,
     "Tier": "Rare",
     "Fishing": 0,
@@ -37909,8 +37909,26 @@
   },
   {
     "Map": "Suzuka Cave 1F",
-    "Pokemon": "Mantyke",
-    "MonsterID": "458",
+    "Pokemon": "Magikarp",
+    "MonsterID": "129",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 21,
+    "MaxLVL": 25,
+    "Item": "Spring Brush Blue",
+    "MemberOnly": false,
+    "Tier": "Common",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Suzuka Cave 1F",
+    "Pokemon": "Marill",
+    "MonsterID": "183",
     "Daytime": [
       1,
       1,
@@ -37921,6 +37939,24 @@
     "Item": null,
     "MemberOnly": false,
     "Tier": "Uncommon",
+    "Fishing": 0,
+    "FishingOnly": 0,
+    "RequiredRod": ""
+  },
+  {
+    "Map": "Suzuka Cave 1F",
+    "Pokemon": "Mudkip",
+    "MonsterID": "258",
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 23,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare",
     "Fishing": 0,
     "FishingOnly": 0,
     "RequiredRod": ""
@@ -37945,44 +37981,8 @@
   },
   {
     "Map": "Suzuka Cave 1F",
-    "Pokemon": "Panpour",
-    "MonsterID": "515",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 21,
-    "MaxLVL": 25,
-    "Item": "Rindo Berry",
-    "MemberOnly": false,
-    "Tier": "Uncommon",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Suzuka Cave 1F",
-    "Pokemon": "Piplup",
-    "MonsterID": "393",
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 21,
-    "MaxLVL": 25,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Rare",
-    "Fishing": 0,
-    "FishingOnly": 0,
-    "RequiredRod": ""
-  },
-  {
-    "Map": "Suzuka Cave 1F",
-    "Pokemon": "Wooper",
-    "MonsterID": "194",
+    "Pokemon": "Quagsire",
+    "MonsterID": "195",
     "Daytime": [
       1,
       1,
