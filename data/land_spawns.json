@@ -33402,7 +33402,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Uncommon"
+    "Tier": "Common"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -33417,7 +33417,7 @@
     "MaxLVL": 26,
     "Item": null,
     "MemberOnly": false,
-    "Tier": "Common"
+    "Tier": "Uncommon"
   },
   {
     "Map": "Mt. Summer 3F 2 2",
@@ -38026,6 +38026,21 @@
   },
   {
     "Map": "Pinkan Island Forest",
+    "Pokemon": "Bellsprout",
+    "MonsterID": 69,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 40,
+    "MaxLVL": 45,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Pinkan Island Forest",
     "Pokemon": "Foongus",
     "MonsterID": 590,
     "Daytime": [
@@ -38058,21 +38073,6 @@
     "Map": "Pinkan Island Forest",
     "Pokemon": "Natu",
     "MonsterID": 177,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 40,
-    "MaxLVL": 45,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
-  },
-  {
-    "Map": "Pinkan Island Forest",
-    "Pokemon": "Paras",
-    "MonsterID": 46,
     "Daytime": [
       1,
       1,
@@ -39188,8 +39188,8 @@
       1,
       1
     ],
-    "MinLVL": 20,
-    "MaxLVL": 23,
+    "MinLVL": 10,
+    "MaxLVL": 14,
     "Item": "Dawn Stone",
     "MemberOnly": false,
     "Tier": "Rare"
