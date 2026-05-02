@@ -3556,6 +3556,21 @@
   },
   {
     "Map": "Breezy Town",
+    "Pokemon": "Ledyba",
+    "MonsterID": 165,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 17,
+    "MaxLVL": 21,
+    "Item": "Aguav Berry",
+    "MemberOnly": false,
+    "Tier": "Common"
+  },
+  {
+    "Map": "Breezy Town",
     "Pokemon": "Lickitung",
     "MonsterID": 108,
     "Daytime": [
@@ -3568,21 +3583,6 @@
     "Item": "Lagging Tail",
     "MemberOnly": false,
     "Tier": "Uncommon"
-  },
-  {
-    "Map": "Breezy Town",
-    "Pokemon": "Mankey",
-    "MonsterID": 56,
-    "Daytime": [
-      1,
-      1,
-      1
-    ],
-    "MinLVL": 17,
-    "MaxLVL": 21,
-    "Item": null,
-    "MemberOnly": false,
-    "Tier": "Common"
   },
   {
     "Map": "Breezy Town",
