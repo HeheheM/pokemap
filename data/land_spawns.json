@@ -9751,6 +9751,21 @@
   },
   {
     "Map": "Dragons Den",
+    "Pokemon": "Corviknight",
+    "MonsterID": 823,
+    "Daytime": [
+      1,
+      1,
+      1
+    ],
+    "MinLVL": 44,
+    "MaxLVL": 44,
+    "Item": null,
+    "MemberOnly": false,
+    "Tier": "Rare"
+  },
+  {
+    "Map": "Dragons Den",
     "Pokemon": "Crobat",
     "MonsterID": 169,
     "Daytime": [
