@@ -49916,7 +49916,7 @@
     "MinLVL": 36,
     "MaxLVL": 36,
     "Item": "King's Rock",
-    "MemberOnly": false,
+    "MemberOnly": true,
     "Tier": "Rare"
   },
   {
